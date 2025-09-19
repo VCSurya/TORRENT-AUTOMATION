@@ -1,0 +1,18 @@
+{
+  "Gst": [
+    "27ABUPN7129E1Z8",
+    "09AAGCT7889P1Z1"
+  ],
+  "InvoiceNo": "NC/25-26/98/TGL",
+  "InvoiceDate": "2025-09-10",
+  "InvoiceAmount": "1874361.41",
+  "IrnNo": "808052ca84965843b986460603cdbc70105b00844189b15f830906d738ccd40e",
+  "PoNo": "36300939",
+  "PAN Numbers": [
+    "ABUPN7129E"
+  ],
+  "Email Id": "nehra.constructions01@gmail.com",
+  "SesGrn": [
+    "6000120804"
+  ]
+}

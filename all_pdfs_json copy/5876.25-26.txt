@@ -1,0 +1,18 @@
+{
+  "Gst": [
+    "27AAACA3640H1Z0",
+    "08AAGCT7889P1Z3"
+  ],
+  "InvoiceNo": "5876/25-26",
+  "InvoiceDate": "2025-09-09",
+  "InvoiceAmount": "81184.00",
+  "IrnNo": "",
+  "PoNo": "GJJN/P01/1101352/36301082",
+  "PAN Numbers": [
+    "AAACA3640H"
+  ],
+  "Email Id": "info@aarviencon.com",
+  "SesGrn": [
+    "6000121806"
+  ]
+}

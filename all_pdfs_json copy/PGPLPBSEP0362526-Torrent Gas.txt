@@ -1,0 +1,16 @@
+{
+  "Gst": [
+    "03AAGCT7889P1ZD",
+    "03AADCP2498P1ZX"
+  ],
+  "InvoiceNo": "PGPLPBSEP0362526",
+  "InvoiceDate": "2025-09-08",
+  "InvoiceAmount": "364838.15",
+  "IrnNo": "78362b854a9a81f6a15d155ec0d329df7d1553994767b5ce96a8c1909296547d",
+  "PoNo": "PBPA/P01/1800086/33000931",
+  "PAN Numbers": [
+    "AADCP2498P"
+  ],
+  "Email Id": "israfil.ansari@peregrine-security.com",
+  "SesGrn": []
+}

@@ -1,0 +1,16 @@
+{
+  "Gst": [
+    "27AAGCT7889P1Z3",
+    "27AAACA4074D1Z2"
+  ],
+  "InvoiceNo": "FO2527107304",
+  "InvoiceDate": "2025-06-26",
+  "InvoiceAmount": "269254.76",
+  "IrnNo": "389cab7ba10b8444f3c6e153065f52",
+  "PoNo": "1/2",
+  "PAN Numbers": [
+    "AAACA4074D"
+  ],
+  "Email Id": "collections.domestic@atlascopco.com",
+  "SesGrn": []
+}

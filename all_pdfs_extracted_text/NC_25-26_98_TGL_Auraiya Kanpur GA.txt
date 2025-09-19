@@ -1,0 +1,99 @@
+Tax Invoice
+e-Invoice
+IRN
+: 808052ca84965843b986460603cdbc70105b00844189-
+b15f830906d738ccd40e
+Ack No.
+: 122528541659433
+Ack Date
+:
+10-Sep-25
+NEHRA
+CONSTRUCTIONS
+Nehra Constructions FY 2024-25
+27, Pratik Arcade, Above Dena
+Bank, Bytco Point, Nashik Road,
+Nashik
+GSTIN/UIN: 27ABUPN7129E1Z8
+State Name : Maharashtra, Code : 27
+E-Mail : nehra.constructions01@gmail.com
+Invoice No.
+NC/25-26/98/TGL
+Dated
+10-Sep-25
+Delivery Note
+Mode/Terms of Payment
+Reference No. & Date.
+Other References
+RA02
+Buyer's Order No.
+PO 36300939, SES 6000120804
+Dispatch Doc No.
+Dated
+11-Feb-25, 8-Sep-25
+Delivery Note Date
+Dispatched through
+Destination
+Kanpur GA
+Terms of Delivery
+Sl
+No.
+Particulars
+HSN/SAC
+GST
+Rate
+Quantity
+Rate
+per
+Amount
+1
+SALES-TORRENT GAS
+995423
+18 %
+15,88,441.87
+MDPE Laying and Associated Work
+In Kanpur GA
+SEC:6000120804
+PO:36300939 RA02
+Output IGST 18%
+2,85,919.54
+Total
+₹ 18,74,361.41
+E. & O.E
+Amount Chargeable (in words)
+INR Eighteen Lakh Seventy Four Thousand Three Hundred Sixty One and Forty One paise Only
+Taxable
+Value
+Rate
+Amount
+Total
+Tax Amount
+15,88,441.87
+18%
+2,85,919.54
+2,85,919.54
+Total: 15,88,441.87
+2,85,919.54 2,85,919.54
+Tax Amount (in words) : INR Two Lakh Eighty Five Thousand Nine Hundred Nineteen and Fifty Four
+paise Only
+Remarks:
+Auraiya, Kanpur (UP)_Tottent - Gaurav Yadav - PO
+36300939 RA 02 - GSTR1 Sep 25
+for Nehra Constructions FY 2024-25
+Digitally signed by Shilsingh
+Company's PAN
+: ABUPN7129E
+Shilsingh Nehra
+Date: 2025.09.10 17:04:21
+Authorised Signatory
+This is a Computer Generated Invoice
+Buyer (Bill to)
+Torrent Gas Limited_Auraiya
+3rd Floor, Sai Palace, HIG 1B,
+Chandra Vihar, Lakhanpur,
+Kanpur.
+GSTIN/UIN
+: 09AAGCT7889P1Z1
+State Name
+: Uttar Pradesh, Code : 09
+IGST

@@ -1,0 +1,133 @@
+Original - For Recipient / Duplicate- For Supplier
+PROT
+AN APS GROUP COMPANY
+N
+Tax Invoice
+Proton Facility Solutions Pvt Ltd
+Regd. Office :- (Formerly Zeus Management Services P. Ltd.) C-1/118, JANAK PURI, New Delhi South West Delhi 110058 New Delhi
+Branch Office :- C-1/118. JANAKPURI NEW DELHI New Delhi, 110058 India ,Delhi
+Phone No. 91-080-40941941 E-Mail
+CIN No. U74140DL2010PTC202266 GSTIN No. 07AAACZ4197J1ZU PAN No. AAACZ4197J
+IRN : 8fa890d9ddd3f105847dd32903b9aa27dac490503b53f726d117dde1c7f6d601
+Billed to
+Consignee / Shipped to
+Invoice Details
+Torrent Gas Limited
+Torrent Gas Limited
+Reverse Charge
+: No
+Invoice No.
+: PFST07DL0825/115
+Invoice Date
+: 31-Aug-2025
+Customer Code
+: CC-0656
+Buyer's Reference No.
+: PO NO: PUKR/P01/1800572/33001070
+Our State Code
+: 07
+Delhi
+CGST
+SGST
+IGST
+Description
+Amount
+Rate %
+Amount
+Rate %
+Amount
+Rate %
+Amount
+Billing for the month of July'25
+998539
+1.00
+26
+19166.00
+19166.00
+0.00
+0.00
+18.00
+3449.88
+22615.88
+Pantry Staff-Patiala Office
+HK Staff-Patiala Office
+HK Material/Consumable-Patiala Office
+998539
+1.00
+26
+17654.00
+10000.00
+17654.00
+0.00
+0.00
+18.00
+3177.72
+20831.72
+998539
+1.00
+6159.12
+0.00
+0.00
+18.00
+1108.64
+7267.76
+(HK Material Cost bifurcated equalized in all 4 Units)
+(24,636.49/4=6,159.12)
+42979.12
+0.00
+0.00
+7736.24
+50715.36
+Bank Details
+Bank
+: YES BANK LTD.
+IFSC Code
+: YESB0000002
+Rounding
+0.00
+Account No. : 000281300000310
+Bank Branch : F.G.A, Sikanderpur, Gurgaon
+Total INR Incl. Taxes
+50715.36
+Amount In Word : FIFTY THOUSAND SEVEN HUNDRED FIFTEEN RUPEES AND THIRTY SIX PAISA ONLY
+Remarks :-
+- Please mention Bill No & Date on reverse of cheque or attached advice.
+- We also accept Payment through Debit Card powered by RuPay.
+- TDS should be deducted excluding GST amount.
+For Proton Facility Solutions Pvt Ltd
+Manish
+Kumar
+Digitally signed by
+Manish Kumar
+Date: 2025.09.01
+12:35:28 +05'30'
+Authorized Signatory
+12-A, 14,15 & 16,1st Floor, Motiaz Royal Business Park, Chandigarh-
+Ambala highway,Village Singhpura Zirakpur Patiala, 140603 India
+12-A, 14,15 & 16,1st Floor, Motiaz Royal Business Park, Chandigarh-
+Ambala highway,Village Singhpura Zirakpur Patiala, 140603 India
+PAN No. : AAGCT7889P
+State Code
+: 03
+GSTIN
+: 03AAGCT7889P1ZD
+Place of Supply
+: Punjab
+Unit Name
+Patiala Office-PUNJAB
+HSN / SAC
+Code
+No. of
+Person/
+Days/
+Hours
+Total
+Duties in a
+Month
+Monthly
+Rate/ Per
+Day/ Per
+Hour
+Amount
+Total Amount
+x

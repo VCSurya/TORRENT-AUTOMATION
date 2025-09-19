@@ -1,0 +1,19 @@
+{
+  "Gst": [
+    "27AAECC1769P1Z3",
+    "24AAGCT7889P1Z9",
+    "24AAGCT7889P1Z9"
+  ],
+  "InvoiceNo": "TU00055FY26",
+  "InvoiceDate": "2025-08-26",
+  "InvoiceAmount": "25960.00",
+  "IrnNo": "d19e98f7d163f4941cbe06c1bc4fca2ab6451aaacff2879d54ca5e931aeb90f1",
+  "PoNo": "99001183",
+  "PAN Numbers": [
+    "AAECC1769P"
+  ],
+  "Email Id": "helpdesk@gemal.com",
+  "SesGrn": [
+    "6000110797"
+  ]
+}

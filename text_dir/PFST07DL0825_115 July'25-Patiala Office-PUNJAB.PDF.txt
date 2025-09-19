@@ -1,0 +1,131 @@
+--- Page 1 ---
+Amount In Word
+FIFTY THOUSAND SEVEN HUNDRED FIFTEEN RUPEES AND THIRTY SIX  PAISA ONLY 
+50715.36
+Total INR Incl. Taxes
+Bank Details
+Bank
+Account No.
+IFSC Code
+Bank Branch
+ : F.G.A, Sikanderpur,Gurgaon
+ : YESB0000002
+ : 000281300000310
+ : YES BANK LTD.
+Rounding
+0.00
+:
+Description
+HSN / SAC 
+Code
+No. of 
+Person/ 
+Days/ 
+Hours
+Total 
+Duties in a 
+Month
+Monthly 
+Rate/ Per 
+Day/ Per 
+Hour
+Amount
+CGST
+SGST
+IGST
+Amount
+Rate %
+Amount
+Rate %
+Amount
+Rate %
+Amount
+Billing for the month of July'25
+Pantry Staff-Patiala Office
+998539
+1.00
+26
+19166.00
+19166.00
+0.00
+0.00
+18.00
+3449.88
+22615.88
+HK Staff-Patiala Office
+998539
+1.00
+26
+17654.00
+17654.00
+0.00
+0.00
+18.00
+3177.72
+20831.72
+HK Material/Consumable-Patiala Office
+998539
+1.00
+10000.00
+6159.12
+0.00
+0.00
+18.00
+1108.64
+7267.76
+(HK Material Cost bifurcated equalized in all 4 Units)
+(24,636.49/4=6,159.12)
+Total Amount
+42979.12
+0.00
+0.00
+7736.24
+50715.36
+- Please mention Bill No & Date on reverse of cheque or attached advice.
+- We also accept Payment through Debit Card powered by RuPay.
+- 
+TDS should be deducted excluding GST amount.
+Authorized Signatory
+For Proton Facility Solutions Pvt Ltd
+Remarks :-
+Tax Invoice
+Branch Office :-C-1/118. JANAKPURI NEW DELHI New Delhi, 110058 India    ,Delhi
+Regd. Office :-(Formerly Zeus Management Services P. Ltd.) C-1/118, JANAK PURI, New Delhi South West Delhi 110058 New Delhi 
+Proton Facility Solutions Pvt Ltd
+12-A,14,15 & 16 ,1st Floor, Motiaz Royal Business Park, Chandigarh-
+Ambala highway,Village Singhpura Zirakpur Patiala, 140603 India   
+Torrent Gas Limited
+Torrent Gas Limited
+GSTIN 
+No.
+Reverse Charge
+ : No
+Invoice No.
+ : PFST07DL0825/115
+Buyer's Reference No.
+ : PO NO: PUKR/P01/1800572/33001070
+Consignee / Shipped to 
+Billed to
+Invoice Details
+12-A,14,15 & 16 ,1st Floor, Motiaz Royal Business Park, Chandigarh-
+Ambala highway,Village Singhpura Zirakpur Patiala, 140603 India   
+State Code
+ : 03
+Our State Code
+ : 07
+Place of Supply
+ : Punjab
+PAN No.
+ : AAGCT7889P
+Delhi
+Invoice Date
+ : 31-Aug-2025
+ : 03AAGCT7889P1ZD
+ : CC-0656
+Customer Code
+Unit Name
+Patiala Office-PUNJAB
+Phone No. 91-080-40941941 E-Mail 
+CIN No. U74140DL2010PTC202266 GSTIN No. 07AAACZ4197J1ZU PAN No. AAACZ4197J 
+Original - For Recipient  /  Duplicate- For Supplier 
+ IRN : 8fa890d9ddd3f105847dd32903b9aa27dac490503b53f726d117dde1c7f6d601

@@ -1,0 +1,7 @@
+# Ignore folder
+/poppler-24.08.0
+/toolkit
+
+# Ignore all .env files
+.env
+

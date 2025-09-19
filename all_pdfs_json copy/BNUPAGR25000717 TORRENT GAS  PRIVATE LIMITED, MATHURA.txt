@@ -1,0 +1,18 @@
+>>> json
+{
+  "Gst": [
+    "09AAECS3538A1ZL",
+    "09AAGCT7889P1Z1"
+  ],
+  "InvoiceNo": "BNUPAGR25000717",
+  "InvoiceDate": "2025-09-04",
+  "InvoiceAmount": "276446.76",
+  "IrnNo": "cfece8cb5864879055da5e002878e47dde7dc28495208c44ec15041ce918c866",
+  "PoNo": "UPAG/P01/1800096/33000926",
+  "PAN Numbers": [
+    "AAECS3538A",
+    "AAGCT7889P"
+  ],
+  "Email Id": "gstcomplianceteam@sisindia.com",
+  "SesGrn": []
+}

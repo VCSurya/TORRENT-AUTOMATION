@@ -1,0 +1,18 @@
+{
+  "Gst": [
+    "09AABCI3646Q2ZZ",
+    "09AAGCT7889P1Z1"
+  ],
+  "InvoiceNo": "BU3/2526/0111",
+  "InvoiceDate": "2025-09-10",
+  "InvoiceAmount": "540122.00",
+  "IrnNo": "",
+  "PoNo": "TGPL/20-21/0328",
+  "PAN Numbers": [
+    "AABCI3646Q"
+  ],
+  "Email Id": "billing@indiantankers.com",
+  "SesGrn": [
+    "6000122072"
+  ]
+}

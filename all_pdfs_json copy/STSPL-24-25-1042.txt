@@ -1,0 +1,18 @@
+{
+  "Gst": [
+    "07ABCCS7762D1Z9",
+    "33AAHCT5406D1ZP"
+  ],
+  "InvoiceNo": "STSPL/24-25/1042",
+  "InvoiceDate": "2025-03-08",
+  "InvoiceAmount": "35400.00",
+  "IrnNo": "fd9842da326c4f6e058362ab284317c63d392d438889788d01d9b597b4ba8049",
+  "PoNo": "TNCH/P01/1100162/36300951",
+  "PAN Numbers": [
+    "ABCCS7762D"
+  ],
+  "Email Id": "",
+  "SesGrn": [
+    "6000116903"
+  ]
+}

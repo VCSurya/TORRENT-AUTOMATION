@@ -1,0 +1,67 @@
+--- Page 1 ---
+Tax Invoice
+IRN :fd9842da326c4f6e058362ab284317c63d392d438889788-
+d01d9b597b4ba8049
+Ack No. :172517007626143
+Ack Date : 8-Mar-25e-Invoice
+Shubh Techno Services Private Limited
+Shop No.9, CSC, DDA Market Transport Center
+Punjabi Bagh NEW DELHI West Delhi
+MSME NO.: UDYAM-DL-08-0001367
+GSTIN/UIN: 07ABCCS7762D1Z9
+State Name :  Delhi, Code : 07
+CIN: U74999DL2019PTC356292
+Consignee (Ship to)
+Torrent Gas Chennai Private Limited
+No 148 Ward no 147 zone 8, 5th Floor,
+Acropolis Building, Dr Radhakrishnan Street,
+Chennai, Chennai, Tamil Nadu, 600004
+GSTIN/UIN : 33AAHCT5406D1ZP
+State Name : Tamil Nadu, Code : 33
+Buyer (Bill to)
+Torrent Gas Chennai Private Limited
+No 148 Ward no 147 zone 8, 5th Floor,
+Acropolis Building, Dr Radhakrishnan Street,
+Chennai, Chennai, Tamil Nadu, 600004
+GSTIN/UIN : 33AAHCT5406D1ZP
+State Name : Tamil Nadu, Code : 33Invoice No.
+STSPL/24-25/1042
+Delivery Note
+Reference No. & Date.
+STSPL/24-25/1042  dt. 8-Mar-25
+Buyer's Order No.
+TNCH/P01/1100162/36300951
+Dispatch Doc No.
+Dispatched throughDated
+8-Mar-25
+Mode/Terms of Payment
+45 Days
+Other References
+Dated
+3-Mar-25
+Delivery Note Date
+Destination
+Chennai
+Terms of Delivery
+SES No. : 6000116903
+Sl Description of Amount per Rate Quantity GST HSN/SAC
+No. Services Rate
+1Decommissioning of Endurance Booster 30,000.00 NOS 30,000.00 1.0000 NOS18 % 998719
+Shri Murgan Agency
+Booster Sr No. 202201018
+Decommissioning Date-05-03-2025
+IGST O/P 5,400.00
+Total ₹ 35,400.00 1.0000 NOS
+Amount Chargeable (in words) E. & O.E
+INR Thirty Five Thousand Four Hundred Only
+HSN/SAC Total IGST Taxable
+Tax Amount Amount Rate Value
+998719 5,400.00 5,400.00 18% 30,000.00
+Total 5,400.00 5,400.00 30,000.00
+Tax Amount (in words)  : INR Five Thousand Four Hundred Only
+Company's PAN : ABCCS7762D
+Declaration
+We declare that this invoice shows the actual price of the 
+goods described and that all particulars are true and correct.for Shubh Techno Services Private Limited
+Authorised Signatory
+This is a Computer Generated Invoice

@@ -1,0 +1,18 @@
+{
+  "CompanyGst": "08AAHCD1012H1Z4",
+  "VendorGst": "27AAJCG7930M1Z1",
+  "InvoiceNo": "GGPL2526/242",
+  "InvoiceDate": "2025-08-30",
+  "InvoiceAmount": "254880.00",
+  "IrnNo": "bb2547493c01d23694118ff858500b9c6efe1f540e48a4ff7b7d5Of08dd68647",
+  "PoNo": "RJDP/P02/1101635/34000773",
+  "Company PAN Number": "AAHCD1012H",
+  "Vendor PAN Number": "AAJCG7930M",
+  "State Code": "27",
+  "Email Id": "sales@greenglobe.world",
+  "List": [
+    {
+      "SesGrn": "5-180427"
+    }
+  ]
+}

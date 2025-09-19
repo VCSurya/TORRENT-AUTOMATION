@@ -1,0 +1,17 @@
+{
+  "Gst": [
+    "07AAACZ4197J1ZU",
+    "03AAGCT7889P1ZD"
+  ],
+  "InvoiceNo": "PFST07DL0825/115",
+  "InvoiceDate": "2025-08-31",
+  "InvoiceAmount": "50715.36",
+  "IrnNo": "8fa890d9ddd3f105847dd32903b9aa27dac490503b53f726d117dde1c7f6d601",
+  "PoNo": "PUKR/P01/1800572/33001070",
+  "PAN Numbers": [
+    "AAACZ4197J",
+    "AAGCT7889P"
+  ],
+  "Email Id": "",
+  "SesGrn": []
+}

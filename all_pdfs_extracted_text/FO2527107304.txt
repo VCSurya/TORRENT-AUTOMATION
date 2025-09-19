@@ -1,0 +1,159 @@
+Atlas Copco
+Customer No.
+4000338450
+Invoice No.
+FO2527107304
+Invoice Date
+26.06.2025
+Purchase Order No.
+1/2
+TSSA/P01/1100001/99001423
+Chicago Pneumatic Compressors Rushabh, 2nd Floor,
+Nr American Heart Ghodbunder Road Thane(W)-400601, Maharashtra
+Bill To
+Torrent Gas Limited
+. Plot no 456/1, NH 753F,
+Hotel Royal Park, Shirur, Kondhapuri,
+Pune 412209 Maharashtra
+GST No .: 27AAGCT7889P1Z3
+Ship To
+Torrent Gas Limited
+. GAT NO: 1561,NEAR HOTEL KARNA RECIDENCY
+NAGAR-PUNE ROAD, RAJMUDRA CHOWK,
+Pune 412209 Maharashtra
+GST No .: 27AAGCT7889P1Z3
+Payer
+: Torrent Gas Limited, . Plot no 456/1, NH 753F,, Hotel Royal Park, Shirur, Kondhapuri,,
+Pune 412209 Maharashtra, GST No .: 27AAGCT7889P1Z3
+Supply Type
+: B2B
+e0ef30447534a787a06d78e3c825a43b5d
+Ack. Number : 122527337980759
+Ack.Date
+: 26.06.2025
+IRN Number
+389cab7ba10b8444f3c6e153065f52
+Customer Information
+Contact
+: Sunil Tapase
+Tel No.
+:
+E-Mail
+: Sunil.tapase@cp.com
+Pos. Serial Number
+Description
+Billing Period
+Total Net Price
+10 PNB950260
+O&M Services Karna Mega
+01.06.2025 - 30.06.2025
+228,182.00
+HSN/SAC Code : 998717
+CGST (9%) : 20,536.38 , SGST/UGST (9%) : 20,536.38 , Item Total : 269,254.76
+Subtotal
+228,182.00
+INR
+CGST
+20,536.38
+INR
+SGST/UGST
+20,536.38
+INR
+Total
+269,254.76
+INR
+Total Amount in ( INR ) :
+Two Hundred Sixty-Nine Thousand Two Hundred Fifty-Four Rupees Seventy-Six Paise
+Total CGST :
+Twenty Thousand Five Hundred Thirty-Six Rupees Thirty-Eight Paise
+Total SGST/UGST :
+Twenty Thousand Five Hundred Thirty-Six Rupees Thirty-Eight Paise
+Tax is payable on Reverse Charge: No
+Payment terms
+: Net 90 Days
+Atlas Copco (India) Private Limited.
+Registered Office: Atlas Copco (India) Landline : 020 3985 2100
+Private Limited [Formerly known as
+Visit us at:
+Atlas Copco (India) Limited]
+Sveanagar,Dapodi
+Maharashtra,Pune-411012
+http://www.atlascopco.com/en-in
+Email:
+collections.domestic@atlascopco.com
+Reach us at: 1800 120 110040 (Toll Free)
+Company Code: IN7
+Invoice From:
+Chicago Pneumatic Compressors
+(A div. of Atlas Copco India Private LTD.)
+[Formerly known as Atlas Copco(India) LTD]
+Rushabh, 2nd Floor, Nr American Heart Institute
+Ghodbunder Road
+Thane(W)-400601, Maharashtra
+GST No .: 27AAACA4074D1Z2
+Bank Name: Deutsche Bank
+Bank Account No: 6000863003
+IFSC Code: DEUT0537PUN
+Currency: INR
+India
+CIN : U27106PN1960PTC020566
+PAN : AAACA4074D
+Contact Reference
+Contract No. : 700219095
+Tax Invoice
+Atlas Copco
+Tax Invoice
+Customer No.
+4000338450
+Invoice No.
+FO2527107304
+Invoice Date
+26.06.2025
+Purchase Order No.
+2/2
+TSSA/P01/1100001/99001423
+Place of Supply
+: 27 - Maharashtra
+Penal Interest at the rate 20% will be payable by the customer for all payments made after
+the due date. No claims recognised unless reported in writing to company within 14 days
+from date of receipt of goods. In the event of the certificate furnised / to be furnished by you
+being help invalid for once reason or the other by GST authorized we shall recover from you
+the balance of tax involved.
+Subject to Pune Jurisdiction only
+Certified that the particular's given above are true & correct & the amount indicated
+represents the price actually charged & that there is no flow of additional consideration
+directly or indirectly from the buyer.
+Please quote the invoice no & date with your remittance to ensure that proceeds are
+correctly credited to you. Send advice of payment to collections.domestic@atlascopco.com
+For foreign remittance collections.foreign@atlascopco.com
+For Chicago Pneumatics Compressors
+( A Div.of Atlas Copco (India) Private Limited.)
+[Formerly known as Atlas Copco (India) Limited]
+Authorised Signatory
+Atlas Copco (India) Private Limited.
+Registered Office: Atlas Copco (India) Landline : 020 3985 2100
+Private Limited [Formerly known as
+Atlas Copco (India) Limited]
+Sveanagar,Dapodi
+Maharashtra,Pune-411012
+India
+CIN : U27106PN1960PTC020566
+PAN : AAACA4074D
+Visit us at:
+http://www.atlascopco.com/en-in
+Email:
+collections.domestic@atlascopco.com
+Reach us at: 1800 120 110040 (Toll Free)
+Company Code: IN7
+Invoice From:
+Chicago Pneumatic Compressors
+(A div. of Atlas Copco India Private LTD.)
+[Formerly known as Atlas Copco(India) LTD]
+Rushabh, 2nd Floor, Nr American Heart Institute
+Ghodbunder Road
+Thane(W)-400601, Maharashtra
+GST No .: 27AAACA4074D1Z2
+Bank Name: Deutsche Bank
+Bank Account No: 6000863003
+IFSC Code: DEUT0537PUN
+Currency: INR

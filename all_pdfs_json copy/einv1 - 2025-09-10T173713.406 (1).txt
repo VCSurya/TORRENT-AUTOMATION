@@ -1,0 +1,16 @@
+{
+  "Gst": [
+    "09AADCE4761A1ZX",
+    "09AAGCT7889P1Z1"
+  ],
+  "InvoiceNo": "EGP/ONM/2526/90",
+  "InvoiceDate": "2025-09-10",
+  "InvoiceAmount": "491089.00",
+  "IrnNo": "def247af35e44a5496740dd7485243409c8cc0",
+  "PoNo": "UPBS/PO2/1800499/33001146",
+  "PAN Numbers": [],
+  "Email Id": "",
+  "SesGrn": [
+    "EGPL/TGL-UPKN/04"
+  ]
+}

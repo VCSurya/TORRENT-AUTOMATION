@@ -1,0 +1,54 @@
+JSON Schema to follow:
+{{
+    "InwardRefNo" : "",
+    "SourceOfDoc" : "",
+    "DocMailPerson" : "",
+    "InwardDate" : "",
+    "PoLpo" : "",
+    "GaName" : "",
+    "CompanyGstinPdf" : "", --
+    "CCompanyGstinPdf" : "",--
+    "CompanyGstinSap" : "",
+    "VendorName" : "",
+    "VendorGstin" : "",--
+    "CVendorGstin" : "",--
+    "InvoiceNo" : "",--
+    "CInvoiceNo" : "",--
+    "InvoiceDate" : "",--
+    "CInvoiceDate" : "",--
+    "InvoiceAmount" : "",--
+    "CInvoiceAmount" : "",--
+    "PoLpoIoNoPdf" : "",--
+    "CPoLpoIoNo" : "",--
+    "IrnNo" : "",--
+    "CIrnNo" : "",--
+    "MsmeNo" : "",
+    "Status" : "Draft",
+    "ModeOfEntry" : "Manual",
+    "CreatedOn" : "",--
+    "CreatedBy" : "",--
+    "ChangedOn" : "",
+    "ChangedBy" : "",
+    "FileName" : "",--
+    "ErrorNo" : "",--
+    "ErrorMsg" : "",--
+    "ErrorType" : "",-- S OR E
+    "Flag" : "A",
+    "DCCHEADERTODCCSES" : [
+    {{
+          "InwardRefNo" : "",
+          "PoNo" : "",--
+          "SesGrnScrollNoPdf" : "", --
+          "ItemNo" : "", -- 1 2 3 ...
+          "SesGrnScrollNoSap" : "",
+          "ParkDocNo" : "",
+          "Amount" : "",
+          "CreatedOn" : "",--
+          "Zindicator" : "",
+          "CreatedBy" : "",--
+          "CSesGrnScrollNoPdf" : "",--
+          "ChangedOn" : "",
+          "ChangedBy" : ""
+    }}
+    ]
+}}
