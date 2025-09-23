@@ -40,7 +40,7 @@ JSON Schema to follow:
           "PoNo" : "",--
           "SesGrnScrollNoPdf" : "", --
           "ItemNo" : "", -- 1 2 3 ...
-          "SesGrnScrollNoSap" : "",
+          "SesGrnScrollNoSap" : "",--
           "ParkDocNo" : "",
           "Amount" : "",
           "CreatedOn" : "",--

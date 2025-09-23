@@ -1,0 +1,131 @@
+2025-09-23 15:37:49,126 | INFO | 🚀 Processing C:\Users\111439\OneDrive - Torrent Gas Ltd\Desktop\TORRENT\test\3780_001.pdf
+2025-09-23 15:37:49,219 | INFO | Request URL: 'https://tgldocintelligece.cognitiveservices.azure.com//documentintelligence/documentModels/prebuilt-read:analyze?api-version=REDACTED'
+Request method: 'POST'
+Request headers:
+    'content-type': 'application/octet-stream'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '28ce0471-9865-11f0-b6a4-8d371e504d22'
+    'User-Agent': 'azsdk-python-ai-documentintelligence/1.0.2 Python/3.13.7 (Windows-11-10.0.26100-SP0)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+A body is sent with the request
+2025-09-23 15:37:49,955 | INFO | Response status: 202
+Response headers:
+    'Content-Length': '0'
+    'Operation-Location': 'REDACTED'
+    'x-envoy-upstream-service-time': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Tue, 23 Sep 2025 10:07:49 GMT'
+2025-09-23 15:37:49,956 | INFO | Request URL: 'https://tgldocintelligece.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-read/analyzeResults/cf494685-2353-41fd-8130-b59fe67c1f98?api-version=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-client-request-id': '28ce0471-9865-11f0-b6a4-8d371e504d22'
+    'User-Agent': 'azsdk-python-ai-documentintelligence/1.0.2 Python/3.13.7 (Windows-11-10.0.26100-SP0)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+No body was attached to the request
+2025-09-23 15:37:50,007 | INFO | Response status: 200
+Response headers:
+    'Content-Length': '106'
+    'Content-Type': 'application/json; charset=utf-8'
+    'retry-after': '1'
+    'x-envoy-upstream-service-time': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Tue, 23 Sep 2025 10:07:49 GMT'
+2025-09-23 15:37:51,008 | INFO | Request URL: 'https://tgldocintelligece.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-read/analyzeResults/cf494685-2353-41fd-8130-b59fe67c1f98?api-version=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-client-request-id': '28ce0471-9865-11f0-b6a4-8d371e504d22'
+    'User-Agent': 'azsdk-python-ai-documentintelligence/1.0.2 Python/3.13.7 (Windows-11-10.0.26100-SP0)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+No body was attached to the request
+2025-09-23 15:37:51,052 | INFO | Response status: 200
+Response headers:
+    'Content-Length': '106'
+    'Content-Type': 'application/json; charset=utf-8'
+    'retry-after': '1'
+    'x-envoy-upstream-service-time': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Tue, 23 Sep 2025 10:07:50 GMT'
+2025-09-23 15:37:52,054 | INFO | Request URL: 'https://tgldocintelligece.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-read/analyzeResults/cf494685-2353-41fd-8130-b59fe67c1f98?api-version=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-client-request-id': '28ce0471-9865-11f0-b6a4-8d371e504d22'
+    'User-Agent': 'azsdk-python-ai-documentintelligence/1.0.2 Python/3.13.7 (Windows-11-10.0.26100-SP0)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+No body was attached to the request
+2025-09-23 15:37:52,106 | INFO | Response status: 200
+Response headers:
+    'Content-Length': '106'
+    'Content-Type': 'application/json; charset=utf-8'
+    'retry-after': '1'
+    'x-envoy-upstream-service-time': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Tue, 23 Sep 2025 10:07:51 GMT'
+2025-09-23 15:37:53,108 | INFO | Request URL: 'https://tgldocintelligece.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-read/analyzeResults/cf494685-2353-41fd-8130-b59fe67c1f98?api-version=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-client-request-id': '28ce0471-9865-11f0-b6a4-8d371e504d22'
+    'User-Agent': 'azsdk-python-ai-documentintelligence/1.0.2 Python/3.13.7 (Windows-11-10.0.26100-SP0)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+No body was attached to the request
+2025-09-23 15:37:53,157 | INFO | Response status: 200
+Response headers:
+    'Content-Length': '106'
+    'Content-Type': 'application/json; charset=utf-8'
+    'retry-after': '1'
+    'x-envoy-upstream-service-time': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Tue, 23 Sep 2025 10:07:52 GMT'
+2025-09-23 15:37:54,158 | INFO | Request URL: 'https://tgldocintelligece.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-read/analyzeResults/cf494685-2353-41fd-8130-b59fe67c1f98?api-version=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-client-request-id': '28ce0471-9865-11f0-b6a4-8d371e504d22'
+    'User-Agent': 'azsdk-python-ai-documentintelligence/1.0.2 Python/3.13.7 (Windows-11-10.0.26100-SP0)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+No body was attached to the request
+2025-09-23 15:37:54,204 | INFO | Response status: 200
+Response headers:
+    'Content-Length': '106'
+    'Content-Type': 'application/json; charset=utf-8'
+    'retry-after': '1'
+    'x-envoy-upstream-service-time': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Tue, 23 Sep 2025 10:07:53 GMT'
+2025-09-23 15:37:55,206 | INFO | Request URL: 'https://tgldocintelligece.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-read/analyzeResults/cf494685-2353-41fd-8130-b59fe67c1f98?api-version=REDACTED'
+Request method: 'GET'
+Request headers:
+    'x-ms-client-request-id': '28ce0471-9865-11f0-b6a4-8d371e504d22'
+    'User-Agent': 'azsdk-python-ai-documentintelligence/1.0.2 Python/3.13.7 (Windows-11-10.0.26100-SP0)'
+    'Ocp-Apim-Subscription-Key': 'REDACTED'
+No body was attached to the request
+2025-09-23 15:37:55,302 | INFO | Response status: 200
+Response headers:
+    'Content-Length': '102377'
+    'Content-Type': 'application/json; charset=utf-8'
+    'x-envoy-upstream-service-time': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'x-content-type-options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+    'Date': 'Tue, 23 Sep 2025 10:07:54 GMT'
+2025-09-23 15:37:55,414 | INFO | ✅ Extracted 151 lines from C:\Users\111439\OneDrive - Torrent Gas Ltd\Desktop\TORRENT\test\3780_001.pdf
+2025-09-23 15:38:18,947 | INFO | HTTP Request: POST https://tglopenai.openai.azure.com/openai/deployments/gpt-4.1-mini/chat/completions?api-version=2024-02-01 "HTTP/1.1 200 OK"
+2025-09-23 15:38:19,011 | INFO | 🤖 LLM returned valid JSON
+2025-09-23 15:38:19,011 | INFO | 📦 Final SAP JSON built

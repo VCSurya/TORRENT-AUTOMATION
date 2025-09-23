@@ -1,23 +1,28 @@
-gst_no = {
-    "24AAGCT7889P1Z9",
-    "24AAGCT7889P2Z8",
-    "27AAGCT7889P1Z3",
-    "27AAGCT7889P1Z3",
-    "03AAGCT7889P1ZD",
-    "34AAGCT7889P1Z8",
-    "08AAGCT7889P1Z3",
-    "08AAGCT7889P1Z3",
-    "33AAGCT7889P1ZA",
-    "36AAGCT7889P1Z4",
-    "09AAGCT7889P1Z1",
-    "24AAHCT5406D1ZO",
-    "33AAHCT5406D1ZP",
-    "24AAHCD1012H1ZA",
-    "08AAHCD1012H1Z4",
-    "24AAICT6216A1ZR",
-    "08AAICT6216A1ZL"
-    }
+PAN_NO = {
+    "AAGCT7889P",
+    "AAHCT5406D",
+    "AAHCD1012H",
+    "AAICT6216A"
+}
+def gst_validations(list_of_gst):
+            try:
+                list_of_gst = list(set(list_of_gst))
+                vendor_gst = list_of_gst[0]
+                company_gst = list_of_gst[1]
+                print(vendor_gst)
+                for i in list_of_gst:
+                    if len(i) == 15:
+                        if i[2:12] in PAN_NO:
+                            company_gst = i
+                        else:
+                            vendor_gst = i
 
-# 15 characters fixed
-# First 2 digits then next 10 digits PAN NU
-print("08AAICT6216A1ZL" in gst_no)
+                return {'status':True , "CompanyGstinPdf":company_gst,"VendorGstin":vendor_gst}
+            except Exception as e:
+                return {'status':False , "error":str(e)}
+            
+
+print(gst_validations([
+    "27AAACA3640H1Z0",
+    "08AAGCT7889P1Z3"
+  ]))
