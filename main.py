@@ -9,7 +9,7 @@ import concurrent.futures
 from dotenv import load_dotenv
 from openai import AzureOpenAI
 from itertools import combinations
-from difflib import SequenceMatcher
+from difflib import SequenceMatcher,get_close_matches
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.documentintelligence import DocumentIntelligenceClient
 
@@ -35,11 +35,7 @@ sap_file_path = os.path.join(SCRTPT_DIR, 'sap.json')
 with open(sap_file_path, 'r') as file:
     SAP_JSON = json.load(file)
 
-### >>> Load the Prompt Tamplate From TXT File
-PROMPT = None
-prompt_path  = os.path.join(SCRTPT_DIR, 'prompt.txt')
-with open(prompt_path, 'r') as file:
-    PROMPT = file.read()
+
 
 ### >>> Load the PAN Numbers From TXT File
 PAN_NO = None
@@ -70,8 +66,8 @@ def retry_with_backoff(max_retries=5, backoff_factor=2, allowed_exceptions=(Exce
 @retry_with_backoff(max_retries=5, backoff_factor=2, allowed_exceptions=(requests.RequestException,))
 def azure_extract_text(pdf_file):
     
+        LOGS.append(f"4")
         try:
-            LOGS.append(f"Sending {pdf_file} to Azure Document Intelligence...")
 
             endpoint = os.getenv("AZURE_ENDPOINT")
             key = os.getenv("AZURE_API_KEY")
@@ -93,42 +89,51 @@ def azure_extract_text(pdf_file):
                 for line in page.lines:
                     text.append(line.content)
 
-            TEXT = "\n".join(text)
-            LOGS.append(f'>> AZURE Extrected Text :\n{TEXT}')
 
-            doc = fitz.open(pdf_file)
-            extracted_words = {}
+            if len(text) > 0:
+                TEXT = "\n".join(text)
+                LOGS.append(f'5')
+                doc = fitz.open(pdf_file)
+                extracted_words = {}
 
-            for page in result.pages:  # Azure page object
-                # Get the matching PyMuPDF page by index (Azure is 1-based, PyMuPDF is 0-based)
-                pymupdf_page = doc[page.page_number - 1]
-                page_width = pymupdf_page.rect.width
-                page_height = pymupdf_page.rect.height
+                for page in result.pages:  # Azure page object
+                    # Get the matching PyMuPDF page by index (Azure is 1-based, PyMuPDF is 0-based)
+                    pymupdf_page = doc[page.page_number - 1]
+                    page_width = pymupdf_page.rect.width
+                    page_height = pymupdf_page.rect.height
 
-                for word in page.words:
-                    bbox = word.polygon  # list of floats [x1, y1, ..., x4, y4]
+                    for word in page.words:
+                        bbox = word.polygon  # list of floats [x1, y1, ..., x4, y4]
 
-                    xs = bbox[0::2]  # even indices = x values
-                    ys = bbox[1::2]  # odd indices = y values
+                        xs = bbox[0::2]  # even indices = x values
+                        ys = bbox[1::2]  # odd indices = y values
 
-                    x = min(xs)
-                    y = min(ys)
-                    width = max(xs) - x
-                    height = max(ys) - y
+                        x = min(xs)
+                        y = min(ys)
+                        width = max(xs) - x
+                        height = max(ys) - y
 
-                    key = word.content
-                    value = [page.page_number, x, y, width, height, page_width, page_height]
+                        key = word.content
+                        value = [page.page_number, x, y, width, height, page_width, page_height]
 
-                    if key not in extracted_words:
-                        extracted_words[key] = []
-                    extracted_words[key].append(value)
+                        if key not in extracted_words:
+                            extracted_words[key] = []
+                        extracted_words[key].append(value)
+                
+                LOGS.append(f"6")
+                LOGS.append(f"7")
 
-            LOGS.append(f"✅ Extraction Complete!")
+                with open('latest_pdf_azure_text.txt', 'w') as file:
+                    file.write(TEXT)
 
-            return {'status':True,'text':TEXT,'cordinates':extracted_words}
+                return {'status':True,'text':TEXT,'cordinates':extracted_words}
+
+            else:
+                LOGS.append(f"104") 
+                return {'status':False,'error':"Text Not Extracted From AZURE"}
 
         except Exception as e:
-            LOGS.append(f"❌ Error Processing at AZURE Extraction Function  {pdf_file}: {str(e)}")
+            LOGS.append(f"103 {str(e)}")
             return {'status':False,'error':str(e)}
 
 # === Step 2: Send to LLM ===
@@ -136,7 +141,6 @@ def azure_extract_text(pdf_file):
 def format_with_llm(text):
 
     try:
-        LOGS.append("Sending Text to Open AI LLM For Formatting...")
         # Environment variables
         endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")     # e.g. https://my-resource.openai.azure.com/
         key = os.getenv("AZURE_OPENAI_KEY")               # API key from Azure portal
@@ -148,8 +152,14 @@ def format_with_llm(text):
             api_key=key,
             api_version="2024-02-01"
         )
+        
+        ### >>> Load the Prompt Tamplate From TXT File
+        propmt = ""
+        prompt_path  = os.path.join(SCRTPT_DIR, 'prompt.txt')
+        with open(prompt_path, 'r') as file:
+            propmt = file.read()
 
-        PROMPT = PROMPT + '\n'+{text}
+        propmt = propmt + '\n' + text
 
         # Call GPT-4.1-mini with forced JSON output
         response = client.chat.completions.create(
@@ -162,28 +172,27 @@ def format_with_llm(text):
                 },
                 {
                     "role": "user",
-                    "content": PROMPT
+                    "content": propmt
                 }
             ],
             max_tokens=1500,
             temperature=0
         )
 
-        LOGS.append(f"Response From Open AI API:{response}")
+        LOGS.append(f"9")
         content = response.choices[0].message.content
-        LOGS.append(f"Content From Open AI API:{content}")
         parsed_data = json.loads(content)  # convert JSON string to dict
-        LOGS.append(f">>>Open AI Returned JSON \n\n{parsed_data}")
+        LOGS.append(f"10 \n\n{parsed_data}")
         return {'status':True,'json':parsed_data}
 
     except Exception as e:
-        LOGS.append(f'Error During Open AI LLM Calling...:{str(e)}')
+        LOGS.append(f'105 {str(e)}')
         return {'status':False,'error':str(e)}
 
 def final_json(JSON):
     
     try:
-        
+    
         def gst_validations(list_of_gst):
             try:
                 list_of_gst = list(set(list_of_gst))
@@ -226,7 +235,7 @@ def final_json(JSON):
                 return ""
 
             except Exception as e:
-                LOGS.append(f'Error During IRN Validation:{str(e)}')
+                LOGS.append(f'108 {str(e)}')
 
         def get_closest_10_digit_string(text, input_string):
 
@@ -255,7 +264,7 @@ def final_json(JSON):
                 return best_match
             
             except Exception as e:
-                LOGS.append(f'Error During SCS/GRN Function To Find Closest Number:{str(e)}')
+                LOGS.append(f'109 {str(e)}')
                 return best_match
                 
         def convert_normalized_to_absolute(cordinates):
@@ -266,9 +275,23 @@ def final_json(JSON):
                 y1 = y0 + cordinates[4] * 72
                 return f"{cordinates[0]},{x0:.2f},{y0:.2f},{x1:.2f},{y1:.2f}"
             except:
-                LOGS.append(f'Error In Convert The PDF Cordinates Function:{str(e)}')
+                LOGS.append(f'110 {str(e)}')
                 return f"{cordinates[0]},{cordinates[1]},{cordinates[2]},{cordinates[3]},{cordinates[4]}"
 
+        def find_closest(data: dict, target: str) -> str:
+
+            keys = list(data.keys())
+            
+            # Try to get best match with cutoff
+            matches = get_close_matches(target, keys, n=1, cutoff=0.6)
+            
+            if matches:
+                return matches[0]
+            
+            # If nothing above cutoff, fallback to absolute closest
+            best_match = max(keys, key=lambda k: SequenceMatcher(None, target, k).ratio())
+            return best_match
+        
 
         gst_result = gst_validations(JSON['data']['Gst'])
 
@@ -276,7 +299,7 @@ def final_json(JSON):
             SAP_JSON['CompanyGstinPdf'] = gst_result['CompanyGstinPdf']
             SAP_JSON['VendorGstin'] = gst_result['VendorGstin']
         else:
-            LOGS.append(f'Error During GST Validation:{gst_result}')
+            LOGS.append(f'107 {gst_result}')
 
         SAP_JSON['IrnNo'] = JSON['data']['IrnNo'] 
         if len(JSON['data']['IrnNo']) != 64:
@@ -326,35 +349,40 @@ def final_json(JSON):
         SAP_JSON['PoLpoIoNoPdf'] = JSON['data']['PoNo'].split('/')[-1]
         # SAP_JSON['CPoLpoIoNo'] = JSON['data']['Email Id']
 
+        if SAP_JSON['CompanyGstinPdf'] != "":
+            closest_key = find_closest(JSON['cordinates'], str(SAP_JSON['CompanyGstinPdf']))
+            result = convert_normalized_to_absolute(JSON['cordinates'][closest_key][0])
+            SAP_JSON["CCompanyGstinPdf"] = result
         
-        if  SAP_JSON['CompanyGstinPdf'] in JSON['cordinates']:
-            result= convert_normalized_to_absolute(JSON['cordinates'][f'{SAP_JSON['CompanyGstinPdf']}'][0])
+        if SAP_JSON['VendorGstin'] != "":
+            closest_key = find_closest(JSON['cordinates'], str(SAP_JSON['VendorGstin']))
+            result = convert_normalized_to_absolute(JSON['cordinates'][closest_key][0])
             SAP_JSON["CCompanyGstinPdf"] = result
 
-        if  SAP_JSON['VendorGstin'] in JSON['cordinates']:
-            result= convert_normalized_to_absolute(JSON['cordinates'][f'{SAP_JSON['VendorGstin']}'][0])
-            SAP_JSON["CCompanyGstinPdf"] = result
-            
-        if  SAP_JSON['InvoiceNo'] in JSON['cordinates']:
-            result= convert_normalized_to_absolute(JSON['cordinates'][f'{SAP_JSON['InvoiceNo']}'][0])
+        if SAP_JSON['InvoiceNo'] != "":
+            closest_key = find_closest(JSON['cordinates'], str(SAP_JSON['InvoiceNo']))
+            result = convert_normalized_to_absolute(JSON['cordinates'][closest_key][0])
             SAP_JSON["CInvoiceNo"] = result
 
-        if  SAP_JSON['InvoiceDate'] in JSON['cordinates']:
-            result= convert_normalized_to_absolute(JSON['cordinates'][f'{SAP_JSON['InvoiceDate']}'][0])
+        if SAP_JSON['InvoiceDate'] != "":
+            closest_key = find_closest(JSON['cordinates'], str(SAP_JSON['InvoiceDate']))
+            result = convert_normalized_to_absolute(JSON['cordinates'][closest_key][0])
             SAP_JSON["CInvoiceDate"] = result
 
-        if  SAP_JSON['InvoiceAmount'] in JSON['cordinates']:
-            result= convert_normalized_to_absolute(JSON['cordinates'][f'{SAP_JSON['InvoiceAmount']}'][0])
+        if SAP_JSON['InvoiceAmount'] != "":
+            closest_key = find_closest(JSON['cordinates'], str(SAP_JSON['InvoiceAmount']))
+            result = convert_normalized_to_absolute(JSON['cordinates'][closest_key][0])
             SAP_JSON["CInvoiceAmount"] = result
 
-        if  SAP_JSON['PoLpoIoNoPdf'] in JSON['cordinates']:
-            result= convert_normalized_to_absolute(JSON['cordinates'][f'{SAP_JSON['PoLpoIoNoPdf']}'][0])
+        if SAP_JSON['PoLpoIoNoPdf'] != "":
+            closest_key = find_closest(JSON['cordinates'], str(SAP_JSON['PoLpoIoNoPdf']))
+            result = convert_normalized_to_absolute(JSON['cordinates'][closest_key][0])
             SAP_JSON["CPoLpoIoNo"] = result
 
-        if  SAP_JSON['IrnNo'] in JSON['cordinates']:
-            result= convert_normalized_to_absolute(JSON['cordinates'][f'{SAP_JSON['IrnNo']}'][0])
+        if SAP_JSON['IrnNo'] != "":
+            closest_key = find_closest(JSON['cordinates'], str(SAP_JSON['IrnNo']))
+            result = convert_normalized_to_absolute(JSON['cordinates'][closest_key][0])
             SAP_JSON["CIrnNo"] = result
-
 
         for item in SAP_JSON['DCCHEADERTODCCSES']:
             ses_grn_scroll_no_pdf = item['SesGrnScrollNoPdf']
@@ -378,7 +406,70 @@ def final_json(JSON):
         return True
 
     except Exception as e:
-        LOGS.append(f'Error During Formating the Final Json in final json Function:{str(e)}')
+        LOGS.append(f'106 {str(e)}')
+        return False
+
+
+def send_data_to_sap(payload):
+
+    try:
+        session = requests.Session()
+
+        # --- Step 1: Fetch CSRF Token ---
+        token_response = session.get(
+            TOKEN_URL,
+            auth=(SAP_USERNAME, SAP_PASSWORD),
+            headers={"x-csrf-token": "Fetch"},
+            verify=False
+        )
+
+        if token_response.status_code != 200:
+            LOGS.append("112")
+            LOGS.append(f"113 {token_response.status_code}")
+            LOGS.append(f"114 {token_response.text}")
+            return False
+
+        csrf_token = token_response.headers.get("x-csrf-token")
+        cookies = token_response.cookies
+
+        LOGS.append(f"14")
+
+        # --- Step 2: Send POST request with CSRF token ---
+        headers = {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "x-csrf-token": csrf_token
+        }
+
+        response = session.post(
+            POST_URL,
+            json=payload,
+            headers=headers,
+            auth=(SAP_USERNAME, SAP_PASSWORD),
+            cookies=cookies,
+            verify=False
+        )
+
+        # --- Step 3: Handle Response ---
+        if response.status_code in [200, 201]:
+            LOGS.append(f'15')
+            inward_ref_no = response.json().get('d', {}).get('InwardRefNo', "")
+
+            if inward_ref_no:
+                LOGS.append(f"16 {inward_ref_no}")
+            else:
+                LOGS.append("115")
+    
+            return True
+
+        else:
+            LOGS.append(f'116')
+            LOGS.append(f"117 {response.status_code}")
+            LOGS.append(f"118 {response.text}")
+            response.raise_for_status()
+    
+    except Exception as e:
+        LOGS.append(f"111 {str(e)}")
         return False
 
 def api_call(payload):
@@ -408,83 +499,81 @@ def api_call(payload):
 
 # === Step 3: Full pipeline per PDF ===
 def process_pdf(pdf_file):
-    LOGS.append('Process PDF Function Called.')
+    LOGS.append('2')
     try:
         SAP_JSON['FileName'] = os.path.basename(pdf_file)
-        LOGS.append(f'Process PDF Filename:{os.path.basename(pdf_file)}')
-        LOGS.append(f'Calling AZURE...')
+        LOGS.append(f'3 {os.path.basename(pdf_file)}')
 
         result_azure = azure_extract_text(pdf_file)
 
-        LOGS.append(f'Response From AZURE Function:{result_azure}')
-
         if result_azure['status']:
-            LOGS.append(f'OPEN AI Function Calling...')
+            
+            LOGS.append(f'8')
             result_llm = format_with_llm(result_azure['text'])
-            LOGS.append(f'Response From OPEN AI Function:{result_llm}')
+
             if result_llm['status']:
-                LOGS.append(f'Calling Final JSON Formating Function...')
+                
+                LOGS.append(f'11')
+                
                 result_final_json = final_json({'data':result_llm['json'],'text':result_azure['text'],'cordinates':result_azure['cordinates']})
-                LOGS.append(f'Respons From Final JSON Formating Function:{result_final_json}')
+                
+                LOGS.append(f'12 {result_final_json}')
+
                 if result_final_json:
                     SAP_JSON['ErrorType'] = 'S'
-                    LOGS.append(f'>>>>> Final JSON:\n\n{SAP_JSON}') 
                     
-                    # api_call(SAP_JSON)
-                    
-                    return {'success':True , 'msg':"Opration Sucessfull :)" , 'JSON':SAP_JSON}
+                    LOGS.append(f'13') 
+                    result_sap_api = send_data_to_sap(SAP_JSON)
 
+                    if result_sap_api:
+                        LOGS.append(f'17')
+                        return {'success':True ,'JSON':SAP_JSON}
+                    else:
+                        return {'success':False , 'JSON':SAP_JSON , 'logs':LOGS}
                 else:
-                    LOGS.append(f'Error >>> Respons From Final JSON Formating Function:{result_final_json}')
+                    return {'success':False , 'JSON':SAP_JSON , 'logs':LOGS}
             else:
-                LOGS.append(f'Error >>> Response From OPEN AI Function:{result_llm}')
+                return {'success':False , 'JSON':SAP_JSON , 'logs':LOGS}
         else:
-            LOGS.append(f'Error >>> Response From AZURE Function:{result_azure}')
+            return {'success':False , 'JSON':SAP_JSON , 'logs':LOGS}
+
             
-
-        # payload = {'pdf_name': f"{str(pdf_file.split('\\')[-1])}", 'text': f"{str(extracted_text)}"}
-        # api_response = api_call(payload)
-
-        # return api_response
-
     except Exception as e:
-
-        LOGS.append(f"❌ Giving up on {pdf_file}: {e}")
-        return {'success':False , 'error':str(e) , 'JSON':SAP_JSON , 'msg':"Opration Unsucessfull!"}
+        LOGS.append(f"102 {os.path.basename(pdf_file)}: {str(e)}")
+        return {'success':False , 'error':str(e), 'logs':LOGS}
     
-
 
 
 # === Step 4: Rolling execution with limited concurrency ===
 def process_pdfs(folder_path, max_workers=3):
     
-    LOGS.append('Process PDFs Function Called.')
-    pdf_files = sorted(
-        [os.path.join(folder_path, f) for f in os.listdir(folder_path) if f.lower().endswith(".pdf")]
-    )
+    try:
+        pdf_files = sorted(
+            [os.path.join(folder_path, f) for f in os.listdir(folder_path) if f.lower().endswith(".pdf")]
+        )
 
-    results = []
-    with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
-        future_to_pdf = {executor.submit(process_pdf, pdf):pdf for pdf in pdf_files}
+        results = []
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+            future_to_pdf = {executor.submit(process_pdf, pdf):pdf for pdf in pdf_files}
 
-        for future in concurrent.futures.as_completed(future_to_pdf):
-            pdf_name = future_to_pdf[future]
-            try:
-                result = future.result()
-                results.append(result)
-            except Exception as e:
-                LOGS.append(f"⚠️ Unhandled exception for {pdf_name}: {e}")
+            for future in concurrent.futures.as_completed(future_to_pdf):
+                pdf_name = future_to_pdf[future]
+                try:
+                    result = future.result()
+                    results.append(result)
+                except Exception as e:
+                    LOGS.append(f"101 {pdf_name}: {e}")
 
-    return results
+        return results
 
+    except Exception as e:
+        LOGS.append('404')
 
 # === Example Usage ===
 if __name__ == "__main__":
 
-    
     folder_path = r"C:\Users\111439\OneDrive - Torrent Gas Ltd\Desktop\TORRENT\test"
-    # final_results = process_pdfs(folder_path, max_workers=3)
-    # print(LOGS)
-    # print("\n=== Final Collected Results ===")
-    # for r in final_results:
-    #     print(r)
+    final_results = process_pdfs(folder_path, max_workers=3)
+    print("\n=== Final Collected Results ===")
+    for r in final_results:
+        print(r)

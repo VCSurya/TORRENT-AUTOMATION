@@ -1,6 +1,6 @@
 
 from itertools import combinations
-from difflib import SequenceMatcher
+from difflib import SequenceMatcher , get_close_matches
 import json
 import re
 
@@ -191,6 +191,30 @@ SAP_API['InvoiceAmount'] = JSON['data']['InvoiceAmount']
 SAP_API['PoLpoIoNoPdf'] = JSON['data']['PoNo'].split('/')[-1]
 
 
+def find_closest(data: dict, target: str) -> str:
+
+    keys = list(data.keys())
+    
+    # Try to get best match with cutoff
+    matches = get_close_matches(target, keys, n=1, cutoff=0.6)
+    
+    if matches:
+        return matches[0]
+    
+    # If nothing above cutoff, fallback to absolute closest
+    best_match = max(keys, key=lambda k: SequenceMatcher(None, target, k).ratio())
+    return best_match
 
 
-print(SAP_API)
+all_keys = [i for i in JSON['cordinates']]
+# print(SAP_API)
+word_to_find = "FGSMO0308"
+closest_key = find_closest(JSON['cordinates'], word_to_find)
+result = convert_normalized_to_absolute(JSON['cordinates'][closest_key])
+print(result)
+print(type(result))
+
+# for i ,v in enumerate(JSON['cordinates']):
+#     if len(v) > 2:
+#         print(i)
+#         print(v)

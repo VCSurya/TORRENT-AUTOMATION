@@ -25,4 +25,4 @@ def gst_validations(list_of_gst):
 print(gst_validations([
     "27AAACA3640H1Z0",
     "08AAGCT7889P1Z3"
-  ]))
+]))
