@@ -3,6 +3,7 @@ import re
 import fitz
 import json
 import time
+import shutil
 import base64
 import random
 import requests
@@ -31,13 +32,6 @@ TOKEN_URL = f"{BASE_URL}/"
 SAP_USERNAME = os.getenv('SAP_USERNAME')   
 SAP_PASSWORD = os.getenv('SAP_PASSWORD')   
 
-### >>> Load the SAP JSON Tamplate
-SAP_JSON = None
-sap_file_path = os.path.join(SCRTPT_DIR, 'sap.json')
-with open(sap_file_path, 'r') as file:
-    SAP_JSON = json.load(file)
-
-
 
 ### >>> Load the PAN Numbers From TXT File
 PAN_NO = None
@@ -61,28 +55,7 @@ def extract_file_name(xml_text):
 
     return xml_text[start_index:end_index]
 
-
-# === Retry decorator ===
-def retry_with_backoff(max_retries=5, backoff_factor=2, allowed_exceptions=(Exception,)):
-    def decorator(func):
-        def wrapper(*args, **kwargs):
-            delay = 1
-            for attempt in range(max_retries):
-                try:
-                    return func(*args, **kwargs)
-                except allowed_exceptions as e:
-                    if attempt == max_retries - 1:
-                        LOGS.append(f"Failed after {max_retries} retries: {e}")
-                        raise
-                    sleep_time = delay + random.uniform(0, 0.5)  # jitter
-                    LOGS.append(f"Error: {e} → retrying in {sleep_time:.1f}s (attempt {attempt+1})")
-                    time.sleep(sleep_time)
-                    delay *= backoff_factor
-        return wrapper
-    return decorator
-
 # === Step 1: Extract text from Azure ===
-@retry_with_backoff(max_retries=5, backoff_factor=2, allowed_exceptions=(requests.RequestException,))
 def azure_extract_text(pdf_file):
     
         LOGS.append(f"4")
@@ -156,7 +129,6 @@ def azure_extract_text(pdf_file):
             return {'status':False,'error':str(e)}
 
 # === Step 2: Send to LLM ===
-@retry_with_backoff(max_retries=5, backoff_factor=2, allowed_exceptions=(requests.RequestException,))
 def format_with_llm(text):
 
     try:
@@ -204,14 +176,14 @@ def format_with_llm(text):
         LOGS.append(f"9")
         content = response.choices[0].message.content
         parsed_data = json.loads(content)  # convert JSON string to dict
-        LOGS.append(f"10 \n\n{parsed_data}")
+        LOGS.append(f"10")
         return {'status':True,'json':parsed_data}
 
     except Exception as e:
         LOGS.append(f'105 {str(e)}')
         return {'status':False,'error':str(e)}
 
-def final_json(JSON):
+def final_json(JSON,SAP_JSON):
     
     try:
 
@@ -344,8 +316,8 @@ def final_json(JSON):
 
             return matched_key
                 
-        with open('latest/latest_pdf_azure_text_cordinates.txt', 'w',encoding='utf-8') as file:
-            file.write(str(JSON['cordinates']))
+        with open('latest/latest_pdf_azure_text_cordinates.json', 'w', encoding='utf-8') as file:
+            json.dump(JSON['cordinates'], file, ensure_ascii=False, indent=4)
 
         gst_result = gst_validations(JSON['data']['Gst'])
 
@@ -371,6 +343,7 @@ def final_json(JSON):
 
             # Check if data is not exactly 10-digit numeric
             if not (len(data) == 10 and data.isdigit()):
+                LOGS.append(f"22 {data}")
                 closest_string = get_closest_10_digit_string(JSON['text'], data)
                 if closest_string:
                     ses_no = closest_string  # replace with closest match
@@ -440,18 +413,20 @@ def final_json(JSON):
 
         for item in SAP_JSON['DCCHEADERTODCCSES']:
             ses_grn_scroll_no_pdf = item['SesGrnScrollNoPdf']
-
-            closest_key = find_closest(JSON['cordinates'], str(ses_grn_scroll_no_pdf))
-            # Assuming `convert_normalized_to_absolute` is a function defined elsewhere
-            result = convert_normalized_to_absolute(JSON['cordinates'][closest_key][0])        
-            # Here we update the item directly in the list
-            item["CSesGrnScrollNoPdf"] = result
+            
+            if ses_grn_scroll_no_pdf != "":
+                closest_key = find_closest(JSON['cordinates'], str(ses_grn_scroll_no_pdf))
+                # Assuming `convert_normalized_to_absolute` is a function defined elsewhere
+                result = convert_normalized_to_absolute(JSON['cordinates'][closest_key][0])        
+                # Here we update the item directly in the list
+                item["CSesGrnScrollNoPdf"] = result
+        
             item['CreatedOn'] = "20250910"
             item['ChangedOn'] = "20250918"
             item['CreatedBy'] = "DEVESH"
             item['ChangedBy'] = "DEVESH"
             item['PoNo'] = SAP_JSON['PoLpoIoNoPdf']
-            
+        
         SAP_JSON['CreatedOn'] = "20250910"
         SAP_JSON['ChangedOn'] = "20250918"
         SAP_JSON['CreatedBy'] = "DEVESH"
@@ -463,7 +438,7 @@ def final_json(JSON):
         LOGS.append(f'106 {str(e)}')
         return {'status':False,'error':str(e)}
 
-def send_pdf_to_sap(pdf_path,inverd_ref_no,status,pdf_name):
+def send_pdf_to_sap(pdf_path,inverd_ref_no,status,pdf_name,SAP_JSON):
     LOGS.append(f'17')
     try:
         # Read PDF and convert to Base64
@@ -521,6 +496,10 @@ def send_pdf_to_sap(pdf_path,inverd_ref_no,status,pdf_name):
                 LOGS.append(f'20')
                 SAP_JSON['ErrorType'] = 'S'
                 SAP_JSON['InwardRefNo'] = f'{inverd_ref_no}'
+
+                for item in SAP_JSON['DCCHEADERTODCCSES']:
+                    item['InwardRefNo'] = f"{inverd_ref_no}"
+
                 return {'status':True,'no':res.split('_')[0]}
                 
             else:
@@ -546,7 +525,7 @@ def send_pdf_to_sap(pdf_path,inverd_ref_no,status,pdf_name):
         return {'status':False,'error':f'{str(e)}','no':inverd_ref_no}
 
 
-def send_data_to_sap(payload):
+def send_data_to_sap(SAP_JSON):
 
     try:
         session = requests.Session()
@@ -579,7 +558,7 @@ def send_data_to_sap(payload):
 
         response = session.post(
             POST_URL,
-            json=payload,
+            json=SAP_JSON,
             headers=headers,
             auth=(SAP_USERNAME, SAP_PASSWORD),
             cookies=cookies,
@@ -587,6 +566,8 @@ def send_data_to_sap(payload):
         )
 
         inward_ref_no = response.json().get('d', {}).get('InwardRefNo', "")
+        LOGS.append(f"16 {inward_ref_no}!")
+
         # --- Step 3: Handle Response ---
         if response.status_code in [200, 201]:
             LOGS.append(f'15')
@@ -600,45 +581,24 @@ def send_data_to_sap(payload):
                 return {'status':False ,'error': 'Inward Refrence Number Not Recived!'}
 
         else:
-            
             LOGS.append(f'116')
             LOGS.append(f"117 {response.status_code}")
             LOGS.append(f"118 {response.text}")
-            response.raise_for_status()
-            return {'status':True ,'no': inward_ref_no if inward_ref_no else ""}
+            return {'status':True ,'no': inward_ref_no}
     
     except Exception as e:
         LOGS.append(f"111 {str(e)}")
         return {'status':False ,'error': str(e)}
 
 
-def api_call(payload):
-    try:
-        url = os.getenv('API_URL')
-        headers = {
-            "Authorization": "Bearer YOUR_API_KEY",  # Replace with your actual key or make it configurable
-            "Content-Type": "application/json"
-        }
-
-        # Send the dict directly to `json=`
-        response = requests.post(url, json=payload, headers=headers)
-
-        if response.ok:
-            LOGS.append(f'Sucessfully API Called:{response}')
-            return response
-        else:
-            response.raise_for_status()
-    
-    except Exception as e:
-        LOGS.append(f'Error In API Calling Function:{str(e)}')
-        return {
-            'success': False,
-            'error': str(e),
-            'stage': 'Error in API calling function!'
-        }
-
 # === Step 3: Full pipeline per PDF ===
 def process_pdf(pdf_file):
+    LOGS.clear()
+    ### >>> Load the SAP JSON Tamplate
+    sap_file_path = os.path.join(SCRTPT_DIR, 'sap.json')
+    with open(sap_file_path, 'r') as file:
+        SAP_JSON = json.load(file)
+
     LOGS.append('2')
     try:
         SAP_JSON['FileName'] = os.path.basename(pdf_file)
@@ -655,7 +615,7 @@ def process_pdf(pdf_file):
                 
                 LOGS.append(f'11')
                 
-                result_final_json = final_json({'data':result_llm['json'],'text':result_azure['text'],'cordinates':result_azure['cordinates']})
+                result_final_json = final_json({'data':result_llm['json'],'text':result_azure['text'],'cordinates':result_azure['cordinates']},SAP_JSON)
                 
                 LOGS.append(f'12 {result_final_json}')
 
@@ -690,10 +650,12 @@ def process_pdf(pdf_file):
         
         if result['status']:
             
-            if (result['no'] is not None) or (result['no'] != ""): 
-                response = send_pdf_to_sap(pdf_file,result['no'],'S',os.path.basename(pdf_file))
-                
+            if result['no'] != "": 
+                response = send_pdf_to_sap(pdf_file,result['no'],'S',os.path.basename(pdf_file),SAP_JSON)
                 result = response
+            
+            else:
+                LOGS.append(f'120')
 
         LOGS.append(f'21')
 
@@ -702,14 +664,17 @@ def process_pdf(pdf_file):
             logs_steps = []
 
             for index,value in enumerate(LOGS):
-                logs_steps.append(f"Step {index}: {value.replace(value.split()[0],logs[value.split()[0]])}")
+                logs_steps.append(f"Step {index} ({value.split()[0]}): {value.replace(value.split()[0],logs[value.split()[0]])}")
 
             with open('latest/latest_pdf_logs.txt', 'w',encoding='utf-8') as file:
                 file.write(str(logs_steps))
         
-        with open('latest/latest_pdf_output.txt', 'w',encoding='utf-8') as file:
-            file.write(str(SAP_JSON))
+        with open('latest/latest_pdf_output.json', 'w',encoding='utf-8') as file:
+            json.dump(SAP_JSON, file, ensure_ascii=False, indent=4)
         
+        destination_path = os.path.join('latest/', "latest.pdf")
+        shutil.copy(pdf_file,destination_path)
+
         result['json'] = SAP_JSON
 
         return result

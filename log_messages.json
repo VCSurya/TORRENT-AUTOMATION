@@ -20,6 +20,7 @@
     "19": "Opration Sucessfull.",
     "20": "File Name Recived From SAP API POST API",
     "21": "Operation Sucessfull!",
+    "22": "Find Closest SCS/GRN For:",
     "101": "Unhandled exception for:",
     "102": "Giving UP On Main Function:",
     "103": "Error Processing at AZURE Extraction Function",
@@ -39,6 +40,7 @@
     "117": "Error Response Status Code:",
     "118": "Error Response:",
     "119": "Failed to send PDF TO SAP",
+    "120": "PDF Not SAVE Into SAP A11 Beacause Refrence Number Not Found!",
     "404": "Auto Process Error In Process PDFs Function",
     "801": "Automation API Return Exception ERROR",
     "401": "Not Found Required DATA"

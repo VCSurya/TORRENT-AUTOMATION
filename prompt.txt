@@ -23,7 +23,7 @@ STRICT RULES:
 3. **InvoiceAmount**: Must be a numerical value, with no currency symbols. Allow commas, but remove them in the output.
 4. If there are **multiple GST, PAN, or SES/GRN/SCROLL numbers**, include all of them in their respective lists.
 5. **IrnNo**: Must be exactly 64 characters in hexadecimal (0-9, a-f). If the IRN is split across multiple lines, combine them. Return "" if not exactly 64 characters.
-6. **PoNo**: Specifically means **Purchase Order Number**. Extract the complete PO number in all possible variations, including "PO", "PO No.", and "Purchase Order No.". PO number could contain prefixes, sequential numbers, division codes, or other identifiers and may have slashes, dashes, or spaces. Return only the full PO number.
+6. **PoNo**: Specifically means **Purchase Order Number**. Extract the complete PO number in all possible variations, including "PO", "PO No.","Buyer's Order No." and "Purchase Order No.". PO number could contain prefixes, sequential numbers, division codes, or other identifiers and may have slashes, dashes, or spaces. Return only the full PO number.
 7. Do not **add, remove, or modify** any fields in the JSON output.
 8. The final output **must** be valid JSON with no extra text.
 

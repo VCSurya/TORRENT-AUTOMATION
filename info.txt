@@ -1,0 +1,37 @@
+1. for runnig the api you have to run the flask_api.py here all endpoint are define
+
+    - '/upload_pdf' it is POST End point it tack the pdf name and pdf base64 as parmaters in json format and this end point using the main.py file for process pdf and return the result 
+
+    - '/help' it is get endpoint it render the html template in this also it return the latest logs,azure extrected text and thare cordinates,open ai response,prompt template and final output json
+
+    - '/edit-prompt' it is post end point using this user can edit the promtp template from frontend
+
+2. main.py file is the main processing file where all thing are process like pdf azure text Extraction and open ai llm calling and also the json formating acording to given format 
+
+    - # def process_pdf(pdf_file): it process the pdf one by one this method call from frontend side 
+    - # def azure_extract_text: pass the pdf to azure for text Extraction
+    - # def format_with_llm: pass the azure extracted text to llm for getting the data in json fromat
+    - # def final_json: now finaly make the final json to send data in sap odata api acording to pre define json structher
+    - # def send_data_to_sap: it send the final json into sap api
+    - # def send_pdf_to_sap: it send the pdf in base64 to sap api to save into a11 
+
+4. /latest in this saved the latest processing pdf all opration data
+    
+    - latest_pdf_azure_text_cordinates.json
+    - latest_pdf_azure_text.txt
+    - latest_pdf_logs.txt
+    - latest_pdf_open_ai_respons.txt
+    - latest_pdf_output.json
+    - latest_pdf_output.json
+
+3. /template in this dir we define the help.html template to show all latest data at frontend
+
+4. /upload_pdf in this dir temporeri save the pdf which is use during processing and after processing remove the pdf
+
+5. log_messages.json in this file save the cutome logs with define custome status codes
+
+6. pan.txt in this file save the all pan numbers for idefntify the our gst numbers
+
+7. promtp.txt in this define the open ai default prompt template for geting the data in json format
+
+8. sap.json in this file define the SAP API SEND JSON DATA default formated template

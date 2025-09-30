@@ -1,9 +1,10 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify,render_template
 import os
 import base64
 from main import process_pdf
 from flask_cors import  CORS
-import json
+from jinja2 import Template
+import json, ast
 
 app = Flask(__name__)
 
@@ -50,8 +51,6 @@ def upload_pdf():
     
         result = process_pdf(os.path.abspath(file_path))
 
-        print(result.get('json') if result.get('json') else "")
-
         if os.path.exists(os.path.abspath(file_path)):
             os.remove(os.path.abspath(file_path))
         
@@ -66,6 +65,56 @@ def upload_pdf():
     except Exception as e:
         return jsonify({'success':"","error": str(e)}), 500
 
+@app.route('/help', methods=['GET'])
+def help():
+
+    # Load data
+    with open("latest/latest_pdf_azure_text.txt",'r',encoding='utf-8') as file:
+        TEXT = file.read()
+
+    with open("latest/latest_pdf_azure_text_cordinates.json", 'r', encoding='utf-8') as file:
+        WORD_CORDINATES = json.dumps(json.load(file), indent=2)
+
+    with open("latest/latest_pdf_output.json", 'r', encoding='utf-8') as file:
+        FINAL_JSON = json.dumps(json.load(file), indent=2)
+
+    with open("latest/latest_pdf_logs.txt", 'r', encoding='utf-8') as file:
+        content = file.read()
+        LOGS = ast.literal_eval(content)  # Safely parse string to list
+        LOGS = json.dumps(LOGS, indent=2)  # Format nicely for HTML
+
+    with open("latest/latest_pdf_open_ai_respons.txt", 'r', encoding='utf-8') as file:
+        OPEN_AI_RESPONS = file.read()
+
+    with open("prompt.txt", 'r', encoding='utf-8') as file:
+        PROMPT_TEMPLATE = file.read()
+
+    return render_template('help.html',
+                           TEXT=TEXT,
+                           WORD_CORDINATES=WORD_CORDINATES,
+                           FINAL_JSON=FINAL_JSON,
+                           LOGS=LOGS,
+                           OPEN_AI_RESPONS=OPEN_AI_RESPONS,
+                           PROMPT_TEMPLATE=PROMPT_TEMPLATE)
+
+
+@app.route('/edit-prompt', methods=['POST'])
+def edit_prompt():
+    try:
+        data = request.get_json()
+
+        if not data or 'prompt' not in data:
+            return jsonify({'error': 'Missing "prompt" in request body'}), 400
+
+        prompt_text = data['prompt']
+
+        with open('prompt.txt', 'w', encoding='utf-8') as f:
+            f.write(prompt_text)
+
+        return jsonify({'message': 'Prompt saved successfully'}), 200
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 @app.route('/', methods=['GET'])
 def main():
