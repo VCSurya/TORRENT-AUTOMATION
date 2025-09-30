@@ -7,7 +7,7 @@ load_dotenv()
 
 text = None
 
-with open(r"C:\Users\111439\OneDrive - Torrent Gas Ltd\Desktop\TORRENT\all_pdfs_json copy\TU00055FY26_Junagadh- apr to jun'25.txt",'r',encoding='utf-8') as f:
+with open(r"out.txt",'r',encoding='utf-8') as f:
     text = str(f.read())
 
 # Environment variables

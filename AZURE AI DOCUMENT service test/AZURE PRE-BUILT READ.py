@@ -37,26 +37,39 @@ if __name__ == "__main__":
     endpoint = os.getenv("AZURE_ENDPOINT")
     key = os.getenv("AZURE_API_KEY")
 
-    input_folder = r"C:\Users\111439\OneDrive - Torrent Gas Ltd\Desktop\TORRENT\PDFs"
-    output_folder = r"C:\Users\111439\OneDrive - Torrent Gas Ltd\Desktop\TORRENT\all_pdfs_extracted_text"
+    pdf_path = r"C:\Users\111439\Downloads\safepdfkit (1).pdf"
 
-    # Create output folder if not exists
-    os.makedirs(output_folder, exist_ok=True)
+    extracted_text = extract_text_from_pdf(pdf_path, endpoint, key)
 
-    for file_name in os.listdir(input_folder):
-        if file_name.lower().endswith(".pdf"):
-            pdf_path = os.path.join(input_folder, file_name)
-            print(f"📄 Processing: {pdf_path}")
+    if extracted_text:
+       
+        with open('out.txt', "w", encoding="utf-8") as out_file:
+            out_file.write(extracted_text)
 
-            extracted_text = extract_text_from_pdf(pdf_path, endpoint, key)
+        # print(f"✅ Saved: {txt_path}")
+    
+    # else:
+    #     print(f"⚠️ Skipped: {file_name}")
+    # input_folder = r"C:\Users\111439\OneDrive - Torrent Gas Ltd\Desktop\TORRENT\PDFs"
+    # output_folder = r"C:\Users\111439\OneDrive - Torrent Gas Ltd\Desktop\TORRENT\all_pdfs_extracted_text"
 
-            if extracted_text:
-                txt_name = os.path.splitext(file_name)[0] + ".txt"
-                txt_path = os.path.join(output_folder, txt_name)
+    # # Create output folder if not exists
+    # os.makedirs(output_folder, exist_ok=True)
 
-                with open(txt_path, "w", encoding="utf-8") as out_file:
-                    out_file.write(extracted_text)
+    # for file_name in os.listdir(input_folder):
+    #     if file_name.lower().endswith(".pdf"):
+    #         pdf_path = os.path.join(input_folder, file_name)
+    #         print(f"📄 Processing: {pdf_path}")
 
-                print(f"✅ Saved: {txt_path}")
-            else:
-                print(f"⚠️ Skipped: {file_name}")
+    #         extracted_text = extract_text_from_pdf(pdf_path, endpoint, key)
+
+    #         if extracted_text:
+    #             txt_name = os.path.splitext(file_name)[0] + ".txt"
+    #             txt_path = os.path.join(output_folder, txt_name)
+
+    #             with open(txt_path, "w", encoding="utf-8") as out_file:
+    #                 out_file.write(extracted_text)
+
+    #             print(f"✅ Saved: {txt_path}")
+    #         else:
+    #             print(f"⚠️ Skipped: {file_name}")

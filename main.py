@@ -3,6 +3,7 @@ import re
 import fitz
 import json
 import time
+import base64
 import random
 import requests
 import concurrent.futures
@@ -22,6 +23,7 @@ SCRTPT_DIR = os.path.dirname(os.path.abspath(__file__))
 # --- SAP URLs ---
 BASE_URL = os.getenv('SAP_BASE_URL')
 POST_URL = f"{BASE_URL}/ZFI_DCC_HEADERSet"
+ATTACHMENT_URL = f"{BASE_URL}/AttachmentSet"
 # For CSRF token fetch, root or entityset is enough (no $expand needed)
 TOKEN_URL = f"{BASE_URL}/"
 
@@ -43,6 +45,23 @@ prompt_path  = os.path.join(SCRTPT_DIR, 'pan.txt')
 with open(prompt_path, 'r') as file:
     PAN_NO = set(file.read().splitlines())
 
+# Extracting The File Name From SAP PDF POST API Response
+def extract_file_name(xml_text):
+    start_tag = "<d:FileName>"
+    end_tag = "</d:FileName>"
+
+    start_index = xml_text.find(start_tag)
+    if start_index == -1:
+        return None  # FileName tag not found
+
+    start_index += len(start_tag)
+    end_index = xml_text.find(end_tag, start_index)
+    if end_index == -1:
+        return None  # Closing tag not found
+
+    return xml_text[start_index:end_index]
+
+
 # === Retry decorator ===
 def retry_with_backoff(max_retries=5, backoff_factor=2, allowed_exceptions=(Exception,)):
     def decorator(func):
@@ -53,10 +72,10 @@ def retry_with_backoff(max_retries=5, backoff_factor=2, allowed_exceptions=(Exce
                     return func(*args, **kwargs)
                 except allowed_exceptions as e:
                     if attempt == max_retries - 1:
-                        print(f"❌ Failed after {max_retries} retries: {e}")
+                        LOGS.append(f"Failed after {max_retries} retries: {e}")
                         raise
                     sleep_time = delay + random.uniform(0, 0.5)  # jitter
-                    print(f"⚠️ Error: {e} → retrying in {sleep_time:.1f}s (attempt {attempt+1})")
+                    LOGS.append(f"Error: {e} → retrying in {sleep_time:.1f}s (attempt {attempt+1})")
                     time.sleep(sleep_time)
                     delay *= backoff_factor
         return wrapper
@@ -123,7 +142,7 @@ def azure_extract_text(pdf_file):
                 LOGS.append(f"6")
                 LOGS.append(f"7")
 
-                with open('latest_pdf_azure_text.txt', 'w') as file:
+                with open('latest/latest_pdf_azure_text.txt', 'w',encoding='utf-8') as file:
                     file.write(TEXT)
 
                 return {'status':True,'text':TEXT,'cordinates':extracted_words}
@@ -179,6 +198,9 @@ def format_with_llm(text):
             temperature=0
         )
 
+        with open('latest/latest_pdf_open_ai_respons.txt', 'w',encoding='utf-8') as file:
+            file.write(str(response))
+
         LOGS.append(f"9")
         content = response.choices[0].message.content
         parsed_data = json.loads(content)  # convert JSON string to dict
@@ -192,20 +214,29 @@ def format_with_llm(text):
 def final_json(JSON):
     
     try:
-    
-        def gst_validations(list_of_gst):
-            try:
-                list_of_gst = list(set(list_of_gst))
-                vendor_gst = list_of_gst[0]
-                company_gst = list_of_gst[1]
-                for i in list_of_gst:
-                    if len(i) == 15:
-                        if i[2:12] in PAN_NO:
-                            company_gst = i
-                        else:
-                            vendor_gst = i
 
-                return {'status':True , "CompanyGstinPdf":company_gst,"VendorGstin":vendor_gst}
+        def gst_validations(gst_list):
+            
+            def similarity(a, b):
+                return SequenceMatcher(None, a, b).ratio()
+            
+            try:    
+                best_gst = None
+                best_score = -1
+                
+                for gst in gst_list:
+                    gst_pan_part = gst[2:12]  # GST PAN is at position 3-12
+                    for pan in PAN_NO:
+                        score = similarity(gst_pan_part, pan)
+                        if score > best_score:
+                            best_score = score
+                            best_gst = gst
+                
+                gst_list.remove(best_gst)
+                vendor_gst = gst_list[0] if len(gst_list) > 0 else "" 
+                
+                return {'status':True , "CompanyGstinPdf":best_gst,"VendorGstin":vendor_gst}
+            
             except Exception as e:
                 return {'status':False , "error":str(e)}
 
@@ -281,17 +312,40 @@ def final_json(JSON):
         def find_closest(data: dict, target: str) -> str:
 
             keys = list(data.keys())
-            
-            # Try to get best match with cutoff
-            matches = get_close_matches(target, keys, n=1, cutoff=0.6)
-            
-            if matches:
-                return matches[0]
-            
-            # If nothing above cutoff, fallback to absolute closest
-            best_match = max(keys, key=lambda k: SequenceMatcher(None, target, k).ratio())
-            return best_match
-        
+            # First, check exact substring match
+            substring_matches = [k for k in keys if str(target) in k]
+
+            if substring_matches:
+                matched_key = substring_matches[0]  # pick first substring match
+            else:
+                # Try get_close_matches
+                matches = get_close_matches(str(target), keys, n=1, cutoff=0.6)
+                if matches:
+                    matched_key = matches[0]
+                else:
+                    # fallback to absolute closest using ratio
+                    matched_key = max(keys, key=lambda k: SequenceMatcher(None, str(target), k).ratio())
+
+            # Prepare structured coordinates
+            coords_list = []
+            for coord in data[matched_key]:
+                if len(coord) == 7:  # expected 7 elements
+                    coords_list.append({
+                        'page': coord[0],
+                        'x': coord[1],
+                        'y': coord[2],
+                        'width': coord[3],
+                        'height': coord[4],
+                        'page_width': coord[5],
+                        'page_height': coord[6]
+                    })
+                else:
+                    coords_list.append({'raw': coord})  # fallback if malformed
+
+            return matched_key
+                
+        with open('latest/latest_pdf_azure_text_cordinates.txt', 'w',encoding='utf-8') as file:
+            file.write(str(JSON['cordinates']))
 
         gst_result = gst_validations(JSON['data']['Gst'])
 
@@ -357,7 +411,7 @@ def final_json(JSON):
         if SAP_JSON['VendorGstin'] != "":
             closest_key = find_closest(JSON['cordinates'], str(SAP_JSON['VendorGstin']))
             result = convert_normalized_to_absolute(JSON['cordinates'][closest_key][0])
-            SAP_JSON["CCompanyGstinPdf"] = result
+            SAP_JSON["CVendorGstin"] = result
 
         if SAP_JSON['InvoiceNo'] != "":
             closest_key = find_closest(JSON['cordinates'], str(SAP_JSON['InvoiceNo']))
@@ -386,28 +440,110 @@ def final_json(JSON):
 
         for item in SAP_JSON['DCCHEADERTODCCSES']:
             ses_grn_scroll_no_pdf = item['SesGrnScrollNoPdf']
+
+            closest_key = find_closest(JSON['cordinates'], str(ses_grn_scroll_no_pdf))
+            # Assuming `convert_normalized_to_absolute` is a function defined elsewhere
+            result = convert_normalized_to_absolute(JSON['cordinates'][closest_key][0])        
+            # Here we update the item directly in the list
+            item["CSesGrnScrollNoPdf"] = result
+            item['CreatedOn'] = "20250910"
+            item['ChangedOn'] = "20250918"
+            item['CreatedBy'] = "DEVESH"
+            item['ChangedBy'] = "DEVESH"
+            item['PoNo'] = SAP_JSON['PoLpoIoNoPdf']
             
-            if ses_grn_scroll_no_pdf in JSON['cordinates']:
-                # Assuming `convert_normalized_to_absolute` is a function defined elsewhere
-                result = convert_normalized_to_absolute(JSON['cordinates'][ses_grn_scroll_no_pdf][0])        
-                # Here we update the item directly in the list
-                item["CSesGrnScrollNoPdf"] = result
-                item['CreatedOn'] = "20250910"
-                item['ChangedOn'] = "20250918"
-                item['CreatedBy'] = "DEVESH"
-                item['ChangedBy'] = "DEVESH"
-                item['PoNo'] = SAP_JSON['PoLpoIoNoPdf']
-                
         SAP_JSON['CreatedOn'] = "20250910"
         SAP_JSON['ChangedOn'] = "20250918"
         SAP_JSON['CreatedBy'] = "DEVESH"
         SAP_JSON['ChangedBy'] = "DEVESH"
         
-        return True
+        return {'status':True}
 
     except Exception as e:
         LOGS.append(f'106 {str(e)}')
-        return False
+        return {'status':False,'error':str(e)}
+
+def send_pdf_to_sap(pdf_path,inverd_ref_no,status,pdf_name):
+    LOGS.append(f'17')
+    try:
+        # Read PDF and convert to Base64
+        with open(pdf_path, "rb") as f:
+            pdf_bytes = f.read()
+        pdf_base64 = base64.b64encode(pdf_bytes).decode('utf-8')
+        
+        session = requests.Session()
+
+        # --- Step 1: Fetch CSRF Token ---
+        token_response = session.get(
+            TOKEN_URL,
+            auth=(SAP_USERNAME, SAP_PASSWORD),
+            headers={"x-csrf-token": "Fetch"},
+            verify=False
+        )
+
+        if token_response.status_code != 200:
+            LOGS.append("112")
+            LOGS.append(f"113 {token_response.status_code}")
+            LOGS.append(f"114 {token_response.text}")
+            SAP_JSON['ErrorType'] = 'E'
+            SAP_JSON['ErrorNo'] = "112"
+            SAP_JSON['ErrorMsg'] = f"SAP PDF POST API CSRF Token Not Found!"
+            return {'status':False ,'error': 'SAP PDF POST API CSRF Token Not Found!'}
+
+
+        csrf_token = token_response.headers.get("x-csrf-token")
+        cookies = token_response.cookies
+        LOGS.append(f"14")
+
+
+        # --- Step 2: Send POST request with CSRF token ---
+        headers = {
+            "Content-Type": "application/pdf",
+            "x-csrf-token": csrf_token,
+            "Slug": f'{inverd_ref_no}_{status}_{pdf_name}'
+        }
+
+        response = session.post(
+            ATTACHMENT_URL,
+            data=pdf_base64,
+            headers=headers,
+            auth=(SAP_USERNAME, SAP_PASSWORD),
+            cookies=cookies,
+            verify=False
+        )
+
+        # --- Step 3: Handle Response ---
+        if response.status_code in [200, 201]:
+            LOGS.append(f'15')
+            res = extract_file_name(response.text)
+            
+            if (res is not None) or (res != ""):
+                LOGS.append(f'20')
+                SAP_JSON['ErrorType'] = 'S'
+                SAP_JSON['InwardRefNo'] = f'{inverd_ref_no}'
+                return {'status':True,'no':res.split('_')[0]}
+                
+            else:
+                SAP_JSON['ErrorType'] = 'E'
+                SAP_JSON['ErrorNo'] = "401"
+                SAP_JSON['ErrorMsg'] = f"PDF File Name Not Recived From SAP PDF POST API!"
+                return {'status':False,'error':'PDF File Name Not Recived From SAP PDF POST API!','no':inverd_ref_no}
+        else:
+            LOGS.append(f"119")
+            LOGS.append(f"117 {response.status_code}")
+            LOGS.append(f"118 {response.text}")
+            SAP_JSON['ErrorType'] = 'E'
+            SAP_JSON['ErrorNo'] = "119"
+            SAP_JSON['ErrorMsg'] = f"Recived Bad Response From SAP PDF POST API"
+            return {'status':False,'error':'Recived Bad Response From SAP PDF POST API','no':inverd_ref_no}
+        
+
+    except Exception as e:
+        LOGS.append(f'{str(e)}')
+        SAP_JSON['ErrorType'] = 'E'
+        SAP_JSON['ErrorNo'] = "801"
+        SAP_JSON['ErrorMsg'] = f'{str(e)}'
+        return {'status':False,'error':f'{str(e)}','no':inverd_ref_no}
 
 
 def send_data_to_sap(payload):
@@ -427,7 +563,7 @@ def send_data_to_sap(payload):
             LOGS.append("112")
             LOGS.append(f"113 {token_response.status_code}")
             LOGS.append(f"114 {token_response.text}")
-            return False
+            return {'status':False ,'error': 'In SAP API CSRF Token Not Found!'}
 
         csrf_token = token_response.headers.get("x-csrf-token")
         cookies = token_response.cookies
@@ -450,27 +586,31 @@ def send_data_to_sap(payload):
             verify=False
         )
 
+        inward_ref_no = response.json().get('d', {}).get('InwardRefNo', "")
         # --- Step 3: Handle Response ---
         if response.status_code in [200, 201]:
             LOGS.append(f'15')
-            inward_ref_no = response.json().get('d', {}).get('InwardRefNo', "")
 
             if inward_ref_no:
                 LOGS.append(f"16 {inward_ref_no}")
+                return {'status':True ,'no': inward_ref_no}
+
             else:
                 LOGS.append("115")
-    
-            return True
+                return {'status':False ,'error': 'Inward Refrence Number Not Recived!'}
 
         else:
+            
             LOGS.append(f'116')
             LOGS.append(f"117 {response.status_code}")
             LOGS.append(f"118 {response.text}")
             response.raise_for_status()
+            return {'status':True ,'no': inward_ref_no if inward_ref_no else ""}
     
     except Exception as e:
         LOGS.append(f"111 {str(e)}")
-        return False
+        return {'status':False ,'error': str(e)}
+
 
 def api_call(payload):
     try:
@@ -519,29 +659,61 @@ def process_pdf(pdf_file):
                 
                 LOGS.append(f'12 {result_final_json}')
 
-                if result_final_json:
+                if result_final_json['status']:
                     SAP_JSON['ErrorType'] = 'S'
-                    
                     LOGS.append(f'13') 
-                    result_sap_api = send_data_to_sap(SAP_JSON)
 
-                    if result_sap_api:
-                        LOGS.append(f'17')
-                        return {'success':True ,'JSON':SAP_JSON}
-                    else:
-                        return {'success':False , 'JSON':SAP_JSON , 'logs':LOGS}
                 else:
-                    return {'success':False , 'JSON':SAP_JSON , 'logs':LOGS}
-            else:
-                return {'success':False , 'JSON':SAP_JSON , 'logs':LOGS}
-        else:
-            return {'success':False , 'JSON':SAP_JSON , 'logs':LOGS}
+                    SAP_JSON['ErrorType'] = 'E'
+                    SAP_JSON['ErrorNo'] = "801"
+                    SAP_JSON['ErrorMsg'] = f"{result_final_json['error']}" 
 
+            else:
+                SAP_JSON['ErrorType'] = 'E'
+                SAP_JSON['ErrorNo'] = "801"
+                SAP_JSON['ErrorMsg'] = f"{result_llm['error']}"
             
+        else:
+            SAP_JSON['ErrorType'] = 'E'
+            SAP_JSON['ErrorNo'] = "801"
+            SAP_JSON['ErrorMsg'] = f"{result_azure['error']}"
+
     except Exception as e:
         LOGS.append(f"102 {os.path.basename(pdf_file)}: {str(e)}")
-        return {'success':False , 'error':str(e), 'logs':LOGS}
-    
+        SAP_JSON['ErrorType'] = 'E'
+        SAP_JSON['ErrorNo'] = "801"
+        SAP_JSON['ErrorMsg'] = f"{str(e)}"
+       
+    finally:
+
+        result = send_data_to_sap(SAP_JSON)    
+        
+        if result['status']:
+            
+            if (result['no'] is not None) or (result['no'] != ""): 
+                response = send_pdf_to_sap(pdf_file,result['no'],'S',os.path.basename(pdf_file))
+                
+                result = response
+
+        LOGS.append(f'21')
+
+        with open('log_messages.json', 'r') as file:
+            logs = json.load(file)  # correctly loads JSON into a Python dictionary
+            logs_steps = []
+
+            for index,value in enumerate(LOGS):
+                logs_steps.append(f"Step {index}: {value.replace(value.split()[0],logs[value.split()[0]])}")
+
+            with open('latest/latest_pdf_logs.txt', 'w',encoding='utf-8') as file:
+                file.write(str(logs_steps))
+        
+        with open('latest/latest_pdf_output.txt', 'w',encoding='utf-8') as file:
+            file.write(str(SAP_JSON))
+        
+        result['json'] = SAP_JSON
+
+        return result
+
 
 
 # === Step 4: Rolling execution with limited concurrency ===
@@ -569,11 +741,11 @@ def process_pdfs(folder_path, max_workers=3):
     except Exception as e:
         LOGS.append('404')
 
-# === Example Usage ===
-if __name__ == "__main__":
+# # === Example Usage ===
+# if __name__ == "__main__":
 
-    folder_path = r"C:\Users\111439\OneDrive - Torrent Gas Ltd\Desktop\TORRENT\test"
-    final_results = process_pdfs(folder_path, max_workers=3)
-    print("\n=== Final Collected Results ===")
-    for r in final_results:
-        print(r)
+#     folder_path = r"C:\Users\111439\OneDrive - Torrent Gas Ltd\Desktop\TORRENT\test"
+#     final_results = process_pdfs(folder_path, max_workers=3)
+#     print("\n=== Final Collected Results ===")
+#     for r in final_results:
+#         print(r)
