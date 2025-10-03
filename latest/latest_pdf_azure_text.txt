@@ -1,185 +1,86 @@
-Tax Invoice
-e-Invoice
-IRN
-: 5d63209e7e4a7a374318b514c511a6ba1dfb482a8d608-
-e64c50c600f4b37b9a8
-Ack No.
-: 142518371726298
-Ack Date
-23-Sep-25
-:
-Yatinidhiconstrutions Pvt . Ltd (25-26)
-PL 1/B-243, Sector-1, Gomti Nagar Vistar
-Lucknow, UP-226010
-GSTIN/UIN: 09AABCY0047K1Z7
-State Name : Uttar Pradesh, Code : 09
-E-Mail : yatinidhiconst@gmail.com
-Consignee (Ship to)
-Invoice No.
-YCPL/2025-26/27
-Dated
-20-Sep-25
-Delivery Note
-Mode/Terms of Payment
-Days
-Reference No. & Date.
-Other References
-YCPL/2025-26/27 dt. 20-Sep-25 RA-02
-TORRENT GAS LIMITED
-HIG 1 B, 3RD FLOOR, SAI
-PLACE CHANDRA VIHAR,
-Kanpur Nagar
-GSTIN/UIN
-: 09AAGCT7889P1Z1
-State Name
-: Uttar Pradesh, Code : 09
-Buyer's Order No.
-36300967
-Dated
-21-Mar-25
-Dispatch Doc No.
-Delivery Note Date
-Dispatched through
-Destination
-Buyer (Bill to)
-Terms of Delivery
-TORRENT GAS LIMITED
-HIG 1 B, 3RD FLOOR, SAI
-PLACE CHANDRA VIHAR,
-Kanpur Nagar
-GSTIN/UIN
-: 09AAGCT7889P1Z1
-State Name
-Uttar Pradesh, Code : 09
-:
-Sl
-No.
-Particulars
-HSN/SAC
-Quantity
+SAFE & SMO
+Indian Tankers Pvt. Ltd.
+CIN - U60100WB2005PTC101651 · GSTN - 09AABCI3646Q2ZZ
+PAN - AABCI3646Q
+AN ISO 9001 : 2015
+Certified Company
+INVOICE
+To,
+Torrent Gas Private Limited,
+2nd Floor, Vinayak Tower, Rahul Nagar
+Swami Vivekanand Marg (Thandi Sadak)
+Azamgarh- 276001 (Uttar Pradesh)
+GSTN : 09AAGCT7889P1Z1
+STATE CODE : 09 (UTTAR PRADESH)
+P.O. No: TGPL/20-21/0328 Dated: 13 Jan 2021
+SES No .:
+6000122072
+SES Date .:
+16-09-2025
+Invoice No. :
+BU3/2526/0111
+Invoice Date :
+10-09-2025
+Reverse Charge :
+No
+Period for Supply :
+21-06-2025 To 20-07-2025
+Place of Supply :
+Uttar Pradesh
+Transported Goods :
+SAC Code :
+Torrent CNG Gas
+996601
+S.N.
+Item Description
+Qty
+Unit
 Rate
-per
 Amount
 1
-Work Contract
-Laying of MDPE Pipline PNG
-Connection And Associated Works
-For City Gas Distribution Project
-At Auraiya Town Area Kanpur GA
-SES :6000122361
-995464
-10,65,513.24
-SGST
-95,896.19
-continued to page number 2
-This is a Computer Generated Invoice
-SIDDHAR Digitally signed
-TH
-SINGH
-by SIDDHARTH
-SINGH
-Date: 2025.09.23
-13:49:36 +05'30'
-Tax Invoice(Page 2)
-Yatinidhiconstrutions Pvt . Ltd (25-26)
-PL 1/B-243, Sector-1, Gomti Nagar Vistar
-Lucknow, UP-226010
-GSTIN/UIN: 09AABCY0047K1Z7
-State Name : Uttar Pradesh, Code : 09
-E-Mail : yatinidhiconst@gmail.com
-Consignee (Ship to)
-Invoice No.
-YCPL/2025-26/27
-Dated
-20-Sep-25
-Delivery Note
-Mode/Terms of Payment
-Days
-Reference No. & Date.
-YCPL/2025-26/27 dt. 20-Sep-25
-Buyer's Order No.
-36300967
-Dispatch Doc No.
-Other References
-RA-02
-Dated
-21-Mar-25
-Delivery Note Date
-Dispatched through
-Destination
-Buyer (Bill to)
-Terms of Delivery
-TORRENT GAS LIMITED
-HIG 1 B, 3RD FLOOR, SAI
-PLACE CHANDRA VIHAR,
-Kanpur Nagar
-GSTIN/UIN
-: 09AAGCT7889P1Z1
-State Name
-: Uttar Pradesh, Code : 09
-Sl
-No.
-Particulars
-HSN/SAC
-Quantity
-Rate
-per
-Amount
-CGST
-Total
-₹ 12,57,305.62
-E. & O.E
-Amount Chargeable (in words)
-INR Twelve Lakh Fifty Seven Thousand Three Hundred Five and Sixty Two paise Only
-HSN/SAC
-Taxable
-Value
-Rate
-Amount
-Rate
-Amount
-Tax Amount
-995464
-10,65,513.24
-9%
-95,896.19
-9%
-95,896.19
-1,91,792.38
-Total
-10,65,513.24
-95,896.19
-95,896.19
-1,91,792.38
-Tax Amount (in words) : INR One Lakh Ninety One Thousand Seven Hundred Ninety Two and Thirty
-Eight paise Only
-Company's Bank Details
-A/c Holder's Name : Yatinidhiconstrutions Pvt . Ltd (25-26)
-Bank Name
-:
-Icici Bank
-A/c No.
-: 021405005185
-Branch & IFS Code: Gomti Nagar & ICIC0000214
-SWIFT Code
-:
-for Yatinidhiconstrutions Pvt . Ltd (25-26)
-SIDDHAR
-Digitally signed by
-SIDDHARTH SINGH
-Authorised Signatory
-TH SINGH
-13:50:02 +05'30'
-This is a Computer Generated Invoice
-CGST
-SGST/UTGST
-Total
-95,896.19
-TORRENT GAS LIMITED
-HIG 1 B, 3RD FLOOR, SAI
-PLACE CHANDRA VIHAR,
-Kanpur Nagar
-GSTIN/UIN
-: 09AAGCT7889P1Z1
-State Name
-: Uttar Pradesh, Code : 09
+Providing HCV (05 No.) for transportation of CNG
+through Cascade on 24 X 7 basis with zero Kms
+Running (01 Driver X 12 hr duty per HCV)
+5.00
+Month
+63,000.00
+3,15,000.00
+2
+Running Cost of HCV to be calculated on monthly
+basis as per Scope of Work
+30131.5
+KM
+1.75
+52,730.13
+3
+Providing 2nd Driver for the transportation of
+HCV (Based on EIC Intimation)
+150 Per Day
+600.00
+90,000.00
+Banks Details:
+A/C Holder Name: Indian Tankers (P) Ltd.
+A/C No .: 5811819087
+Bank: Kotak Mahindra Bank
+IFSC: KKBK0005297
+Branch: GORAKHPUR
+Taxable Amount
+4,57,730.13
+CGST @ 9%
+41,195.71
+SGST @ 9%
+41,195.71
+ROUND OFF
+0.45
+TOTAL
+₹
+5,40,122.00
+Digitally signed
+Naushad by Naushad
+Ahmad
+Ahmad
+Date: 2025.09.17
+17:46:58-
+Corporate Office : B-1/3, Sector-15, GIDA, Sahjanwa, Gorakhpur - 273 209 (U.P.) INDIA
+Registered Office : 1 Floor, Flat No. : C-4, 118, Elliot Road, Kolkata - 700 016 (W.B.) INDIA
+Mobile No. : 9648938202, 9648938225 · E-mail : billing@indiantankers.com. accounts@indiantankers.com

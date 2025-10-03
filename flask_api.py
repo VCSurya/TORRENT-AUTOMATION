@@ -5,6 +5,12 @@ from main import process_pdf
 from flask_cors import  CORS
 from jinja2 import Template
 import json, ast
+import ssl
+from cryptography import x509
+from cryptography.x509.oid import NameOID
+from cryptography.hazmat.primitives import serialization, hashes
+from cryptography.hazmat.primitives.asymmetric import rsa
+import datetime
 
 app = Flask(__name__)
 
@@ -26,14 +32,60 @@ if not os.path.exists(RESULT_DIR):
 PDF_SAVE_DIR = "uploaded_pdfs"
 os.makedirs(PDF_SAVE_DIR, exist_ok=True)
 
+def generate_temp_cert():
+    if os.path.exists("cert.pem") and os.path.exists("key.pem"):
+        return
+
+    # Generate private key
+    key = rsa.generate_private_key(public_exponent=65537, key_size=2048)
+
+    # Write private key
+    with open("key.pem", "wb") as f:
+        f.write(
+            key.private_bytes(
+                encoding=serialization.Encoding.PEM,
+                format=serialization.PrivateFormat.TraditionalOpenSSL,
+                encryption_algorithm=serialization.NoEncryption()
+            )
+        )
+
+    # Generate self-signed certificate
+    subject = issuer = x509.Name([
+        x509.NameAttribute(NameOID.COUNTRY_NAME, u"US"),
+        x509.NameAttribute(NameOID.STATE_OR_PROVINCE_NAME, u"CA"),
+        x509.NameAttribute(NameOID.LOCALITY_NAME, u"Localhost"),
+        x509.NameAttribute(NameOID.ORGANIZATION_NAME, u"TempCert"),
+        x509.NameAttribute(NameOID.COMMON_NAME, u"localhost"),
+    ])
+    cert = x509.CertificateBuilder().subject_name(subject).issuer_name(issuer).public_key(
+        key.public_key()
+    ).serial_number(x509.random_serial_number()).not_valid_before(
+        datetime.datetime.utcnow()
+    ).not_valid_after(
+        datetime.datetime.utcnow() + datetime.timedelta(days=1)
+    ).add_extension(
+        x509.SubjectAlternativeName([x509.DNSName(u"localhost")]),
+        critical=False,
+    ).sign(key, hashes.SHA256())
+
+    # Write certificate
+    with open("cert.pem", "wb") as f:
+        f.write(cert.public_bytes(serialization.Encoding.PEM))
+
+    print("Temporary self-signed certificate generated.")
+
 @app.route('/upload_pdf', methods=['POST'])
 def upload_pdf():
     try:
         data = request.get_json()
 
-        pdf_name = data.get("pdf_name")
-        pdf_base64 = data.get("pdf_base64")
+        pdf_name = data.get("pdf_name", "")
+        pdf_base64 = data.get("pdf_base64", "")
+        Mode_Of_Entry = data.get("mode_of_entry", "")
+        Created_On = data.get("created_on", "")
+        Created_By = data.get("created_by", "")
 
+        
         if not pdf_name or not pdf_base64:
             return jsonify({"Error":0,"Error Msg": "Missing 'pdf_name' or 'pdf_base64'"}), 400
 
@@ -49,7 +101,7 @@ def upload_pdf():
         with open(file_path, "wb") as f:
             f.write(pdf_bytes)
     
-        result = process_pdf(os.path.abspath(file_path))
+        result = process_pdf(os.path.abspath(file_path),Mode_Of_Entry,Created_On,Created_By)
 
         if os.path.exists(os.path.abspath(file_path)):
             os.remove(os.path.abspath(file_path))
@@ -121,4 +173,10 @@ def main():
     return {"msg":"API Is Running..."}
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0",port=5000,debug=True)
+    generate_temp_cert()
+    context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+    context.load_cert_chain(certfile='cert.pem', keyfile='key.pem')
+
+    # Run Flask over HTTPS
+    app.run(host='0.0.0.0', port=5000, ssl_context=context)
+    # app.run(host="0.0.0.0",port=5000,debug=True)

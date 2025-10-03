@@ -30,8 +30,7 @@ TOKEN_URL = f"{BASE_URL}/"
 
 # --- SAP Credentials ---
 SAP_USERNAME = os.getenv('SAP_USERNAME')   
-SAP_PASSWORD = os.getenv('SAP_PASSWORD')   
-
+SAP_PASSWORD = os.getenv('SAP_PASSWORD')
 
 ### >>> Load the PAN Numbers From TXT File
 PAN_NO = None
@@ -183,7 +182,7 @@ def format_with_llm(text):
         LOGS.append(f'105 {str(e)}')
         return {'status':False,'error':str(e)}
 
-def final_json(JSON,SAP_JSON):
+def final_json(JSON,SAP_JSON,Mode_Of_Entry,Created_On,Created_By):
     
     try:
 
@@ -369,7 +368,13 @@ def final_json(JSON,SAP_JSON):
                 )
 
                 total_scs_no.append(ses_no)
+        
 
+        SAP_JSON['CreatedOn'] = f"{Created_On}"
+        SAP_JSON['ChangedOn'] = f"{Created_On}"
+        SAP_JSON['CreatedBy'] = f"{Created_By}"
+        SAP_JSON['ChangedBy'] = f"{Created_By}"
+        SAP_JSON['ModeOfEntry'] = f"{Mode_Of_Entry}"
         SAP_JSON['InvoiceNo'] = JSON['data']['InvoiceNo']
         SAP_JSON['InvoiceDate'] = JSON['data']['InvoiceDate'].replace("-","")
         SAP_JSON['InvoiceAmount'] = JSON['data']['InvoiceAmount']
@@ -420,17 +425,12 @@ def final_json(JSON,SAP_JSON):
                 result = convert_normalized_to_absolute(JSON['cordinates'][closest_key][0])        
                 # Here we update the item directly in the list
                 item["CSesGrnScrollNoPdf"] = result
-        
-            item['CreatedOn'] = "20250910"
-            item['ChangedOn'] = "20250918"
-            item['CreatedBy'] = "DEVESH"
-            item['ChangedBy'] = "DEVESH"
+            
+            item['CreatedOn'] = f"{Created_On}"
+            item['ChangedOn'] = f"{Created_On}"
+            item['CreatedBy'] = f"{Created_By}"
+            item['ChangedBy'] = f"{Created_By}"
             item['PoNo'] = SAP_JSON['PoLpoIoNoPdf']
-        
-        SAP_JSON['CreatedOn'] = "20250910"
-        SAP_JSON['ChangedOn'] = "20250918"
-        SAP_JSON['CreatedBy'] = "DEVESH"
-        SAP_JSON['ChangedBy'] = "DEVESH"
         
         return {'status':True}
 
@@ -450,9 +450,9 @@ def send_pdf_to_sap(pdf_path,inverd_ref_no,status,pdf_name,SAP_JSON):
 
         # --- Step 1: Fetch CSRF Token ---
         token_response = session.get(
-            TOKEN_URL,
+            POST_URL,
             auth=(SAP_USERNAME, SAP_PASSWORD),
-            headers={"x-csrf-token": "Fetch"},
+            headers={"x-csrf-token": "Fetch","sap-client": os.getenv("SAP_CLIENT")},
             verify=False
         )
 
@@ -534,7 +534,7 @@ def send_data_to_sap(SAP_JSON):
         token_response = session.get(
             TOKEN_URL,
             auth=(SAP_USERNAME, SAP_PASSWORD),
-            headers={"x-csrf-token": "Fetch"},
+            headers={"x-csrf-token": "Fetch","sap-client": os.getenv("SAP_CLIENT")},
             verify=False
         )
 
@@ -592,7 +592,7 @@ def send_data_to_sap(SAP_JSON):
 
 
 # === Step 3: Full pipeline per PDF ===
-def process_pdf(pdf_file):
+def process_pdf(pdf_file,Mode_Of_Entry,Created_On,Created_By):
     LOGS.clear()
     ### >>> Load the SAP JSON Tamplate
     sap_file_path = os.path.join(SCRTPT_DIR, 'sap.json')
@@ -615,7 +615,7 @@ def process_pdf(pdf_file):
                 
                 LOGS.append(f'11')
                 
-                result_final_json = final_json({'data':result_llm['json'],'text':result_azure['text'],'cordinates':result_azure['cordinates']},SAP_JSON)
+                result_final_json = final_json({'data':result_llm['json'],'text':result_azure['text'],'cordinates':result_azure['cordinates']},SAP_JSON,Mode_Of_Entry,Created_On,Created_By)
                 
                 LOGS.append(f'12 {result_final_json}')
 
