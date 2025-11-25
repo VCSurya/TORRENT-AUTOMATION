@@ -1,0 +1,169 @@
+[
+    {
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 16800",
+            "3. Start Process - 2025-11-20 16:51:38.104742",
+            "4. Reading New Emails From Cloude...",
+            "5. 3 - Emails Found",
+            "> 1 - Email Processing...",
+            "> 1 - Email Proceed.",
+            "> 2 - Email Processing...",
+            "> 2 - Email Proceed.",
+            "> 3 - Email Processing...",
+            "> 3 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "proceed_emails": [
+            {
+                "from": "noreply@torrentgas.com",
+                "subject": "JOHNY SOLANKI / EXT-IT / AHMEDABAD is trying to reach you in Microsoft Teams",
+                "email_date_time": "2025-11-18 12:37:48+00:00",
+                "process_date_time": "2025-11-20 16:51:41.474180"
+            },
+            {
+                "from": "team@m.ngrok.com",
+                "subject": "[ngrok news] Secrets for Traffic Policy, now GA + ngrok.ai is almost here",
+                "email_date_time": "2025-11-18 21:48:41+00:00",
+                "process_date_time": "2025-11-20 16:51:42.482110"
+            },
+            {
+                "from": "suresh.prajapati@vc-erp.com",
+                "subject": "testing ",
+                "email_date_time": "2025-11-19 06:52:46+00:00",
+                "process_date_time": "2025-11-20 16:51:43.524422",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "BNUPAGR25000717 TORRENT GAS  PRIVATE LIMITED, MATHURA.pdf",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000000494"
+                    }
+                ],
+                "Total Proceed Pdf": "1",
+                "Error Proceed Pdf": "0",
+                "Success Proceed Pdf": "1"
+            }
+        ]
+    },
+    {
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 11760",
+            "3. Start Process - 2025-11-20 16:54:30.434274",
+            "4. Reading New Emails From Cloude...",
+            "5. 3 - Emails Found",
+            "> 1 - Email Processing...",
+            "> 1 - Email Proceed.",
+            "> 2 - Email Processing...",
+            "> 2 - Email Proceed.",
+            "> 3 - Email Processing...",
+            "ERROR(111): HTTPSConnectionPool(host='tgps4hdevapppp.torrentgas.com', port=8240): Max retries exceeded with url: /sap/opu/odata/sap/ZFI_DCC_PORTAL_SRV/ (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x0000013711B59590>: Failed to resolve 'tgps4hdevapppp.torrentgas.com' ([Errno 11001] getaddrinfo failed)\"))",
+            "> 3 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "proceed_emails": [
+            {
+                "from": "noreply@torrentgas.com",
+                "subject": "JOHNY SOLANKI / EXT-IT / AHMEDABAD is trying to reach you in Microsoft Teams",
+                "email_date_time": "2025-11-18 12:37:48+00:00",
+                "process_date_time": "2025-11-20 16:54:32.879267"
+            },
+            {
+                "from": "team@m.ngrok.com",
+                "subject": "[ngrok news] Secrets for Traffic Policy, now GA + ngrok.ai is almost here",
+                "email_date_time": "2025-11-18 21:48:41+00:00",
+                "process_date_time": "2025-11-20 16:54:33.891094"
+            },
+            {
+                "from": "suresh.prajapati@vc-erp.com",
+                "subject": "testing ",
+                "email_date_time": "2025-11-19 06:52:46+00:00",
+                "process_date_time": "2025-11-20 16:54:34.948949",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "BNUPAGR25000717 TORRENT GAS  PRIVATE LIMITED, MATHURA.pdf",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": false,
+                        "error": "HTTPSConnectionPool(host='tgps4hdevapppp.torrentgas.com', port=8240): Max retries exceeded with url: /sap/opu/odata/sap/ZFI_DCC_PORTAL_SRV/ (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x0000013711B59590>: Failed to resolve 'tgps4hdevapppp.torrentgas.com' ([Errno 11001] getaddrinfo failed)\"))",
+                        "error_code": "111",
+                        "logs": [
+                            "Step 0 (2): Process PDF Function Called.",
+                            "Step 1 (3): Process PDF Filename: BNUPAGR25000717 TORRENT GAS  PRIVATE LIMITED, MATHURA.pdf",
+                            "Step 2 (23): Get the data from QR code Successfully",
+                            "Step 3 (4): Calling AZURE...",
+                            "Step 4 (5): AZURE Text Extrected",
+                            "Step 5 (6): Calculate Text Each Word Cordinates",
+                            "Step 6 (7): Extraction Complete!",
+                            "Step 7 (8): OPEN AI Function Calling...",
+                            "Step 8 (9): Responsed Open AI API",
+                            "Step 9 (10): >>> Open AI Returned JSON",
+                            "Step 10 (11): Calling Final JSON Formating Function...",
+                            "Step 11 (12): Respons From Final JSON Formating Function: {'status': True}",
+                            "Step 12 (13): Final SAP JSON Ready To POST",
+                            "Step 13 (130): Exception Error durring send data to sap HTTPSConnectionPool(host='tgps4hdevapppp.torrentgas.com', port=8240): Max retries exceeded with url: /sap/opu/odata/sap/ZFI_DCC_PORTAL_SRV/ (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x0000013711B59590>: Failed to resolve 'tgps4hdevapppp.torrentgas.com' ([Errno 11001] getaddrinfo failed)\"))",
+                            "Step 14 (21): Operation Successfull! >>>>"
+                        ],
+                        "json": {
+                            "InwardRefNo": "",
+                            "SourceOfDoc": "",
+                            "DocMailPerson": "",
+                            "InwardDate": "",
+                            "PoLpo": "",
+                            "GaName": "",
+                            "CompanyGstinPdf": "09AAGCT7889P1Z1",
+                            "CCompanyGstinPdf": "1,71.37,325.80,65.68,8.52",
+                            "CompanyGstinSap": "",
+                            "VendorName": "",
+                            "VendorGstin": "09AAECS3538A1ZL",
+                            "CVendorGstin": "1,63.17,164.87,65.85,7.62",
+                            "InvoiceNo": "BNUPAGR25000717",
+                            "CInvoiceNo": "1,302.35,148.13,67.51,7.88",
+                            "InvoiceDate": "20250904",
+                            "CInvoiceDate": "1,392.36,144.48,41.46,7.88",
+                            "InvoiceAmount": "276446.76",
+                            "CInvoiceAmount": "1,448.08,187.65,59.14,12.25",
+                            "PoLpoIoNoPdf": "33000926",
+                            "CPoLpoIoNo": "1,408.61,162.45,98.21,8.26",
+                            "IrnNo": "cfece8cb5864879055da5e002878e47dde7dc28495208c44ec15041ce918c866",
+                            "CIrnNo": "1,35.24,216.58,265.18,8.45",
+                            "MsmeNo": "",
+                            "Status": "Draft",
+                            "ModeOfEntry": "Bot",
+                            "CreatedOn": "20251120",
+                            "CreatedBy": "Bot",
+                            "ChangedOn": "",
+                            "ChangedBy": "",
+                            "FileName": "BNUPAGR25000717 TORRENT GAS  PRIVATE LIMITED, MATHURA.pdf",
+                            "ErrorNo": "130",
+                            "ErrorMsg": "Data not saved in sap.",
+                            "ErrorType": "E",
+                            "Flag": "A",
+                            "DCCHEADERTODCCSES": [],
+                            "VendorEmailP": "suresh.prajapati@vc-erp.com",
+                            "EmailDateTimeP": "2025-11-19 06:52:46+00:00",
+                            "EmailSubjectP": "testing "
+                        }
+                    }
+                ],
+                "Total Proceed Pdf": "1",
+                "Error Proceed Pdf": "1",
+                "Success Proceed Pdf": "0"
+            }
+        ]
+    }
+]
