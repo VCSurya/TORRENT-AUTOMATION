@@ -561,7 +561,7 @@ def upload_pdf():
 
         # Ensure .pdf extension
         if not pdf_name.lower().endswith(".pdf"):
-            pdf_name += ".pdf"
+            return jsonify({'success':"", "error": "Upload Only PDF File!"}), 501
 
         # Decode base64 string
         pdf_bytes = base64.b64decode(pdf_base64)
@@ -595,8 +595,16 @@ def upload_pdf():
     
     finally:
 
-        if os.path.exists(os.path.abspath(file_path)):
-            os.remove(os.path.abspath(file_path))
+        dir_path = os.path.abspath(PDF_SAVE_DIR)
+
+        if os.path.isdir(dir_path):
+            for entry in os.listdir(dir_path):
+                full_path = os.path.join(dir_path, entry)
+                if os.path.isfile(full_path):
+                    try:
+                        os.remove(full_path)
+                    except OSError as e:
+                        print(f"Failed to remove file: {full_path} — {e}")
 
 @app.route('/env-configuration',methods=['GET'])
 @login_required
