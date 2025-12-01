@@ -468,7 +468,9 @@ def final_json(JSON,SAP_JSON,Mode_Of_Entry,Created_On,Created_By):
 
             # GST Validation
             
-            gst_result = gst_validations(JSON['data']['Gst'])
+            gst_result = None
+            if JSON['data']['Gst'] != "":
+                gst_result = gst_validations(JSON['data']['Gst'])
 
             if gst_result['status']:
                 SAP_JSON['CompanyGstinPdf'] = gst_result['CompanyGstinPdf'].replace(".","").replace(",","")
@@ -789,16 +791,16 @@ def process_pdf(pdf_file,email_data,Mode_Of_Entry = "Bot",Created_On=f"{datetime
         
         # Here we getting the data from qr code which is availabel in pdf
         PROMPT_NO = 0
-        result_of_extracted_data_from_qr = pdf_to_image(pdf_file)
+        # result_of_extracted_data_from_qr = pdf_to_image(pdf_file)
     
-        if result_of_extracted_data_from_qr['status']:
-            PROMPT_NO = 1
-            SAP_JSON['CompanyGstinPdf'] = result_of_extracted_data_from_qr['data']['BuyerGstin']
-            SAP_JSON['VendorGstin'] = result_of_extracted_data_from_qr['data']['SellerGstin']
-            SAP_JSON['InvoiceNo'] = result_of_extracted_data_from_qr['data']['DocNo']
-            SAP_JSON['InvoiceDate'] = result_of_extracted_data_from_qr['data']['DocDt'].split('/')[2] + result_of_extracted_data_from_qr['data']['DocDt'].split('/')[1] + result_of_extracted_data_from_qr['data']['DocDt'].split('/')[0]
-            SAP_JSON['InvoiceAmount'] = str(result_of_extracted_data_from_qr['data']['TotInvVal'])
-            SAP_JSON['IrnNo'] = result_of_extracted_data_from_qr['data']['Irn']
+        # if result_of_extracted_data_from_qr['status']:
+        #     PROMPT_NO = 1
+        #     SAP_JSON['CompanyGstinPdf'] = result_of_extracted_data_from_qr['data']['BuyerGstin']
+        #     SAP_JSON['VendorGstin'] = result_of_extracted_data_from_qr['data']['SellerGstin']
+        #     SAP_JSON['InvoiceNo'] = result_of_extracted_data_from_qr['data']['DocNo']
+        #     SAP_JSON['InvoiceDate'] = result_of_extracted_data_from_qr['data']['DocDt'].split('/')[2] + result_of_extracted_data_from_qr['data']['DocDt'].split('/')[1] + result_of_extracted_data_from_qr['data']['DocDt'].split('/')[0]
+        #     SAP_JSON['InvoiceAmount'] = str(result_of_extracted_data_from_qr['data']['TotInvVal'])
+        #     SAP_JSON['IrnNo'] = result_of_extracted_data_from_qr['data']['Irn']
         
         result_azure = azure_extract_text(pdf_file)
 
@@ -882,6 +884,7 @@ def process_pdf(pdf_file,email_data,Mode_Of_Entry = "Bot",Created_On=f"{datetime
             shutil.copy(pdf_file,destination_path)
 
             result['json'] = SAP_JSON
+            result['PDF_FileName'] = str(os.path.basename(pdf_file))
 
             return result
 

@@ -38,7 +38,6 @@ scheduler.start()
 # Directory where PDFs will be stored for temperery
 PDF_SAVE_DIR = "uploaded_pdfs"
 ENV_FILE = ".env"
-os.makedirs(PDF_SAVE_DIR, exist_ok=True)
 
 #--------------------- ALL FUNCTIONS DEFINE HERE ---------------------
 
@@ -562,11 +561,13 @@ def upload_pdf():
         # Ensure .pdf extension
         if not pdf_name.lower().endswith(".pdf"):
             return jsonify({'success':"", "error": "Upload Only PDF File!"}), 501
+            # pdf_name += ".pdf"
 
         # Decode base64 string
         pdf_bytes = base64.b64decode(pdf_base64)
 
         # Save file
+        os.makedirs(PDF_SAVE_DIR, exist_ok=True)
         file_path = os.path.join(PDF_SAVE_DIR, pdf_name)
         with open(file_path, "wb") as f:
             f.write(pdf_bytes)
@@ -605,6 +606,7 @@ def upload_pdf():
                         os.remove(full_path)
                     except OSError as e:
                         print(f"Failed to remove file: {full_path} — {e}")
+
 
 @app.route('/env-configuration',methods=['GET'])
 @login_required
@@ -760,12 +762,24 @@ def serve_pdf():
         download_name="latest.pdf"  # name shown in viewer/tab
     )
 
+@app.route("/user-logs")
+@login_required
+def all_logs():
+    try:
+        
+        with open('latest/read_emails_logs.json','r',encoding='utf-8') as file:
+            all_logs = json.load(file)
+        return render_template('live_logs.html',LOGS=all_logs)
+    
+    except Exception as e:
+        return{"error":str(e)}
+
 @app.route("/custom-logs",methods=['GET'])
 @login_required
 def custom_logs():
     
     try:
-        
+
         with open('log_messages.json','r',encoding='utf-8') as file:
             logs = json.load(file)
         return logs

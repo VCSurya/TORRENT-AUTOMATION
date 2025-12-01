@@ -429,7 +429,15 @@
 
         <!-- Bot Logs -->
         <div class="mb-8">
-            <h2 class="text-xl font-semibold mb-4 text-gray-700 px-1">Agent Logs (Real-time Feed)</h2>
+            <!-- <h2 class="text-xl font-semibold mb-4 text-gray-700 px-1">Agent Logs (Real-time Feed)</h2> -->
+
+
+            <div class="flex items-center justify-between mb-4 px-1">
+                <h2 class="text-xl font-semibold text-gray-700">
+                    Agent Logs (Real-time Feed)
+                </h2>
+                <a href="https://10.41.0.135:5000/user-logs" target="_blank" rel="noopener noreferrer" style="text-decoration: underline;font-weight: 700;color: #1e40af;">Logs</a>
+            </div>
             <div
                 class="log-container h-64 overflow-y-auto bg-gray-900 text-green-400 p-4 rounded-lg text-xs shadow-inner">
                 <pre id="bot-logs" class="font-mono">System initializing...</pre>

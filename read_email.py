@@ -88,11 +88,11 @@ async def get_emails_and_download_attachments(shared_data):
         shared_data["proceed_emails"] = bot_opration["emails"]
         
         messages_request_builder = (
-            graph_client
-            .users
+            graph_client.users
             .by_user_id(USER_ID)
             .mail_folders
-            .by_mail_folder_id("Inbox")
+            .by_mail_folder_id("AAMkADJlNDU0NDFhLTVhMTUtNDUxYy1hODM5LWJhM2FlM2QxNzY2NQAuAAAAAAC9s70Y2dotQrZCAtEZylaNAQCxhD1TlNm_T5GU2HoWBeCoAAAAAAEMAAA=") # Inbox Folder
+            # .by_mail_folder_id("AAMkADJlNDU0NDFhLTVhMTUtNDUxYy1hODM5LWJhM2FlM2QxNzY2NQAuAAAAAAC9s70Y2dotQrZCAtEZylaNAQCxhD1TlNm_T5GU2HoWBeCoAANDbCisAAA=") # Action Tacken Folder
             .messages
         )
 
@@ -105,9 +105,8 @@ async def get_emails_and_download_attachments(shared_data):
         threshold_iso = datetime.fromisoformat(threshold_time).isoformat().replace("+00:00", "Z")
 
         query_params = MessagesRequestBuilder.MessagesRequestBuilderGetQueryParameters(
-            filter=f"receivedDateTime gt {threshold_iso}",
+            filter=f"receivedDateTime ge {threshold_iso}",
             expand=["attachments"],
-            orderby=["receivedDateTime asc"],
             top=50
         )
 
@@ -116,22 +115,40 @@ async def get_emails_and_download_attachments(shared_data):
         )
 
         shared_data["status"].append(f"4. Reading New Emails From Cloude...")
+        messages_result = []
         
-        messages_result = await messages_request_builder.get(request_configuration=request_config)
+        response = await messages_request_builder.get(request_configuration=request_config)
 
-        if not messages_result or not messages_result.value or len(messages_result.value) == 0:
+        # Paging loop — FIXED
+        while True:
+            messages_result.extend(response.value)
+    
+            if not response.odata_next_link:
+                break
+    
+            # Continue using nextLink exactly — DO NOT hardcode folder names
+            response = await graph_client \
+                .users.by_user_id(USER_ID) \
+                .messages.with_url(response.odata_next_link) \
+                .get()
+    
+        messages_result.sort(key=lambda m: m.received_date_time)
+
+        if not messages_result or not messages_result or len(messages_result) == 0:
             EMAIL_LOGS.append("25: No new messages found.")
         
-        if last_visited_email_id[:12] == "HARE_KRISHNA":
-            shared_data["status"].append(f"5. {len(messages_result.value) if len(messages_result.value)!=0 else 0} - Emails Found")
-        else:
-            shared_data["status"].append(f"5. {len(messages_result.value)-1 if len(messages_result.value)!=0 else 0} - Emails Found")
+        # if last_visited_email_id[:12] == "HARE_KRISHNA":
+        #     shared_data["status"].append(f"5. {len(messages_result) if len(messages_result)!=0 else 0} - Emails Found")
+        # else:
+        #     shared_data["status"].append(f"5. {len(messages_result) if len(messages_result)!=0 else 0} - Emails Found")
 
+        shared_data["status"].append(f"5. {len(messages_result)} - Emails Found")
         email_no = 1
 
-        for message in messages_result.value:
+        for message in messages_result:
 
-            # if message.id != last_visited_email_id:
+            shared_data["status"].append(f"> {email_no} - Email Processing...")
+            if message.id != last_visited_email_id:
                 email_data = {
                         "vandor_email":str(message.sender.email_address.address),
                         "email_date_time":str(message.received_date_time),
@@ -139,7 +156,6 @@ async def get_emails_and_download_attachments(shared_data):
                 }
 
                 all_attchments_name = {"pdfs": []}
-                shared_data["status"].append(f"> {email_no} - Email Processing...")
                 with tempfile.TemporaryDirectory(dir=os.path.join(os.getcwd(), 'temp')) as temp_dir:
                     if message.has_attachments and message.attachments:
                         for attachment in message.attachments:
@@ -183,20 +199,20 @@ async def get_emails_and_download_attachments(shared_data):
                                                     os.remove(file_path)
                                     os.remove(zip_file_path)
                                 
-                                # Image file handling
-                                elif is_image(file_name) :
-                                    ext = file_name.lower().split(".")[-1]
+                                ## Image file handling
+                                # elif is_image(file_name) :
+                                #     ext = file_name.lower().split(".")[-1]
 
-                                    file_path = os.path.join(temp_dir, file_name)
+                                #     file_path = os.path.join(temp_dir, file_name)
 
-                                    with open(file_path, "wb") as f:
-                                        f.write(file_content)
+                                #     with open(file_path, "wb") as f:
+                                #         f.write(file_content)
 
-                                    img = Image.open(file_path)
-                                    img = img.convert("RGB")
-                                    pdf_path = file_path.replace(ext,"pdf")
-                                    img.save(pdf_path)
-                                    all_attchments_name["pdfs"].append({"filename": file_name.replace(ext,"pdf"), "Digital Sign": "It's Image"})
+                                #     img = Image.open(file_path)
+                                #     img = img.convert("RGB")
+                                #     pdf_path = file_path.replace(ext,"pdf")
+                                #     img.save(pdf_path)
+                                #     all_attchments_name["pdfs"].append({"filename": file_name.replace(ext,"pdf"), "Digital Sign": "It's Image"})
                                     
                     
                     latest_opration_data = {
@@ -205,13 +221,12 @@ async def get_emails_and_download_attachments(shared_data):
                         "subject": str(message.subject),
                         "email_date_time": str(message.received_date_time),
                         "process_date_time": str(datetime.now()),
-                        "result": None,
-                        "attchments":None
+                        "attchments":all_attchments_name,
+                        "result": None
                     }
 
                     if len(os.listdir(temp_dir)) > 0:
                         response = process_pdfs(temp_dir,email_data)
-                        latest_opration_data["attchments"] = all_attchments_name
                         if response['status']:
                             
                             # if not response['result']['status']:
@@ -257,6 +272,10 @@ async def get_emails_and_download_attachments(shared_data):
                 
                 time.sleep(1)
             
+            else:
+                shared_data["status"].append("!!! Email Already Proceed.")
+                shared_data["status"].append(f"> {email_no} - Email Proceed.")
+
         shared_data["status"].append(f"6. ALL Emails Procced Successfully.")
 
     except ODataError as odata_error:
@@ -277,7 +296,7 @@ async def get_emails_and_download_attachments(shared_data):
         bot_opration['duration'] = str(execution_time)
         bot_opration['logs'] = EMAIL_LOGS
         shared_data["proceed_emails"] = bot_opration["emails"]
-        print(shared_data)
+
 
 if __name__ == "__main__":
 
