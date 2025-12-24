@@ -1,0 +1,190 @@
+1. for runnig the api you have to run the api.py here all endpoint and functions are define
+
+    ** ENDPOINTS ** 
+    >> '/upload_pdf' method = POST:  
+        - input parmaters: pdf_name,pdf base64,mode_of_entry,created_on and created_by 
+        - the pdf save at server side in temperery dir for processing 
+        - call in main.py file process_pdf() function and process this pdf extracting and all    
+        - in response send the error or saved documetn number with status like document is duplicate or not 
+
+    >> '/reset-bot' method = GET: 
+        - at calling this api it remove all jobs and logs and start all thing again
+
+    >> '/skip' methods = GET:
+        - if user set the interval or schedule the bot like user set 2 min interval every 2 min bot runs at the call this endpoint it skip the process but you can skip the process only if the bot is running during this time only you can skip the bot 
+        
+    >> '/update_scheduler' method = GET OR POST:
+        - if user hit the api as get methos than it gives the json resonse in this response it give the bot schedule information like this json file 
+
+            {
+                "interval_minutes": 1,
+                "enable": false,
+                "duration": "minutes",
+                "last_updated_scheduler": "2025-11-24 12:58:28.492035"
+            }
+
+            which comes from in bot dir have schedule.
+        
+        - if user hit the api as post method than it update the schedule informatin bot/schedule.json file 
+
+    >>  '/env-configuration' method = GET:
+        - this end point give the .env file return the all cradantials
+
+    >>  '/update-configuration' method = POST:
+        - this end point update the env file cradantials
+
+    >>  '/edit-prompt' method = POST:
+        - this end point update the open ai prompt 
+
+    >>  '/ram' method = GET:
+        - this endpoint give the all inforamtion about logs and what the latest output result give the all information which is saved in following files
+
+            - latest_pdf_azure_text_cordinates.json
+            - latest_pdf_azure_text.txt
+            - latest_pdf_logs.txt
+            - latest_pdf_open_ai_respons.txt
+            - latest_pdf_output.json
+            - latest_proceed_email.json
+            - latest_sap_response.json
+            - read_emails_logs.json
+    
+    >> '/logs' method = GET:
+        - it show the user live logs of process at frontend 
+
+    >> '/pdf':
+        - it serve the latest proceed pdf 
+
+    >> '/custom-logs' method = GET:
+        - it show the all cutome logs define durring the defvlopment with custome error code 
+
+    >> '/latest-proceed-email' methods = GET OR POST:
+        - at the get method it resturn the last proceed email time and date which saved in latest_proceed_email.json 
+        - at the post methos it update the latest_proceed_email.json file acording to given data 
+    
+    >> '/apple' 
+        - this endpoint return the bot control panel home page
+    
+    >> '/'
+        - this endpoint return the login page 
+
+    >> '/logout'
+        - this endpoint logout the login user 
+    
+    >> "/login" method = POST:
+        - this end point tack the user name and password as json parmeters and than check this cradantial in login.ini file for user login 
+
+    >> "/user-logs":
+        - this end point render the live_logs.html tample with all logs which are saved into latest/read_emails_logs.json
+    
+    ** FUNCTIONS ** 
+
+    >> maintain_logs() : this method after every proceess done runs and check read_emails_logs.json the logs length if it is more than 50 than it remove the old 30 logs from the file 
+
+    >> hash_password() : conerting password in hash 
+
+    >> save_env() : save the env file new values in .env file
+
+    >> update_env() : it function first read the all values from .env file using read_env() function and than update the dictinaery and send to save_env() for save new values in .env file 
+
+    >> load_env() : load the all .env file cradantials in python script
+
+    >> read_env() : read all the load values from load_env()
+
+    >> convert_to_graph_utc() : it convert the local time into UTC Format date and time or in globle format date time
+
+    >> update_logs() : this method append the latest process logs in read_emails_logs.json file
+
+    >> clear_dirs() : remove the all temp dir and also there innner files
+
+    >> update_json_file() : this function tacks the arguments as file name and updateing json data and in this file update the data
+
+    >> get_bot_status() : this function gives the inforamtion about bot from bot/bot_status.json 
+
+    >> load_schedule_config() : it loads the bot/scheduler.json file data 
+
+    >> run_async_target() : it runnning the the read_email file get_emails_and_download_attachments() methos asincronasly 
+
+    >> default() : this function runs before the server start 
+
+    >> simple_recreate_bot() : if user perfoma the skip opration durring bot running this function stop the ruuning process and remove the all jobs and recreate the new job with tha same interval time and id which old removed jobs have 
+
+    >> update_scheduler() : this method update the bot scheduler and also acording to input create the job
+
+    >> scheduled_bot_run() : this function runs using job in the job this function call and runs the bot
+
+    >> stop_process() : this function stop the process which is runnig
+
+    >> start_process() :  the bot runing using multiprocessing method
+ 
+2. main.py file is the main processing file where all thing are process like pdf azure text Extraction and open ai llm calling and also the json formating acording to given format 
+
+    - # def process_pdf(pdf_file): it process the pdf one pdf at a time
+    - # def azure_extract_text: pass the pdf to azure for text Extraction
+    - # def format_with_llm: pass the azure extracted text to llm for getting the data in json fromat
+    - # def final_json: now finaly make the final json to send data in sap odata api acording to pre define json structher
+    - # def send_data_to_sap: it send the final json into sap odata api
+    - # def send_pdf_to_sap: it send the pdf in base64 to sap odata api to save into AL11 
+    - # def process_pdfs : it process the all pdf ony by one which is saved into temporeri dir
+    - # def pan_numbers : get the all pan number using from sap odata api
+    - # def decode_qr_data : decode the inforamtion from qr code image 
+    - # def detect_qrs_from_image : detect the qr code image from pdf page image
+    - # def pdf_to_image : conert the pdf into images and save in temp dir
+    - # def extract_file_name : Extracting The File Name From SAP PDF POST API Response
+    - # def valid_po : in this i am validatate the po number which is come from pdf
+
+3. /latest in this saved the latest processing pdf all opration data and proceed all pdfs logs data
+    
+    - latest.pdf
+    - latest_pdf_azure_text.txt
+    - latest_pdf_azure_text_cordinates.json
+    - latest_pdf_logs.txt
+    - latest_pdf_open_ai_respons.txt
+    - latest_pdf_output.  
+    - latest_proceed_email.json
+    - latest_sap_response.json
+    - read_emails_logs.json
+
+4. /template in this dir we define the template 
+    
+    - configuration.html - show all .env file cradantials key name and values
+    - help.html - it for devloper here show all latest proceed data and logs
+    - index.html - it bot control panel pahe from here user can stop start and schedule the bot  
+    - login.html - login page
+    - pdf.html - show pdf 
+    - live_logs.html - here user can see all logs which are saved into latest/read_emails_logs.json in easy way
+
+5. /upload_pdf in this dir temporeri save the pdf which is use during processing and after processing remove the pdf
+
+6. log_messages.json in this file save the custom logs with define custome error status codes
+
+7. pan.txt in this file save the all pan numbers for idefntify the our gst numbers it just backup file it only use when pan odata api not call or gives the error in response other wise most proritey is odata pan api 
+
+8. prompt_0.txt in this define the open ai default prompt template for geting the data in json format. if data not found from pdf given qr code 
+
+9. prompt_1.txt in this define the open ai default prompt template for geting the data in json format. if data found from pdf given qr code 
+
+10. sap.json in this file define the SAP API SEND JSON DATA default formated template
+
+11. rough.py in this you can perform any python opration for testing and all 
+
+12. login.ini in this save the login username and password
+
+13. /bot in this dir define 2 json files called bot_status.json and scheduler.json 
+    
+    - scheduler.json in this saved the scheduler related inforamtion like this :
+    - bot_status.json in this save the bot status rinning or not 
+
+14. read_email.py in this file we define the code which read the all inbox emailes give email id from azure 
+
+    - # get_emails_and_download_attachments : this function read the emails and thare attchments from give email inbox and than process the attchments first check if it is zip or pdf if pdf than direct save into temp_dir and if it zip than extract pdf files from zip and extract 
+    
+    - # verify_signatures : this function check that pdf is degitali signes or not 
+
+    - # update_json_file : this method update the latest proceed email infomation data in json file
+
+    - # get_folder_names : this method does not use in this project but the motiuve os that you can get the information that the outlook email where to save and what the dir name like draft email save dir name  or delete email saved dir name etc.
+ 
+
+15. may be you can not see the main.py file in production because it copliced into c file may the name is changed you can idefntify by .pyd file  
+
+16. azure_emails_read.py in this file have code of reading the emails from azure clude this file is not a part of this bot is just for checking emails are properly fetcthed from clude only for verification. 

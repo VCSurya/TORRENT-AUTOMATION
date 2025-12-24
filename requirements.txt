@@ -1,0 +1,17 @@
+Flask[async]
+opencv-python
+PyMuPDF
+requests
+dotenv
+openai
+azure-identity
+pdf2image
+msgraph-sdk
+azure-core
+azure-ai-documentintelligence
+flask_cors
+flask_login
+apscheduler
+Pillow
+pyHanko
+gunicorn
