@@ -919,5 +919,280 @@
             "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAMgIpWAAA=",
             "email_date_time": "2025-12-23 09:33:06+00:00"
         }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "himanshupatel@torrentgas.com",
+                "subject": "Digital Invoice",
+                "email_date_time": "2025-12-18 11:27:25+00:00",
+                "process_date_time": "2025-12-24 16:45:44.946718",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "6000135283_TNS2526000023739_Chennai.PDF",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000001032",
+                        "PDF_FileName": "6000135283_TNS2526000023739_Chennai.PDF"
+                    }
+                ],
+                "Total Proceed Pdf": "1",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "0"
+            },
+            {
+                "from": "himanshupatel@torrentgas.com",
+                "subject": "Invoice",
+                "email_date_time": "2025-12-18 11:27:27+00:00",
+                "process_date_time": "2025-12-24 16:45:59.151017",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "6000125723_TGT Fuel Techno_252604579_97642.pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [],
+                "Total Proceed Pdf": "0",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            },
+            {
+                "from": "manavshah@torrentgas.com",
+                "subject": "Digitally Signed Invoice Test by Manav",
+                "email_date_time": "2025-12-19 05:16:43+00:00",
+                "process_date_time": "2025-12-24 16:45:59.381427",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "Final_Bill_99000462_Digitally_Signed_Invoice.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "FO2527121479.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Inv No. 1615.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "NAMESPACE_DMA-NSIA599 NOV'25.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "SK-Invoice Nov'25.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "20 Torrent Gas (LNG) November-2025.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "MCETS25-2603.pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000001033",
+                        "PDF_FileName": "20 Torrent Gas (LNG) November-2025.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "6",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 21812",
+            "3. Start Process - 2025-12-24 16:45:36.109531",
+            "4. Reading New Emails From Cloude...",
+            "5. 8 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: Digital Invoice ",
+            ">> 1 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (6000135283_TNS2526000023739_Chennai.PDF) Processing...",
+            ">> (6000135283_TNS2526000023739_Chennai.PDF) Proceed!",
+            ">> 1 - Email Proceed.",
+            ">> 2 - Email Processing...",
+            ">> Subject: Invoice ",
+            ">> No Digital Signed Attachment Found!",
+            ">> 2 - Email Proceed.",
+            ">> 3 - Email Processing...",
+            ">> Subject: Digitally Signed Invoice Test by Manav ",
+            ">> 6 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (20 Torrent Gas (LNG) November-2025.pdf) Processing...",
+            ">> (20 Torrent Gas (LNG) November-2025.pdf) Proceed!",
+            ">> (Final_Bill_99000462_Digitally_Signed_Invoice.pdf) Processing...",
+            "Terminating process PID: 21812...",
+            "-> Process not completed normally its terminate",
+            "Process terminated successfully."
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAK3ZjYAAA=",
+            "email_date_time": "2025-12-19 05:16:43+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "himanshupatel@torrentgas.com",
+                "subject": "Digital Invoice",
+                "email_date_time": "2025-12-19 05:26:26+00:00",
+                "process_date_time": "2025-12-24 16:47:13.296271",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "6000135283_TNS2526000023739_Chennai.PDF",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000001034",
+                        "PDF_FileName": "6000135283_TNS2526000023739_Chennai.PDF"
+                    }
+                ],
+                "Total Proceed Pdf": "1",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "0"
+            },
+            {
+                "from": "himanshupatel@torrentgas.com",
+                "subject": "Invoice",
+                "email_date_time": "2025-12-19 05:26:31+00:00",
+                "process_date_time": "2025-12-24 16:47:24.319361",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "6000125723_TGT Fuel Techno_252604579_97642.pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [],
+                "Total Proceed Pdf": "0",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            },
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "surya testing",
+                "email_date_time": "2025-12-23 09:05:51+00:00",
+                "process_date_time": "2025-12-24 16:47:24.352281",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "178_Shah_FF_IT2145341_04.pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [],
+                "Total Proceed Pdf": "0",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            },
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "testing ",
+                "email_date_time": "2025-12-23 09:29:57+00:00",
+                "process_date_time": "2025-12-24 16:47:24.386356",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "204_Canon_FF_IT2145026_02.pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [],
+                "Total Proceed Pdf": "0",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            },
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "testing the digitally signed invoice ",
+                "email_date_time": "2025-12-23 09:33:06+00:00",
+                "process_date_time": "2025-12-24 16:47:24.421066",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "IndianTankers_BU325260111 4.pdf",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000001035",
+                        "PDF_FileName": "IndianTankers_BU325260111 4.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "1",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 26688",
+            "3. Start Process - 2025-12-24 16:47:09.088244",
+            "4. Reading New Emails From Cloude...",
+            "5. 6 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: Digitally Signed Invoice Test by Manav ",
+            ">> !!! Email Already Proceed.",
+            ">> 1 - Email Proceed.",
+            ">> 1 - Email Processing...",
+            ">> Subject: Digital Invoice ",
+            ">> 1 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (6000135283_TNS2526000023739_Chennai.PDF) Processing...",
+            ">> (6000135283_TNS2526000023739_Chennai.PDF) Proceed!",
+            ">> 1 - Email Proceed.",
+            ">> 2 - Email Processing...",
+            ">> Subject: Invoice ",
+            ">> No Digital Signed Attachment Found!",
+            ">> 2 - Email Proceed.",
+            ">> 3 - Email Processing...",
+            ">> Subject: surya testing ",
+            ">> No Digital Signed Attachment Found!",
+            ">> 3 - Email Proceed.",
+            ">> 4 - Email Processing...",
+            ">> Subject: testing  ",
+            ">> No Digital Signed Attachment Found!",
+            ">> 4 - Email Proceed.",
+            ">> 5 - Email Processing...",
+            ">> Subject: testing the digitally signed invoice  ",
+            ">> 1 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (IndianTankers_BU325260111 4.pdf) Processing...",
+            ">> (IndianTankers_BU325260111 4.pdf) Proceed!",
+            ">> 5 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAMgIpWAAA=",
+            "email_date_time": "2025-12-23 09:33:06+00:00"
+        }
     }
 ]

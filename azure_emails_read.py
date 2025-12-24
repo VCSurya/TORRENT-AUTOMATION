@@ -332,11 +332,12 @@ async def process_filtered_emails(shared_data):
                 # shared_data["proceed_emails"] = bot_opration["emails"]
                 # shared_data["proceed_emails"][str(message.id)] = latest_opration_data
 
-                email_no = email_no +  1    
-                
             else:
                 shared_data["status"].append(">> !!! Email Already Proceed.")
                 shared_data["status"].append(f">> {email_no} - Email Proceed.")
+            
+            email_no = email_no +  1    
+
 
         shared_data["status"].append(f"6. ALL Emails Procced Successfully.")
 
