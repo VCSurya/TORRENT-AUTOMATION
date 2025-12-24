@@ -128,7 +128,6 @@ def update_logs():
 
     global shared_data
 
-    # if len(shared_data.get('proceed_emails',[])) != 0:    
 
     
     safe_data = {}
@@ -152,6 +151,8 @@ def update_logs():
 
     safe_data['proceed_emails'] = proceed_emails
 
+    if len(safe_data.get('proceed_emails',[])) == 0:
+        return    
 
     # ---- safely copy status ----
     safe_data["status"] = list(shared_data.get("status", []))
