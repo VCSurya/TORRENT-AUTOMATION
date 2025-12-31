@@ -75,6 +75,9 @@
 
     >> "/user-logs":
         - this end point render the live_logs.html tample with all logs which are saved into latest/read_emails_logs.json
+
+    >> "/manual-logs":
+        - this endpoint return the manual logs.html with all manual logs oprations
     
     ** FUNCTIONS ** 
 
@@ -115,6 +118,8 @@
     >> stop_process() : this function stop the process which is runnig
 
     >> start_process() :  the bot runing using multiprocessing method
+
+    >> update_manual_logs() : update the logs of manual opration of fiori 
  
 2. main.py file is the main processing file where all thing are process like pdf azure text Extraction and open ai llm calling and also the json formating acording to given format 
 
@@ -143,6 +148,7 @@
     - latest_proceed_email.json
     - latest_sap_response.json
     - read_emails_logs.json
+    - upload_pdf_logs.json
 
 4. /template in this dir we define the template 
     
@@ -152,6 +158,7 @@
     - login.html - login page
     - pdf.html - show pdf 
     - live_logs.html - here user can see all logs which are saved into latest/read_emails_logs.json in easy way
+    - upload_logs.html - here user can see all manual uploaded pdf oprations on fiori  
 
 5. /upload_pdf in this dir temporeri save the pdf which is use during processing and after processing remove the pdf
 

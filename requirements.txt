@@ -1,6 +1,7 @@
 Flask[async]
 opencv-python
 PyMuPDF
+pypdf
 requests
 dotenv
 openai

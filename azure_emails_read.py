@@ -16,6 +16,7 @@ from dotenv import load_dotenv
 import time
 import copy
 from PIL import Image
+from pypdf import PdfReader
 
 load_dotenv()
 # =============================
@@ -68,14 +69,73 @@ def update_json_file(file_path: str, new_data: dict) -> bool:
 
 
 def verify_signatures(pdf_path):
-    try:
-        with open(pdf_path, "rb") as f:
-            reader = PdfFileReader(f)
-            sig_fields = list(enumerate_sig_fields(reader))
-            return bool(sig_fields)
-    except:
-        return False
 
+    """
+    Returns:
+      digital_signed: True if cryptographic signature exists (/Sig)
+      has_stamp: True if Stamp annotation exists (/Stamp) -> visual only
+    """
+    reader = PdfReader(pdf_path)
+
+    digital_signed = False
+    has_stamp = False
+
+    # 1) Check AcroForm fields if present (real digital signature fields)
+    root = reader.trailer["/Root"]
+    acroform = root.get("/AcroForm")
+    if acroform:
+        fields = acroform.get("/Fields", [])
+        for fld_ref in fields:
+            fld = fld_ref.get_object()
+            if fld.get("/FT") == "/Sig":
+                v = fld.get("/V")
+                if v:
+                    sig = v.get_object()
+                    if "/ByteRange" in sig and "/Contents" in sig:
+                        digital_signed = True
+                        break
+                # Signature field exists even if value not resolved
+                digital_signed = True
+                break
+
+    # 2) Scan page annotations (/Annots)
+    for page in reader.pages:
+        annots = page.get("/Annots", [])
+        for a in annots:
+            annot = a.get_object()
+            subtype = annot.get("/Subtype")
+
+            # (A) Visual stamp detection (NOT a digital signature)
+            if subtype == "/Stamp":
+                has_stamp = True
+
+            # (B) Real digital signature widget
+            if subtype == "/Widget" and annot.get("/FT") == "/Sig":
+                v = annot.get("/V")
+                if v:
+                    sig = v.get_object()
+                    if "/ByteRange" in sig and "/Contents" in sig:
+                        digital_signed = True
+                else:
+                    digital_signed = True
+
+        # early exit if you want faster performance
+        if digital_signed and has_stamp:
+            break
+
+    if digital_signed:
+        return True
+    
+    else:   
+        try:
+            with open(pdf_path, "rb") as f:
+                r = PdfFileReader(f)
+                return len(r.embedded_signatures) > 0
+        except Exception:
+            
+            if has_stamp:
+                return True
+            return False
 
 
 

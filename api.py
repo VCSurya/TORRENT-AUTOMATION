@@ -101,12 +101,12 @@ def convert_to_graph_utc(dt_str: str) -> str:
     # 5. Return in Graph API style
     return dt_utc.strftime("%Y-%m-%d %H:%M:%S+00:00")
 
-async def maintain_logs():
+async def maintain_logs(filename):
 
     try:
         existing_logs = []
-        if os.path.exists('latest/read_emails_logs.json'):  # Check if the file exists and is not empty
-            with open('latest/read_emails_logs.json', "r") as f:
+        if os.path.exists(f'latest/{filename}'):  # Check if the file exists and is not empty
+            with open(f'latest/{filename}', "r") as f:
                 try:
                     existing_logs = json.load(f)  # Load the existing logs
                 except json.JSONDecodeError:
@@ -118,7 +118,7 @@ async def maintain_logs():
             
             new_logs = existing_logs[-30:]
 
-            with open("latest/read_emails_logs.json", "w") as file:
+            with open(f'latest/{filename}', "w") as file:
                     json.dump(new_logs, file, indent=4)
 
     except Exception as e:
@@ -128,8 +128,6 @@ def update_logs():
 
     global shared_data
 
-
-    
     safe_data = {}
 
     # ---- copy top-level shared_data safely ----
@@ -184,7 +182,7 @@ def update_logs():
     with open("latest/read_emails_logs.json", "w") as f:
         json.dump(existing_logs, f, indent=4)
     
-    asyncio.run(maintain_logs())
+    asyncio.run(maintain_logs("read_emails_logs.json"))
         
 def clear_dirs():
     try:
@@ -210,6 +208,40 @@ def clear_dirs():
 
     except Exception as e:
         print(f"An error occurred: {e}")
+
+async def update_manual_logs(result):
+        
+        # Append mode: keep previous logs if file exists
+        if os.path.exists('latest/upload_pdf_logs.json'):  # Check if the file exists and is not empty
+            with open('latest/upload_pdf_logs.json', "r") as f:
+                try:
+                    existing_logs = json.load(f)  # Load the existing logs
+                except json.JSONDecodeError:
+                    existing_logs = []  # If the file is empty or corrupted, treat it as an empty list
+        else:
+            existing_logs = []  # If the file does not exist or is empty, start with an empty list
+
+        if result['status']:
+            
+            existing_logs.append({
+                    "status":result.get("status"),
+                    "no":result.get("no"),
+                    "PDF_FileName":result.get("PDF_FileName"),
+                    "Date":datetime.strptime(result.get("json").get('CreatedOn'), "%Y%m%d").strftime("%d/%m/%Y"),
+                    "Time":result.get("json").get('CreatedOnTime'),
+            })
+
+        else:
+            result['Date'] = datetime.strptime(result.get("json").get('CreatedOn'), "%Y%m%d").strftime("%d/%m/%Y")
+            result['Time'] = result.get("json").get('CreatedOnTime')
+            existing_logs.append(result)
+
+        with open("latest/upload_pdf_logs.json", "w") as f:
+            json.dump(existing_logs, f, indent=4) 
+        
+        maintain_logs("read_emails_logs.json")
+
+
 
 def update_json_file(file_path: str, data: dict) -> bool:
     
@@ -693,6 +725,7 @@ def upload_pdf():
         load_dotenv(override=True)
         importlib.reload(main)
         result = main.process_pdf(os.path.abspath(file_path),email_data,Mode_Of_Entry,Created_On,Created_By)
+        asyncio.run(update_manual_logs(result))
 
         ### Note: if success is X means true and "" means false
 
@@ -891,6 +924,19 @@ def all_logs():
     
     except Exception as e:
         return{"error":str(e)}
+
+@app.route("/manual-logs")
+@login_required
+def manual_logs():
+    try:
+        
+        with open('latest/upload_pdf_logs.json','r',encoding='utf-8') as file:
+            all_logs = json.load(file)
+        return render_template('upload_logs.html',LOGS=all_logs)
+    
+    except Exception as e:
+        return{"error":str(e)}
+
 
 @app.route("/custom-logs",methods=['GET'])
 @login_required

@@ -475,7 +475,15 @@ def final_json(JSON,SAP_JSON,Mode_Of_Entry,Created_On,Created_By):
                 e = traceback.format_exc()
                 LOGS.append(f'131 {str(e)}')
                 return ""
-            
+        
+        def to_yyyymmdd(date_str: str) -> str:
+            for fmt in ("%d-%m-%Y", "%d/%m/%Y"):
+                try:
+                    return datetime.strptime(date_str, fmt).strftime("%Y%m%d")
+                except ValueError:
+                    return date_str.replace("-","").replace("/","")
+
+
         with open('latest/latest_pdf_azure_text_cordinates.json', 'w', encoding='utf-8') as file:
             json.dump(JSON['cordinates'], file, ensure_ascii=False, indent=4)
         
@@ -506,8 +514,14 @@ def final_json(JSON,SAP_JSON,Mode_Of_Entry,Created_On,Created_By):
             #  Value SAVE IN MAIN SAP JSON 
 
             SAP_JSON['InvoiceNo'] = JSON['data']['InvoiceNo']
-            SAP_JSON['InvoiceDate'] = JSON['data']['InvoiceDate'].replace("-","") if JSON['data']['InvoiceDate'] != "" else JSON['data']['InvoiceOriginalDate']
             SAP_JSON['InvoiceAmount'] = JSON['data']['InvoiceAmount']
+            
+            if JSON['data']['InvoiceDate'] != "":
+                
+                SAP_JSON['InvoiceDate'] = JSON['data']['InvoiceDate'].replace("-","") 
+            
+            else:
+                SAP_JSON['InvoiceDate'] = to_yyyymmdd(JSON['data']['InvoiceOriginalDate'])
         
         # SCS/GRN Validation with nested loop
 
@@ -552,7 +566,7 @@ def final_json(JSON,SAP_JSON,Mode_Of_Entry,Created_On,Created_By):
         SAP_JSON['CreatedOn'] = f"{Created_On}"
         SAP_JSON['CreatedBy'] = f"{Created_By}"
         SAP_JSON['ModeOfEntry'] = f"{Mode_Of_Entry}"
-        SAP_JSON['PoLpoIoNoPdf'] = valid_po(JSON['data']['PoNo']) 
+        SAP_JSON['PoLpoIoNoPdf'] = valid_po(JSON['data']['PoNo'])
         
         # FIND THE CORDINATES OF FIELDS
 
@@ -582,7 +596,7 @@ def final_json(JSON,SAP_JSON,Mode_Of_Entry,Created_On,Created_By):
             SAP_JSON["CInvoiceAmount"] = result
 
         if SAP_JSON['PoLpoIoNoPdf'] != "":
-            closest_key = find_closest(JSON['cordinates'], str(SAP_JSON['PoLpoIoNoPdf']))
+            closest_key = find_closest(JSON['cordinates'], str(JSON['data']['PoNo']))
             try:
                 keys = list(JSON['cordinates'].keys())
                 existing = keys.index(closest_key)
@@ -842,7 +856,7 @@ def send_data_to_sap(SAP_JSON):
         return {'status':False ,'error': str(e) , "error_code":"130"}
 
 # === Step 3: Full pipeline per PDF ===
-def process_pdf(pdf_file,email_data,Mode_Of_Entry = "Bot",Created_On=f"{datetime.now().strftime('%Y%m%d')}",Created_By="Bot"):
+def process_pdf(pdf_file,email_data,Mode_Of_Entry = "BOT",Created_On=f"{datetime.now().strftime('%Y%m%d')}",Created_By="BOT"):
     
     LOGS.clear()
     global PROMPT_NO
@@ -965,7 +979,9 @@ def process_pdf(pdf_file,email_data,Mode_Of_Entry = "Bot",Created_On=f"{datetime
             return result
 
         except:
-            print(f"(+) Failed into finally block main.py")            
+            import traceback
+            print(f"(+) Failed into finally block main.py, ",traceback.print_exc())     
+            return {}
 
 # === Step 4: Rolling execution with limited concurrency ===
 def process_pdfs(folder_path, email_data,max_workers=3):

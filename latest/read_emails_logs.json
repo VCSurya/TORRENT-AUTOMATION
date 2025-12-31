@@ -1194,5 +1194,946 @@
             "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAMgIpWAAA=",
             "email_date_time": "2025-12-23 09:33:06+00:00"
         }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "for testing the new updates about dcc ",
+                "email_date_time": "2025-12-30 05:07:48+00:00",
+                "process_date_time": "2025-12-30 10:38:39.607571",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "Invoice_DHOLPUR-3670 (1).pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "e-Invoice TGL-Moradabad-Final RA Revised.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "34706025530_TORRENT_ORIGINAL_FOR_RECIPIENT.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "6103_E-INVOICE TGPL Gajanan Petroleum 19078 AUG-25 (17 DAYS BILL WITH NEW PO).pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "SEC2503628-.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "SEC2503088-.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "2076.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "RA-02 Auraiya.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Inv.331 Torrent 29-Jul-25 Final.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Einvoice Sales_MPIPL_MT_35.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Torrent Gas Pune Ltd July 25-Digitally Signed-033-Fiat Ranjangaon.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "einv1 - 2025-09-19T152326.180 (1).pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "INV-163.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "TI_2526_09_393.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "AEPS159.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "SSV AZ RA-05.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "FO2527111391.pdf",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000001046",
+                        "PDF_FileName": "2076.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001047",
+                        "PDF_FileName": "34706025530_TORRENT_ORIGINAL_FOR_RECIPIENT.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001048",
+                        "PDF_FileName": "6103_E-INVOICE TGPL Gajanan Petroleum 19078 AUG-25 (17 DAYS BILL WITH NEW PO).pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001049",
+                        "PDF_FileName": "AEPS159.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001050",
+                        "PDF_FileName": "e-Invoice TGL-Moradabad-Final RA Revised.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "16",
+                "Success Proceed Pdf": "5",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 1736",
+            "3. Start Process - 2025-12-30 10:38:27.615172",
+            "4. Reading New Emails From Cloude...",
+            "5. 2 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: testing the digitally signed invoice  ",
+            ">> !!! Email Already Proceed.",
+            ">> 1 - Email Proceed.",
+            ">> 2 - Email Processing...",
+            ">> Subject: for testing the new updates about dcc  ",
+            ">> 16 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (2076.pdf) Processing...",
+            ">> (2076.pdf) Proceed!",
+            ">> (34706025530_TORRENT_ORIGINAL_FOR_RECIPIENT.pdf) Processing...",
+            ">> (34706025530_TORRENT_ORIGINAL_FOR_RECIPIENT.pdf) Proceed!",
+            ">> (6103_E-INVOICE TGPL Gajanan Petroleum 19078 AUG-25 (17 DAYS BILL WITH NEW PO).pdf) Processing...",
+            ">> (6103_E-INVOICE TGPL Gajanan Petroleum 19078 AUG-25 (17 DAYS BILL WITH NEW PO).pdf) Proceed!",
+            ">> (AEPS159.pdf) Processing...",
+            ">> (AEPS159.pdf) Proceed!",
+            ">> (e-Invoice TGL-Moradabad-Final RA Revised.pdf) Processing...",
+            ">> (e-Invoice TGL-Moradabad-Final RA Revised.pdf) Proceed!",
+            ">> (Einvoice Sales_MPIPL_MT_35.pdf) Processing...",
+            "Terminating process PID: 1736...",
+            "-> Process not completed normally its terminate",
+            "Process terminated successfully."
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAR4xorAAA=",
+            "email_date_time": "2025-12-30 05:07:48+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "for testing the new updates about dcc ",
+                "email_date_time": "2025-12-30 05:07:48+00:00",
+                "process_date_time": "2025-12-30 10:41:18.359591",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "Invoice_DHOLPUR-3670 (1).pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "e-Invoice TGL-Moradabad-Final RA Revised.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "34706025530_TORRENT_ORIGINAL_FOR_RECIPIENT.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "6103_E-INVOICE TGPL Gajanan Petroleum 19078 AUG-25 (17 DAYS BILL WITH NEW PO).pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "SEC2503628-.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "SEC2503088-.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "2076.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "RA-02 Auraiya.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Inv.331 Torrent 29-Jul-25 Final.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Einvoice Sales_MPIPL_MT_35.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Torrent Gas Pune Ltd July 25-Digitally Signed-033-Fiat Ranjangaon.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "einv1 - 2025-09-19T152326.180 (1).pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "INV-163.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "TI_2526_09_393.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "AEPS159.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "SSV AZ RA-05.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "FO2527111391.pdf",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000001051",
+                        "PDF_FileName": "2076.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "16",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 5960",
+            "3. Start Process - 2025-12-30 10:41:12.754354",
+            "4. Reading New Emails From Cloude...",
+            "5. 1 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: for testing the new updates about dcc  ",
+            ">> 16 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (2076.pdf) Processing...",
+            ">> (2076.pdf) Proceed!",
+            ">> (34706025530_TORRENT_ORIGINAL_FOR_RECIPIENT.pdf) Processing...",
+            "Terminating process PID: 5960...",
+            "Process terminated successfully.",
+            "-> Process not completed normally its terminate"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAR4xorAAA=",
+            "email_date_time": "2025-12-30 05:07:48+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "for testing the new updates about dcc ",
+                "email_date_time": "2025-12-30 05:07:48+00:00",
+                "process_date_time": "2025-12-30 10:53:20.931286",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "Invoice_DHOLPUR-3670 (1).pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "e-Invoice TGL-Moradabad-Final RA Revised.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "34706025530_TORRENT_ORIGINAL_FOR_RECIPIENT.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "6103_E-INVOICE TGPL Gajanan Petroleum 19078 AUG-25 (17 DAYS BILL WITH NEW PO).pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "SEC2503628-.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "SEC2503088-.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "2076.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "RA-02 Auraiya.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Inv.331 Torrent 29-Jul-25 Final.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Einvoice Sales_MPIPL_MT_35.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Torrent Gas Pune Ltd July 25-Digitally Signed-033-Fiat Ranjangaon.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "einv1 - 2025-09-19T152326.180 (1).pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "INV-163.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "TI_2526_09_393.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "AEPS159.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "SSV AZ RA-05.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "FO2527111391.pdf",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000001052",
+                        "PDF_FileName": "2076.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001053",
+                        "PDF_FileName": "34706025530_TORRENT_ORIGINAL_FOR_RECIPIENT.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001054",
+                        "PDF_FileName": "6103_E-INVOICE TGPL Gajanan Petroleum 19078 AUG-25 (17 DAYS BILL WITH NEW PO).pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001055",
+                        "PDF_FileName": "AEPS159.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001056",
+                        "PDF_FileName": "e-Invoice TGL-Moradabad-Final RA Revised.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001057",
+                        "PDF_FileName": "Einvoice Sales_MPIPL_MT_35.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001058",
+                        "PDF_FileName": "FO2527111391.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001059",
+                        "PDF_FileName": "INV-163.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001060",
+                        "PDF_FileName": "Inv.331 Torrent 29-Jul-25 Final.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001061",
+                        "PDF_FileName": "Invoice_DHOLPUR-3670 (1).pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001062",
+                        "PDF_FileName": "RA-02 Auraiya.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001063",
+                        "PDF_FileName": "SEC2503088-.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001064",
+                        "PDF_FileName": "SEC2503628-.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001065",
+                        "PDF_FileName": "SSV AZ RA-05.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001066",
+                        "PDF_FileName": "TI_2526_09_393.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001067",
+                        "PDF_FileName": "Torrent Gas Pune Ltd July 25-Digitally Signed-033-Fiat Ranjangaon.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "16",
+                "Success Proceed Pdf": "16",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 17564",
+            "3. Start Process - 2025-12-30 10:53:10.004988",
+            "4. Reading New Emails From Cloude...",
+            "5. 1 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: for testing the new updates about dcc  ",
+            ">> 16 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (2076.pdf) Processing...",
+            ">> (2076.pdf) Proceed!",
+            ">> (34706025530_TORRENT_ORIGINAL_FOR_RECIPIENT.pdf) Processing...",
+            ">> (34706025530_TORRENT_ORIGINAL_FOR_RECIPIENT.pdf) Proceed!",
+            ">> (6103_E-INVOICE TGPL Gajanan Petroleum 19078 AUG-25 (17 DAYS BILL WITH NEW PO).pdf) Processing...",
+            ">> (6103_E-INVOICE TGPL Gajanan Petroleum 19078 AUG-25 (17 DAYS BILL WITH NEW PO).pdf) Proceed!",
+            ">> (AEPS159.pdf) Processing...",
+            ">> (AEPS159.pdf) Proceed!",
+            ">> (e-Invoice TGL-Moradabad-Final RA Revised.pdf) Processing...",
+            ">> (e-Invoice TGL-Moradabad-Final RA Revised.pdf) Proceed!",
+            ">> (Einvoice Sales_MPIPL_MT_35.pdf) Processing...",
+            ">> (Einvoice Sales_MPIPL_MT_35.pdf) Proceed!",
+            ">> (FO2527111391.pdf) Processing...",
+            ">> (FO2527111391.pdf) Proceed!",
+            ">> (INV-163.pdf) Processing...",
+            ">> (INV-163.pdf) Proceed!",
+            ">> (Inv.331 Torrent 29-Jul-25 Final.pdf) Processing...",
+            ">> (Inv.331 Torrent 29-Jul-25 Final.pdf) Proceed!",
+            ">> (Invoice_DHOLPUR-3670 (1).pdf) Processing...",
+            ">> (Invoice_DHOLPUR-3670 (1).pdf) Proceed!",
+            ">> (RA-02 Auraiya.pdf) Processing...",
+            ">> (RA-02 Auraiya.pdf) Proceed!",
+            ">> (SEC2503088-.pdf) Processing...",
+            ">> (SEC2503088-.pdf) Proceed!",
+            ">> (SEC2503628-.pdf) Processing...",
+            ">> (SEC2503628-.pdf) Proceed!",
+            ">> (SSV AZ RA-05.pdf) Processing...",
+            ">> (SSV AZ RA-05.pdf) Proceed!",
+            ">> (TI_2526_09_393.pdf) Processing...",
+            ">> (TI_2526_09_393.pdf) Proceed!",
+            ">> (Torrent Gas Pune Ltd July 25-Digitally Signed-033-Fiat Ranjangaon.pdf) Processing...",
+            ">> (Torrent Gas Pune Ltd July 25-Digitally Signed-033-Fiat Ranjangaon.pdf) Proceed!",
+            ">> 1 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAR4xorAAA=",
+            "email_date_time": "2025-12-30 05:07:48+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "for testing the new updates about dcc ",
+                "email_date_time": "2025-12-30 05:07:48+00:00",
+                "process_date_time": "2025-12-30 12:12:44.516042",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "Invoice_DHOLPUR-3670 (1).pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "e-Invoice TGL-Moradabad-Final RA Revised.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "34706025530_TORRENT_ORIGINAL_FOR_RECIPIENT.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "6103_E-INVOICE TGPL Gajanan Petroleum 19078 AUG-25 (17 DAYS BILL WITH NEW PO).pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "SEC2503628-.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "SEC2503088-.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "2076.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "RA-02 Auraiya.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Inv.331 Torrent 29-Jul-25 Final.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Einvoice Sales_MPIPL_MT_35.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Torrent Gas Pune Ltd July 25-Digitally Signed-033-Fiat Ranjangaon.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "einv1 - 2025-09-19T152326.180 (1).pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "INV-163.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "TI_2526_09_393.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "AEPS159.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "SSV AZ RA-05.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "FO2527111391.pdf",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000001068",
+                        "PDF_FileName": "2076.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "16",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 10692",
+            "3. Start Process - 2025-12-30 12:12:37.000635",
+            "4. Reading New Emails From Cloude...",
+            "5. 1 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: for testing the new updates about dcc  ",
+            ">> 16 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (2076.pdf) Processing...",
+            ">> (2076.pdf) Proceed!",
+            ">> (34706025530_TORRENT_ORIGINAL_FOR_RECIPIENT.pdf) Processing...",
+            "Terminating process PID: 10692...",
+            "Process terminated successfully.",
+            "-> Process not completed normally its terminate"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAR4xorAAA=",
+            "email_date_time": "2025-12-30 05:07:48+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "for testing the new updates about dcc ",
+                "email_date_time": "2025-12-30 05:07:48+00:00",
+                "process_date_time": "2025-12-30 12:25:27.175579",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "Invoice_DHOLPUR-3670 (1).pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "e-Invoice TGL-Moradabad-Final RA Revised.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "34706025530_TORRENT_ORIGINAL_FOR_RECIPIENT.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "6103_E-INVOICE TGPL Gajanan Petroleum 19078 AUG-25 (17 DAYS BILL WITH NEW PO).pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "SEC2503628-.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "SEC2503088-.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "2076.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "RA-02 Auraiya.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Inv.331 Torrent 29-Jul-25 Final.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Einvoice Sales_MPIPL_MT_35.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Torrent Gas Pune Ltd July 25-Digitally Signed-033-Fiat Ranjangaon.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "einv1 - 2025-09-19T152326.180 (1).pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "INV-163.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "TI_2526_09_393.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "AEPS159.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "SSV AZ RA-05.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "FO2527111391.pdf",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000001069",
+                        "PDF_FileName": "2076.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "16",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 1100",
+            "3. Start Process - 2025-12-30 12:25:23.499199",
+            "4. Reading New Emails From Cloude...",
+            "5. 1 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: for testing the new updates about dcc  ",
+            ">> 16 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (2076.pdf) Processing...",
+            ">> (2076.pdf) Proceed!",
+            ">> (34706025530_TORRENT_ORIGINAL_FOR_RECIPIENT.pdf) Processing...",
+            "Terminating process PID: 1100...",
+            "Process terminated successfully.",
+            "-> Process not completed normally its terminate"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAR4xorAAA=",
+            "email_date_time": "2025-12-30 05:07:48+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "for testing the new updates about dcc ",
+                "email_date_time": "2025-12-30 05:07:48+00:00",
+                "process_date_time": "2025-12-30 12:27:18.811413",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "Invoice_DHOLPUR-3670 (1).pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "e-Invoice TGL-Moradabad-Final RA Revised.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "34706025530_TORRENT_ORIGINAL_FOR_RECIPIENT.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "6103_E-INVOICE TGPL Gajanan Petroleum 19078 AUG-25 (17 DAYS BILL WITH NEW PO).pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "SEC2503628-.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "SEC2503088-.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "2076.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "RA-02 Auraiya.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Inv.331 Torrent 29-Jul-25 Final.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Einvoice Sales_MPIPL_MT_35.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Torrent Gas Pune Ltd July 25-Digitally Signed-033-Fiat Ranjangaon.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "einv1 - 2025-09-19T152326.180 (1).pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "INV-163.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "TI_2526_09_393.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "AEPS159.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "SSV AZ RA-05.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "FO2527111391.pdf",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000001070",
+                        "PDF_FileName": "2076.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001071",
+                        "PDF_FileName": "34706025530_TORRENT_ORIGINAL_FOR_RECIPIENT.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001072",
+                        "PDF_FileName": "6103_E-INVOICE TGPL Gajanan Petroleum 19078 AUG-25 (17 DAYS BILL WITH NEW PO).pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "16",
+                "Success Proceed Pdf": "3",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 14636",
+            "3. Start Process - 2025-12-30 12:27:14.471541",
+            "4. Reading New Emails From Cloude...",
+            "5. 1 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: for testing the new updates about dcc  ",
+            ">> 16 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (2076.pdf) Processing...",
+            ">> (2076.pdf) Proceed!",
+            ">> (34706025530_TORRENT_ORIGINAL_FOR_RECIPIENT.pdf) Processing...",
+            ">> (34706025530_TORRENT_ORIGINAL_FOR_RECIPIENT.pdf) Proceed!",
+            ">> (6103_E-INVOICE TGPL Gajanan Petroleum 19078 AUG-25 (17 DAYS BILL WITH NEW PO).pdf) Processing...",
+            ">> (6103_E-INVOICE TGPL Gajanan Petroleum 19078 AUG-25 (17 DAYS BILL WITH NEW PO).pdf) Proceed!",
+            ">> (AEPS159.pdf) Processing...",
+            "Terminating process PID: 14636...",
+            "-> Process not completed normally its terminate",
+            "Process terminated successfully."
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAR4xorAAA=",
+            "email_date_time": "2025-12-30 05:07:48+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "dhirajpatel@torrentgas.com",
+                "subject": "test",
+                "email_date_time": "2025-12-30 10:49:22+00:00",
+                "process_date_time": "2025-12-30 18:23:36.163856",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "6000012313_MHF2223000032326.pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [],
+                "Total Proceed Pdf": "0",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            },
+            {
+                "from": "manavshah@torrentgas.com",
+                "subject": "FW: test",
+                "email_date_time": "2025-12-30 11:05:07+00:00",
+                "process_date_time": "2025-12-30 18:23:36.191479",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "6000012313_MHF2223000032326.pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [],
+                "Total Proceed Pdf": "0",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 10956",
+            "3. Start Process - 2025-12-30 18:23:22.050024",
+            "4. Reading New Emails From Cloude...",
+            "5. 3 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: for testing the new updates about dcc  ",
+            ">> !!! Email Already Proceed.",
+            ">> 1 - Email Proceed.",
+            ">> 2 - Email Processing...",
+            ">> Subject: test ",
+            ">> No Digital Signed Attachment Found!",
+            ">> 2 - Email Proceed.",
+            ">> 3 - Email Processing...",
+            ">> Subject: FW: test ",
+            ">> No Digital Signed Attachment Found!",
+            ">> 3 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAR4xotAAA=",
+            "email_date_time": "2025-12-30 11:05:07+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "manavshah@torrentgas.com",
+                "subject": "FW: test",
+                "email_date_time": "2025-12-30 11:05:07+00:00",
+                "process_date_time": "2025-12-31 11:09:22.639055",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "6000012313_MHF2223000032326.pdf",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000001073",
+                        "PDF_FileName": "6000012313_MHF2223000032326.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "1",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 16732",
+            "3. Start Process - 2025-12-31 11:09:19.225532",
+            "4. Reading New Emails From Cloude...",
+            "5. 1 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: FW: test ",
+            ">> 1 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (6000012313_MHF2223000032326.pdf) Processing...",
+            ">> (6000012313_MHF2223000032326.pdf) Proceed!",
+            ">> 1 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAR4xotAAA=",
+            "email_date_time": "2025-12-30 11:05:07+00:00"
+        }
     }
 ]
