@@ -183,6 +183,7 @@ def update_logs():
         json.dump(existing_logs, f, indent=4)
     
     asyncio.run(maintain_logs("read_emails_logs.json"))
+    asyncio.run(maintain_logs("upload_pdf_logs.json"))
         
 def clear_dirs():
     try:
@@ -239,7 +240,7 @@ async def update_manual_logs(result):
         with open("latest/upload_pdf_logs.json", "w") as f:
             json.dump(existing_logs, f, indent=4) 
         
-        maintain_logs("read_emails_logs.json")
+        
 
 
 
@@ -730,7 +731,15 @@ def upload_pdf():
         ### Note: if success is X means true and "" means false
 
         if result['status']:
-            return jsonify({'success':'X','InwardRefNo':result.get('no'),'Status':result.get('json').get('Status',None)}), 200
+
+            success_response = {
+                'success':'X',
+                'InwardRefNo':result.get('no'),
+                'Status':result.get('json').get('Status',None),
+                'DuplicateMsg':result.get('json').get('DuplicateMsg',None)
+            }
+
+            return jsonify(success_response), 200
 
         else:
             return jsonify({'success':"",'InwardRefNo':result.get('no') if result.get('no') else "",'error':f"{result['json']['ErrorNo']}:{result['json']['ErrorMsg']}" if result['json']['ErrorMsg'] or result['json']['ErrorNo'] else f"440 : Somthing Went Wrong At Server Side!",'Status':result.get('json').get('Status',None)}), 501

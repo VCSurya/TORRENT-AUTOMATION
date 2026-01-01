@@ -7,91 +7,311 @@
         "Time": "15:03:35"
     },
     {
-        "status": false,
-        "error": "Data not saved in sap.",
-        "error_code": "111",
-        "logs": [
-            "Step 0 (2): Process PDF Function Called.",
-            "Step 1 (3): Process PDF Filename: Picture1.png.pdf",
-            "Step 2 (4): Calling AZURE...",
-            "Step 3 (5): AZURE Text Extrected",
-            "Step 4 (6): Calculate Text Each Word Cordinates",
-            "Step 5 (7): Extraction Complete!",
-            "Step 6 (8): OPEN AI Function Calling...",
-            "Step 7 (9): Responsed Open AI API",
-            "Step 8 (10): >>> Open AI Returned JSON",
-            "Step 9 (11): Calling Final JSON Formating Function...",
-            "Step 10 (24): PAN Numbers Found",
-            "Step 11 (24): PAN Numbers Found",
-            "Step 12 (12): Respons From Final JSON Formating Function: {'status': True}",
-            "Step 13 (13): Final SAP JSON Ready To POST",
-            "Step 14 (14): CSRF Token fetched Successfully.",
-            "Step 15 (16): >>> InwardRefNo:  - ",
-            "Step 16 (21): Operation Successfull! >>>>"
-        ],
-        "json": {
-            "InwardRefNo": "",
-            "SourceOfDoc": "",
-            "DocMailPerson": "",
-            "InwardDate": "",
-            "PoLpo": "",
-            "GaName": "",
-            "CompanyGstinPdf": "JJWARCT5406012P",
-            "CCompanyGstinPdf": "1,96.93,145.98,64.97,7.65",
-            "CompanyGstinSap": "",
-            "VendorName": "",
-            "VendorGstin": "24AHDPC7813K121",
-            "CVendorGstin": "1,236.96,83.25,60.71,7.98",
-            "InvoiceNo": "AKTS - 24-25-12611 (6000086733]",
-            "CInvoiceNo": "1,450.89,114.57,45.55,8.03",
-            "InvoiceDate": "30250109",
-            "CInvoiceDate": "1,419.51,140.80,38.54,7.61",
-            "InvoiceAmount": "234531",
-            "CInvoiceAmount": "1,496.07,435.76,25.61,7.48",
-            "PoLpoIoNoPdf": "33000915",
-            "CPoLpoIoNo": "1,96.53,156.13,33.19,7.49",
-            "IrnNo": "",
-            "CIrnNo": "",
-            "MsmeNo": "",
-            "Status": "Draft",
-            "ModeOfEntry": "MANUAL",
-            "CreatedOn": "20251231",
-            "CreatedBy": "TEST123",
-            "ChangedOn": "",
-            "ChangedBy": "",
-            "FileName": "Picture1.png.pdf",
-            "ErrorNo": "111",
-            "ErrorMsg": "Data not saved in sap.",
-            "ErrorType": "E",
-            "Flag": "A",
-            "IndCompanygstinpdf": "PDF",
-            "IndVendorgstinpdf": "PDF",
-            "IndInvoiceno": "PDF",
-            "IndInvoicedate": "PDF",
-            "IndInvoiceamount": "PDF",
-            "IndIrnno": "PDF",
-            "CreatedOnTime": "15:05:28",
-            "DCCHEADERTODCCSES": [],
-            "VendorEmailP": "",
-            "EmailDateTimeP": "",
-            "EmailSubjectP": ""
-        },
-        "PDF_FileName": "Picture1.png.pdf",
+        "status": true,
+        "no": "0000001112",
+        "PDF_FileName": "178_Shah_FF_IT2145341_04.pdf",
         "Date": "31/12/2025",
-        "Time": "15:05:28"
+        "Time": "15:03:35"
     },
     {
         "status": true,
-        "no": "0000001114",
-        "PDF_FileName": "IndianTankers_BU325260111 4.pdf",
+        "no": "0000001112",
+        "PDF_FileName": "178_Shah_FF_IT2145341_04.pdf",
         "Date": "31/12/2025",
-        "Time": "15:16:41"
+        "Time": "15:03:35"
     },
     {
         "status": true,
-        "no": "0000001115",
-        "PDF_FileName": "IndianTankers_BU325260111 4.pdf",
+        "no": "0000001112",
+        "PDF_FileName": "178_Shah_FF_IT2145341_04.pdf",
         "Date": "31/12/2025",
-        "Time": "15:17:28"
+        "Time": "15:03:35"
+    },
+    {
+        "status": true,
+        "no": "0000001112",
+        "PDF_FileName": "178_Shah_FF_IT2145341_04.pdf",
+        "Date": "31/12/2025",
+        "Time": "15:03:35"
+    },
+    {
+        "status": true,
+        "no": "0000001112",
+        "PDF_FileName": "178_Shah_FF_IT2145341_04.pdf",
+        "Date": "31/12/2025",
+        "Time": "15:03:35"
+    },
+    {
+        "status": true,
+        "no": "0000001112",
+        "PDF_FileName": "178_Shah_FF_IT2145341_04.pdf",
+        "Date": "31/12/2025",
+        "Time": "15:03:35"
+    },
+    {
+        "status": true,
+        "no": "0000001112",
+        "PDF_FileName": "178_Shah_FF_IT2145341_04.pdf",
+        "Date": "31/12/2025",
+        "Time": "15:03:35"
+    },
+    {
+        "status": true,
+        "no": "0000001112",
+        "PDF_FileName": "178_Shah_FF_IT2145341_04.pdf",
+        "Date": "31/12/2025",
+        "Time": "15:03:35"
+    },
+    {
+        "status": true,
+        "no": "0000001112",
+        "PDF_FileName": "178_Shah_FF_IT2145341_04.pdf",
+        "Date": "31/12/2025",
+        "Time": "15:03:35"
+    },
+    {
+        "status": true,
+        "no": "0000001112",
+        "PDF_FileName": "178_Shah_FF_IT2145341_04.pdf",
+        "Date": "31/12/2025",
+        "Time": "15:03:35"
+    },
+    {
+        "status": true,
+        "no": "0000001112",
+        "PDF_FileName": "178_Shah_FF_IT2145341_04.pdf",
+        "Date": "31/12/2025",
+        "Time": "15:03:35"
+    },
+    {
+        "status": true,
+        "no": "0000001112",
+        "PDF_FileName": "178_Shah_FF_IT2145341_04.pdf",
+        "Date": "31/12/2025",
+        "Time": "15:03:35"
+    },
+    {
+        "status": true,
+        "no": "0000001112",
+        "PDF_FileName": "178_Shah_FF_IT2145341_04.pdf",
+        "Date": "31/12/2025",
+        "Time": "15:03:35"
+    },
+    {
+        "status": true,
+        "no": "0000001112",
+        "PDF_FileName": "178_Shah_FF_IT2145341_04.pdf",
+        "Date": "31/12/2025",
+        "Time": "15:03:35"
+    },
+    {
+        "status": true,
+        "no": "0000001112",
+        "PDF_FileName": "178_Shah_FF_IT2145341_04.pdf",
+        "Date": "31/12/2025",
+        "Time": "15:03:35"
+    },
+    {
+        "status": true,
+        "no": "0000001112",
+        "PDF_FileName": "178_Shah_FF_IT2145341_04.pdf",
+        "Date": "31/12/2025",
+        "Time": "15:03:35"
+    },
+    {
+        "status": true,
+        "no": "0000001112",
+        "PDF_FileName": "178_Shah_FF_IT2145341_04.pdf",
+        "Date": "31/12/2025",
+        "Time": "15:03:35"
+    },
+    {
+        "status": true,
+        "no": "0000001112",
+        "PDF_FileName": "178_Shah_FF_IT2145341_04.pdf",
+        "Date": "31/12/2025",
+        "Time": "15:03:35"
+    },
+    {
+        "status": true,
+        "no": "0000001112",
+        "PDF_FileName": "178_Shah_FF_IT2145341_04.pdf",
+        "Date": "31/12/2025",
+        "Time": "15:03:35"
+    },
+    {
+        "status": true,
+        "no": "0000001112",
+        "PDF_FileName": "178_Shah_FF_IT2145341_04.pdf",
+        "Date": "31/12/2025",
+        "Time": "15:03:35"
+    },
+    {
+        "status": true,
+        "no": "0000001112",
+        "PDF_FileName": "178_Shah_FF_IT2145341_04.pdf",
+        "Date": "31/12/2025",
+        "Time": "15:03:35"
+    },
+    {
+        "status": true,
+        "no": "0000001112",
+        "PDF_FileName": "178_Shah_FF_IT2145341_04.pdf",
+        "Date": "31/12/2025",
+        "Time": "15:03:35"
+    },
+    {
+        "status": true,
+        "no": "0000001112",
+        "PDF_FileName": "178_Shah_FF_IT2145341_04.pdf",
+        "Date": "31/12/2025",
+        "Time": "15:03:35"
+    },
+    {
+        "status": true,
+        "no": "0000001118",
+        "PDF_FileName": "6000086733_R K Trailor Ser_RKTS-24-25-12611_76916.pdf",
+        "Date": "01/01/2026",
+        "Time": "10:23:56"
+    },
+    {
+        "status": true,
+        "no": "0000001119",
+        "PDF_FileName": "6000086733_R K Trailor Ser_RKTS-24-25-12611_76916.pdf",
+        "Date": "01/01/2026",
+        "Time": "10:28:35"
+    },
+    {
+        "status": true,
+        "no": "0000001120",
+        "PDF_FileName": "6000086733_R K Trailor Ser_RKTS-24-25-12611_76916.pdf",
+        "Date": "01/01/2026",
+        "Time": "10:38:40"
+    },
+    {
+        "status": true,
+        "no": "0000001121",
+        "PDF_FileName": "6000012313_MHF2223000032326.pdf",
+        "Date": "01/01/2026",
+        "Time": "10:44:58"
+    },
+    {
+        "status": true,
+        "no": "0000001122",
+        "PDF_FileName": "6000012313_MHF2223000032326.pdf",
+        "Date": "01/01/2026",
+        "Time": "10:45:31"
+    },
+    {
+        "status": true,
+        "no": "0000001123",
+        "PDF_FileName": "IndianTankers_BU325260111 4 (1).pdf",
+        "Date": "01/01/2026",
+        "Time": "10:51:59"
+    },
+    {
+        "status": true,
+        "no": "0000001124",
+        "PDF_FileName": "IndianTankers_BU325260111 4 (1).pdf",
+        "Date": "01/01/2026",
+        "Time": "10:56:35"
+    },
+    {
+        "status": true,
+        "no": "0000001125",
+        "PDF_FileName": "IndianTankers_BU325260111 4 (1).pdf",
+        "Date": "01/01/2026",
+        "Time": "11:01:56"
+    },
+    {
+        "status": true,
+        "no": "0000001126",
+        "PDF_FileName": "IndianTankers_BU325260111 4 (1).pdf",
+        "Date": "01/01/2026",
+        "Time": "11:03:52"
+    },
+    {
+        "status": true,
+        "no": "0000001127",
+        "PDF_FileName": "IndianTankers_BU325260111 4 (1).pdf",
+        "Date": "01/01/2026",
+        "Time": "11:10:06"
+    },
+    {
+        "status": true,
+        "no": "0000001128",
+        "PDF_FileName": "IndianTankers_BU325260111 4 (1).pdf",
+        "Date": "01/01/2026",
+        "Time": "11:10:33"
+    },
+    {
+        "status": true,
+        "no": "0000001129",
+        "PDF_FileName": "IndianTankers_BU325260111 4 (1).pdf",
+        "Date": "01/01/2026",
+        "Time": "11:12:35"
+    },
+    {
+        "status": true,
+        "no": "0000001130",
+        "PDF_FileName": "IndianTankers_BU325260111 4 (1).pdf",
+        "Date": "01/01/2026",
+        "Time": "11:16:59"
+    },
+    {
+        "status": true,
+        "no": "0000001132",
+        "PDF_FileName": "BNUPAGR25000717 TORRENT GAS  PRIVATE LIMITED, MATHURA.pdf",
+        "Date": "01/01/2026",
+        "Time": "11:40:36"
+    },
+    {
+        "status": true,
+        "no": "0000001133",
+        "PDF_FileName": "6000086733_R K Trailor Ser_RKTS-24-25-12611_76916.pdf",
+        "Date": "01/01/2026",
+        "Time": "11:50:02"
+    },
+    {
+        "status": true,
+        "no": "0000001134",
+        "PDF_FileName": "Rhino_Torrent Gas Pune Ltd July 25-Digitally Signed-033-Fiat Ranjangaon.pdf",
+        "Date": "01/01/2026",
+        "Time": "14:30:00"
+    },
+    {
+        "status": true,
+        "no": "0000001135",
+        "PDF_FileName": "6000086733_R K Trailor Ser_RKTS-24-25-12611_76916.pdf",
+        "Date": "01/01/2026",
+        "Time": "14:31:50"
+    },
+    {
+        "status": true,
+        "no": "0000001136",
+        "PDF_FileName": "6000086733_R K Trailor Ser_RKTS-24-25-12611_76916.pdf",
+        "Date": "01/01/2026",
+        "Time": "14:32:54"
+    },
+    {
+        "status": true,
+        "no": "0000001137",
+        "PDF_FileName": "IndianTankers_BU325260111 4 (1).pdf",
+        "Date": "01/01/2026",
+        "Time": "14:34:34"
+    },
+    {
+        "status": true,
+        "no": "0000001138",
+        "PDF_FileName": "IndianTankers_BU325260111 4 (1).pdf",
+        "Date": "01/01/2026",
+        "Time": "14:48:49"
+    },
+    {
+        "status": true,
+        "no": "0000001139",
+        "PDF_FileName": "IndianTankers_BU325260111 4 (1).pdf",
+        "Date": "01/01/2026",
+        "Time": "15:07:19"
     }
 ]

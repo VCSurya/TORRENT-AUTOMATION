@@ -210,7 +210,7 @@
             let successCount = 0;
             let failedCount = 0;
 
-            container.innerHTML = data.map((item, index) => {
+            container.innerHTML = [...data].reverse().map((item, index) => {
                 if (item.status) successCount++; else failedCount++;
 
                 const statusClass = item.status ? 'status-success' : 'status-error';

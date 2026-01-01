@@ -807,6 +807,7 @@ def send_data_to_sap(SAP_JSON):
 
         inward_ref_no = response.json().get('d', {}).get('InwardRefNo', "")
         from_sap_status = response.json().get('d', {}).get('Status', "")
+        DuplicateMsg = response.json().get('d', {}).get('DuplicateMsg', "")
         LOGS.append(f"16 {inward_ref_no} - {from_sap_status}")
 
         with open('latest/latest_sap_response.json', 'w',encoding='utf-8') as file:
@@ -820,6 +821,7 @@ def send_data_to_sap(SAP_JSON):
                 LOGS.append(f"16 {inward_ref_no} - {from_sap_status}")
                 SAP_JSON['ErrorType'] = 'S'
                 SAP_JSON['Status'] = str(from_sap_status)
+                SAP_JSON['DuplicateMsg'] = str(DuplicateMsg)
                 SAP_JSON['InwardRefNo'] = f'{inward_ref_no}'
 
                 for item in SAP_JSON['DCCHEADERTODCCSES']:
