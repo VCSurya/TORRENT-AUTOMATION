@@ -4,6 +4,7 @@ import cv2
 import copy
 import fitz
 import json
+import httpx
 import shutil
 import base64
 import tempfile
@@ -45,6 +46,45 @@ prompt_path  = os.path.join(SCRTPT_DIR, 'pan.txt')
 
 with open(prompt_path, 'r') as file:
     PAN_NO = set(file.read().splitlines())
+
+# MAKE CONNECTION FOR TLS handshake
+timeout = httpx.Timeout(60.0, connect=30.0, pool=30.0)
+
+
+http_client = httpx.Client(
+    timeout=timeout,
+    limits=httpx.Limits(max_connections=10, max_keepalive_connections=5),
+    trust_env=True,   # safe even if you think no proxy
+)
+
+aoai_client = AzureOpenAI(
+    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"),
+    api_key = os.getenv("AZURE_OPENAI_KEY") ,
+    api_version="2024-02-01",
+    http_client=http_client,
+    timeout=60.0,
+    max_retries=3
+)
+
+
+def call_model(prompt):
+    return aoai_client.chat.completions.create(
+        model= os.getenv("AZURE_OPENAI_DEPLOYMENT"),
+            response_format={"type": "json_object"},  # 👈 Force valid JSON
+            messages=[
+                {
+                    "role": "system",
+                    "content": "You are a data extraction assistant. Always respond strictly in JSON format only."
+                },
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+            ],
+            max_tokens=2000,
+            temperature=0
+    )
+
 
 def pan_numbers():
     
@@ -252,17 +292,6 @@ def azure_extract_text(pdf_file,manual = 0):
 def format_with_llm(text):
 
     try:
-        # Environment variables
-        endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")     # e.g. https://my-resource.openai.azure.com/
-        key = os.getenv("AZURE_OPENAI_KEY")               # API key from Azure portal
-        deployment = os.getenv("AZURE_OPENAI_DEPLOYMENT") # Deployment name in Azure (e.g. gpt-4.1-mini)
-
-        # Create Azure OpenAI client
-        client = AzureOpenAI(
-            azure_endpoint=endpoint,
-            api_key=key,
-            api_version="2024-02-01"
-        )
         
         # print("Load Prompt:",PROMPT_NO)
         ### >>> Load the Prompt Tamplate From TXT File acording to need
@@ -274,22 +303,7 @@ def format_with_llm(text):
         propmt = propmt + '\n' + text
 
         # Call GPT-4.1-mini with forced JSON output
-        response = client.chat.completions.create(
-            model=deployment,
-            response_format={"type": "json_object"},  # 👈 Force valid JSON
-            messages=[
-                {
-                    "role": "system",
-                    "content": "You are a data extraction assistant. Always respond strictly in JSON format only."
-                },
-                {
-                    "role": "user",
-                    "content": propmt
-                }
-            ],
-            max_tokens=1500,
-            temperature=0
-        )
+        response = call_model(propmt)
 
         with open('latest/latest_pdf_open_ai_respons.txt', 'w',encoding='utf-8') as file:
             file.write(str(response))

@@ -1,84 +1,125 @@
-ANKERS
-SAFE & SMOOTH
-Indian Tankers Pvt. Ltd.
-CIN - U60100WB2005PTC101651 · GSTN - 09AABCI3646Q2ZZ
-PAN - AABCI3646Q
-AN ISO 9001 : 2015
-Certified Company
-INVOICE
-To,
-Torrent Gas Private Limited,
-2nd Floor, Vinayak Tower, Rahul Nagar
-Swami Vivekanand Marg (Thandi Sadak)
-Azamgarh- 276001 (Uttar Pradesh)
-GSTN: 09AAGCT7889P1Z1
-STATE CODE : 09 (UTTAR PRADESH)
-P.O. No: 99000212
-Dated: 13 Jan 2021
-SES No .:
-6000122072
-SES Date .:
-16-09-2025
-Invoice No. :
-BU3/2526/0111
-Invoice Date :
-10-09-2025
-Reverse Charge :
-No
-Period for Supply :
-21-06-2025 To 20-07-2025
-Place of Supply :
-Uttar Pradesh
-Transported Goods :
-Torrent CNG Gas
-SAC Code :
+RKTRAILOR SERVICE
+Fleet Owners, Transport Contractor & Transport Project
+Speacialist For :- ODC Consignment
+ISO NO. : Q/3108201212
+GST Number : 24AHDPC7813K1ZI & Pan Number : AHDPC7813K
+TAX INVOICE
+Party Name :-
+TORRENT GAS CHENNAI PVT LTD
+Address :-
+Acropolis Building, 5th Floor, East Wing,
+148, Dr Radhakrishnan Road,
+Mylapore, Chennai - 600004 Tamil Nadu
+GST Number :-
+33AAHCT 5406D1ZP
+PO NO :-
+33000915
+SAC CODE :-
 996601
-S.N.
-Item Description
-Qty
-Unit
-Rate
-Amount
+Bill No :-
+RKTS - 24-25-12611 (6000086733)
+Bill Date :-
+08-01-2025
+December Month Fix Charge,Running Km,Extra Drivers Charge,
+Extra Helper Charge Invoice
+Reporting Month
+Truck No.
+Billing Type
+Total Days
+Rate Per Month
+Total Amount
+Dec-24
+TN18BS6838/3487
+TN18B56863/2335
+( A Fix Charge )
+Hcv F:x Charge
 1
-Providing HCV (05 No.) for transportation of CNG
-through Cascade on 24 X 7 basis with zero Kms
-Running (01 Driver X 12 hr duty per HCV)
-5.00
-Month
-63,000.00
-3,15,000.00
+69000.00
+69000,00
+1
+69000.00
+69000.00
+G.Total
 2
-Running Cost of HCV to be calculated on monthly
-basis as per Scope of Work
-30131.5
-KM
-1.75
-52,730.13
-3
-Providing 2nd Driver for the transportation of
-HCV (Based on EIC Intimation)
-150
-Per Day
-600.00
-90,000.00
-Banks Details:
-Taxable Amount
-4,57,730.13
-A/C Holder Name: Indian Tankers (P) Ltd.
-CGST @ 9%
-41,195.71
-A/C No .: 5811819087
-SGST @ 9%
-41,195.71
-Bank: Kotak Mahindra Bank
-IFSC: KKBK0005297
-ROUND OFF
-0.45
-Branch: GORAKHPUR
-TOTAL
-₹
-5,40,122.00
-Authorized Signatory
-Corporate Office : B-1/3, Sector-15, GIDA, Sahjanwa, Gorakhpur - 273 209 (U.P.) INDIA
-Registered Office : 1 Floor, Flat No. : C-4, 118, Elliot Road, Kolkata - 700 016 (W.B.) INDIA
-Mobile No. : 9648938202, 9648938225 · E-mail : billing@indiantankers.com. accounts@indiantankers.com
+138000.00
+Dec-24
+TN18BS6838/3487
+TN18BS6863/2335
+( B Extra Drivers Charge )
+Total Days
+Rate Per Day
+Providing Extra Drivers Charge
+31
+1000
+31000.00
+22
+1000
+22000.00
+G.Total
+53
+53000.00
+Dec-24
+TN18BS6838/3487
+TN18BS6863/2335
+( C Running Km Charge )
+Opeing Km
+Closing Km
+Total Km
+Rate ( Per Km )
+191007
+194993
+3986.00
+1.25
+4982.50
+241346
+243656
+2218.00
+1.25
+2772.50
+G.Total
+6204.00
+7755.00
+Taxable Value INR (A+B+C)
+198755
+Central Goods and Service Tax (CGST)
+9%
+0
+Central Goods and Service Tax (CGST)
+9%
+0
+integrated Goods and Service Tax (IGST)
+18%
+35776
+Total Invoice Amount (Rs.)
+234531
+Amount Chargeable (in word) :-
+Two Lakhs Thirty Four Thousand Five Hundred Thirty One Rupees only
+Digitally signed by Kishor Rameshwar Choudhary
+ON:CHIN, a.Fonenil, Title-2576.
+00175191 151/51016Bf7aLA 5592E4d5
+Company's Bank Detail
+Bank Name : HDFC Bank
+Account No :- 03008060000017
+Branch :- Maninagar, Ahmedabad
+IFS Code :- HDFC0000300
+Kishor Rameshwar
+Choudhary
+254.20=35d2c0c5alc610d867a0961671387e518/1e7ff5604ae3ecf0d819
+99d95la4c. postalCode=382443, st-Gujarat,
+sertab __ ber:29tamMie/28/6e27eta441:00795a6280<4b7dc0016a628b
+Siclado itsate, ciKnher Rarodwar Choudhary
+Date: 2005.01:21 10.20 15 -05:30
+Proprietor / Authorised Signatory
+SUBJECT TO AHMEDABAD JURISDICTION
+Received Date
+29/1/25
+PO No.
+:
+GRN /SE No.
+IV Posting No.
+:
+DCC Control No .:
+76916
+H.O .: 610/A Block, Radhe Kishan Business Park, Nr. Reliance Petrol Pump, Isanpur - Narol Road,
+Ahmedabad-382443. Mo. : 9879796228, 8980015595, 98, 82
+E-mail : rktrailorservice@gmail.com . www.rktrailorservice.com
