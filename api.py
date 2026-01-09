@@ -726,8 +726,7 @@ def upload_pdf():
         load_dotenv(override=True)
         importlib.reload(main)
         result = main.process_pdf(os.path.abspath(file_path),email_data,Mode_Of_Entry,Created_On,Created_By)
-        asyncio.run(update_manual_logs(result))
-
+        
         ### Note: if success is X means true and "" means false
 
         if result['status']:
@@ -742,13 +741,16 @@ def upload_pdf():
             return jsonify(success_response), 200
 
         else:
-            return jsonify({'success':"",'InwardRefNo':result.get('no') if result.get('no') else "",'error':f"{result['json']['ErrorNo']}:{result['json']['ErrorMsg']}" if result['json']['ErrorMsg'] or result['json']['ErrorNo'] else f"440 : Somthing Went Wrong At Server Side!",'Status':result.get('json').get('Status',None)}), 501
+            return jsonify({'success':"",'InwardRefNo':result.get('no') if result.get('no') else "",'error':f"{result['json']['ErrorNo']}: {result['json']['ErrorMsg']}" if result['json']['ErrorMsg'] or result['json']['ErrorNo'] else f"440 : Somthing Went Wrong At Server Side!",'Status':result.get('json').get('Status',None)}), 501
         
     except Exception as e:
         traceback.print_exc()  # print full error and line number to console
         return jsonify({'success':"", "error": f"{type(e).__name__}: {str(e)}"}), 500
     
     finally:
+
+        if result['json']['ErrorNo'] != '25':
+            asyncio.run(update_manual_logs(result))
 
         dir_path = os.path.abspath(PDF_SAVE_DIR)
 

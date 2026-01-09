@@ -483,12 +483,19 @@ def final_json(JSON,SAP_JSON,Mode_Of_Entry,Created_On,Created_By):
                 if new.isdigit() and len(new) <= 10:
                     return new
                 else:
-                    return ""
+                    numbers = re.findall(r'\d+',po_no)
+                    large_number = max(numbers,key=int)
+                    
+                    if 0 < len(large_number) <= 10: 
+                        JSON['data']['PoNo'] = large_number
+                        return large_number
+                    else:
+                        return po_no
             
             except:
                 e = traceback.format_exc()
                 LOGS.append(f'131 {str(e)}')
-                return ""
+                return po_no
         
         def to_yyyymmdd(date_str: str) -> str:
             for fmt in ("%d-%m-%Y", "%d/%m/%Y"):
@@ -913,7 +920,7 @@ def process_pdf(pdf_file,email_data,Mode_Of_Entry = "BOT",Created_On=f"{datetime
             LOGS.append(f'8')
             result_llm = format_with_llm(result_azure['text'])
 
-            if result_llm['status']:
+            if result_llm.get('status') and result_llm.get('json').get('Invoice'):
                 
                 LOGS.append(f'11')
                 
@@ -929,7 +936,14 @@ def process_pdf(pdf_file,email_data,Mode_Of_Entry = "BOT",Created_On=f"{datetime
                     SAP_JSON['ErrorType'] = 'E'
                     SAP_JSON['ErrorNo'] = "802"
                     SAP_JSON['ErrorMsg'] = f"{result_final_json['error']}"
-
+            
+            elif not result_llm.get('json').get('Invoice'):
+                LOGS.append(f'25')
+                SAP_JSON['Invoice'] = False
+                SAP_JSON['ErrorType'] = 'E'
+                SAP_JSON['ErrorNo'] = "25"
+                SAP_JSON['ErrorMsg'] = f"Not Invoice Document!"
+            
             else:
                 SAP_JSON['ErrorType'] = 'E'
                 SAP_JSON['ErrorNo'] = "803"
@@ -957,10 +971,13 @@ def process_pdf(pdf_file,email_data,Mode_Of_Entry = "BOT",Created_On=f"{datetime
             SAP_JSON["SourceOfDoc"] = email_data.get("SourceOfDoc","")
             SAP_JSON["CreatedOnTime"] = datetime.now().strftime("%H:%M:%S")
 
-            result = {}
+            result = {'status':False}
             result['PDF_FileName'] = str(os.path.basename(pdf_file))
-            result = send_data_to_sap(SAP_JSON)    
             
+            if SAP_JSON['Invoice']:
+                SAP_JSON.pop('Invoice')
+                result = send_data_to_sap(SAP_JSON) 
+   
             if result['status']:
                 
                 if result['no'] != "": 

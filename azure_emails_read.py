@@ -413,8 +413,6 @@ async def process_filtered_emails(shared_data):
         EMAIL_LOGS.append(f"128: {str(e)}")
         shared_data["status"].append(f"*Exception Error* 128: {str(e)}")
 
-    finally:
-        pass
 
 # # =============================
 # #  ENTRY POINT

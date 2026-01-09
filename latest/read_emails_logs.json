@@ -361,179 +361,6 @@
         }
     },
     {
-        "proceed_emails": [],
-        "status": [
-            "1. Process initializing",
-            "2. Started process PID: 7476",
-            "3. Start Process - 2025-12-24 11:39:29.797234",
-            "4. Reading New Emails From Cloude...",
-            "5. 1 - Emails Found",
-            ">> 1 - Email Processing...",
-            "> Subject: testing the digitally signed invoice  ",
-            "!!! Email Already Proceed.",
-            "> 1 - Email Proceed.",
-            "6. ALL Emails Procced Successfully.",
-            "-> Process completed normally"
-        ],
-        "last_visited_email_detailes": {}
-    },
-    {
-        "proceed_emails": [],
-        "status": [
-            "1. Process initializing",
-            "2. Started process PID: 19176",
-            "3. Start Process - 2025-12-24 11:40:31.193129",
-            "4. Reading New Emails From Cloude...",
-            "5. 8 - Emails Found",
-            ">> 1 - Email Processing...",
-            "> Subject: Digital Invoice ",
-            "> 1 Attachment Found!",
-            "> Attachments Processing...",
-            "> (6000135283_TNS2526000023739_Chennai.PDF) Processing...",
-            "*Exception Error* 128: Traceback (most recent call last):\n  File \"C:\\Users\\111439\\OneDrive - Torrent Gas Ltd\\Desktop\\TORRENT\\TORRENT\\azure_emails_read.py\", line 301, in process_filtered_emails\n    if response['ErrorType'] == \"S\":\n       ~~~~~~~~^^^^^^^^^^^^^\nKeyError: 'ErrorType'\n",
-            "-> Process completed normally"
-        ],
-        "last_visited_email_detailes": {
-            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAKVTPsAAA=",
-            "email_date_time": "2025-12-18 11:27:25+00:00"
-        }
-    },
-    {
-        "proceed_emails": [],
-        "status": [
-            "1. Process initializing",
-            "2. Started process PID: 5776",
-            "3. Start Process - 2025-12-24 11:47:19.928837",
-            "4. Reading New Emails From Cloude...",
-            "5. 8 - Emails Found",
-            ">> 1 - Email Processing...",
-            "> Subject: Digital Invoice ",
-            "!!! Email Already Proceed.",
-            "> 1 - Email Proceed.",
-            ">> 1 - Email Processing...",
-            "> Subject: Invoice ",
-            "> No Attachment Found!",
-            "> 1 - Email Proceed.",
-            ">> 2 - Email Processing...",
-            "> Subject: Digitally Signed Invoice Test by Manav ",
-            "> 6 Attachment Found!",
-            "> Attachments Processing...",
-            "> (20 Torrent Gas (LNG) November-2025.pdf) Processing...",
-            "> (20 Torrent Gas (LNG) November-2025.pdf) Proceed!",
-            "> (Final_Bill_99000462_Digitally_Signed_Invoice.pdf) Processing...",
-            "> (Final_Bill_99000462_Digitally_Signed_Invoice.pdf) Proceed!",
-            "> (FO2527121479.pdf) Processing...",
-            "Terminating process PID: 5776...",
-            "Process terminated successfully.",
-            "-> Process not completed normally its terminate"
-        ],
-        "last_visited_email_detailes": {
-            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAK3ZjYAAA=",
-            "email_date_time": "2025-12-19 05:16:43+00:00"
-        }
-    },
-    {
-        "proceed_emails": [],
-        "status": [
-            "1. Process initializing",
-            "2. Started process PID: 8936",
-            "3. Start Process - 2025-12-24 12:05:43.726789",
-            "4. Reading New Emails From Cloude...",
-            "5. 8 - Emails Found",
-            ">> 1 - Email Processing...",
-            "> Subject: Digital Invoice ",
-            "> 1 Attachment Found!",
-            "> Attachments Processing...",
-            "> (6000135283_TNS2526000023739_Chennai.PDF) Processing...",
-            "> (6000135283_TNS2526000023739_Chennai.PDF) Proceed!",
-            "> 1 - Email Proceed.",
-            ">> 2 - Email Processing...",
-            "> Subject: Invoice ",
-            "> No Attachment Found!",
-            "> 2 - Email Proceed.",
-            ">> 3 - Email Processing...",
-            "> Subject: Digitally Signed Invoice Test by Manav ",
-            "> 6 Attachment Found!",
-            "> Attachments Processing...",
-            "> (20 Torrent Gas (LNG) November-2025.pdf) Processing...",
-            "> (20 Torrent Gas (LNG) November-2025.pdf) Proceed!",
-            "> (Final_Bill_99000462_Digitally_Signed_Invoice.pdf) Processing...",
-            "> (Final_Bill_99000462_Digitally_Signed_Invoice.pdf) Proceed!",
-            "> (FO2527121479.pdf) Processing...",
-            "Terminating process PID: 8936...",
-            "Process terminated successfully.",
-            "-> Process not completed normally its terminate"
-        ],
-        "last_visited_email_detailes": {
-            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAK3ZjYAAA=",
-            "email_date_time": "2025-12-19 05:16:43+00:00"
-        }
-    },
-    {
-        "proceed_emails": [],
-        "status": [
-            "1. Process initializing",
-            "2. Started process PID: 19644",
-            "3. Start Process - 2025-12-24 12:20:44.236739",
-            "4. Reading New Emails From Cloude...",
-            "5. 8 - Emails Found",
-            ">> 1 - Email Processing...",
-            "> Subject: Digital Invoice ",
-            "!!! Email Already Proceed.",
-            "> 1 - Email Proceed.",
-            ">> 1 - Email Processing...",
-            "> Subject: Invoice ",
-            "> No Attachment Found!",
-            "> 1 - Email Proceed.",
-            ">> 2 - Email Processing...",
-            "> Subject: Digitally Signed Invoice Test by Manav ",
-            "> 6 Attachment Found!",
-            "> Attachments Processing...",
-            "> (20 Torrent Gas (LNG) November-2025.pdf) Processing...",
-            "> (20 Torrent Gas (LNG) November-2025.pdf) Proceed!",
-            "> (Final_Bill_99000462_Digitally_Signed_Invoice.pdf) Processing...",
-            "Terminating process PID: 19644...",
-            "Process terminated successfully.",
-            "-> Process not completed normally its terminate"
-        ],
-        "last_visited_email_detailes": {
-            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAK3ZjYAAA=",
-            "email_date_time": "2025-12-19 05:16:43+00:00"
-        }
-    },
-    {
-        "proceed_emails": [],
-        "status": [
-            "1. Process initializing",
-            "2. Started process PID: 19644",
-            "3. Start Process - 2025-12-24 12:20:44.236739",
-            "4. Reading New Emails From Cloude...",
-            "5. 8 - Emails Found",
-            ">> 1 - Email Processing...",
-            "> Subject: Digital Invoice ",
-            "!!! Email Already Proceed.",
-            "> 1 - Email Proceed.",
-            ">> 1 - Email Processing...",
-            "> Subject: Invoice ",
-            "> No Attachment Found!",
-            "> 1 - Email Proceed.",
-            ">> 2 - Email Processing...",
-            "> Subject: Digitally Signed Invoice Test by Manav ",
-            "> 6 Attachment Found!",
-            "> Attachments Processing...",
-            "> (20 Torrent Gas (LNG) November-2025.pdf) Processing...",
-            "> (20 Torrent Gas (LNG) November-2025.pdf) Proceed!",
-            "> (Final_Bill_99000462_Digitally_Signed_Invoice.pdf) Processing...",
-            "Terminating process PID: 19644...",
-            "Process terminated successfully.",
-            "-> Process not completed normally its terminate"
-        ],
-        "last_visited_email_detailes": {
-            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAK3ZjYAAA=",
-            "email_date_time": "2025-12-19 05:16:43+00:00"
-        }
-    },
-    {
         "proceed_emails": [
             {
                 "from": "sureshprajapati@torrentgas.com",
@@ -2706,6 +2533,49 @@
         "last_visited_email_detailes": {
             "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAASpB_lAAA=",
             "email_date_time": "2026-01-05 08:32:59+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "testing that non tax invoice ",
+                "email_date_time": "2026-01-08 05:19:39+00:00",
+                "process_date_time": "2026-01-08 10:51:21.787965",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "Mail - SURESH PRAJAPATI _ EXT-IT _ AHMEDABAD - Outlook.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "245-document (1).pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [],
+                "Total Proceed Pdf": "0",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 20392",
+            "3. Start Process - 2026-01-08 10:51:16.526805",
+            "4. Reading New Emails From Cloude...",
+            "5. 1 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: testing that non tax invoice  ",
+            ">> No Digital Signed Attachment Found!",
+            ">> 1 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAYB1XgAAA=",
+            "email_date_time": "2026-01-08 05:19:39+00:00"
         }
     }
 ]

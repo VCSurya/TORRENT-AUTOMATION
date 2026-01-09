@@ -9,6 +9,7 @@ JSON Schema (follow exactly):
     "PoNo" : "",            // Purchase Order number (written as Work Order No , PO, Purchase Order, PO No.,Buyer's Order No)
     "SesGrn" : []           // List of SES / GRN / SCROLL numbers (if present).
     "InvoiceOriginalDate" : ""  // original string of the invoice date exactly as found in the text
+    "Invoice": true or false // Set "invoice" = true ONLY if the document is a FINAL COMMERCIAL/TAX INVOICE requesting payment otherwise false.
 }}
 
 STRICT RULES:
@@ -17,5 +18,6 @@ STRICT RULES:
 6. **PoNo**: Specifically means **Purchase Order Number**. Extract the complete PO number in all possible variations, including "PO", "PO No.","Purchase Order No","Buyer's Order No","Work Order No","Customer PO No". PO number could contain prefixes, sequential numbers, division codes, or other identifiers and may have slashes, dashes, or spaces. Return only the full PO number.
 7. Do not **add, remove, or modify** any fields in the JSON output.
 8. The final output **must** be valid JSON with no extra text.
+9. If the header/title (especially first ~30 lines) contains "proforma", "quotation", "estimate", "purchase order", "delivery challan", "receipt", or "statement of account" → "invoice": false. Otherwise, set "invoice": true only when BOTH are present: (a) invoice identifier like "Invoice No/Invoice #/Bill No/Inv No" AND (b) a payable total like "Grand Total/Total/Net Payable/Amount Due" If uncertain or missing (a) or (b) → "invoice": false.
 
 Here is the extracted invoice text:
