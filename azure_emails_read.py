@@ -250,9 +250,12 @@ async def process_filtered_emails(shared_data):
                 email_data = {
                         "vandor_email":str(message.sender.email_address.address),
                         "email_date_time":str(message.received_date_time),
-                        "email_subject":str(message.subject)
+                        "email_subject":str(message.subject),
+                        "SourceOfDoc": "EMAIL"
                 }
                 all_attchments_name = {"pdfs": []}
+                ZIP = False
+                ZIP_NAME = None
                 with tempfile.TemporaryDirectory(dir=os.path.join(os.getcwd(), 'temp')) as temp_dir:
                     if message.has_attachments and message.attachments:
                         for attachment in message.attachments:
@@ -276,6 +279,8 @@ async def process_filtered_emails(shared_data):
 
                                 # ZIP file handling
                                 elif file_name.endswith(".zip"):
+                                    ZIP = True
+                                    ZIP_NAME = file_name.replace('.zip','')
                                     all_attchments_name[file_name] = []
                                     zip_file_path = os.path.join(temp_dir, file_name)
 
@@ -285,14 +290,14 @@ async def process_filtered_emails(shared_data):
                                     with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
                                         zip_ref.extractall(temp_dir)
                                         for extracted_file in zip_ref.namelist():
-                                            if extracted_file.endswith(".pdf"):
+                                            if extracted_file.endswith(".pdf") or extracted_file.endswith(".PDF"):
                                                 file_path = os.path.join(temp_dir, extracted_file)
                                                 if verify_signatures(file_path):
                                                     all_attchments_name[file_name].append(
-                                                        {"filename": extracted_file, "Digital Sign": True})
+                                                        {"filename": extracted_file.split('/')[1], "Digital Sign": True})
                                                 else:
                                                     all_attchments_name[file_name].append(
-                                                        {"filename": extracted_file, "Digital Sign": False})
+                                                        {"filename": extracted_file.split('/')[1], "Digital Sign": False})
                                                     os.remove(file_path)
                                     os.remove(zip_file_path)
                                 
@@ -325,7 +330,7 @@ async def process_filtered_emails(shared_data):
                     
                     error = 0
                     success = 0
-                    total = len(os.listdir(temp_dir))
+                    total = len(os.listdir(os.path.join(temp_dir, ZIP_NAME))) if ZIP else len(os.listdir(os.path.join(temp_dir)))
                     latest_opration_data['Total Proceed Pdf'] = email_data["Total Proceed Pdf"] =  str(total)
                     latest_opration_data['Success Proceed Pdf'] = email_data['Success Proceed Pdf'] = str(success)
                     latest_opration_data['Error Proceed Pdf'] = email_data['Error Proceed Pdf'] = str(error)
@@ -336,10 +341,10 @@ async def process_filtered_emails(shared_data):
 
 
 
-                    if len(os.listdir(temp_dir)) > 0:
+                    if len(os.listdir(os.path.join(temp_dir, ZIP_NAME))) if ZIP else len(os.listdir(os.path.join(temp_dir))) > 0:
 
 
-                        shared_data["status"].append(f">> {len(os.listdir(temp_dir))} Digital Signed Attachment Found!")
+                        shared_data["status"].append(f">> {len(os.listdir(os.path.join(temp_dir, ZIP_NAME))) if ZIP else len(os.listdir(os.path.join(temp_dir)))} Digital Signed Attachment Found!")
                         shared_data["status"].append(f">> Attachments Processing...")
                         
                         
@@ -348,9 +353,9 @@ async def process_filtered_emails(shared_data):
                         shared_data["last_visited_email_detailes"] = latest_opration_data 
                         update_json_file("latest/latest_proceed_email.json", copy.deepcopy(latest_opration_data)) 
 
-                        for filename in os.listdir(temp_dir):
+                        for filename in os.listdir(os.path.join(temp_dir, ZIP_NAME)) if ZIP else os.listdir(os.path.join(temp_dir)):
                             shared_data["status"].append(f">> ({filename}) Processing...")
-                            pdf_file_path = os.path.join(temp_dir,filename)
+                            pdf_file_path = os.path.join(temp_dir,ZIP_NAME,filename) if ZIP else os.path.join(temp_dir,filename)
                             response = process_pdf(pdf_file_path,email_data)
                             
                             if response['status']:

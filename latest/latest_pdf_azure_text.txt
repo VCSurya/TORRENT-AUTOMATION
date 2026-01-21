@@ -1,48 +1,180 @@
-SAMPLE COMPANY PVT. LTD.
-Non-Tax Invoice (Proforma / Non-GST)
-NON-TAX INVOICE
-Invoice No:
-NTI-2026-0001
-Invoice Date:
-2026-01-08
-Bill To:
-Torrent Gas Ltd. (Demo)
-Ship To:
-Torrent Gas Ltd. (Demo)
-Address:
-Ahmedabad, Gujarat, India
-Address:
-Ahmedabad, Gujarat, India
-Reference:
-Service charges (non-taxable)
-Currency:
-INR
-Item
+TAX INVOICE(TG)
+Canon
+Delighting You Always
+Acknowledgement No
+Acknowledgement Date
+Invoice Reference No
+CORPORATE OFFICE
+CANON INDIA PVT LTD
+7TH Floor Tower B, Building No-5
+DLF Cyber Terrace , DLF Phase -3
+Gurgaon-122002, Haryana 14
+State Name & Code HARYANA, HR
+03-MAY-25
+109e39ebd6f3ea021c7c60d6c3426613fe4d0426a49ce8762dad49625ab7a9a8
+LOCAL BRANCH OFFICE
+CANON INDIA PVT. LTD. (SPJ) C/o Accel IT
+Services, SHOP NO-G-174, Ground Floor, Shri
+Ram Plaza, 301705, ,
+GSTIN No. 08AAACC4175D1ZY
+State Name & Code RAJASTHAN , 08
+Customer Name and Address
+Torrent Gas Jaipur Private Limited
+101-105,SIGNATURE TOWER, PLOT NO 2, DC2,
+Lal Kothi Scheme, District Shopping Centre, Tonk Road,
+Jaipur, 302018, Rajasthan
+JAIPUR RAJASTHAN
+State Name & Code RAJASTHAN , 08
+GSTIN/UIN 08AAICT6216A1ZL
+Customer Name and Installation Address
+Torrent Gas Jaipur Private Limited
+101-105,SIGNATURE TOWER, PLOT NO 2, DC2,
+Lal Kothi Scheme, District Shopping Centre, Tonk Road,
+Jaipur, 302018, Rajasthan
+JAIPUR, RAJASTHAN- 302018
+State Name & Code RAJASTHAN , 08
+GSTIN/UIN 08AAICT6216A1ZL
+Place of supply -RAJASTHAN
+GST Invoice Number
+GST Invoice Date
+RJS2526000000741
+02-MAY-25
+GSTIN No.
+08AAACC4175D1ZY
+Contract Start Date
+07-OCT-22
+Transaction Ref No.
+Contract End Date
+251160001351
+06-OCT-25
+Customer No
+Contact Person
+779039
+Virendra Verma
+PAN No.
+AAACC4175D
+Customer PAN No
+Contact Number
+-
+Customer PO/WO No.
+RJJA/P01/1800075/33000171
+SN
+o
+Machine No
 Description
-Qty
-Unit Price
-Amount
+HSN/
+SAC
+Opening Meter
+Opening
+Meter Date
+Closing
+Meter
+Closing
+Meter Date
+Net Reading
+Unit
+Price
+Basic Value
 1
-Non-taxable service fee (example)
-1
-5,000.00
-5,000.00
-2
-Reimbursement (example)
-1
-1,250.00
-1,250.00
-Subtotal:
-6,250.00
-Tax (GST/VAT):
+2ZB01660-
+BA3
+Supply of Toner/Ink and Spares
+along with Support /Services
+8443995
+9
+1331
+24-MAR-25
+1412
+25-APR-25
+81
+.42
+34.02
+2ZB01660-
+BA4
+Supply of Toner/Ink and Spares
+along with Support /Services
+8443995
+9
+62300
+24-MAR-25
+63554
+25-APR-25
+1254
+.3
+376.20
+2ZB01660-
+CA3
+Supply of Toner/Ink and Spares
+along with Support /Services
+8443995
+9
+1866
+24-MAR-25
+1998
+25-APR-25
+132
+5.25
+693.00
+2ZB01660-
+CA4
+Supply of Toner/Ink and Spares
+along with Support /Services
+8443995
+9
+40131
+24-MAR-25
+41392
+25-APR-25
+1261
+3
+3783.00
+Total Basic Amount-
+4886.22
+Wastage **
+Rs 0.00
 0.00
-Total Payable:
-6,250.00
-Note: This is a non-tax invoice. No GST/VAT is applicable for the items listed above (example).
-Digitally Signed (Sample)
-Signed by: Accounts Department, Sample Company Pvt. Ltd.
-Reason: Document approval
-Location: Ahmedabad, IN
-Timestamp: 2026-01-08T12:52:00+05:30
-Disclaimer: This PDF is a template sample. It is not cryptographically signed. Replace this block with a real PDF digital signature using a certificate.
-Sample Company Pvt. Ltd. | CIN: U00000XX0000PTC000000 | Email: accounts@example.com | Phone: +91-00000-00000
+Total Taxable
+Amount
+4886.22
+CGST*
+9%
+Rs 439.76
+439.76
+SGST*
+9%
+Rs 439.76
+439.76
+IGST*
+Rs 0.00
+0.00
+UTGST*
+Rs 0.00
+0.00
+KERALA FLOOD CESS@ 1%
+Invoice Total After Tax
+5765.74
+Amount In Words: Five Thousand Seven Hundred Sixty Six Only
+Whether the tax is payable on reverse charges Y/N
+1. We don't accept cash payments. Always Pay by Cheque/DD in favour of CANON INDIA Pvt Ltd
+2. Your machine is liable to be put under Stop Service, if the payment is not made within agreed credit period as per terms of agreement.
+3. For further changes to payment mode as EFT please contact above mention Local Branch office at phone no/Email-id
+4. The Invoice is in Accordance with the TG/RENTAL agreement Signed between you and Canon India Pvt. Ltd.
+5. Kindly send only your payment advise to mentioned Email-Id. For North - CIPLAR.NORTH@CANON.CO.IN, FOR SOUTH - CIPLAR.SOUTH@CANON.CO.IN, FOR EAST - CIPLAR.EAST@CANON.CO.IN, FOR WEST -
+CIPLAR.WEST@CANON.CO.IN ,NOTE- These E Mail id's are to be used only for sending payment advices. In case you have any invoice related query, please connect with the local CIPL representative.
+*Goods specified in GST Schedule IV under HSN 8443 are taxable @ 18%. The consumables & Spares used in the TG Contract are covered under HSN 8443, Schedule IV of GST
+** Wastage 1% on Black Counter & 2% on Color Counter
+This document is digitally signed and does not require Manual Signature.
+For Canon India Pvt. Ltd.
+Digitally Signed
+Customer Acknowledgement
+(Authorized Signatory)
+Registered Office - (w.e.f. 01.07.2016) Canon India Pvt Ltd, Unit No214 to 218,2nd Floor, Narain Manzil, Barakhamba Road
+Connaught Place, New Delhi 110001
+CIN NO - U74899DL1996PTC083770 011-47192613/011-47192611,
+https://in.canon, Payment UPI Code :canon2272@sc
+Call Center No - 18001803366/18002083366
+Signature Not Verified
+Digitally Signed By:
+DS CANON INDIA PRIVATE LIMITED 2
+Sun 04-May-2025 14:56:39 ST
+Approved by Rawat Singh, Mr. Brijender

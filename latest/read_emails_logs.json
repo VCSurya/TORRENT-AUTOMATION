@@ -2577,5 +2577,1098 @@
             "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAYB1XgAAA=",
             "email_date_time": "2026-01-08 05:19:39+00:00"
         }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "testing the  non tax invoice",
+                "email_date_time": "2026-01-08 06:11:32+00:00",
+                "process_date_time": "2026-01-09 12:18:53.881248",
+                "attchments": {
+                    "pdfs": [],
+                    "Material consumption RA 27.zip": [
+                        {
+                            "filename": "Material consumption RA 27.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "Panelty Sheet.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "QA EHS.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "work measurement RA 27.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "AOP RA 27.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "BILL BASTI.pdf",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000001236",
+                        "PDF_FileName": "BILL BASTI.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "1",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "0"
+            },
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "Test DCC Portal development",
+                "email_date_time": "2026-01-08 12:22:49+00:00",
+                "process_date_time": "2026-01-09 12:19:20.263449",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "AOP RA 7.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "check list.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "SES.NO. - 6000136606.PDF",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "Sales_DIL_MB_TGL-7 sign.pdf",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [],
+                "Total Proceed Pdf": "1",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 9092",
+            "3. Start Process - 2026-01-09 12:18:47.993951",
+            "4. Reading New Emails From Cloude...",
+            "5. 5 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: testing that non tax invoice  ",
+            ">> !!! Email Already Proceed.",
+            ">> 1 - Email Proceed.",
+            ">> 2 - Email Processing...",
+            ">> Subject: testing the  non tax invoice ",
+            ">> 1 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (BILL BASTI.pdf) Processing...",
+            ">> (BILL BASTI.pdf) Proceed!",
+            ">> 2 - Email Proceed.",
+            ">> 3 - Email Processing...",
+            ">> Subject: Test DCC Portal development ",
+            ">> 1 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (Sales_DIL_MB_TGL-7 sign.pdf) Processing...",
+            "Terminating process PID: 9092...",
+            "-> Process not completed normally its terminate",
+            "Process terminated successfully."
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAYB1XiAAA=",
+            "email_date_time": "2026-01-08 12:22:49+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "deveshraval@torrentgas.com",
+                "subject": "Test",
+                "email_date_time": "2026-01-09 06:37:42+00:00",
+                "process_date_time": "2026-01-09 12:19:56.456820",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "IndianTankers_BU325260111 4 (1).pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [],
+                "Total Proceed Pdf": "0",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            },
+            {
+                "from": "deveshraval@torrentgas.com",
+                "subject": "test by devesh raval -",
+                "email_date_time": "2026-01-09 06:43:48+00:00",
+                "process_date_time": "2026-01-09 12:19:56.526727",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "check list.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "SES.NO. - 6000136606.PDF",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "Sales_DIL_MB_TGL-7 sign.pdf",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000001237",
+                        "PDF_FileName": "Sales_DIL_MB_TGL-7 sign.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "1",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 9932",
+            "3. Start Process - 2026-01-09 12:19:52.301369",
+            "4. Reading New Emails From Cloude...",
+            "5. 2 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: Test ",
+            ">> No Digital Signed Attachment Found!",
+            ">> 1 - Email Proceed.",
+            ">> 2 - Email Processing...",
+            ">> Subject: test by devesh raval - ",
+            ">> 1 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (Sales_DIL_MB_TGL-7 sign.pdf) Processing...",
+            ">> (Sales_DIL_MB_TGL-7 sign.pdf) Proceed!",
+            ">> 2 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AQMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAD42_v49cfGEqBW867VJ8guwcAys2jAdFql0C_OQH-YLOULAAAAgEMAAAAys2jAdFql0C_OQH-YLOULAAAABiKQgAAAQ==",
+            "email_date_time": "2026-01-09 06:43:48+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "deveshraval@torrentgas.com",
+                "subject": "Test",
+                "email_date_time": "2026-01-09 06:37:42+00:00",
+                "process_date_time": "2026-01-09 12:25:17.168582",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "IndianTankers_BU325260111 4 (1).pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [],
+                "Total Proceed Pdf": "0",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            },
+            {
+                "from": "deveshraval@torrentgas.com",
+                "subject": "test by devesh raval -",
+                "email_date_time": "2026-01-09 06:43:48+00:00",
+                "process_date_time": "2026-01-09 12:25:17.239405",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "check list.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "SES.NO. - 6000136606.PDF",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "Sales_DIL_MB_TGL-7 sign.pdf",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000001238",
+                        "PDF_FileName": "Sales_DIL_MB_TGL-7 sign.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "1",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 20340",
+            "3. Start Process - 2026-01-09 12:25:13.075776",
+            "4. Reading New Emails From Cloude...",
+            "5. 2 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: Test ",
+            ">> No Digital Signed Attachment Found!",
+            ">> 1 - Email Proceed.",
+            ">> 2 - Email Processing...",
+            ">> Subject: test by devesh raval - ",
+            ">> 1 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (Sales_DIL_MB_TGL-7 sign.pdf) Processing...",
+            ">> (Sales_DIL_MB_TGL-7 sign.pdf) Proceed!",
+            ">> 2 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AQMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAD42_v49cfGEqBW867VJ8guwcAys2jAdFql0C_OQH-YLOULAAAAgEMAAAAys2jAdFql0C_OQH-YLOULAAAABiKQgAAAQ==",
+            "email_date_time": "2026-01-09 06:43:48+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "testing zip file ",
+                "email_date_time": "2026-01-21 12:01:00+00:00",
+                "process_date_time": "2026-01-21 17:32:58.377857",
+                "attchments": {
+                    "pdfs": [],
+                    "Canon invoices.zip": [
+                        {
+                            "filename": "Canon invoices/6000103562_HRF2526000008615_Basti.pdf",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [],
+                "Total Proceed Pdf": "1",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 11792",
+            "3. Start Process - 2026-01-21 17:32:54.893869",
+            "4. Reading New Emails From Cloude...",
+            "5. 1 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: testing zip file  ",
+            ">> 1 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (Canon invoices) Processing...",
+            "*Exception Error* 128: Traceback (most recent call last):\n  File \"C:\\Users\\111439\\OneDrive - Torrent Gas Ltd\\Desktop\\TORRENT\\TORRENT\\azure_emails_read.py\", line 357, in process_filtered_emails\n    if response['status']:\n       ~~~~~~~~^^^^^^^^^^\nKeyError: 'status'\n",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAgoaoKAAA=",
+            "email_date_time": "2026-01-21 12:01:00+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "testing zip file ",
+                "email_date_time": "2026-01-21 12:01:00+00:00",
+                "process_date_time": "2026-01-21 17:35:19.755311",
+                "attchments": {
+                    "pdfs": [],
+                    "Canon invoices.zip": [
+                        {
+                            "filename": "Canon invoices/6000103562_HRF2526000008615_Basti.pdf",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [],
+                "Total Proceed Pdf": "1",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 19100",
+            "3. Start Process - 2026-01-21 17:35:15.986741",
+            "4. Reading New Emails From Cloude...",
+            "5. 1 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: testing zip file  ",
+            ">> 1 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (Canon invoices) Processing...",
+            "*Exception Error* 128: Traceback (most recent call last):\n  File \"c:\\Users\\111439\\OneDrive - Torrent Gas Ltd\\Desktop\\TORRENT\\TORRENT\\azure_emails_read.py\", line 357, in process_filtered_emails\n    if response['status']:\n       ~~~~~~~~^^^^^^^^^^\nKeyError: 'status'\n",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAgoaoKAAA=",
+            "email_date_time": "2026-01-21 12:01:00+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "testing zip file ",
+                "email_date_time": "2026-01-21 12:01:00+00:00",
+                "process_date_time": "2026-01-21 17:44:59.066069",
+                "attchments": {
+                    "pdfs": [],
+                    "Canon invoices.zip": [
+                        {
+                            "filename": "Canon invoices/6000103562_HRF2526000008615_Basti.pdf",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [],
+                "Total Proceed Pdf": "1",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 20464",
+            "3. Start Process - 2026-01-21 17:42:42.507919",
+            "4. Reading New Emails From Cloude...",
+            "5. 1 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: testing zip file  ",
+            ">> 1 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (Canon invoices) Processing...",
+            "*Exception Error* 128: Traceback (most recent call last):\n  File \"c:\\Users\\111439\\OneDrive - Torrent Gas Ltd\\Desktop\\TORRENT\\TORRENT\\azure_emails_read.py\", line 357, in process_filtered_emails\n    if response['status']:\n       ~~~~~~~~^^^^^^^^^^\nKeyError: 'status'\n",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAgoaoKAAA=",
+            "email_date_time": "2026-01-21 12:01:00+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "testing zip file ",
+                "email_date_time": "2026-01-21 12:01:00+00:00",
+                "process_date_time": "2026-01-21 18:05:57.284506",
+                "attchments": {
+                    "pdfs": [],
+                    "Canon invoices.zip": [
+                        {
+                            "filename": "Canon invoices/6000103561_HRF2526000008614_Kota.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Canon invoices/6000103562_HRF2526000008615_Basti.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Canon invoices/6000103564_HRF2526000008617_Moradabad.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Canon invoices/6000103577_MHF2526000007639_Junagadh.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Canon invoices/6000103622_TNF2526000009157_Chennai.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Canon invoices/6000103686_RJS2526000000741_Jaipur.pdf.PDF",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [],
+                "Total Proceed Pdf": "6",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 21344",
+            "3. Start Process - 2026-01-21 18:05:27.611183",
+            "4. Reading New Emails From Cloude...",
+            "5. 1 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: testing zip file  ",
+            ">> 1 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (Canon invoices) Processing...",
+            "*Exception Error* 128: Traceback (most recent call last):\n  File \"c:\\Users\\111439\\OneDrive - Torrent Gas Ltd\\Desktop\\TORRENT\\TORRENT\\azure_emails_read.py\", line 361, in process_filtered_emails\n    if response['status']:\n       ~~~~~~~~^^^^^^^^^^\nKeyError: 'status'\n",
+            "-> Process not completed normally its terminate"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAgoaoKAAA=",
+            "email_date_time": "2026-01-21 12:01:00+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "testing zip file ",
+                "email_date_time": "2026-01-21 12:01:00+00:00",
+                "process_date_time": "2026-01-21 18:08:43.508022",
+                "attchments": {
+                    "pdfs": [],
+                    "Canon invoices.zip": [
+                        {
+                            "filename": "Canon invoices/6000103561_HRF2526000008614_Kota.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Canon invoices/6000103562_HRF2526000008615_Basti.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Canon invoices/6000103564_HRF2526000008617_Moradabad.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Canon invoices/6000103577_MHF2526000007639_Junagadh.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Canon invoices/6000103622_TNF2526000009157_Chennai.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Canon invoices/6000103686_RJS2526000000741_Jaipur.pdf.PDF",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [],
+                "Total Proceed Pdf": "6",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 10772",
+            "3. Start Process - 2026-01-21 18:08:40.816135",
+            "4. Reading New Emails From Cloude...",
+            "5. 1 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: testing zip file  ",
+            ">> 6 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (6000103561_HRF2526000008614_Kota.PDF) Processing...",
+            "*Exception Error* 128: Traceback (most recent call last):\n  File \"c:\\Users\\111439\\OneDrive - Torrent Gas Ltd\\Desktop\\TORRENT\\TORRENT\\azure_emails_read.py\", line 361, in process_filtered_emails\n    if response['status']:\n       ~~~~~~~~^^^^^^^^^^\nKeyError: 'status'\n",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAgoaoKAAA=",
+            "email_date_time": "2026-01-21 12:01:00+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "testing zip file ",
+                "email_date_time": "2026-01-21 12:01:00+00:00",
+                "process_date_time": "2026-01-21 18:11:13.917959",
+                "attchments": {
+                    "pdfs": [],
+                    "Canon invoices.zip": [
+                        {
+                            "filename": "Canon invoices/6000103561_HRF2526000008614_Kota.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Canon invoices/6000103562_HRF2526000008615_Basti.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Canon invoices/6000103564_HRF2526000008617_Moradabad.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Canon invoices/6000103577_MHF2526000007639_Junagadh.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Canon invoices/6000103622_TNF2526000009157_Chennai.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Canon invoices/6000103686_RJS2526000000741_Jaipur.pdf.PDF",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [],
+                "Total Proceed Pdf": "6",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 17220",
+            "3. Start Process - 2026-01-21 18:11:10.114388",
+            "4. Reading New Emails From Cloude...",
+            "5. 1 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: testing zip file  ",
+            ">> 6 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (6000103561_HRF2526000008614_Kota.PDF) Processing...",
+            "*Exception Error* 128: Traceback (most recent call last):\n  File \"c:\\Users\\111439\\OneDrive - Torrent Gas Ltd\\Desktop\\TORRENT\\TORRENT\\azure_emails_read.py\", line 361, in process_filtered_emails\n    if response['status']:\n       ~~~~~~~~^^^^^^^^^^\nKeyError: 'status'\n",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAgoaoKAAA=",
+            "email_date_time": "2026-01-21 12:01:00+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "testing zip file ",
+                "email_date_time": "2026-01-21 12:01:00+00:00",
+                "process_date_time": "2026-01-21 18:14:05.107111",
+                "attchments": {
+                    "pdfs": [],
+                    "Canon invoices.zip": [
+                        {
+                            "filename": "Canon invoices/6000103561_HRF2526000008614_Kota.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Canon invoices/6000103562_HRF2526000008615_Basti.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Canon invoices/6000103564_HRF2526000008617_Moradabad.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Canon invoices/6000103577_MHF2526000007639_Junagadh.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Canon invoices/6000103622_TNF2526000009157_Chennai.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Canon invoices/6000103686_RJS2526000000741_Jaipur.pdf.PDF",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000001321",
+                        "PDF_FileName": "6000103561_HRF2526000008614_Kota.PDF"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001322",
+                        "PDF_FileName": "6000103562_HRF2526000008615_Basti.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001323",
+                        "PDF_FileName": "6000103564_HRF2526000008617_Moradabad.PDF"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001324",
+                        "PDF_FileName": "6000103577_MHF2526000007639_Junagadh.PDF"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001325",
+                        "PDF_FileName": "6000103622_TNF2526000009157_Chennai.PDF"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001326",
+                        "PDF_FileName": "6000103686_RJS2526000000741_Jaipur.pdf.PDF"
+                    }
+                ],
+                "Total Proceed Pdf": "6",
+                "Success Proceed Pdf": "6",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 15264",
+            "3. Start Process - 2026-01-21 18:14:02.173541",
+            "4. Reading New Emails From Cloude...",
+            "5. 1 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: testing zip file  ",
+            ">> 6 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (6000103561_HRF2526000008614_Kota.PDF) Processing...",
+            ">> (6000103561_HRF2526000008614_Kota.PDF) Proceed!",
+            ">> (6000103562_HRF2526000008615_Basti.pdf) Processing...",
+            ">> (6000103562_HRF2526000008615_Basti.pdf) Proceed!",
+            ">> (6000103564_HRF2526000008617_Moradabad.PDF) Processing...",
+            ">> (6000103564_HRF2526000008617_Moradabad.PDF) Proceed!",
+            ">> (6000103577_MHF2526000007639_Junagadh.PDF) Processing...",
+            ">> (6000103577_MHF2526000007639_Junagadh.PDF) Proceed!",
+            ">> (6000103622_TNF2526000009157_Chennai.PDF) Processing...",
+            ">> (6000103622_TNF2526000009157_Chennai.PDF) Proceed!",
+            ">> (6000103686_RJS2526000000741_Jaipur.pdf.PDF) Processing...",
+            ">> (6000103686_RJS2526000000741_Jaipur.pdf.PDF) Proceed!",
+            ">> 1 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAgoaoKAAA=",
+            "email_date_time": "2026-01-21 12:01:00+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "dhirajpatel@torrentgas.com",
+                "subject": "KPCL",
+                "email_date_time": "2026-01-21 11:24:19+00:00",
+                "process_date_time": "2026-01-21 18:15:54.374301",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "6000098065_Kirloskar Pneum_34706022673_82600.pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [],
+                "Total Proceed Pdf": "0",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            },
+            {
+                "from": "dhirajpatel@torrentgas.com",
+                "subject": "softwareone",
+                "email_date_time": "2026-01-21 11:27:39+00:00",
+                "process_date_time": "2026-01-21 18:15:54.424301",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "6000102919_Invoice - IN-PSI-26-11028.pdf",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000001327",
+                        "PDF_FileName": "6000102919_Invoice - IN-PSI-26-11028.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "1",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "0"
+            },
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "testing zip file ",
+                "email_date_time": "2026-01-21 12:01:00+00:00",
+                "process_date_time": "2026-01-21 18:16:04.852329",
+                "attchments": {
+                    "pdfs": [],
+                    "Canon invoices.zip": [
+                        {
+                            "filename": "Canon invoices/6000103561_HRF2526000008614_Kota.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Canon invoices/6000103562_HRF2526000008615_Basti.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Canon invoices/6000103564_HRF2526000008617_Moradabad.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Canon invoices/6000103577_MHF2526000007639_Junagadh.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Canon invoices/6000103622_TNF2526000009157_Chennai.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "Canon invoices/6000103686_RJS2526000000741_Jaipur.pdf.PDF",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000001328",
+                        "PDF_FileName": "6000103561_HRF2526000008614_Kota.PDF"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001329",
+                        "PDF_FileName": "6000103562_HRF2526000008615_Basti.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001330",
+                        "PDF_FileName": "6000103564_HRF2526000008617_Moradabad.PDF"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001331",
+                        "PDF_FileName": "6000103577_MHF2526000007639_Junagadh.PDF"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001332",
+                        "PDF_FileName": "6000103622_TNF2526000009157_Chennai.PDF"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001333",
+                        "PDF_FileName": "6000103686_RJS2526000000741_Jaipur.pdf.PDF"
+                    }
+                ],
+                "Total Proceed Pdf": "6",
+                "Success Proceed Pdf": "6",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 11532",
+            "3. Start Process - 2026-01-21 18:15:51.670721",
+            "4. Reading New Emails From Cloude...",
+            "5. 3 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: KPCL ",
+            ">> No Digital Signed Attachment Found!",
+            ">> 1 - Email Proceed.",
+            ">> 2 - Email Processing...",
+            ">> Subject: softwareone ",
+            ">> 1 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (6000102919_Invoice - IN-PSI-26-11028.pdf) Processing...",
+            ">> (6000102919_Invoice - IN-PSI-26-11028.pdf) Proceed!",
+            ">> 2 - Email Proceed.",
+            ">> 3 - Email Processing...",
+            ">> Subject: testing zip file  ",
+            ">> 6 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (6000103561_HRF2526000008614_Kota.PDF) Processing...",
+            ">> (6000103561_HRF2526000008614_Kota.PDF) Proceed!",
+            ">> (6000103562_HRF2526000008615_Basti.pdf) Processing...",
+            ">> (6000103562_HRF2526000008615_Basti.pdf) Proceed!",
+            ">> (6000103564_HRF2526000008617_Moradabad.PDF) Processing...",
+            ">> (6000103564_HRF2526000008617_Moradabad.PDF) Proceed!",
+            ">> (6000103577_MHF2526000007639_Junagadh.PDF) Processing...",
+            ">> (6000103577_MHF2526000007639_Junagadh.PDF) Proceed!",
+            ">> (6000103622_TNF2526000009157_Chennai.PDF) Processing...",
+            ">> (6000103622_TNF2526000009157_Chennai.PDF) Proceed!",
+            ">> (6000103686_RJS2526000000741_Jaipur.pdf.PDF) Processing...",
+            ">> (6000103686_RJS2526000000741_Jaipur.pdf.PDF) Proceed!",
+            ">> 3 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAgoaoKAAA=",
+            "email_date_time": "2026-01-21 12:01:00+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "testing zip file ",
+                "email_date_time": "2026-01-21 12:01:00+00:00",
+                "process_date_time": "2026-01-21 18:21:38.129328",
+                "attchments": {
+                    "pdfs": [],
+                    "Canon invoices.zip": [
+                        {
+                            "filename": "6000103561_HRF2526000008614_Kota.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "6000103562_HRF2526000008615_Basti.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "6000103564_HRF2526000008617_Moradabad.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "6000103577_MHF2526000007639_Junagadh.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "6000103622_TNF2526000009157_Chennai.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "6000103686_RJS2526000000741_Jaipur.pdf.PDF",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000001334",
+                        "PDF_FileName": "6000103561_HRF2526000008614_Kota.PDF"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001335",
+                        "PDF_FileName": "6000103562_HRF2526000008615_Basti.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001336",
+                        "PDF_FileName": "6000103564_HRF2526000008617_Moradabad.PDF"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001337",
+                        "PDF_FileName": "6000103577_MHF2526000007639_Junagadh.PDF"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001338",
+                        "PDF_FileName": "6000103622_TNF2526000009157_Chennai.PDF"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001339",
+                        "PDF_FileName": "6000103686_RJS2526000000741_Jaipur.pdf.PDF"
+                    }
+                ],
+                "Total Proceed Pdf": "6",
+                "Success Proceed Pdf": "6",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 21384",
+            "3. Start Process - 2026-01-21 18:21:34.840071",
+            "4. Reading New Emails From Cloude...",
+            "5. 1 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: testing zip file  ",
+            ">> 6 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (6000103561_HRF2526000008614_Kota.PDF) Processing...",
+            ">> (6000103561_HRF2526000008614_Kota.PDF) Proceed!",
+            ">> (6000103562_HRF2526000008615_Basti.pdf) Processing...",
+            ">> (6000103562_HRF2526000008615_Basti.pdf) Proceed!",
+            ">> (6000103564_HRF2526000008617_Moradabad.PDF) Processing...",
+            ">> (6000103564_HRF2526000008617_Moradabad.PDF) Proceed!",
+            ">> (6000103577_MHF2526000007639_Junagadh.PDF) Processing...",
+            ">> (6000103577_MHF2526000007639_Junagadh.PDF) Proceed!",
+            ">> (6000103622_TNF2526000009157_Chennai.PDF) Processing...",
+            ">> (6000103622_TNF2526000009157_Chennai.PDF) Proceed!",
+            ">> (6000103686_RJS2526000000741_Jaipur.pdf.PDF) Processing...",
+            ">> (6000103686_RJS2526000000741_Jaipur.pdf.PDF) Proceed!",
+            ">> 1 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAgoaoKAAA=",
+            "email_date_time": "2026-01-21 12:01:00+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "dhirajpatel@torrentgas.com",
+                "subject": "KPCL",
+                "email_date_time": "2026-01-21 11:24:19+00:00",
+                "process_date_time": "2026-01-21 18:24:21.618220",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "6000098065_Kirloskar Pneum_34706022673_82600.pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [],
+                "Total Proceed Pdf": "0",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            },
+            {
+                "from": "dhirajpatel@torrentgas.com",
+                "subject": "softwareone",
+                "email_date_time": "2026-01-21 11:27:39+00:00",
+                "process_date_time": "2026-01-21 18:24:21.671987",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "6000102919_Invoice - IN-PSI-26-11028.pdf",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000001340",
+                        "PDF_FileName": "6000102919_Invoice - IN-PSI-26-11028.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "1",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "0"
+            },
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "testing zip file ",
+                "email_date_time": "2026-01-21 12:01:00+00:00",
+                "process_date_time": "2026-01-21 18:24:33.347794",
+                "attchments": {
+                    "pdfs": [],
+                    "Canon invoices.zip": [
+                        {
+                            "filename": "6000103561_HRF2526000008614_Kota.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "6000103562_HRF2526000008615_Basti.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "6000103564_HRF2526000008617_Moradabad.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "6000103577_MHF2526000007639_Junagadh.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "6000103622_TNF2526000009157_Chennai.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "6000103686_RJS2526000000741_Jaipur.pdf.PDF",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000001341",
+                        "PDF_FileName": "6000103561_HRF2526000008614_Kota.PDF"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001342",
+                        "PDF_FileName": "6000103562_HRF2526000008615_Basti.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001343",
+                        "PDF_FileName": "6000103564_HRF2526000008617_Moradabad.PDF"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001344",
+                        "PDF_FileName": "6000103577_MHF2526000007639_Junagadh.PDF"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001345",
+                        "PDF_FileName": "6000103622_TNF2526000009157_Chennai.PDF"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001346",
+                        "PDF_FileName": "6000103686_RJS2526000000741_Jaipur.pdf.PDF"
+                    }
+                ],
+                "Total Proceed Pdf": "6",
+                "Success Proceed Pdf": "6",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 22220",
+            "3. Start Process - 2026-01-21 18:24:18.441396",
+            "4. Reading New Emails From Cloude...",
+            "5. 3 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: KPCL ",
+            ">> No Digital Signed Attachment Found!",
+            ">> 1 - Email Proceed.",
+            ">> 2 - Email Processing...",
+            ">> Subject: softwareone ",
+            ">> 1 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (6000102919_Invoice - IN-PSI-26-11028.pdf) Processing...",
+            ">> (6000102919_Invoice - IN-PSI-26-11028.pdf) Proceed!",
+            ">> 2 - Email Proceed.",
+            ">> 3 - Email Processing...",
+            ">> Subject: testing zip file  ",
+            ">> 6 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (6000103561_HRF2526000008614_Kota.PDF) Processing...",
+            ">> (6000103561_HRF2526000008614_Kota.PDF) Proceed!",
+            ">> (6000103562_HRF2526000008615_Basti.pdf) Processing...",
+            ">> (6000103562_HRF2526000008615_Basti.pdf) Proceed!",
+            ">> (6000103564_HRF2526000008617_Moradabad.PDF) Processing...",
+            ">> (6000103564_HRF2526000008617_Moradabad.PDF) Proceed!",
+            ">> (6000103577_MHF2526000007639_Junagadh.PDF) Processing...",
+            ">> (6000103577_MHF2526000007639_Junagadh.PDF) Proceed!",
+            ">> (6000103622_TNF2526000009157_Chennai.PDF) Processing...",
+            ">> (6000103622_TNF2526000009157_Chennai.PDF) Proceed!",
+            ">> (6000103686_RJS2526000000741_Jaipur.pdf.PDF) Processing...",
+            ">> (6000103686_RJS2526000000741_Jaipur.pdf.PDF) Proceed!",
+            ">> 3 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAgoaoKAAA=",
+            "email_date_time": "2026-01-21 12:01:00+00:00"
+        }
     }
 ]
