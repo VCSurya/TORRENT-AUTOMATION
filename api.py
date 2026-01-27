@@ -149,12 +149,18 @@ def update_logs():
 
     safe_data['proceed_emails'] = proceed_emails
 
-    if len(safe_data.get('proceed_emails',[])) == 0:
-        return    
-
     # ---- safely copy status ----
     safe_data["status"] = list(shared_data.get("status", []))
+    
+    if len(safe_data.get('proceed_emails',[])) == 0:
+        temp_error = False
+        for log_i in safe_data["status"]:
+            if "error" in log_i.lower():
+                temp_error = True
+                break
 
+        if not temp_error:
+            return
     
     if "last_visited_email_detailes" in safe_data:
         latest = {

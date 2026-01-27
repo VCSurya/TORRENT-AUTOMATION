@@ -183,12 +183,22 @@ def detect_qrs_from_image(qr_image_path):
         LOGS.append(f"122 {str(e)}")
         return None
 
+def pdf_to_images_pymupdf(pdf_file_path, dpi=300):
+    images = []
+    zoom = dpi / 72.0  # 72 DPI base
+    mat = fitz.Matrix(zoom, zoom)
+    with fitz.open(pdf_file_path) as doc:
+        for page_index in range(len(doc)):
+            pix = doc[page_index].get_pixmap(matrix=mat, alpha=False)
+            images.append(pix)  # you can save via pix.save("out.png")
+    return images
+
 def pdf_to_image(pdf_file_path):
     
     try:
     
         list_images_paths = []            
-        images = convert_from_path(pdf_file_path,poppler_path=POPLOR_PATH,dpi=300)
+        images = convert_from_path(pdf_file_path,dpi=300)
         data = None
         with tempfile.TemporaryDirectory(dir=os.path.join(os.getcwd(), 'temp')) as temp_dir:
 

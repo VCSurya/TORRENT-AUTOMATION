@@ -1,180 +1,84 @@
-TAX INVOICE(TG)
-Canon
-Delighting You Always
-Acknowledgement No
-Acknowledgement Date
-Invoice Reference No
-CORPORATE OFFICE
-CANON INDIA PVT LTD
-7TH Floor Tower B, Building No-5
-DLF Cyber Terrace , DLF Phase -3
-Gurgaon-122002, Haryana 14
-State Name & Code HARYANA, HR
-03-MAY-25
-109e39ebd6f3ea021c7c60d6c3426613fe4d0426a49ce8762dad49625ab7a9a8
-LOCAL BRANCH OFFICE
-CANON INDIA PVT. LTD. (SPJ) C/o Accel IT
-Services, SHOP NO-G-174, Ground Floor, Shri
-Ram Plaza, 301705, ,
-GSTIN No. 08AAACC4175D1ZY
-State Name & Code RAJASTHAN , 08
-Customer Name and Address
-Torrent Gas Jaipur Private Limited
-101-105,SIGNATURE TOWER, PLOT NO 2, DC2,
-Lal Kothi Scheme, District Shopping Centre, Tonk Road,
-Jaipur, 302018, Rajasthan
-JAIPUR RAJASTHAN
-State Name & Code RAJASTHAN , 08
-GSTIN/UIN 08AAICT6216A1ZL
-Customer Name and Installation Address
-Torrent Gas Jaipur Private Limited
-101-105,SIGNATURE TOWER, PLOT NO 2, DC2,
-Lal Kothi Scheme, District Shopping Centre, Tonk Road,
-Jaipur, 302018, Rajasthan
-JAIPUR, RAJASTHAN- 302018
-State Name & Code RAJASTHAN , 08
-GSTIN/UIN 08AAICT6216A1ZL
-Place of supply -RAJASTHAN
-GST Invoice Number
-GST Invoice Date
-RJS2526000000741
-02-MAY-25
-GSTIN No.
-08AAACC4175D1ZY
-Contract Start Date
-07-OCT-22
-Transaction Ref No.
-Contract End Date
-251160001351
-06-OCT-25
-Customer No
-Contact Person
-779039
-Virendra Verma
-PAN No.
-AAACC4175D
-Customer PAN No
-Contact Number
--
-Customer PO/WO No.
-RJJA/P01/1800075/33000171
-SN
-o
-Machine No
-Description
-HSN/
-SAC
-Opening Meter
-Opening
-Meter Date
-Closing
-Meter
-Closing
-Meter Date
-Net Reading
+ANKERS
+SAFE & SMOOTH
+Indian Tankers Pvt. Ltd.
+CIN - U60100WB2005PTC101651 · GSTN - 09AABCI3646Q2ZZ
+PAN - AABCI3646Q
+AN ISO 9001 : 2015
+Certified Company
+INVOICE
+To,
+Torrent Gas Private Limited,
+2nd Floor, Vinayak Tower, Rahul Nagar
+Swami Vivekanand Marg (Thandi Sadak)
+Azamgarh- 276001 (Uttar Pradesh)
+GSTN: 09AAGCT7889P1Z1
+STATE CODE : 09 (UTTAR PRADESH)
+P.O. No: 99000212
+Dated: 13 Jan 2021
+SES No .:
+6000122072
+SES Date .:
+16-09-2025
+Invoice No. :
+BU3/2526/0111
+Invoice Date :
+10-09-2025
+Reverse Charge :
+No
+Period for Supply :
+21-06-2025 To 20-07-2025
+Place of Supply :
+Uttar Pradesh
+Transported Goods :
+Torrent CNG Gas
+SAC Code :
+996601
+S.N.
+Item Description
+Qty
 Unit
-Price
-Basic Value
-1
-2ZB01660-
-BA3
-Supply of Toner/Ink and Spares
-along with Support /Services
-8443995
-9
-1331
-24-MAR-25
-1412
-25-APR-25
-81
-.42
-34.02
-2ZB01660-
-BA4
-Supply of Toner/Ink and Spares
-along with Support /Services
-8443995
-9
-62300
-24-MAR-25
-63554
-25-APR-25
-1254
-.3
-376.20
-2ZB01660-
-CA3
-Supply of Toner/Ink and Spares
-along with Support /Services
-8443995
-9
-1866
-24-MAR-25
-1998
-25-APR-25
-132
-5.25
-693.00
-2ZB01660-
-CA4
-Supply of Toner/Ink and Spares
-along with Support /Services
-8443995
-9
-40131
-24-MAR-25
-41392
-25-APR-25
-1261
-3
-3783.00
-Total Basic Amount-
-4886.22
-Wastage **
-Rs 0.00
-0.00
-Total Taxable
+Rate
 Amount
-4886.22
-CGST*
-9%
-Rs 439.76
-439.76
-SGST*
-9%
-Rs 439.76
-439.76
-IGST*
-Rs 0.00
-0.00
-UTGST*
-Rs 0.00
-0.00
-KERALA FLOOD CESS@ 1%
-Invoice Total After Tax
-5765.74
-Amount In Words: Five Thousand Seven Hundred Sixty Six Only
-Whether the tax is payable on reverse charges Y/N
-1. We don't accept cash payments. Always Pay by Cheque/DD in favour of CANON INDIA Pvt Ltd
-2. Your machine is liable to be put under Stop Service, if the payment is not made within agreed credit period as per terms of agreement.
-3. For further changes to payment mode as EFT please contact above mention Local Branch office at phone no/Email-id
-4. The Invoice is in Accordance with the TG/RENTAL agreement Signed between you and Canon India Pvt. Ltd.
-5. Kindly send only your payment advise to mentioned Email-Id. For North - CIPLAR.NORTH@CANON.CO.IN, FOR SOUTH - CIPLAR.SOUTH@CANON.CO.IN, FOR EAST - CIPLAR.EAST@CANON.CO.IN, FOR WEST -
-CIPLAR.WEST@CANON.CO.IN ,NOTE- These E Mail id's are to be used only for sending payment advices. In case you have any invoice related query, please connect with the local CIPL representative.
-*Goods specified in GST Schedule IV under HSN 8443 are taxable @ 18%. The consumables & Spares used in the TG Contract are covered under HSN 8443, Schedule IV of GST
-** Wastage 1% on Black Counter & 2% on Color Counter
-This document is digitally signed and does not require Manual Signature.
-For Canon India Pvt. Ltd.
-Digitally Signed
-Customer Acknowledgement
-(Authorized Signatory)
-Registered Office - (w.e.f. 01.07.2016) Canon India Pvt Ltd, Unit No214 to 218,2nd Floor, Narain Manzil, Barakhamba Road
-Connaught Place, New Delhi 110001
-CIN NO - U74899DL1996PTC083770 011-47192613/011-47192611,
-https://in.canon, Payment UPI Code :canon2272@sc
-Call Center No - 18001803366/18002083366
-Signature Not Verified
-Digitally Signed By:
-DS CANON INDIA PRIVATE LIMITED 2
-Sun 04-May-2025 14:56:39 ST
-Approved by Rawat Singh, Mr. Brijender
+1
+Providing HCV (05 No.) for transportation of CNG
+through Cascade on 24 X 7 basis with zero Kms
+Running (01 Driver X 12 hr duty per HCV)
+5.00
+Month
+63,000.00
+3,15,000.00
+2
+Running Cost of HCV to be calculated on monthly
+basis as per Scope of Work
+30131.5
+KM
+1.75
+52,730.13
+3
+Providing 2nd Driver for the transportation of
+HCV (Based on EIC Intimation)
+150
+Per Day
+600.00
+90,000.00
+Banks Details:
+Taxable Amount
+4,57,730.13
+A/C Holder Name: Indian Tankers (P) Ltd.
+CGST @ 9%
+41,195.71
+A/C No .: 5811819087
+SGST @ 9%
+41,195.71
+Bank: Kotak Mahindra Bank
+IFSC: KKBK0005297
+ROUND OFF
+0.45
+Branch: GORAKHPUR
+TOTAL
+₹
+5,40,122.00
+Authorized Signatory
+Corporate Office : B-1/3, Sector-15, GIDA, Sahjanwa, Gorakhpur - 273 209 (U.P.) INDIA
+Registered Office : 1 Floor, Flat No. : C-4, 118, Elliot Road, Kolkata - 700 016 (W.B.) INDIA
+Mobile No. : 9648938202, 9648938225 · E-mail : billing@indiantankers.com. accounts@indiantankers.com
