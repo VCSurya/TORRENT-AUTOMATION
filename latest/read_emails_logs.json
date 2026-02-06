@@ -3769,5 +3769,176 @@
             "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAhz7sTAAA=",
             "email_date_time": "2026-01-23 12:59:27+00:00"
         }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "DHAVALSUTHAR@TORRENTGAS.COM",
+                "subject": "ZIP file upload",
+                "email_date_time": "2026-01-28 12:10:18+00:00",
+                "process_date_time": "2026-01-29 15:48:01.834739",
+                "attchments": {
+                    "pdfs": [],
+                    "Canon invoices.zip": [
+                        {
+                            "filename": "6000103561_HRF2526000008614_Kota.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "6000103562_HRF2526000008615_Basti.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "6000103564_HRF2526000008617_Moradabad.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "6000103577_MHF2526000007639_Junagadh.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "6000103622_TNF2526000009157_Chennai.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "6000103686_RJS2526000000741_Jaipur.pdf.PDF",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000001409",
+                        "PDF_FileName": "6000103561_HRF2526000008614_Kota.PDF"
+                    }
+                ],
+                "Total Proceed Pdf": "6",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 20932",
+            "3. Start Process - 2026-01-29 15:47:56.505652",
+            "4. Reading New Emails From Cloude...",
+            "5. 3 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: einvoice ",
+            ">> !!! Email Already Proceed.",
+            ">> 1 - Email Proceed.",
+            ">> 2 - Email Processing...",
+            ">> Subject: ZIP file upload ",
+            ">> 6 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (6000103561_HRF2526000008614_Kota.PDF) Processing...",
+            ">> (6000103561_HRF2526000008614_Kota.PDF) Proceed!",
+            ">> (6000103562_HRF2526000008615_Basti.pdf) Processing...",
+            "Terminating process PID: 20932...",
+            "Process terminated successfully.",
+            "-> Process not completed normally its terminate"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAlYnpNAAA=",
+            "email_date_time": "2026-01-28 12:10:18+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "testing the pdf which is invoice but still getting error not invoice ",
+                "email_date_time": "2026-01-29 05:36:16+00:00",
+                "process_date_time": "2026-01-29 15:49:24.032359",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "6000135613_RHINO SERVICES_TGCHE25-26056_98293.pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [],
+                "Total Proceed Pdf": "0",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 18820",
+            "3. Start Process - 2026-01-29 15:49:20.233396",
+            "4. Reading New Emails From Cloude...",
+            "5. 2 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: ZIP file upload ",
+            ">> !!! Email Already Proceed.",
+            ">> 1 - Email Proceed.",
+            ">> 2 - Email Processing...",
+            ">> Subject: testing the pdf which is invoice but still getting error not invoice  ",
+            ">> No Digital Signed Attachment Found!",
+            ">> 2 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAlYnpOAAA=",
+            "email_date_time": "2026-01-29 05:36:16+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "testing the nested zip",
+                "email_date_time": "2026-02-04 07:30:52+00:00",
+                "process_date_time": "2026-02-04 15:10:57.598994",
+                "attchments": {
+                    "pdfs": [],
+                    "test nested zip.zip": [
+                        {
+                            "filename": "9.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "33 U.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "53 U.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "57 U.pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [],
+                "Total Proceed Pdf": "167",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 24856",
+            "3. Start Process - 2026-02-04 15:07:26.942791",
+            "4. Reading New Emails From Cloude...",
+            "5. 1 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: testing the nested zip ",
+            ">> 167 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (5000021896_ARVIND LIFESTYL_1829555588_56536.pdf) Processing...",
+            "Terminating process PID: 24856...",
+            "Process terminated successfully.",
+            "-> Process not completed normally its terminate"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAp7X7rAAA=",
+            "email_date_time": "2026-02-04 07:30:52+00:00"
+        }
     }
 ]

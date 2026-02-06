@@ -55,6 +55,7 @@
     "129": "No PAN Numbers Found",
     "130": "Exception Error durring send data to sap",
     "131": "Exception Error in valid_po() function",
+    "132": "Error At Calling The Open AI Model",
     "404": "Auto Process Error In Process PDFs Function",
     "801": "Automation API Return Exception ERROR - send_pdf_to_sap()",
     "802": "Automation API Return Exception ERROR - final_json()",

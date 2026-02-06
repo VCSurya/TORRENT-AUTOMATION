@@ -194,7 +194,6 @@ def update_logs():
 def clear_dirs():
     try:
         temp_dir = os.path.join(os.getcwd(), 'temp')
-        uploaded_pdfs_dir = os.path.join(os.getcwd(), 'uploaded_pdfs')
 
         # Remove files first if any
         if os.path.exists(temp_dir):
@@ -202,16 +201,6 @@ def clear_dirs():
                 file_path = os.path.join(temp_dir, file)
                 if os.path.isfile(file_path):
                     os.remove(file_path)
-
-        # Now remove the empty temp directory
-
-        if os.path.exists(uploaded_pdfs_dir):
-            for file in os.listdir(uploaded_pdfs_dir):
-                file_path = os.path.join(uploaded_pdfs_dir, file)
-                if os.path.isfile(file_path):
-                    os.remove(file_path)
-
-            shutil.rmtree(uploaded_pdfs_dir)  # Remove the empty uploaded_pdfs directory
 
     except Exception as e:
         print(f"An error occurred: {e}")
@@ -749,9 +738,8 @@ def upload_pdf():
         else:
             return jsonify({'success':"",'InwardRefNo':result.get('no') if result.get('no') else "",'error':f"{result['json']['ErrorNo']}: {result['json']['ErrorMsg']}" if result['json']['ErrorMsg'] or result['json']['ErrorNo'] else f"440 : Somthing Went Wrong At Server Side!",'Status':result.get('json').get('Status',None)}), 501
         
-    except Exception as e:
-        traceback.print_exc()  # print full error and line number to console
-        return jsonify({'success':"", "error": f"{type(e).__name__}: {str(e)}"}), 500
+    except:
+        return jsonify({'success':"", "error": f"{traceback.print_exc()}"}), 500
     
     finally:
 

@@ -17,6 +17,9 @@ import time
 import copy
 from PIL import Image
 from pypdf import PdfReader
+import shutil
+from pathlib import Path
+from typing import List
 
 load_dotenv()
 # =============================
@@ -67,6 +70,118 @@ def update_json_file(file_path: str, new_data: dict) -> bool:
         # print(f"126 {str(e)}")
         return False
 
+
+def collect_pdfs_from_zip(zip_path: str, dest_dir: str) -> List[str]:
+    """
+    Extract a ZIP (and any nested ZIPs within), find all PDF files in the
+    extracted directory tree, and move them into a single destination directory.
+
+    Parameters
+    ----------
+    zip_path : str
+        Path to the ZIP file to process.
+    dest_dir : str
+        Path to the directory where all found PDF files should be moved.
+        The directory will be created if it doesn't exist.
+
+    Returns
+    -------
+    List[str]
+        A list of absolute paths to the moved PDF files in the destination directory.
+
+    Notes
+    -----
+    - Extraction is done safely to avoid Zip Slip attacks.
+    - Nested ZIP files contained within the main ZIP are also extracted recursively.
+    - If multiple PDFs have the same filename, numeric suffixes are appended to avoid overwrites.
+    """
+    zip_path = Path(zip_path).expanduser().resolve()
+    dest_dir = Path(dest_dir).expanduser().resolve()
+
+    if not zip_path.exists():
+        raise FileNotFoundError(f"ZIP file not found: {zip_path}")
+    if not zipfile.is_zipfile(zip_path):
+        raise zipfile.BadZipFile(f"Not a valid ZIP file: {zip_path}")
+
+    dest_dir.mkdir(parents=True, exist_ok=True)
+
+    def _safe_extract(zf: zipfile.ZipFile, target_dir: Path) -> None:
+        """
+        Safely extract a zipfile.ZipFile into target_dir, preventing Zip Slip.
+        """
+        for member in zf.infolist():
+            member_path = target_dir / member.filename
+            # Normalize the path and ensure it stays within the target_dir
+            resolved = member_path.resolve()
+            if not str(resolved).startswith(str(target_dir.resolve())):
+                raise RuntimeError(f"Unsafe path detected in ZIP: {member.filename}")
+        zf.extractall(target_dir)
+
+    def _unique_destination_path(base_dir: Path, filename: str) -> Path:
+        """
+        Return a unique Path within base_dir for filename, appending a numeric suffix if needed.
+        """
+        candidate = base_dir / filename
+        if not candidate.exists():
+            return candidate
+
+        stem = candidate.stem
+        suffix = candidate.suffix  # includes the dot, e.g., ".pdf"
+        counter = 1
+        while True:
+            new_candidate = base_dir / f"{stem}_{counter}{suffix}"
+            if not new_candidate.exists():
+                return new_candidate
+            counter += 1
+
+    moved_pdfs: List[str] = []
+
+    with tempfile.TemporaryDirectory(prefix="zip_pdf_collect_") as tmpdir_str:
+        tmp_root = Path(tmpdir_str)
+
+        # 1) Extract top-level ZIP safely
+        try:
+            with zipfile.ZipFile(zip_path, "r") as zf:
+                _safe_extract(zf, tmp_root)
+        except zipfile.BadZipFile as e:
+            raise zipfile.BadZipFile(f"Failed to read ZIP '{zip_path}': {e}") from e
+
+        # 2) Recursively extract any nested .zip files found within the extracted tree
+        #    We iterate until no new zips are found to handle deep nesting.
+        while True:
+            found_new_zip = False
+            for root, _, files in os.walk(tmp_root):
+                root_path = Path(root)
+                for name in files:
+                    if name.lower().endswith(".zip"):
+                        nested_zip_path = root_path / name
+                        # Extract nested zip into a sibling dir named <zip_name>_unzipped
+                        extract_dir = root_path / f"{Path(name).stem}_unzipped"
+                        extract_dir.mkdir(exist_ok=True)
+                        try:
+                            with zipfile.ZipFile(nested_zip_path, "r") as nzf:
+                                _safe_extract(nzf, extract_dir)
+                            # Optionally delete the nested zip to avoid re-processing
+                            nested_zip_path.unlink(missing_ok=True)
+                            found_new_zip = True
+                        except zipfile.BadZipFile:
+                            # Skip malformed nested zips but continue processing others
+                            continue
+            if not found_new_zip:
+                break
+
+        # 3) Walk the entire tree and move PDFs into dest_dir
+        for root, _, files in os.walk(tmp_root):
+            root_path = Path(root)
+            for name in files:
+                if name.lower().endswith(".pdf"):
+                    src = root_path / name
+                    dst = _unique_destination_path(dest_dir, src.name)
+                    # Use move to adhere to "move" semantics (temp folder will be cleaned anyway)
+                    shutil.move(str(src), str(dst))
+                    moved_pdfs.append(str(name))
+
+    return moved_pdfs
 
 def verify_signatures(pdf_path):
 
@@ -254,8 +369,6 @@ async def process_filtered_emails(shared_data):
                         "SourceOfDoc": "EMAIL"
                 }
                 all_attchments_name = {"pdfs": []}
-                ZIP = False
-                ZIP_NAME = None
                 with tempfile.TemporaryDirectory(dir=os.path.join(os.getcwd(), 'temp')) as temp_dir:
                     if message.has_attachments and message.attachments:
                         for attachment in message.attachments:
@@ -277,29 +390,27 @@ async def process_filtered_emails(shared_data):
                                             {"filename": file_name, "Digital Sign": False})
                                         os.remove(file_path)
 
-                                # ZIP file handling
+                                # ZIP file handlingc:\Users\111439\Downloads\Sample invoices for DCC portal.    zip
                                 elif file_name.endswith(".zip"):
-                                    ZIP = True
-                                    ZIP_NAME = file_name.replace('.zip','')
                                     all_attchments_name[file_name] = []
                                     zip_file_path = os.path.join(temp_dir, file_name)
 
                                     with open(zip_file_path, "wb") as f:
                                         f.write(file_content)
 
-                                    with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
-                                        zip_ref.extractall(temp_dir)
-                                        for extracted_file in zip_ref.namelist():
-                                            if extracted_file.endswith(".pdf") or extracted_file.endswith(".PDF"):
-                                                file_path = os.path.join(temp_dir, extracted_file)
-                                                if verify_signatures(file_path):
+                                    try:
+                                        list_of_pdfs = collect_pdfs_from_zip(zip_file_path, temp_dir)
+                                        os.remove(zip_file_path)
+                                        for extracted_file in list_of_pdfs:
+                                                if verify_signatures(os.path.join(temp_dir,extracted_file)):
                                                     all_attchments_name[file_name].append(
-                                                        {"filename": extracted_file.split('/')[1], "Digital Sign": True})
+                                                        {"filename": extracted_file, "Digital Sign": True})
                                                 else:
                                                     all_attchments_name[file_name].append(
-                                                        {"filename": extracted_file.split('/')[1], "Digital Sign": False})
-                                                    os.remove(file_path)
-                                    os.remove(zip_file_path)
+                                                        {"filename": extracted_file, "Digital Sign": False})
+                                                    os.remove(os.path.join(temp_dir,extracted_file))
+                                    except:
+                                        continue
                                 
                                 ## Image file handling
                                 # elif is_image(file_name) :
@@ -330,7 +441,7 @@ async def process_filtered_emails(shared_data):
                     
                     error = 0
                     success = 0
-                    total = len(os.listdir(os.path.join(temp_dir, ZIP_NAME))) if ZIP else len(os.listdir(os.path.join(temp_dir)))
+                    total = len(os.listdir(os.path.join(temp_dir)))
                     latest_opration_data['Total Proceed Pdf'] = email_data["Total Proceed Pdf"] =  str(total)
                     latest_opration_data['Success Proceed Pdf'] = email_data['Success Proceed Pdf'] = str(success)
                     latest_opration_data['Error Proceed Pdf'] = email_data['Error Proceed Pdf'] = str(error)
@@ -341,10 +452,10 @@ async def process_filtered_emails(shared_data):
 
 
 
-                    if len(os.listdir(os.path.join(temp_dir, ZIP_NAME))) if ZIP else len(os.listdir(os.path.join(temp_dir))) > 0:
+                    if len(os.listdir(os.path.join(temp_dir))) > 0:
 
 
-                        shared_data["status"].append(f">> {len(os.listdir(os.path.join(temp_dir, ZIP_NAME))) if ZIP else len(os.listdir(os.path.join(temp_dir)))} Digital Signed Attachment Found!")
+                        shared_data["status"].append(f">> {len(os.listdir(os.path.join(temp_dir)))} Digital Signed Attachment Found!")
                         shared_data["status"].append(f">> Attachments Processing...")
                         
                         
@@ -353,9 +464,9 @@ async def process_filtered_emails(shared_data):
                         shared_data["last_visited_email_detailes"] = latest_opration_data 
                         update_json_file("latest/latest_proceed_email.json", copy.deepcopy(latest_opration_data)) 
 
-                        for filename in os.listdir(os.path.join(temp_dir, ZIP_NAME)) if ZIP else os.listdir(os.path.join(temp_dir)):
+                        for filename in os.listdir(os.path.join(temp_dir)):
                             shared_data["status"].append(f">> ({filename}) Processing...")
-                            pdf_file_path = os.path.join(temp_dir,ZIP_NAME,filename) if ZIP else os.path.join(temp_dir,filename)
+                            pdf_file_path = os.path.join(temp_dir,filename)
                             response = process_pdf(pdf_file_path,email_data)
                             
                             if response['status']:

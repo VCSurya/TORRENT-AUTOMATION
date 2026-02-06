@@ -1,84 +1,123 @@
-ANKERS
-SAFE & SMOOTH
-Indian Tankers Pvt. Ltd.
-CIN - U60100WB2005PTC101651 · GSTN - 09AABCI3646Q2ZZ
-PAN - AABCI3646Q
-AN ISO 9001 : 2015
-Certified Company
-INVOICE
-To,
-Torrent Gas Private Limited,
-2nd Floor, Vinayak Tower, Rahul Nagar
-Swami Vivekanand Marg (Thandi Sadak)
-Azamgarh- 276001 (Uttar Pradesh)
-GSTN: 09AAGCT7889P1Z1
-STATE CODE : 09 (UTTAR PRADESH)
-P.O. No: 99000212
-Dated: 13 Jan 2021
-SES No .:
-6000122072
-SES Date .:
-16-09-2025
-Invoice No. :
-BU3/2526/0111
-Invoice Date :
-10-09-2025
-Reverse Charge :
-No
-Period for Supply :
-21-06-2025 To 20-07-2025
-Place of Supply :
-Uttar Pradesh
-Transported Goods :
-Torrent CNG Gas
-SAC Code :
-996601
-S.N.
-Item Description
+GRN No: 1234567895
+GRN No: 1233567895
+GRN No: 1534567895
+GRN No: 1134567895
+GREEN
+GRN GREEN GAS PRIVATE LIMITED
+Reg Off: No.28, Town House, Arun Excello Temple Green,
+Sinnivakkam, Sriperumbudur, Kanchipuram - 631 604
+TAX INVOICE
+GSTIN : 33AALCG0912D1Z5
+Invoice #
+: GGCTGPLCH252629
+Invoice Date
+: 20/12/2025
+Terms
+: Due on Receipt
+Due Date
+P.O.#
+: TNCH/P02/1800638/33001425 & 17-07-2025
+Bill To
+Torrent Gas Chennai Pvt. Ltd
+Torrent Gas Chennai Pvt. Ltd
+5th Floor, No 148 Ward No. 147, Zone 8, Acropolis Building,
+Dr. Radhakrishnan Street, Mylapore,
+Chennai 600004, Tamil Nadu
+India
+GSTIN 33AAHCT5406D1ZP
+Subject:
+Testing and Servicing of "CYLINDER CASCADES " - EKCK/TGPL/40-255-04
+GST
+SI. No.
+Item & Description
+HSN/SAC
 Qty
-Unit
 Rate
+%
+Amt
 Amount
 1
-Providing HCV (05 No.) for transportation of CNG
-through Cascade on 24 X 7 basis with zero Kms
-Running (01 Driver X 12 hr duty per HCV)
-5.00
-Month
-63,000.00
-3,15,000.00
+Type-1- 3000 WL Cascade Hydrotesting
+998346
+1.00
+68,000.00
+18%
+12,240.00
+68,000
 2
-Running Cost of HCV to be calculated on monthly
-basis as per Scope of Work
-30131.5
-KM
-1.75
-52,730.13
+Hydra Service for HT
+998346
+2.00
+12,000.00
+18%
+4,320.00
+24,000
 3
-Providing 2nd Driver for the transportation of
-HCV (Based on EIC Intimation)
-150
-Per Day
-600.00
-90,000.00
-Banks Details:
-Taxable Amount
-4,57,730.13
-A/C Holder Name: Indian Tankers (P) Ltd.
-CGST @ 9%
-41,195.71
-A/C No .: 5811819087
+S&I_Miscellaneous repairing
+998346
+1.00
+5,000.00
+18%
+900.00
+5,000
+4
+S&I_Male Connector (3/4" OD X 1/4" MNPT)
+998346
+4,00
+3,220.00
+18%
+2,318.00
+12,880
+Total In Words
+Indian Rupee One Lakhs, Twenty-Nine Thousand, Six Hundred Fifty-
+Eight Only
+Received Date
+6/1/26
+Total
+Balance Due
+1,29,658
+PO No.
+6-134920
+EEN
+AS
+PV
+GRN
+T LT
+Saratb K
+Authorized Signature
+GRN No: 1234567893
+B. NARENDRAN
+Digitally signed by B. NARENDRAN
+Date: 2026.01.06 11:18:54 +05'30'
+GRN No: 1234565893
+GRN No: 1244567892
+GRN No: 1244565892
+1,29,658
+Thanks for your businessN /SE No.
+IV Posting No.
+DCC Control No .:
+99702
+KANCHIRURAM
+Terms & Conditions
+Please pay immediately on receipt of the Invoice to :
+Sub Total
+CGST @9%
 SGST @ 9%
-41,195.71
-Bank: Kotak Mahindra Bank
-IFSC: KKBK0005297
-ROUND OFF
-0.45
-Branch: GORAKHPUR
-TOTAL
-₹
-5,40,122.00
-Authorized Signatory
-Corporate Office : B-1/3, Sector-15, GIDA, Sahjanwa, Gorakhpur - 273 209 (U.P.) INDIA
-Registered Office : 1 Floor, Flat No. : C-4, 118, Elliot Road, Kolkata - 700 016 (W.B.) INDIA
-Mobile No. : 9648938202, 9648938225 · E-mail : billing@indiantankers.com. accounts@indiantankers.com
+Rounding
+1,09,880
+9,889
+9,889
+Beneficiary Name: GRN Green Gas Private Limited
+Account Number: 42874279382
+Bank Name: State Bank of India
+Bank Branch: Oragadam
+IFSC Code: SBIN0012933
+Ship To
+5th Floor, No 148 Ward No. 147, Zone 8, Acropolis Building,
+Dr. Radhakrishnan Street, Mylapore,
+Chennai 600004, Tamil Nadu
+India
+GSTIN 33AAHCT5406D1ZP
+Place Of Supply : Tamil Nadu (33)
+Plant : NO.126, Survey No. 174/2D, Mettupalayam Road,
+Mettupalayam, Sriperumbudur, Kanchipuram - 631 604

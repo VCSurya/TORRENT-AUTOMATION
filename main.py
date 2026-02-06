@@ -48,7 +48,7 @@ with open(prompt_path, 'r') as file:
     PAN_NO = set(file.read().splitlines())
 
 # MAKE CONNECTION FOR TLS handshake
-timeout = httpx.Timeout(60.0, connect=30.0, pool=30.0)
+timeout = httpx.Timeout(connect=45.0, read=30.0,write=30.0, pool=30.0)
 
 
 http_client = httpx.Client(
@@ -62,29 +62,35 @@ aoai_client = AzureOpenAI(
     api_key = os.getenv("AZURE_OPENAI_KEY") ,
     api_version="2024-02-01",
     http_client=http_client,
-    timeout=60.0,
-    max_retries=3
+    timeout=30.0,
+    max_retries=1
 )
 
 
 def call_model(prompt):
-    return aoai_client.chat.completions.create(
-        model= os.getenv("AZURE_OPENAI_DEPLOYMENT"),
-            response_format={"type": "json_object"},  # 👈 Force valid JSON
-            messages=[
-                {
-                    "role": "system",
-                    "content": "You are a data extraction assistant. Always respond strictly in JSON format only."
-                },
-                {
-                    "role": "user",
-                    "content": prompt
-                }
-            ],
-            max_tokens=2000,
-            temperature=0
-    )
-
+    try:
+        return aoai_client.chat.completions.create(
+            model= os.getenv("AZURE_OPENAI_DEPLOYMENT"),
+                response_format={"type": "json_object"},  # 👈 Force valid JSON
+                messages=[
+                    {
+                        "role": "system",
+                        "content": "You are a data extraction assistant. Always respond strictly in JSON format only."
+                    },
+                    {
+                        "role": "user",
+                        "content": prompt
+                    }
+                ],
+                max_tokens=1200,
+                temperature=0.2,
+                top_p = 1,
+                frequency_penalty = 0,
+                presence_penalty = 0,
+        )
+    except:
+        LOGS.append(f"132 {traceback.print_exc()}")
+        return {}
 
 def pan_numbers():
     
@@ -198,7 +204,7 @@ def pdf_to_image(pdf_file_path):
     try:
     
         list_images_paths = []            
-        images = convert_from_path(pdf_file_path,dpi=300)
+        images = convert_from_path(pdf_file_path,poppler_path=POPLOR_PATH,dpi=300)
         data = None
         with tempfile.TemporaryDirectory(dir=os.path.join(os.getcwd(), 'temp')) as temp_dir:
 
@@ -237,7 +243,7 @@ def azure_extract_text(pdf_file,manual = 0):
             # Open PDF and send to Azure
             with open(pdf_file, "rb") as f:
                 poller = client.begin_analyze_document(
-                    model_id="prebuilt-layout",
+                    model_id="prebuilt-read",
                     body=f,
                     pages=os.getenv('AT_EMAIL_PAGES') if manual == 0 else os.getenv('AT_MANUAL_PAGES')
                 )
@@ -391,8 +397,16 @@ def final_json(JSON,SAP_JSON,Mode_Of_Entry,Created_On,Created_By):
 
         def get_closest_10_digit_string(text, input_string):
 
-            # Initialize variables to store the best match and its similarity
+            if '-' in input_string:
+                input_string = input_string.replace("/","1").replace("\\","1")
+                part_1 =  input_string.split("-")[0]
+                part_2 =  input_string.split("-")[1]
+                total_len = len(part_2) + len (part_1)
+                if total_len < 10:
+                    return input_string.replace("-","0"*(10-total_len))
+            
             best_match = None
+            # Initialize variables to store the best match and its similarity
             highest_similarity = 0
             
             try:
@@ -400,7 +414,7 @@ def final_json(JSON,SAP_JSON,Mode_Of_Entry,Created_On,Created_By):
                 potential_matches = re.findall(r'\d{10}', text)
 
                 if not potential_matches:
-                    return None, 0  # If no 10-digit numbers are found
+                    return None  # If no 10-digit numbers are found
                 
                 # Function to calculate similarity using SequenceMatcher
                 def calculate_similarity(str1, str2):
@@ -447,9 +461,8 @@ def final_json(JSON,SAP_JSON,Mode_Of_Entry,Created_On,Created_By):
 
             keys = list(data.keys())
             target_str = str(target)
-
             # 1️⃣ Exact key match
-            if target_str in data:
+            if target_str in keys:
                 matched_key = target_str
 
             else:
@@ -460,7 +473,7 @@ def final_json(JSON,SAP_JSON,Mode_Of_Entry,Created_On,Created_By):
 
                 else:
                     # 3️⃣ Closest fuzzy match
-                    matches = get_close_matches(target_str, keys, n=1, cutoff=0.6)
+                    matches = get_close_matches(target_str, keys, n=1, cutoff=0.7)
                     if matches:
                         matched_key = matches[0]
                     else:
@@ -565,9 +578,11 @@ def final_json(JSON,SAP_JSON,Mode_Of_Entry,Created_On,Created_By):
             # Check if data is not exactly 10-digit numeric
             if not (len(data) == 10 and data.isdigit()):
                 LOGS.append(f"22 {data}")
-                closest_string = get_closest_10_digit_string(JSON['text'], data)
+                closest_string = get_closest_10_digit_string(JSON['text'],data)
                 if closest_string:
-                    ses_no = closest_string  # replace with closest match
+                    ses_no = closest_string
+                else:
+                    continue
             
             if ses_no not in total_scs_no:
                 
@@ -835,14 +850,13 @@ def send_data_to_sap(SAP_JSON):
             cookies=cookies,
             verify=False
         )
-
         inward_ref_no = response.json().get('d', {}).get('InwardRefNo', "")
         from_sap_status = response.json().get('d', {}).get('Status', "")
         DuplicateMsg = response.json().get('d', {}).get('DuplicateMsg', "")
         LOGS.append(f"16 {inward_ref_no} - {from_sap_status}")
 
         with open('latest/latest_sap_response.json', 'w',encoding='utf-8') as file:
-                json.dump(response.json().get('d', {}), file, ensure_ascii=False, indent=4)
+                json.dump(response.json(), file, ensure_ascii=False, indent=4)
 
         # --- Step 3: Handle Response ---
         if response.status_code in [200, 201]:
@@ -877,15 +891,15 @@ def send_data_to_sap(SAP_JSON):
             else:
                 SAP_JSON['ErrorType'] = 'E'
                 SAP_JSON['ErrorNo'] = "111"
-                SAP_JSON['ErrorMsg'] = f'Data not saved in sap.'
-                return {'status':False ,'error': "Data not saved in sap.","error_code":"111"}
+                SAP_JSON['ErrorMsg'] = f'{response.json().get('error').get('message').get('value')}'
+                return {'status':False ,'error': f"{response.json().get('error').get('message').get('value')}","error_code":"111"}
     
     except Exception:
         e = traceback.format_exc()
         LOGS.append(f"130 {str(e)}")
         SAP_JSON['ErrorType'] = 'E'
         SAP_JSON['ErrorNo'] = "130"
-        SAP_JSON['ErrorMsg'] = f'Data not saved in sap.'
+        SAP_JSON['ErrorMsg'] = f'{e}'
         return {'status':False ,'error': str(e) , "error_code":"130"}
 
 # === Step 3: Full pipeline per PDF ===
