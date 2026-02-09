@@ -16,7 +16,7 @@ from datetime import datetime
 from dotenv import load_dotenv
 from openai import AzureOpenAI
 from itertools import combinations
-from pdf2image import convert_from_path
+from pdf2image import convert_from_path,pdfinfo_from_path
 from difflib import SequenceMatcher,get_close_matches
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.documentintelligence import DocumentIntelligenceClient
@@ -42,9 +42,9 @@ SAP_PASSWORD = os.getenv('SAP_PASSWORD')
 ### >>> Load the PAN Numbers From TXT File
 PAN_NO_URL = f"{BASE_URL}/{os.getenv('GET_PAN_NUMBERS_ENTETY_SET_NAME')}"
 
-prompt_path  = os.path.join(SCRTPT_DIR, 'pan.txt')
+pan_path  = os.path.join(SCRTPT_DIR, 'pan.txt')
 
-with open(prompt_path, 'r') as file:
+with open(pan_path, 'r') as file:
     PAN_NO = set(file.read().splitlines())
 
 # MAKE CONNECTION FOR TLS handshake
@@ -189,45 +189,54 @@ def detect_qrs_from_image(qr_image_path):
         LOGS.append(f"122 {str(e)}")
         return None
 
-def pdf_to_images_pymupdf(pdf_file_path, dpi=300):
-    images = []
-    zoom = dpi / 72.0  # 72 DPI base
-    mat = fitz.Matrix(zoom, zoom)
-    with fitz.open(pdf_file_path) as doc:
-        for page_index in range(len(doc)):
-            pix = doc[page_index].get_pixmap(matrix=mat, alpha=False)
-            images.append(pix)  # you can save via pix.save("out.png")
-    return images
 
 def pdf_to_image(pdf_file_path):
     
     try:
-    
-        list_images_paths = []            
-        images = convert_from_path(pdf_file_path,poppler_path=POPLOR_PATH,dpi=300)
+        list_images_paths = []
         data = None
-        with tempfile.TemporaryDirectory(dir=os.path.join(os.getcwd(), 'temp')) as temp_dir:
 
-            for i,image in enumerate(images):
-                save_image_dir = os.path.join(temp_dir,f"{i}.png")
-                image.save(save_image_dir,"PNG") 
-                list_images_paths.append(save_image_dir)
+        # Ensure base temp folder exists
+        base_temp_dir = os.path.join(os.getcwd(), "temp")
+        os.makedirs(base_temp_dir, exist_ok=True)
 
-            for qr_image in os.listdir(temp_dir):
-                result = detect_qrs_from_image(os.path.abspath(os.path.join(temp_dir,qr_image)))
-                if result != None:
-                    if "Irn" in result:
-                        LOGS.append(f"23")
-                        data = json.loads(result)
-                        break
- 
-        return {"status":False if data is None else True,"data":data}
-    
+        # Get total pages so we don't request beyond the PDF length
+        info = pdfinfo_from_path(pdf_file_path, poppler_path=POPLOR_PATH)
+        total_pages = int(info.get("Pages", 0))
+
+        # Convert only first 5 pages
+        last_page = min(5, total_pages) if total_pages > 0 else 5
+
+        images = convert_from_path(
+            pdf_file_path,
+            poppler_path=POPLOR_PATH,
+            dpi=300,
+            first_page=1,
+            last_page=last_page
+        )
+
+        with tempfile.TemporaryDirectory(dir=base_temp_dir) as temp_dir:
+
+            # Save images
+            for i, image in enumerate(images):
+                save_image_path = os.path.join(temp_dir, f"{i}.png")
+                image.save(save_image_path, "PNG")
+                list_images_paths.append(save_image_path)
+
+            # Scan images for QR (sorted so it's always page order)
+            for img_path in sorted(list_images_paths):
+                result = detect_qrs_from_image(os.path.abspath(img_path))
+                if result is not None and "Irn" in result:
+                    LOGS.append("23")
+                    data = json.loads(result)
+                    break
+
+        return {"status": False if data is None else True, "data": data}
+
     except Exception:
         e = traceback.format_exc()
         LOGS.append(f"123 {str(e)}")
-        return {"status":False,"error":str(e), "error_code":"123"}
-
+        return {"status": False, "error": str(e), "error_code": "123"}
 
 # === Step 1: Extract text from Azure ===
 def azure_extract_text(pdf_file,manual = 0):
@@ -243,7 +252,7 @@ def azure_extract_text(pdf_file,manual = 0):
             # Open PDF and send to Azure
             with open(pdf_file, "rb") as f:
                 poller = client.begin_analyze_document(
-                    model_id="prebuilt-read",
+                    model_id="prebuilt-layout",
                     body=f,
                     pages=os.getenv('AT_EMAIL_PAGES') if manual == 0 else os.getenv('AT_MANUAL_PAGES')
                 )
@@ -313,7 +322,7 @@ def format_with_llm(text):
         ### >>> Load the Prompt Tamplate From TXT File acording to need
         propmt = ""
         prompt_path  = os.path.join(SCRTPT_DIR, 'prompt_1.txt' if PROMPT_NO == 1 else 'prompt_0.txt')
-        with open(prompt_path, 'r') as file:
+        with open(prompt_path, 'r' , encoding='utf-8') as file:
             propmt = file.read()
 
         propmt = propmt + '\n' + text
@@ -520,6 +529,32 @@ def final_json(JSON,SAP_JSON,Mode_Of_Entry,Created_On,Created_By):
                 LOGS.append(f'131 {str(e)}')
                 return po_no
         
+        def new_valid_po(po_list):
+
+            try:
+                new_po_list = []
+
+                for po_no in po_list:
+                    new = po_no.replace(" ","").split('/')[-1]
+                    if new.isdigit() and len(new) <= 10:
+                        new_po_list.append(new)
+
+                    else:
+                        numbers = re.findall(r'\d+',po_no)
+                        large_number = max(numbers,key=int)
+                        
+                        if 0 < len(large_number) <= 10: 
+                            x = large_number
+                            new_po_list.append(large_number)        
+                        else:
+                            new_po_list.append(po_no)
+
+
+                return max(enumerate(new_po_list), key=lambda x: sum(c.isdigit() for c in x[1]))
+
+            except:
+                return max(enumerate(po_list),key=lambda x:x[1])
+
         def to_yyyymmdd(date_str: str) -> str:
             for fmt in ("%d-%m-%Y", "%d/%m/%Y"):
                 try:
@@ -612,7 +647,16 @@ def final_json(JSON,SAP_JSON,Mode_Of_Entry,Created_On,Created_By):
         SAP_JSON['CreatedOn'] = f"{Created_On}"
         SAP_JSON['CreatedBy'] = f"{Created_By}"
         SAP_JSON['ModeOfEntry'] = f"{Mode_Of_Entry}"
-        SAP_JSON['PoLpoIoNoPdf'] = valid_po(JSON['data']['PoNo'])
+        
+        # SAP_JSON['PoLpoIoNoPdf'] = valid_po(JSON['data']['PoNo'])
+
+        if len(JSON['data']['PoNo']):
+            new_po = new_valid_po(JSON['data']['PoNo'])
+            SAP_JSON['PoLpoIoNoPdf'] = new_po[1]
+            JSON['data']['PoNo'] = JSON['data']['PoNo'][new_po[0]]
+        else:
+            JSON['data']['PoNo'] = ""
+            
         
         # FIND THE CORDINATES OF FIELDS
 

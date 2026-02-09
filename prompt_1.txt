@@ -15,7 +15,7 @@ JSON Schema (follow exactly):
 STRICT RULES:
 1. **Do not hallucinate**: If a field is not found, return an empty value as per the schema ("" for strings and [] for lists).
 2. If there are **multiple SES/GRN/SCROLL numbers**, include all of them in their respective list.
-3. **PoNo**: Specifically means **Purchase Order Number**. Extract the complete PO number in all possible variations, including "PO", "PO No.","Purchase Order No","Buyer's Order No","Work Order No","Customer PO No","Order Refrence Number","Order Ref". PO number could contain prefixes, sequential numbers, division codes, or other identifiers and may have slashes, dashes, or spaces. Return only the full PO number.
+3. **PoNo**: Specifically means **Purchase Order Number**. Extract the complete PO number in all possible variations, including "PO", "PO No.","Purchase Order No","Buyer's Order No","Work Order No","Customer PO No","Order Refrence Number","Order Ref" , "Reference No". PO number could contain prefixes, sequential numbers, division codes, or other identifiers and may have slashes, dashes, or spaces also can be po number is only contain numbers. Return only the full PO number.
 4. Do not **add, remove, or modify** any fields in the JSON output.
 5. The final output **must** be valid JSON with no extra text.
 

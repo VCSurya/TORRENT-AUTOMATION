@@ -3940,5 +3940,334 @@
             "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAAp7X7rAAA=",
             "email_date_time": "2026-02-04 07:30:52+00:00"
         }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "harshalmodi@torrentgas.com",
+                "subject": "FW: Test",
+                "email_date_time": "2026-02-06 11:13:08+00:00",
+                "process_date_time": "2026-02-06 16:44:19.321041",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "5000042519_Silver Touch Te_AMAR2401154_54747.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "5000137373_UNITED FORGE IN_0483_89473.pdf",
+                            "Digital Sign": false
+                        }
+                    ],
+                    "5000197693_Greenfuel Energ_393501454_99657.zip": [
+                        {
+                            "filename": "5000137373_UNITED FORGE IN_0483_89473.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "5000197693_Greenfuel Energ_393501454_99657.pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [],
+                "Total Proceed Pdf": "0",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 19880",
+            "3. Start Process - 2026-02-06 16:44:12.799866",
+            "4. Reading New Emails From Cloude...",
+            "5. 1 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: FW: Test ",
+            ">> No Digital Signed Attachment Found!",
+            ">> 1 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAArIluCAAA=",
+            "email_date_time": "2026-02-06 11:13:08+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "test",
+                "email_date_time": "2026-02-06 11:16:50+00:00",
+                "process_date_time": "2026-02-06 16:47:16.597001",
+                "attchments": {
+                    "pdfs": [],
+                    "Canon invoices.zip": [
+                        {
+                            "filename": "6000103561_HRF2526000008614_Kota.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "6000103562_HRF2526000008615_Basti.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "6000103564_HRF2526000008617_Moradabad.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "6000103577_MHF2526000007639_Junagadh.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "6000103622_TNF2526000009157_Chennai.PDF",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "6000103686_RJS2526000000741_Jaipur.pdf.PDF",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000001841",
+                        "PDF_FileName": "6000103561_HRF2526000008614_Kota.PDF"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001842",
+                        "PDF_FileName": "6000103562_HRF2526000008615_Basti.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001843",
+                        "PDF_FileName": "6000103564_HRF2526000008617_Moradabad.PDF"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001844",
+                        "PDF_FileName": "6000103577_MHF2526000007639_Junagadh.PDF"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001845",
+                        "PDF_FileName": "6000103622_TNF2526000009157_Chennai.PDF"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000001846",
+                        "PDF_FileName": "6000103686_RJS2526000000741_Jaipur.pdf.PDF"
+                    }
+                ],
+                "Total Proceed Pdf": "6",
+                "Success Proceed Pdf": "6",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 3272",
+            "3. Start Process - 2026-02-06 16:47:12.842031",
+            "4. Reading New Emails From Cloude...",
+            "5. 2 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: FW: Test ",
+            ">> !!! Email Already Proceed.",
+            ">> 1 - Email Proceed.",
+            ">> 2 - Email Processing...",
+            ">> Subject: test ",
+            ">> 6 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (6000103561_HRF2526000008614_Kota.PDF) Processing...",
+            ">> (6000103561_HRF2526000008614_Kota.PDF) Proceed!",
+            ">> (6000103562_HRF2526000008615_Basti.pdf) Processing...",
+            ">> (6000103562_HRF2526000008615_Basti.pdf) Proceed!",
+            ">> (6000103564_HRF2526000008617_Moradabad.PDF) Processing...",
+            ">> (6000103564_HRF2526000008617_Moradabad.PDF) Proceed!",
+            ">> (6000103577_MHF2526000007639_Junagadh.PDF) Processing...",
+            ">> (6000103577_MHF2526000007639_Junagadh.PDF) Proceed!",
+            ">> (6000103622_TNF2526000009157_Chennai.PDF) Processing...",
+            ">> (6000103622_TNF2526000009157_Chennai.PDF) Proceed!",
+            ">> (6000103686_RJS2526000000741_Jaipur.pdf.PDF) Processing...",
+            ">> (6000103686_RJS2526000000741_Jaipur.pdf.PDF) Proceed!",
+            ">> 2 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAArIluDAAA=",
+            "email_date_time": "2026-02-06 11:16:50+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "harshalmodi@torrentgas.com",
+                "subject": "RE: Test",
+                "email_date_time": "2026-02-06 11:32:32+00:00",
+                "process_date_time": "2026-02-06 17:03:17.598127",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "5000214310_KIMPEX FLOW PVT_KF25-261717_99180.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "5000212072_NUPROS INC_225_98232.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "5000212082_ORI PLAST LIMIT_2025-261133_98204.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "5000212581_SURYA ROSHNI LI_BH2591017414_98915.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "5000212667_GASOREX SR ENER_GSEPL0234_99744.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "5000213035_INDUS TUBES LIM_ITL146825-26_99004.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "5000213653_T232717 Torrent Gas Ltd - Pune.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "5000213804_VISHWA ENTERPRI_22225-26_99047.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "5000214176_FLOWCHEM INDUST_2250332_99129.pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000001849",
+                        "PDF_FileName": "5000213653_T232717 Torrent Gas Ltd - Pune.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "1",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 9600",
+            "3. Start Process - 2026-02-06 17:03:12.928695",
+            "4. Reading New Emails From Cloude...",
+            "5. 2 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: test ",
+            ">> !!! Email Already Proceed.",
+            ">> 1 - Email Proceed.",
+            ">> 2 - Email Processing...",
+            ">> Subject: RE: Test ",
+            ">> 1 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (5000213653_T232717 Torrent Gas Ltd - Pune.pdf) Processing...",
+            ">> (5000213653_T232717 Torrent Gas Ltd - Pune.pdf) Proceed!",
+            ">> 2 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAArIluEAAA=",
+            "email_date_time": "2026-02-06 11:32:32+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "harshalmodi@torrentgas.com",
+                "subject": "Test2",
+                "email_date_time": "2026-02-06 11:37:59+00:00",
+                "process_date_time": "2026-02-06 17:08:19.856739",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "5000214310_KIMPEX FLOW PVT_KF25-261717_99180.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "5000212072_NUPROS INC_225_98232.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "5000212082_ORI PLAST LIMIT_2025-261133_98204.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "5000212581_SURYA ROSHNI LI_BH2591017414_98915.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "5000212667_GASOREX SR ENER_GSEPL0234_99744.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "5000213035_INDUS TUBES LIM_ITL146825-26_99004.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "5000213653_T232717 Torrent Gas Ltd - Pune.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "5000213804_VISHWA ENTERPRI_22225-26_99047.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "5000214176_FLOWCHEM INDUST_2250332_99129.pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000001850",
+                        "PDF_FileName": "5000213653_T232717 Torrent Gas Ltd - Pune.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "1",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 20060",
+            "3. Start Process - 2026-02-06 17:08:13.251002",
+            "4. Reading New Emails From Cloude...",
+            "5. 2 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: RE: Test ",
+            ">> !!! Email Already Proceed.",
+            ">> 1 - Email Proceed.",
+            ">> 2 - Email Processing...",
+            ">> Subject: Test2 ",
+            ">> 1 Digital Signed Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (5000213653_T232717 Torrent Gas Ltd - Pune.pdf) Processing...",
+            ">> (5000213653_T232717 Torrent Gas Ltd - Pune.pdf) Proceed!",
+            ">> 2 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAArIluFAAA=",
+            "email_date_time": "2026-02-06 11:37:59+00:00"
+        }
     }
 ]

@@ -4,7 +4,7 @@ Your task:
 - Always return strictly valid JSON output, with no explanations, errors, or extra text.
 JSON Schema (follow exactly):
 {
-  "PoNo": [], // If one or more PO numbers are found return ["PO1", "PO2", ...]
+  "PoNo": "",
   "Gst": [],
   "InvoiceNo": "",
   "InvoiceDate": "",
@@ -12,100 +12,150 @@ JSON Schema (follow exactly):
   "IrnNo": "",
   "SesGrn": [],
   "InvoiceOriginalDate": "",
-  "Invoice": false
+  "Invoice": false 
 }
  
 FIELD DEFINITIONS
 
-1. PoNo (List)
+1. PoNo (String)
+You are an expert “PO Number Extractor” from unstructured documents (emails, invoices, PDFs converted to text, OCR, etc.).
+Your job is to extract Purchase Order / Work Order No / Reference No / Branch Sole ID / Order No / Service Order numbers from the given text with strict priority rules.
 
+OUTPUT REQUIREMENT (for this field only)
+- Return EXACTLY ONE string value for PoNo.
+- If no PO number can be confidently extracted, return an empty string: "".
+- Do NOT infer or guess values.
+
+PO NUMBER DEFINITION
 A PO number candidate may:
+- be purely numeric (e.g., "33001286", "96", "56")
+- OR contain prefixes / division codes / identifiers
+- may include separators like "/", "-", spaces
 
-- Be purely numeric (e.g., "33001286", "96", "566")
-- OR contain prefixes, division codes, or identifiers
-- May include separators like "/", "-", or spaces
- 
 Examples of valid PO numbers:
 - "GJC1/P01/1800618/33001286"
 - "KJDH/P01/1865298/96000098"
 - "33001286"
 - "96"
 - "566"
-- "63364" 
+- "63364"
 
-> A PO number is typically a single “identifier-like” token, not a paragraph.
-A. Normalization Rules
-   1. Treat these HTML entities as equivalent ONLY for label matching:
-      "&", "&amp;", "&amp;amp;" → treat all as "&"
-   2. Matching is case-insensitive.
-   3. Ignore extra spaces and punctuation differences in labels 
-      (e.g., "PO No", "PO No.", "P.O No" are equivalent).
-   4. The extracted PO value must be returned exactly as it appears in the text, trimming only surrounding spaces or punctuation.
-   3. Labels Indicating PO Number
-      The following labels may indicate a nearby PO number:
-      - Buyer's Order No
-      - Buyers Order No
-      - Reference No / Reference No. & Date
-      - Branch Sole ID / Branch Sole ID Zone
-      - Contract / PO Ref
-      - Contract Reference
-      - Work Order No
-      - WO No / W.O No
-      - Service Order No
-      - Dispatch Doc No
-      - Purchase Order No
-      - Customer PO No
-      - Order Ref
-      - PO No / P.O. No / PONO
- 
-B. Extraction Strategy
+A PO number is typically a single identifier-like token, not a paragraph.
 
-   Step A — Global PO Discovery
-   1. Scan the ENTIRE text and extract ALL identifier-like tokens that match the PO number definition:
-      - Tokens must contain at least one digit
-      - Allowed characters: A–Z, a–z, 0–9, "/", "-", space
-   2. Tokens may appear:
-      - After labels (e.g., "PO No: 33001286", "WO No - TNCH/P01/...")
-      - On the same line or the immediately next line
-      - Anywhere in the document without labels
-   3. Prefer tokens that appear near given labels.
+NORMALIZATION RULES (MATCHING ONLY)
+1) Treat these HTML entities as equivalent ONLY for label matching:
+   - "&amp;" and any repeated encoding variants such as "&amp;amp;" / "&amp;amp;amp;" / "&amp;amp;amp;amp;" etc.
+   - Consider them all as "&" when matching labels.
+2) Matching is case-insensitive.
+3) Ignore extra spaces and punctuation differences in labels (e.g., "No", "No.", "NO").
+4) DO NOT treat "N0" (zero) as "No" unless the label literally appears as "No/No." in readable form.
+5) The extracted PO value must be returned exactly as it appears in the text (after safe trimming/cleanup only).
 
-   Step B — Candidate Validation & Cleaning
-   1. Trim spaces
-   2. Remove surrounding quotes
-   3. Remove trailing punctuation: commas, periods, semicolons, brackets
-   4. If multiple tokens appear together, split and keep valid PO-like tokens
-   5. A valid PO candidate MUST:
-      - Contain at least one digit
-      - Use only allowed characters (letters, digits, "/", "-", space)
-   6. Reject obvious non-PO items:
-      - Dates (see Date Rejection Rule)
-      - Phone numbers (10+ digit continuous numbers or country-code patterns)
-      - Email IDs or URLs
-      - Tax IDs (GSTIN, PAN, etc.) when clearly indicated
-   7. If unsure, prefer keeping the identifier-like token.
+PRIORITY LABELS (HIGHEST FIRST)
+Priority 1:
+- "Buyer's Order No", "Buyers Order No", "Buyer's Order No.", "Buyer’s Order No", "Reference No.", "Order No"
 
-   Step C — Deduplication
-   - Remove duplicate PO numbers (case-insensitive)
-   - Preserve original formatting as it appears in the text
-   
-   Step D — Final Output
-   - Return ALL valid, unique PO numbers as a list
-   - Order of the list should follow first appearance in the text
- 
-C. Date Rejection Rule
-   Reject any candidate matching date-like formats, including:
-   - DD/MM/YY, DD/MM/YYYY
-   - DD-MM-YY, DD-MM-YYYY
-   - DD.MM.YYYY
-   - DTD: DD.MM.YYYY
-   - D-MMM-YY, DD-MMM-YY, D-MMM-YYYY (e.g., 1-Jan-26, 19-Jan-2026)
-   - YYYY-MM-DD, YYYY.MM.DD
+Priority 2:
+- "Contract/PO ref", "Contract / PO Ref", "Contract Reference"
 
-**Strict Instruction**:
-- Output format MUST always be a list
-  - If no valid PO numbers are found: PoNo: []
-  - If one or more PO numbers are found: PoNo: ["PO1", "PO2", ...]
+Priority 3:
+- "WORK ORDER", "WORK ORDER NO", "Work Order No", "WO No", "W.O No.", "WO NO", "Workorder No", "Work Order No &amp; Date", "Work Order No &amp; Dt"
+- (Also match encoded forms where "&amp;" appears as "&amp;amp;" variants)
+
+Priority 4:
+- "SERVICE ORDER NO", "SERVICE ORDER", "Dispatch Doc No", "Dispatch Doc No."
+
+Priority 5:
+- "Branch Sole ID", "Branch Sole ID Zone","Branch Sole ID \nZone"
+
+Priority 6:
+- "Purchase Order No", "Customer PO No", "Order Ref"
+
+Priority 7:
+- "PO No", "PO No.", "P.O. No", "PONO", "PONO."
+
+- **For all of the above labels, the value may appear on the same line OR the immediately next line. Treat next-line values as equally valid.**
+
+GLOBAL RULE 0 — PO‑EQUIVALENT LABELS (MANDATORY)
+Treat the following labels as valid sources for **PoNo** (i.e., they are all PoNo): 
+- Purchase Order / PO
+- Work Order / WO
+- Contract / Contract Reference / Contract PO Ref
+- Service Order
+- Reference No / Order No
+- Branch Sole ID / Branch Sole ID Zone
+
+**This means "WO NO" (and any Work Order variants) ARE valid PoNo labels.**
+This rule overrides any interpretation that excludes Work Order labels from PoNo.
+
+EXTRACTION STRATEGY
+Step A — Find by Priority (1 → 7)
+For each priority level in order:
+1) Search the text for ANY of that priority’s labels (case-insensitive, normalized).
+2) When a label is found, extract the value nearest to it using these patterns:
+   - After ":"  (e.g., "PO No: 33001286")
+   - After "-"  (e.g., "WO No - TNCH/P01/...")
+   - After whitespace if formatted like "Label   Value"
+   - **On the same line OR the immediately next line for ALL labels (including "WO NO", "Work Order No", "WORK ORDER").**  
+     Valid examples:  
+     - "WO NO 35679265"  
+     - "WO NO\n33001286"  
+     - "WO NO \n MIDM/P02/18004514/38300926"  
+     - "WO NO TSSA/P02/1800515/36300777"
+   - **Stop at date tokens on the same line.** If tokens like "DTD:", "DATE:", "Dt:", "Dtd:" appear after the identifier, capture only the identifier and exclude the date.  
+     Example: "WO NO TSSA/P02/1800515/36300777 DTD: 04.06.2024" → capture "TSSA/P02/1800515/36300777"
+3) Process ALL occurrences of labels within the SAME priority level and collect ALL valid PO candidates for that priority.
+4) **Only consider that priority “successful” if at least one valid candidate is collected.** The mere presence of a label without a valid value does **not** make the priority successful.
+   - **Note:** Labels with no value (e.g., "P.O. / W.O. No." followed only by punctuation or another label) are ignored.
+5) If the current priority level is **successful** (≥1 candidates), **STOP** and do NOT scan lower priorities.
+6) If the current priority level yields **zero candidates**, **proceed to the next priority**.
+
+Step B — Candidate Validation & Cleaning (for each extracted raw value)
+ Apply the following:
+ - Trim spaces.
+ - Remove surrounding quotes and trailing commas/periods/semicolons/brackets.
++ - If a captured chunk contains date tokens (e.g., "DTD:", "DATE:", "Dt:", "Dtd:") or a date per the Date Rejection Rule, **truncate the chunk before the date token** and keep the identifier only.
++ - Trim any trailing words clearly not part of the identifier (e.g., "GST", "PAN", "DATE", "DTD").
+ - If multiple tokens appear, pick the token that best matches PO definition:
+   - Allowed characters inside a PO token: letters A-Z, digits 0-9, "/", "-", space
+   - Must contain at least 1 digit.
+ - Reject obvious non-PO items:
+   - Dates (see Date Rejection Rule)
+   - Phone numbers (10+ digits continuous OR country-code-like patterns)
+   - Email IDs, URLs
+   - Tax IDs like GSTIN/PAN when clearly indicated by nearby text/labels
+ If unsure, prefer the identifier-like token nearest to the label.
+
+Step C — If no PO found from any priority labels (Fallback)
+Only if ZERO candidates were found in Steps A–B:
+- Scan the ENTIRE text for identifier-like tokens that match the PO definition:
+  - Must contain digits
+  - May include prefixes and separators (/, -, spaces)
+- Prefer tokens near words like: "PO", "Purchase Order", "Order", "Work Order", "WO", "Contract", "Service Order".
+Collect all such candidates.
+
+Step D — Select the “BIGGEST” PO number (choose EXACTLY ONE)
+From the candidate list, choose the winner by:
+1) Numeric weight:
+   - Take ALL digits in the candidate (concatenate in order) to form an integer.
+   - Candidate with the highest resulting integer weight wins.
+2) Tie-breakers if equal numeric weight:
+   - Choose the candidate with the longer original string length.
+   - If still tied, choose the one that appears first in the text.
+
+Step E — Final Output for this field
+- Set PoNo = "<winning_full_PO_value>" exactly (after trimming/cleanup).
+- If no candidates at all, set PoNo = "".
+
+Fail-safe: If at least one valid identifier-like candidate exists from any recognized label across all priorities (after applying Steps A–B), do **not** return an empty string. Only return "" if **no** candidates are found from any priority and Step C fallback also yields none.
+
+DATE REJECTION RULE (apply everywhere)
+Reject candidate if it matches any date-like format, including:
+- DD/MM/YY, DD/MM/YYYY
+- DD-MM-YY, DD-MM-YYYY
+- DD.MM.YYYY (including prefixed forms like "DTD: DD.MM.YYYY")
+- D-MMM-YY, DD-MMM-YY, D-MMM-YYYY (e.g., 1-Jan-26, 19-Jan-2026)
+- YYYY-MM-DD or YYYY.MM.DD
 
 2. GST (List)
 Extract all unique GST numbers (GSTINs) present in the document.
