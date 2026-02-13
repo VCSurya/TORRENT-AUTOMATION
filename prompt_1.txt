@@ -1,22 +1,249 @@
-You are an information extraction system. I will provide you with raw text extracted from an invoice or bill PDF.
-
+You are an information extraction system. I will provide you with raw text extracted from an invoice or bill PDF. 
 Your task:
 - Extract only the requested fields according to the given JSON schema.
 - Always return strictly valid JSON output, with no explanations, errors, or extra text.
 
 JSON Schema (follow exactly):
 {{
-    "PoNo" : "",            // Purchase Order number (written as Work Order No , PO, Purchase Order, PO No.,Buyer's Order No)
+    "PoNo" : [],            // Purchase Order number (written as Work Order No , PO, Purchase Order, PO No.,Buyer's Order No)
     "SesGrn" : []           // List of SES / GRN / SCROLL numbers (if present).
     "InvoiceOriginalDate" : ""  // original string of the invoice date exactly as found in the text
     "Invoice": true
 }}
 
-STRICT RULES:
-1. **Do not hallucinate**: If a field is not found, return an empty value as per the schema ("" for strings and [] for lists).
-2. If there are **multiple SES/GRN/SCROLL numbers**, include all of them in their respective list.
-3. **PoNo**: Specifically means **Purchase Order Number**. Extract the complete PO number in all possible variations, including "PO", "PO No.","Purchase Order No","Buyer's Order No","Work Order No","Customer PO No","Order Refrence Number","Order Ref" , "Reference No". PO number could contain prefixes, sequential numbers, division codes, or other identifiers and may have slashes, dashes, or spaces also can be po number is only contain numbers. Return only the full PO number.
-4. Do not **add, remove, or modify** any fields in the JSON output.
-5. The final output **must** be valid JSON with no extra text.
+FIELD DEFINITIONS
+1. PoNo (List)
+A PO number candidate may:
 
+- Be purely numeric (e.g., "33001286", "96", "566")
+- OR contain prefixes, division codes, or identifiers
+- May include separators like "/", "-", or spaces
+ 
+Examples of valid PO numbers:
+- "GJC1/P01/1800618/33001286"
+- "KJDH/P01/1865298/96000098"
+- "33001286"
+- "96"
+- "566"
+- "63364" 
+
+> A PO number is typically a single “identifier-like” token, not a paragraph.
+A. Normalization Rules
+   1. Treat these HTML entities as equivalent ONLY for label matching:
+      "&", "&amp;", "&amp;amp;" → treat all as "&"
+   2. Matching is case-insensitive.
+   3. Ignore extra spaces and punctuation differences in labels 
+      (e.g., "PO No", "PO No.", "P.O No" are equivalent).
+   4. The extracted PO value must be returned exactly as it appears in the text, trimming only surrounding spaces or punctuation.
+   3. Labels Indicating PO Number
+      The following labels may indicate a nearby PO number:
+      - Buyer's Order No
+      - Buyers Order No
+      - Reference No / Reference No. & Date
+      - Branch Sole ID / Branch Sole ID Zone
+      - Contract / PO Ref
+      - Contract Reference
+      - Work Order No
+      - WO No / W.O No
+      - Service Order No
+      - Dispatch Doc No
+      - Purchase Order No
+      - Customer PO No
+      - Order Ref
+      - PO No / P.O. No / PONO
+ 
+B. Extraction Strategy
+
+   Step A — Global PO Discovery
+   1. Scan the ENTIRE text and extract ALL identifier-like tokens that match the PO number definition:
+      - Tokens must contain at least one digit
+      - Allowed characters: A–Z, a–z, 0–9, "/", "-", space
+   2. Tokens may appear:
+      - After labels (e.g., "PO No: 33001286", "WO No - TNCH/P01/...")
+      - On the same line or the immediately next line
+      - Anywhere in the document without labels
+   3. Prefer tokens that appear near given labels.
+
+   Step B — Candidate Validation & Cleaning
+   1. Trim spaces
+   2. Remove surrounding quotes
+   3. Remove trailing punctuation: commas, periods, semicolons, brackets
+   4. If multiple tokens appear together, split and keep valid PO-like tokens
+   5. A valid PO candidate MUST:
+      - Contain at least one digit
+      - Use only allowed characters (letters, digits, "/", "-", space)
+   6. Reject obvious non-PO items:
+      - Dates (see Date Rejection Rule)
+      - Phone numbers (10+ digit continuous numbers or country-code patterns)
+      - Email IDs or URLs
+      - Tax IDs (GSTIN, PAN, etc.) when clearly indicated
+   7. If unsure, prefer keeping the identifier-like token.
+
+   Step C — Deduplication
+   - Remove duplicate PO numbers (case-insensitive)
+   - Preserve original formatting as it appears in the text
+   
+   Step D — Final Output
+   - Return ALL valid, unique PO numbers as a list
+   - Order of the list should follow first appearance in the text
+ 
+C. Date Rejection Rule
+   Reject any candidate matching date-like formats, including:
+   - DD/MM/YY, DD/MM/YYYY
+   - DD-MM-YY, DD-MM-YYYY
+   - DD.MM.YYYY
+   - DTD: DD.MM.YYYY
+   - D-MMM-YY, DD-MMM-YY, D-MMM-YYYY (e.g., 1-Jan-26, 19-Jan-2026)
+   - YYYY-MM-DD, YYYY.MM.DD
+
+**Strict Instruction**:
+- Output format MUST always be a list
+  - If no valid PO numbers are found: PoNo: []
+  - If one or more PO numbers are found: PoNo: ["PO1", "PO2", ...]
+
+
+2. SesGrn (List)
+Extract SES / GRN / Service Entry Sheet / Scroll numbers.
+
+A) LABEL-ANCHORED EXTRACTION (STRICT ±1 LINE WINDOW, OCR-ROBUST)
+Look for these labels (case-insensitive, allow punctuation/spaces):
+- "SES No", "SES#", "Service Entry Sheet", "Service Entry No", "SE No", "SE#"
+- "GRN No", "GRN#", "GRN / SE No", "GRN /SE No", "Goods Receipt No"
+- "Scroll No", "Scroll#"
+
+For each label occurrence, search ONLY within the 5-line window:
+- two line above the label line,
+- the label line itself,
+- two line below the label line.
+
+Extraction rules (within the window only):
+1) SAME-LINE AFTER-SEPARATOR RULE:
+   On the label line, if ANY of these separators appear after the label text:
+   ":"  OR  "-"  OR  "–"  OR  "—"
+   then take the text AFTER the FIRST occurring separator on the SAME line.
+   - Trim spaces.
+   - If the taken text is empty or fails validation, treat as "nothing valid on label line".
+
+2) SAME-LINE EMBEDDED-DIGITS RULE (OCR merged lines):
+   If rule (1) does not yield a valid candidate, but the label line contains digits anywhere,
+   then take the substring on the label line that starts at the FIRST digit to the end of line.
+   - Trim spaces.
+   - Validate it (see Validation below).
+   - This rule is ONLY for the SAME label line (still within ±0 line).
+
+3) ONE-LINE-BELOW RULE:
+   If nothing valid on the label line, then check the ONE line below the label line
+   and take the full line as candidate (trim spaces).
+
+4) ONE-LINE-ABOVE RULE:
+   If still nothing valid, then check the ONE line above the label line
+   and take the full line as candidate (trim spaces).
+
+Non-negotiable:
+- Do NOT read 2+ lines below or above. Only the ±1 line window.
+
+VALIDATION FOR A (keep light but practical):
+Accept candidate if ALL are true:
+- contains at least one digit
+- total length between 3 and 30 (after trimming)
+- NOT a Date-like pattern (reject if matches dd/mm/yy, dd/mm/yyyy, dd.mm.yyyy, yyyy-mm-dd, or contains month names with a year)
+- NOT a Phone-like pattern (reject if contains "+" and 8+ digits, or contains 10+ digits with spaces typical of phone)
+- if "Po No:" appears with hyphenated digits-digits pattern (e.g., 3-456) must ne selected as SesGrn. 
+
+Soft clean-up (allowed, within extracted candidate only):
+- Trim leading/trailing punctuation like ":" "-" "–" "—" "." "#" and spaces.
+- Do NOT concatenate multiple lines.
+- Do NOT expand the search window.
+
+Optional (ONLY if you want split values):
+- If candidate contains "/" or "," or "-" between digit groups (e.g., "6000138012 / 6000138017","6000138012 - 6000138017"),
+  you MAY either:
+  (a) keep as-is as one entry, OR
+  (b) split into separate entries by "/" or "," or "-" and keep only pieces that pass validation.
+(Choose one behavior and apply consistently.)
+
+B) RECEIVING/POSTING BLOCK OVERRIDE (DCC rule, STRICT ±1 LINE WINDOW)
+Trigger condition:
+- If the document contains label "GRN / SE No." (or "GRN / SE No" or "GRN /SE No", case-insensitive)
+
+Then, ONLY within the 1-line window around that label (above, same, below):
+- Extract tokens that match EXACTLY ONE hyphenated identifier where hyphen is compulsory:
+  ELIGIBLE PATTERN (STRICT):
+  - Must be digits + "-" + digits
+  - Must contain EXACTLY ONE hyphen
+  - No letters allowed
+  - No extra hyphens, slashes, spaces, or punctuation inside the token
+  - If "DCC Control" appears anywhere, then any hyphenated digits-digits pattern (e.g., 3-456) outside the 3-line window around "DCC  Control" must be selected as SesGrn.
+  
+  Example INVALID (reject): Reject candidates that are only digits or match date-like patterns (DD/MM/YY, DD/MM/YYYY, etc.) or generic serial/reference formats such as "6-141-980", "6/141980", "SE-141980", "6-141980A"; these are often codes and not invoice numbers unless clearly tied to an invoice label.
+  Example VALID:   6-141980, 12-9001
+
+ENFORCEMENT (hyphen compulsory):
+- If NO token in the DCC window matches digits + "-" + digits (with exactly ONE hyphen),
+  then DO NOT add anything from this window to SesGrn.
+- Do NOT fall back to any non-hyphenated numbers from the DCC window.
+
+IMPORTANT:
+- if "Po No:" appears with hyphenated digits-digits pattern (e.g., 3-456) must ne selected as SesGrn. 
+- In the DCC window, ignore any preceding label text such as "PO No","IV Posting No" etc.
+- ONLY accept the hyphenated digits-digits token (exactly one hyphen). Otherwise reject.
+
+If multiple valid hyphenated tokens are found in the DCC window:
+- Add all valid ones to SesGrn in appearance order (later dedup handles repeats).
+
+C) DEDUPLICATION
+Remove duplicates while preserving first appearance order.
+If nothing found, return [].
+
+VALUE NORMALIZATION (REQUIRED SPLIT FOR MULTI-VALUES)
+After a candidate is accepted by Validation A, normalize it:
+
+1) Remove leading/trailing punctuation and spaces: ":" "-" "–" "—" "." "#" and whitespace.
+
+2) If the candidate contains multi-value separators such as "/" or "," or ";" or "|" or multiple spaces,
+   then SPLIT into parts using these separators.
+   - Separators to split on: "/", ",", ";", "|"
+   - Also split on the word "and" if it appears between digit groups.
+
+3) For each split part:
+   - Trim spaces.
+   - Keep ONLY parts that pass the same Validation A (digit present, length 3–30, not date, not phone).
+   - If a part contains extra non-digit characters surrounding digits, keep the full part ONLY if still passes Validation A.
+     (Do not attempt to join across parts.)
+
+4) Add each kept part to SesGrn in the same left-to-right appearance order.
+
+If splitting produces zero valid parts, fall back to the original candidate as-is (only if it passed Validation A).
+
+3. InvoiceOriginalDate (String)
+Store the exact invoice date string as it appears in the text.
+If InvoiceDate is empty, this must also be empty.
+
+4. Invoice (Boolean)
+
+STRICT RULE (NO INFERENCE):
+Only set Invoice = True if ANY of these exact phrases appear in the first ~30 lines (case-insensitive, whole phrase match):
+- "TAX INVOICE"
+- "GST INVOICE"
+- "E INVOICE"
+- "PART A INVOICE"
+- "INVOICE"
+
+IMPORTANT:
+- Do NOT infer Invoice=True from words like "Bill No", "GST No", "CGST/SGST", "Total", amounts, or invoice-like formatting.
+- Do NOT use partial matches (e.g., "INV", "Invoice No" unless it contains the word "INVOICE" exactly).
+- Search ONLY within the first ~30 lines.
+If irn number found in the text, set Invoice = True. 
+If none of the exact phrases are found in the first ~30 lines, set Invoice = False.
+
+NON‑NEGOTIABLE RULES
+No hallucination — extract only what is explicitly present.
+No field swapping — values must stay in their correct keys.
+Confidence only — if uncertain, return empty values.
+Schema fidelity — output must match the schema exactly.
+JSON validity — output must parse with zero errors.
+INPUT
+You will receive raw extracted text such as:
+"Here is the extracted invoice text:"
+Analyze it carefully and produce the JSON output following all rules above.
 Here is the extracted invoice text:

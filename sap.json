@@ -41,5 +41,6 @@
     "IndInvoiceamount":"PDF",
     "IndIrnno":"PDF",
     "CreatedOnTime":"",
+    "CQrCode":"",
     "DCCHEADERTODCCSES": []
 }

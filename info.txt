@@ -97,8 +97,6 @@
 
     >> update_logs() : this method append the latest process logs in read_emails_logs.json file
 
-    >> clear_dirs() : remove the all temp dir and also there innner files
-
     >> update_json_file() : this function tacks the arguments as file name and updateing json data and in this file update the data
 
     >> get_bot_status() : this function gives the inforamtion about bot from bot/bot_status.json 

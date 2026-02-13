@@ -28,6 +28,7 @@ A PO number candidate may:
 Examples of valid PO numbers:
 - "GJC1/P01/1800618/33001286"
 - "KJDH/P01/1865298/96000098"
+- "KLJA/J05/1905285/93655196" (From the text: TSSA/P02/1800515/36300777 DTD: 04.06.2024 — ignore all additional text and extract only the PO number)
 - "33001286"
 - "96"
 - "566"

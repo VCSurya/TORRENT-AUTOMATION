@@ -26,7 +26,8 @@ PROMPT_NO = 0
 LOGS = []
 # Get the directory where the current script is located
 SCRTPT_DIR = os.path.dirname(os.path.abspath(__file__))
-POPLOR_PATH = r"poppler-24.08.0\Library\bin"
+# POPLOR_PATH = r"poppler-24.08.0\Library\bin"
+POPLOR_PATH = "/usr/bin"
 
 # --- SAP URLs ---
 BASE_URL = os.getenv('SAP_BASE_URL')
@@ -66,6 +67,54 @@ aoai_client = AzureOpenAI(
     max_retries=1
 )
 
+def po_check_into_sap(po_no):
+            
+    try:
+        
+        url = f"PoNo eq '{po_no}'&$format=json"
+        
+        PO_URL = f"{BASE_URL}/{os.getenv('GET_PO_NUMBERS_ENTETY_SET_NAME')}{url}"
+
+        session = requests.Session()
+
+        # --- Step 1: Fetch CSRF Token ---
+        token_response = session.get(
+            TOKEN_URL,
+            auth=(SAP_USERNAME, SAP_PASSWORD),
+            headers={"x-csrf-token": "Fetch","sap-client": os.getenv("SAP_CLIENT")},
+            verify=False
+        )
+
+        if token_response.status_code != 200:
+            return {'status':False ,'error': 'In SAP API CSRF Token Not Found!'}
+
+        csrf_token = token_response.headers.get("x-csrf-token")
+        cookies = token_response.cookies
+
+        # --- Step 2: Send request with CSRF token ---
+        headers = {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "x-csrf-token": csrf_token
+        }
+
+        response = session.get(
+            PO_URL,
+            headers=headers,
+            auth=(SAP_USERNAME, SAP_PASSWORD),
+            cookies=cookies,
+            verify=False
+        )
+        
+        # --- Step 3: Handle Response ---   
+        if response.status_code in [200, 201]:
+            final_response = response.json()
+            return True if len(final_response.get('d').get('results')) > 0 else False
+        else:
+            return False 
+    
+    except Exception as e:
+        return False
 
 def call_model(prompt):
     try:
@@ -133,6 +182,17 @@ def pan_numbers():
     
     return pan_numbers
 
+def qr_to_azure_coordinates(qr_location,page=1,dpi=300):
+    x0, y0, x1, y1 = qr_location['bbox_xyxy']
+
+    x = (x0 / dpi) * 72
+    y = (y0 / dpi) * 72
+    width  = ((x1 - x0) / dpi) * 72
+    height = ((y1 - y0) / dpi) * 72
+
+    return f"{page},{round(x,2)},{round(y, 2)},{round(width, 2)},{round(height, 2)}"
+
+
 def decode_qr_data(qr_string):
     try:
         # Remove whitespace/newlines
@@ -177,7 +237,12 @@ def detect_qrs_from_image(qr_image_path):
             if decodedQR[0] != None:
                 header, payload = decode_qr_data(decodedQR[0])
                 if payload.get("data"):
-                    return payload.get("data")
+                    # Example usage for your list `QRlocation` with one detection:
+                    page_no = os.path.basename(qr_image_path.split('.')[0])
+                    xywh = qr_to_azure_coordinates(QRlocation[0],int(page_no)+1)
+                    data = json.loads(payload.get("data"))
+                    data['C_QR'] = xywh
+                    return data
                 else:
                     return None
             else:
@@ -228,7 +293,7 @@ def pdf_to_image(pdf_file_path):
                 result = detect_qrs_from_image(os.path.abspath(img_path))
                 if result is not None and "Irn" in result:
                     LOGS.append("23")
-                    data = json.loads(result)
+                    data = result
                     break
 
         return {"status": False if data is None else True, "data": data}
@@ -344,7 +409,7 @@ def format_with_llm(text):
         LOGS.append(f'105 {str(e)}')
         return {'status':False,'error':str(e), "error_code":"105"}
 
-def final_json(JSON,SAP_JSON,Mode_Of_Entry,Created_On,Created_By):
+def final_json(JSON,SAP_JSON,Created_On,Created_By):
     
     try:
 
@@ -536,6 +601,7 @@ def final_json(JSON,SAP_JSON,Mode_Of_Entry,Created_On,Created_By):
 
                 for po_no in po_list:
                     new = po_no.replace(" ","").split('/')[-1]
+                    
                     if new.isdigit() and len(new) <= 10:
                         new_po_list.append(new)
 
@@ -544,17 +610,19 @@ def final_json(JSON,SAP_JSON,Mode_Of_Entry,Created_On,Created_By):
                         large_number = max(numbers,key=int)
                         
                         if 0 < len(large_number) <= 10: 
-                            x = large_number
                             new_po_list.append(large_number)        
                         else:
                             new_po_list.append(po_no)
-
+  
+                for index,item in enumerate(new_po_list):
+                    if po_check_into_sap(item):
+                        return (index,item)
 
                 return max(enumerate(new_po_list), key=lambda x: sum(c.isdigit() for c in x[1]))
 
             except:
                 return max(enumerate(po_list),key=lambda x:x[1])
-
+            
         def to_yyyymmdd(date_str: str) -> str:
             for fmt in ("%d-%m-%Y", "%d/%m/%Y"):
                 try:
@@ -644,9 +712,9 @@ def final_json(JSON,SAP_JSON,Mode_Of_Entry,Created_On,Created_By):
         
         #  Value SAVE IN MAIN SAP JSON 
 
-        SAP_JSON['CreatedOn'] = f"{Created_On}"
-        SAP_JSON['CreatedBy'] = f"{Created_By}"
-        SAP_JSON['ModeOfEntry'] = f"{Mode_Of_Entry}"
+        # SAP_JSON['CreatedOn'] = f"{Created_On}"
+        # SAP_JSON['CreatedBy'] = f"{Created_By}"
+        # SAP_JSON['ModeOfEntry'] = f"{Mode_Of_Entry}"
         
         # SAP_JSON['PoLpoIoNoPdf'] = valid_po(JSON['data']['PoNo'])
 
@@ -956,10 +1024,14 @@ def process_pdf(pdf_file,email_data,Mode_Of_Entry = "BOT",Created_On=f"{datetime
     with open(sap_file_path, 'r') as file:
         SAP_JSON = json.load(file)
 
+    SAP_JSON['CreatedOn'] = f"{Created_On}"
+    SAP_JSON['CreatedBy'] = f"{Created_By}"
+    SAP_JSON['ModeOfEntry'] = f"{Mode_Of_Entry}"
+    
     LOGS.append('2')
     try:
         SAP_JSON['FileName'] = os.path.basename(pdf_file)
-        LOGS.append(f'3 {os.path.basename(pdf_file)}')
+        LOGS.append(f'3 {SAP_JSON['FileName']}')
         
         # Here we getting the data from qr code which is availabel in pdf
         PROMPT_NO = 0
@@ -973,6 +1045,7 @@ def process_pdf(pdf_file,email_data,Mode_Of_Entry = "BOT",Created_On=f"{datetime
             SAP_JSON['InvoiceDate'] = result_of_extracted_data_from_qr['data']['DocDt'].split('/')[2] + result_of_extracted_data_from_qr['data']['DocDt'].split('/')[1] + result_of_extracted_data_from_qr['data']['DocDt'].split('/')[0]
             SAP_JSON['InvoiceAmount'] = str(result_of_extracted_data_from_qr['data']['TotInvVal'])
             SAP_JSON['IrnNo'] = result_of_extracted_data_from_qr['data']['Irn']
+            SAP_JSON['CQrCode'] = result_of_extracted_data_from_qr['data']['C_QR']
             SAP_JSON['IndCompanygstinpdf'] = "QR" 
             SAP_JSON['IndVendorgstinpdf'] = "QR"
             SAP_JSON['IndInvoiceno'] = "QR"
@@ -992,7 +1065,7 @@ def process_pdf(pdf_file,email_data,Mode_Of_Entry = "BOT",Created_On=f"{datetime
                 
                 LOGS.append(f'11')
                 
-                result_final_json = final_json({'data':result_llm['json'],'text':result_azure['text'],'cordinates':result_azure['cordinates']},SAP_JSON,Mode_Of_Entry,Created_On,Created_By)
+                result_final_json = final_json({'data':result_llm['json'],'text':result_azure['text'],'cordinates':result_azure['cordinates']},SAP_JSON,Created_On,Created_By)
                 
                 LOGS.append(f'12 {result_final_json}')
 

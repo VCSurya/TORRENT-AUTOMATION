@@ -34,13 +34,14 @@ JSON Schema to follow:
     "ErrorMsg" : "",--
     "ErrorType" : "",-- S OR E
     "Flag" : "A",
-    "IndCompanygstinpdf":"PDF",
-    "IndVendorgstinpdf":"PDF",
-    "IndInvoiceno":"PDF",
-    "IndInvoicedate":"PDF",
-    "IndInvoiceamount":"PDF",
-    "IndIrnno":"PDF",
+    "IndCompanygstinpdf":"PDF", --QR
+    "IndVendorgstinpdf":"PDF", --QR
+    "IndInvoiceno":"PDF", --QR
+    "IndInvoicedate":"PDF", --QR
+    "IndInvoiceamount":"PDF", --QR
+    "IndIrnno":"PDF", --QR
     "CreatedOnTime":"",
+    "CQrCode":"",
     "DCCHEADERTODCCSES" : [
     {{
           "InwardRefNo" : "",

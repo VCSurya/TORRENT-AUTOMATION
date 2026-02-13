@@ -18,6 +18,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from flask import Flask, request, jsonify,render_template,send_file,redirect,url_for
 from flask_login import LoginManager,login_user,login_required,logout_user,UserMixin,current_user
 from PIL import Image
+import tempfile
 
 app = Flask(__name__)
 
@@ -37,7 +38,6 @@ scheduler= BackgroundScheduler()
 scheduler.start()
 
 # Directory where PDFs will be stored for temperery
-PDF_SAVE_DIR = "uploaded_pdfs"
 ENV_FILE = ".env"
 
 #--------------------- ALL FUNCTIONS DEFINE HERE ---------------------
@@ -191,50 +191,39 @@ def update_logs():
     asyncio.run(maintain_logs("read_emails_logs.json"))
     asyncio.run(maintain_logs("upload_pdf_logs.json"))
         
-def clear_dirs():
-    try:
-        temp_dir = os.path.join(os.getcwd(), 'temp')
-
-        # Remove files first if any
-        if os.path.exists(temp_dir):
-            for file in os.listdir(temp_dir):
-                file_path = os.path.join(temp_dir, file)
-                if os.path.isfile(file_path):
-                    os.remove(file_path)
-
-    except Exception as e:
-        print(f"An error occurred: {e}")
-
 async def update_manual_logs(result):
         
-        # Append mode: keep previous logs if file exists
-        if os.path.exists('latest/upload_pdf_logs.json'):  # Check if the file exists and is not empty
-            with open('latest/upload_pdf_logs.json', "r") as f:
-                try:
-                    existing_logs = json.load(f)  # Load the existing logs
-                except json.JSONDecodeError:
-                    existing_logs = []  # If the file is empty or corrupted, treat it as an empty list
-        else:
-            existing_logs = []  # If the file does not exist or is empty, start with an empty list
+        try:
+            # Append mode: keep previous logs if file exists
+            if os.path.exists('latest/upload_pdf_logs.json'):  # Check if the file exists and is not empty
+                with open('latest/upload_pdf_logs.json', "r") as f:
+                    try:
+                        existing_logs = json.load(f)  # Load the existing logs
+                    except json.JSONDecodeError:
+                        existing_logs = []  # If the file is empty or corrupted, treat it as an empty list
+            else:
+                existing_logs = []  # If the file does not exist or is empty, start with an empty list
 
-        if result['status']:
-            
-            existing_logs.append({
-                    "status":result.get("status"),
-                    "no":result.get("no"),
-                    "PDF_FileName":result.get("PDF_FileName"),
-                    "Date":datetime.strptime(result.get("json").get('CreatedOn'), "%Y%m%d").strftime("%d/%m/%Y"),
-                    "Time":result.get("json").get('CreatedOnTime'),
-            })
+            if result['status']:
+                
+                existing_logs.append({
+                        "status":result.get("status"),
+                        "no":result.get("no"),
+                        "PDF_FileName":result.get("PDF_FileName"),
+                        "Date":datetime.strptime(result.get("json").get('CreatedOn'), "%Y%m%d").strftime("%d/%m/%Y"),
+                        "Time":result.get("json").get('CreatedOnTime'),
+                })
 
-        else:
-            result['Date'] = datetime.strptime(result.get("json").get('CreatedOn'), "%Y%m%d").strftime("%d/%m/%Y")
-            result['Time'] = result.get("json").get('CreatedOnTime')
-            existing_logs.append(result)
+            else:
+                result['Date'] = datetime.strptime(result.get("json").get('CreatedOn'), "%Y%m%d").strftime("%d/%m/%Y")
+                result['Time'] = result.get("json").get('CreatedOnTime')
+                existing_logs.append(result)
 
-        with open("latest/upload_pdf_logs.json", "w") as f:
-            json.dump(existing_logs, f, indent=4) 
+            with open("latest/upload_pdf_logs.json", "w") as f:
+                json.dump(existing_logs, f, indent=4) 
         
+        except:
+            pass
         
 
 
@@ -287,8 +276,7 @@ def start_process():
 
     """Start an async function in a separate process."""
     global process_ref,shared_data
-    clear_dirs()
-
+    
     if process_ref and process_ref.is_alive():
         # print("[+] Process already running.")
         return
@@ -306,7 +294,6 @@ def stop_process():
     
     try:
         global process_ref,shared_data
-        clear_dirs()
 
         if process_ref and process_ref.is_alive():
 
@@ -450,7 +437,6 @@ def default():
     global scheduler,shared_data
     shared_data = None
     scheduler.remove_all_jobs()
-    clear_dirs()
     stop_process()
 
     d1 = {
@@ -497,8 +483,6 @@ def reset_bot():
 
         with open("latest/read_emails_logs.json", "w") as file:
             json.dump([], file, indent=4)
-
-        clear_dirs()
 
         import time
         time.sleep(3)
@@ -698,64 +682,55 @@ def upload_pdf():
         # Decode base64 string
         pdf_bytes = base64.b64decode(pdf_base64)
 
-        # Save file
-        os.makedirs(PDF_SAVE_DIR, exist_ok=True)
-        file_path = os.path.join(PDF_SAVE_DIR, pdf_name)
-        with open(file_path, "wb") as f:
-            f.write(pdf_bytes)
 
-        if not pdf_name.lower().endswith(".pdf"):
-            
-            img = Image.open(file_path)
-            img = img.convert("RGB")
-            file_path = file_path+".pdf"
-            img.save(file_path)
+        with tempfile.TemporaryDirectory(dir=os.path.join(os.getcwd(), 'temp')) as temp_dir:
+            file_path = os.path.join(temp_dir, pdf_name)
+                    
+            with open(file_path, "wb") as f:
+                f.write(pdf_bytes)
 
-        email_data = {
-                        "vandor_email":"",
-                        "email_date_time":"",
-                        "email_subject":"",
-                        "SourceOfDoc":""
-        }
-        
-        load_dotenv(override=True)
-        importlib.reload(main)
-        result = main.process_pdf(os.path.abspath(file_path),email_data,Mode_Of_Entry,Created_On,Created_By)
-        
-        ### Note: if success is X means true and "" means false
+            if not pdf_name.lower().endswith(".pdf"):
+                
+                img = Image.open(file_path)
+                img = img.convert("RGB")
+                file_path = file_path+".pdf"
+                img.save(file_path)
 
-        if result['status']:
-
-            success_response = {
-                'success':'X',
-                'InwardRefNo':result.get('no'),
-                'Status':result.get('json').get('Status',None),
-                'DuplicateMsg':result.get('json').get('DuplicateMsg',None)
+            email_data = {
+                            "vandor_email":"",
+                            "email_date_time":"",
+                            "email_subject":"",
+                            "SourceOfDoc":""
             }
+            
+            load_dotenv(override=True)
+            importlib.reload(main)
+            result = main.process_pdf(os.path.abspath(file_path),email_data,Mode_Of_Entry,Created_On,Created_By)
+            
+            ### Note: if success is X means true and "" means false
 
-            return jsonify(success_response), 200
-
-        else:
-            return jsonify({'success':"",'InwardRefNo':result.get('no') if result.get('no') else "",'error':f"{result['json']['ErrorNo']}: {result['json']['ErrorMsg']}" if result['json']['ErrorMsg'] or result['json']['ErrorNo'] else f"440 : Somthing Went Wrong At Server Side!",'Status':result.get('json').get('Status',None)}), 501
-        
-    except:
-        return jsonify({'success':"", "error": f"{traceback.print_exc()}"}), 500
-    
-    finally:
-
-        if result['json']['ErrorNo'] != '25':
             asyncio.run(update_manual_logs(result))
 
-        dir_path = os.path.abspath(PDF_SAVE_DIR)
+            if result['status']:
 
-        if os.path.isdir(dir_path):
-            for entry in os.listdir(dir_path):
-                full_path = os.path.join(dir_path, entry)
-                if os.path.isfile(full_path):
-                    try:
-                        os.remove(full_path)
-                    except OSError as e:
-                        print(f"Failed to remove file: {full_path} — {e}")
+                success_response = {
+                    'success':'X',
+                    'InwardRefNo':result.get('no'),
+                    'Status':result.get('json').get('Status',None),
+                    'DuplicateMsg':result.get('json').get('DuplicateMsg',None)
+                }
+
+                return jsonify(success_response), 200
+
+            else:
+                return jsonify({'success':"",'InwardRefNo':result.get('no') if result.get('no') else "",'error':f"{result['json']['ErrorNo']}: {result['json']['ErrorMsg']}" if result['json']['ErrorMsg'] or result['json']['ErrorNo'] else f"440 : Somthing Went Wrong At Server Side!",'Status':result.get('json').get('Status',None)}), 501
+    
+
+        return jsonify({'success':"", "error": f"Somthing Went Wrong At Server Side, Try Again!"}), 500
+
+    except:
+        return jsonify({'success':"", "error": f"Somthing Went Wrong At Server Side, Try Again!"}), 500
+
 
 
 @app.route('/env-configuration',methods=['GET'])
@@ -910,12 +885,14 @@ async def logs():
 @app.route("/pdf")
 @login_required
 def serve_pdf():
-    # Serve the PDF from disk. Set as inline so browsers render it in tab/viewer.
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    pdf_path = os.path.join(base_dir, "latest", "latest.pdf")
+
     return send_file(
-        r"latest\latest.pdf",
+        pdf_path,
         mimetype="application/pdf",
-        as_attachment=False,  # inline display
-        download_name="latest.pdf"  # name shown in viewer/tab
+        as_attachment=False,
+        download_name="latest.pdf"
     )
 
 @app.route("/user-logs")
