@@ -1,159 +1,107 @@
-cP
-TAX INVOICE
-CISS SERVICES LIMITED
-(FORMERLY CENTRAL INVESTIGATION AND SECURITY SERVICES LIMITED)
-(CIN : U74920MH1985PLC035790)
-A/305, 3rd Floor, WALL Street-2, NEAR GUJARAT COLLEGE, ELLIS BRIDGE,, Ahmedabad, , Gujarat,
-Contact No : 9978925145 Email Id : ahd.act@cissindia.co.in
-O
-Details of Customer (Bill to)
-Name
-TORRENT GAS LIMITED
-Address
-SAMANVAY 600, TAPOVAN, AMBAWADI,,
-Ahmedabad, Gujarat, 380015
-City
-Pincode
-380015
-State Name
-Gujarat
-State Code
-24
-GSTIN
-24AAGCT7889P2Z8
-PAN No.
-AAGCT7889P
-Details of Customer (Ship to)
-Name
-TORRENT GAS LIMITED
-Address
-SAMANVAY 600, TAPOVAN, AMBAWADI,,
-Ahmedabad, Gujarat, 380015
-City
-Pincode
-380015
-State Name
-Gujarat
-State Code
-24
-GSTIN
-: 24AAGCT7889P2Z8
-PAN No.
-: AAGCT7889P
-IRN No.
-d17a78e91f144a18be66a36abc484571-
-6f2d0028b2651197b9b54bc4c3cc4ea7
-Acknowledgement Date.
-3-Jan-26
-Acknowledgement No.
-162623152107734
-PAN No.
-AAACC6145P
-GSTIN No.
-24AAACC6145P1ZH
+Tax Invoice
+e-Invoice
+IRN
+: 0aaac758e1876408dc20c78c1f595d10-
+5dc0e2232980d269f9930bf1de229457
+Ack No. : 122530297990377
+Ack Date : 29-Dec-25
+Indus Systems & Services Pvt. Ltd.
+Unit No. 101,1st Floor, Satyadev Plaza
+Veera Desai Road,Andheri (W)
+Mumbai - 400053
+UDYAM : UDYAM-MH-18-0011579 (Small)
+GSTIN/UIN: 27AAACI4699C1ZH
+State Name : Maharashtra, Code : 27
+Contact : 022-45304800
+Consignee (Ship to)
+Torrent Gas Limited
+45/U, Inole Village, Patancheru
+Mandal, Medak, Hyderabad, Telangana:502319
+GSTIN/UIN : 36AAGCT7889P1Z4
+PAN/IT No : AAGCT7889P
+State Name : Telangana, Code : 36
+Buyer (Bill to)
+Torrent Gas Limited
+Unit No 5 A & 5B, 5th Floor, Space
+and More Business Park, Gachib Plot
+no 98 & 99, lumbini, layout Gachibowli, Hyderabad - 500032
+GSTIN/UIN : 36AAGCT7889P1Z4
+PAN/IT No : AAGCT7889P
+State Name : Telangana, Code : 36
+Place of Supply: Telangana
 Invoice No.
-AHM/25-26/1974
-Invoice Date
-3-Jan-26
-Invoice for the month of:
-OCT ARRERARS
-Place of Supply
-Gujarat
-P.O. / W.O. No.
-Vendor code
-Branch Sole ID
-36301002
-6/1126
-Zone
-Received Date
-PO No.
-GRN /SE No.
-IV Posting No.
-DCC Control No .:
-99699
-Sr.
+MHS251234/25-26
+Dated
+26-Dec-25
+Mode/Terms of Payment
+100% within 10 days after receipt of bills
+Reference No. & Date.
+Other References
+Buyer's Order No.
+GJCO/P01/1100094/99001365
+Dated
+1-Feb-22
+Terms of Delivery
+SI
 No.
 Description of
 Services
-SAC
-Code
-(GST)
-QTY
-Duties
+HSN/SAC
+GST
 Rate
-Total
-Reli-
-ver
-Charge
-Serv-
-ice
-Charge
-Taxable
-Value
-CGST
-SGST
-IGST
+Quantity
 Rate
-Amount
-Rate
-Amount
-Rate
+per
 Amount
 1
-SG-SECURITY GUARDS
-998525
-3.576
-93.00
-106.00
-379.15
-379.15
-9 %
-34.12
-9 %
-34.12
-379.15
-379.15
-34.12
-34.12
-Invoice Value
-: INR Four Hundred Forty Seven and
-Thirty Nine paise Only
+Sales Service (Partner Support-Quarterly)
+S/n :- FGT61FTK22052123 with
+FP231FTF2209BOYJ
+For Period :- 01-10-25 to 31-12-25
+998713
+18 %
+1.0 qtr
+1,500.00
+qtr
+1,500.00
+IGST
+270.00
+Total
+1.0 qtr
+1,770.00₹
+Amount Chargeable (in words)
+Indian Rupees One Thousand Seven Hundred Seventy Only
+Taxable
+Value
+IGST
+Total
 Tax Amount
-: INR Sixty Eight and Twenty Four paise
-Only
-SAC - Summary
-Total Amount before Tax
-379.15
-CGST@9% GUJ
-34.12
-SGST@9% GUJ
-34.12
-Total Tax Amoount
-68.24
-Total Amount after Tax
-447.39
-Bank Details
-Bank Name
-: HDFC BANK LTD
-Certified that the particulars given above are true and Correct
-CISS SERVICES LIMITED
-Bank A/c
-: 01590330000030
+Rate
+Amount
+1,500.00
+18%
+270.00
+270.00
+Total:
+1,500.00
+270.00
+270.00
+E. & O.E
+Tax Amount (in words) : Two Hundred Seventy Indian Rupees Only
+Company's PAN
+: AAACI4699C
+Declaration
+We declare that this invoice shows the actual price of the goods described and that all particulars are true and correct.
+Customer's Seal and Signature
+for Indus Systems & Services Pvt. Ltd.
+Ashok
 Digitally signed
-Bank IFSC
-: HDFC0000159
-Tyagi
-by Tyagi
-PF Registration No.
-: GJAHD0052983000
-Rajkumar
-Rajkumar
-P T Registration No.
-: PRC011340008
-ESIC No.
-: 37310310840011018
-Date: 2026.01.06
-10:42:40 +05'30'
-In case of any queries kindly contact - accounts@cissindia.co.in
-E.&OE.
-Authorized Signatory
+by Ashok
+Authorised Signatory
+This is a Computer Generated Invoice
+Purshotta
+m Sukhija
+17:36:14 +05'30'
+furshottam
+Sukhija
+Date: 2025.12.30

@@ -26,8 +26,8 @@ PROMPT_NO = 0
 LOGS = []
 # Get the directory where the current script is located
 SCRTPT_DIR = os.path.dirname(os.path.abspath(__file__))
-# POPLOR_PATH = r"poppler-24.08.0\Library\bin"
-POPLOR_PATH = "/usr/bin"
+POPLOR_PATH = r"poppler-24.08.0\Library\bin"
+# POPLOR_PATH = "/usr/bin"
 
 # --- SAP URLs ---
 BASE_URL = os.getenv('SAP_BASE_URL')
@@ -1038,21 +1038,26 @@ def process_pdf(pdf_file,email_data,Mode_Of_Entry = "BOT",Created_On=f"{datetime
         result_of_extracted_data_from_qr = pdf_to_image(pdf_file)
     
         if result_of_extracted_data_from_qr['status']:
-            PROMPT_NO = 1
-            SAP_JSON['CompanyGstinPdf'] = result_of_extracted_data_from_qr['data']['BuyerGstin']
-            SAP_JSON['VendorGstin'] = result_of_extracted_data_from_qr['data']['SellerGstin']
-            SAP_JSON['InvoiceNo'] = result_of_extracted_data_from_qr['data']['DocNo']
-            SAP_JSON['InvoiceDate'] = result_of_extracted_data_from_qr['data']['DocDt'].split('/')[2] + result_of_extracted_data_from_qr['data']['DocDt'].split('/')[1] + result_of_extracted_data_from_qr['data']['DocDt'].split('/')[0]
+            SAP_JSON['CompanyGstinPdf'] = str(result_of_extracted_data_from_qr['data']['BuyerGstin'])
+            SAP_JSON['VendorGstin'] = str(result_of_extracted_data_from_qr['data']['SellerGstin'])
+            SAP_JSON['InvoiceNo'] = str(result_of_extracted_data_from_qr['data']['DocNo'])
+            SAP_JSON['InvoiceDate'] = str(result_of_extracted_data_from_qr['data']['DocDt'].split('/')[2] + result_of_extracted_data_from_qr['data']['DocDt'].split('/')[1] + result_of_extracted_data_from_qr['data']['DocDt'].split('/')[0])
             SAP_JSON['InvoiceAmount'] = str(result_of_extracted_data_from_qr['data']['TotInvVal'])
-            SAP_JSON['IrnNo'] = result_of_extracted_data_from_qr['data']['Irn']
+            SAP_JSON['IrnNo'] = str(result_of_extracted_data_from_qr['data']['Irn'])
             SAP_JSON['CQrCode'] = result_of_extracted_data_from_qr['data']['C_QR']
-            SAP_JSON['IndCompanygstinpdf'] = "QR" 
-            SAP_JSON['IndVendorgstinpdf'] = "QR"
-            SAP_JSON['IndInvoiceno'] = "QR"
-            SAP_JSON['IndInvoicedate'] = "QR"
-            SAP_JSON['IndInvoiceamount'] = "QR"
-            SAP_JSON['IndIrnno'] = "QR"
-        
+            SAP_JSON['CompanyGstinPdf'] = "" 
+            if SAP_JSON['CompanyGstinPdf'] != "" and SAP_JSON['VendorGstin'] != "" and SAP_JSON['InvoiceNo'] != "" and SAP_JSON['InvoiceDate'] != "" and SAP_JSON['InvoiceAmount'] != "" and SAP_JSON['IrnNo'] !="" and SAP_JSON['CQrCode'] != "":
+                
+                SAP_JSON['IndCompanygstinpdf'] = "QR" 
+                SAP_JSON['IndVendorgstinpdf'] = "QR"
+                SAP_JSON['IndInvoiceno'] = "QR"
+                SAP_JSON['IndInvoicedate'] = "QR"
+                SAP_JSON['IndInvoiceamount'] = "QR"
+                SAP_JSON['IndIrnno'] = "QR"
+                PROMPT_NO = 1
+            else:
+                SAP_JSON['CompanyGstinPdf'] = SAP_JSON['VendorGstin'] = SAP_JSON['InvoiceNo'] = SAP_JSON['InvoiceDate'] = SAP_JSON['InvoiceAmount'] = SAP_JSON['IrnNo'] = SAP_JSON['CQrCode'] = ""
+
         manual = 0 if Mode_Of_Entry == "Bot" else 1
         result_azure = azure_extract_text(pdf_file,manual)
 

@@ -164,7 +164,8 @@ Rules:
 Numbers only
 Remove currency symbols (₹, $, etc.)
 Remove commas (e.g., 1,23,456.00 → 123456.00)
-If unclear or missing, return "".
+The value can appear anywhere in the text, including on a new line, after lines  or separated from the label by other text.
+never return "".
 
 6. IrnNo (String)
 Goal:
