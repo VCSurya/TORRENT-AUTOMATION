@@ -4269,5 +4269,279 @@
             "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAArIluFAAA=",
             "email_date_time": "2026-02-06 11:37:59+00:00"
         }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "manavshah@torrentgas.com",
+                "subject": "FW: DCC Portal development",
+                "email_date_time": "2026-02-19 05:40:24+00:00",
+                "process_date_time": "2026-02-19 11:50:21.235421",
+                "attchments": {
+                    "pdfs": []
+                },
+                "result": [],
+                "Total Proceed Pdf": "0",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 22372",
+            "3. Start Process - 2026-02-19 11:50:16.128592",
+            "4. Reading New Emails From Cloude...",
+            "5. 1 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: FW: DCC Portal development ",
+            ">> 0 - Attachment Found!",
+            ">> 1 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADI5NmJjYjY3LTM3OGEtNDZkZC05MjYxLTEzYWFhNGFiZjRmMgBGAAAAAAAidvoG6FPOSLjoZIVeuPXaBwDxyXweS_CMQqDh7eM_A3JZAAAAAAEMAADxyXweS_CMQqDh7eM_A3JZAABcV9J3AAA=",
+            "email_date_time": "2026-02-19 05:40:24+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "manavshah@torrentgas.com",
+                "subject": "FW: DCC Portal development",
+                "email_date_time": "2026-02-19 05:40:24+00:00",
+                "process_date_time": "2026-02-19 12:15:53.509875",
+                "attchments": {
+                    "pdfs": []
+                },
+                "result": [],
+                "Total Proceed Pdf": "0",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            },
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "test zip file",
+                "email_date_time": "2026-02-19 06:22:26+00:00",
+                "process_date_time": "2026-02-19 12:15:53.656683",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "5000144260_RAMP TECHNOMATI_25260063_99327 (1) (1) (1).pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "$value.pdf",
+                            "Digital Sign": false
+                        }
+                    ],
+                    "test new fetcher.zip": [
+                        {
+                            "filename": "18-1.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "676.pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000002073",
+                        "PDF_FileName": "$value.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000002074",
+                        "PDF_FileName": "18-1.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000002075",
+                        "PDF_FileName": "5000144260_RAMP TECHNOMATI_25260063_99327 (1) (1) (1).pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000002076",
+                        "PDF_FileName": "676.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "4",
+                "Success Proceed Pdf": "4",
+                "Error Proceed Pdf": "0"
+            },
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "test",
+                "email_date_time": "2026-02-19 06:42:40+00:00",
+                "process_date_time": "2026-02-19 12:17:00.840661",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "6000102919_Invoice - IN-PSI-26-11028 (1).pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "6000012737_canon india pvt ltd_TNF2223000021075_25408.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "6000052500_Bharti Airtel L_BBL082412B002045_56402.pdf",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000002077",
+                        "PDF_FileName": "6000012737_canon india pvt ltd_TNF2223000021075_25408.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000002079",
+                        "PDF_FileName": "6000052500_Bharti Airtel L_BBL082412B002045_56402.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000002080",
+                        "PDF_FileName": "6000102919_Invoice - IN-PSI-26-11028 (1).pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "3",
+                "Success Proceed Pdf": "3",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 22200",
+            "3. Start Process - 2026-02-19 12:15:48.871178",
+            "4. Reading New Emails From Cloude...",
+            "5. 3 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: FW: DCC Portal development ",
+            ">> 0 - Attachment Found!",
+            ">> 1 - Email Proceed.",
+            ">> 2 - Email Processing...",
+            ">> Subject: test zip file ",
+            ">> 4 Attachment Found!",
+            ">> Attachments Processing...",
+            ">> ($value.pdf) Processing...",
+            ">> ($value.pdf) Proceed!",
+            ">> (18-1.pdf) Processing...",
+            ">> (18-1.pdf) Proceed!",
+            ">> (5000144260_RAMP TECHNOMATI_25260063_99327 (1) (1) (1).pdf) Processing...",
+            ">> (5000144260_RAMP TECHNOMATI_25260063_99327 (1) (1) (1).pdf) Proceed!",
+            ">> (676.pdf) Processing...",
+            ">> (676.pdf) Proceed!",
+            ">> 2 - Email Proceed.",
+            ">> 3 - Email Processing...",
+            ">> Subject: test ",
+            ">> 3 Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (6000012737_canon india pvt ltd_TNF2223000021075_25408.pdf) Processing...",
+            ">> (6000012737_canon india pvt ltd_TNF2223000021075_25408.pdf) Proceed!",
+            ">> (6000052500_Bharti Airtel L_BBL082412B002045_56402.pdf) Processing...",
+            ">> (6000052500_Bharti Airtel L_BBL082412B002045_56402.pdf) Proceed!",
+            ">> (6000102919_Invoice - IN-PSI-26-11028 (1).pdf) Processing...",
+            ">> (6000102919_Invoice - IN-PSI-26-11028 (1).pdf) Proceed!",
+            ">> 3 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADI5NmJjYjY3LTM3OGEtNDZkZC05MjYxLTEzYWFhNGFiZjRmMgBGAAAAAAAidvoG6FPOSLjoZIVeuPXaBwDxyXweS_CMQqDh7eM_A3JZAAAAAAEMAADxyXweS_CMQqDh7eM_A3JZAABcV9J5AAA=",
+            "email_date_time": "2026-02-19 06:42:40+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "TEST FOR HARSHAL BHAI REVIEW ",
+                "email_date_time": "2026-02-19 08:38:01+00:00",
+                "process_date_time": "2026-02-19 14:08:25.398479",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "6000052500_Bharti Airtel L_BBL082412B002045_56402.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "$value.pdf",
+                            "Digital Sign": false
+                        }
+                    ],
+                    "test new fetcher.zip": [
+                        {
+                            "filename": "18-1.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "676.pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000002084",
+                        "PDF_FileName": "$value.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000002086",
+                        "PDF_FileName": "18-1.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000002087",
+                        "PDF_FileName": "6000052500_Bharti Airtel L_BBL082412B002045_56402.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000002088",
+                        "PDF_FileName": "676.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "4",
+                "Success Proceed Pdf": "4",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 10688",
+            "3. Start Process - 2026-02-19 14:08:14.532017",
+            "4. Reading New Emails From Cloude...",
+            "5. 2 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: test ",
+            ">> !!! Email Already Proceed.",
+            ">> 1 - Email Proceed.",
+            ">> 2 - Email Processing...",
+            ">> Subject: TEST FOR HARSHAL BHAI REVIEW  ",
+            ">> 4 Attachment Found!",
+            ">> Attachments Processing...",
+            ">> ($value.pdf) Processing...",
+            ">> ($value.pdf) Proceed!",
+            ">> (18-1.pdf) Processing...",
+            ">> (18-1.pdf) Proceed!",
+            ">> (6000052500_Bharti Airtel L_BBL082412B002045_56402.pdf) Processing...",
+            ">> (6000052500_Bharti Airtel L_BBL082412B002045_56402.pdf) Proceed!",
+            ">> (676.pdf) Processing...",
+            ">> (676.pdf) Proceed!",
+            ">> 2 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADI5NmJjYjY3LTM3OGEtNDZkZC05MjYxLTEzYWFhNGFiZjRmMgBGAAAAAAAidvoG6FPOSLjoZIVeuPXaBwDxyXweS_CMQqDh7eM_A3JZAAAAAAEMAADxyXweS_CMQqDh7eM_A3JZAABcV9J6AAA=",
+            "email_date_time": "2026-02-19 08:38:01+00:00"
+        }
     }
 ]

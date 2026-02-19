@@ -29,6 +29,9 @@ Examples of valid PO numbers:
 - "GJC1/P01/1800618/33001286"
 - "KJDH/P01/1865298/96000098"
 - "KLJA/J05/1905285/93655196" (From the text: TSSA/P02/1800515/36300777 DTD: 04.06.2024 — ignore all additional text and extract only the PO number)
+- "MHPU/P01/1800075/3
+   3000011" 
+   → If the PO is split across lines (.../3 + next line 3000011), join them to make one complete PO "MHPU/P01/1800075/33000011", not two.
 - "33001286"
 - "96"
 - "566"
@@ -137,7 +140,7 @@ PRIORITY LOGIC (MUST FOLLOW):
 EXTRACTION RULES:
 - Match labels case-insensitively and allow common separators like ":", "-", "#", or whitespace.
 - Prefer values on the SAME line as the label.
-- If label is present but value is not on the same line, check the IMMEDIATE NEXT line only.
+- If label is present but value is not on the same line, check the IMMEDIATE NEXT 4 lines only.
 - Extract the invoice number immediately following the label (ignore other fields like date, GSTIN, totals).
 OUTPUT:
 - Return only the invoice/bill number as a String.

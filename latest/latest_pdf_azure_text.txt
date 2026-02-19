@@ -1,107 +1,138 @@
-Tax Invoice
-e-Invoice
-IRN
-: 0aaac758e1876408dc20c78c1f595d10-
-5dc0e2232980d269f9930bf1de229457
-Ack No. : 122530297990377
-Ack Date : 29-Dec-25
-Indus Systems & Services Pvt. Ltd.
-Unit No. 101,1st Floor, Satyadev Plaza
-Veera Desai Road,Andheri (W)
-Mumbai - 400053
-UDYAM : UDYAM-MH-18-0011579 (Small)
-GSTIN/UIN: 27AAACI4699C1ZH
-State Name : Maharashtra, Code : 27
-Contact : 022-45304800
-Consignee (Ship to)
-Torrent Gas Limited
-45/U, Inole Village, Patancheru
-Mandal, Medak, Hyderabad, Telangana:502319
-GSTIN/UIN : 36AAGCT7889P1Z4
-PAN/IT No : AAGCT7889P
-State Name : Telangana, Code : 36
-Buyer (Bill to)
-Torrent Gas Limited
-Unit No 5 A & 5B, 5th Floor, Space
-and More Business Park, Gachib Plot
-no 98 & 99, lumbini, layout Gachibowli, Hyderabad - 500032
-GSTIN/UIN : 36AAGCT7889P1Z4
-PAN/IT No : AAGCT7889P
-State Name : Telangana, Code : 36
-Place of Supply: Telangana
-Invoice No.
-MHS251234/25-26
-Dated
-26-Dec-25
-Mode/Terms of Payment
-100% within 10 days after receipt of bills
-Reference No. & Date.
-Other References
-Buyer's Order No.
-GJCO/P01/1100094/99001365
-Dated
-1-Feb-22
-Terms of Delivery
-SI
+Canon
+Delighting You Always
+Acknowledgement No
+Acknowledgement Date
+Invoice Reference No
+122214359988637
+02-OCT-22
+7d3a3d43b27ed7d2b
+ec9949d27c2965bbae
+cc5c14c02e4e7b692e
+f2901b255d3
+TAX INVOICE
+(RENTAL)
+CORPORATE OFFICE
+CANON INDIA PVT LTD
+7TH Floor Tower B, Building No-5
+DLF Cyber Terrace , DLF Phase -3
+Gurgaon-122002, Haryana
+STATE NAME & CODE:
+HARYANA, HR
+LOCAL BRANCH OFFICE
+CANON INDIA PVT. LTD. C/O
+FEDEX TRADE NETWORKS
+TRANSPORT
+AND BROKERAGE PVT LTD,
+SURVEY NO.95, VILL. VADPE,
+NASIK HWY.
+TALUKA BHIWANDI, DIST. THANE
+STATE NAME & CODE:
+MAHARASHTRA , 27
+GSTIN NO. 27AAACC4175D1ZY
+Customer Name and Address
+GST Invoice No.
+GST Invoice Date
+Rent Month
+TORRENT GAS PUNE LIMITED
+MHF2223000038241
+02-OCT-22
+OCT-2022
+1st Floor, Tower I
+Unit No. 106, WTC, Kharadi, Haveli,
+GSTIN No.
+PUNE, MAHARASHTRA -411014
+27AAACC4175D1ZY
+STATE NAME & CODE: MAHARASHTRA , 27
+GSTIN/UIN 27AAJCM6475B1ZC
+Machine Sr No.
+Transaction Ref No.
+PAN No.
+2ZB01012
+220280028761
+AAACC4175D
+Customer Name and Installation Address
+TORRENT GAS PUNE LIMITED
+Waghjainagar,
+Kharabwadi Gut No. 357 Plot no. 54 Chakan
+PUNE, -410501
+Customer No
+Contact Person
+Contact Number
+STATE NAME & CODE: MAHARASHTRA , 27
+294036
+GSTIN/UIN 27AAJCM6475B1ZC
+Customer PAN No
+Customer PO/WO
 No.
-Description of
-Services
+Place of supply - MAHARASHTRA
+MHPU/P01/1800075/3
+3000011
+Agreement No
+Agreement Start Date
+Agreement End Date
+CANON/04-22/651
+05-APR-22
+04-APR-25
+Item
+Description
 HSN/SAC
-GST
-Rate
-Quantity
-Rate
-per
-Amount
+Unit
+Unit Price
+Basic Amount
+RTL-İR-ADV DX C3822
+Rental Charges For İR-
+ADV DX C
+997314
 1
-Sales Service (Partner Support-Quarterly)
-S/n :- FGT61FTK22052123 with
-FP231FTF2209BOYJ
-For Period :- 01-10-25 to 31-12-25
-998713
-18 %
-1.0 qtr
-1,500.00
-qtr
-1,500.00
+4975
+4975.00
+Total Basic Amount-
+4975.00
+CGST
+9%
+Rs 447.75
+447.75
+SGST
+9%
+Rs 447.75
+447.75
 IGST
-270.00
-Total
-1.0 qtr
-1,770.00₹
-Amount Chargeable (in words)
-Indian Rupees One Thousand Seven Hundred Seventy Only
-Taxable
-Value
-IGST
-Total
-Tax Amount
-Rate
-Amount
-1,500.00
-18%
-270.00
-270.00
-Total:
-1,500.00
-270.00
-270.00
-E. & O.E
-Tax Amount (in words) : Two Hundred Seventy Indian Rupees Only
-Company's PAN
-: AAACI4699C
-Declaration
-We declare that this invoice shows the actual price of the goods described and that all particulars are true and correct.
-Customer's Seal and Signature
-for Indus Systems & Services Pvt. Ltd.
-Ashok
-Digitally signed
-by Ashok
-Authorised Signatory
-This is a Computer Generated Invoice
-Purshotta
-m Sukhija
-17:36:14 +05'30'
-furshottam
-Sukhija
-Date: 2025.12.30
+Rs 0.00
+0.00
+UTGST
+Rs 0.00
+0.00
+KERALA FLOOD CESS@ 1%
+Invoice Total After Tax
+5871.00
+Amount In Words :Five Thousand Eight Hundred Seventy One Only
+Whether the tax is payable on reverse Charges Y/N
+We do not accept payments made in cash. Please Pay by cheque / DD in favour of CANON INDIA Pvt Ltd. at below branch office address. Your
+machine is liable to be put under Stop Service, if the payment is not made within agreed credit period as per terms of agreement.
+Kindly send only your payment advise to mentioned Email-Id. For North - CIPLAR.NORTH@CANON.CO.IN, FOR SOUTH -
+CIPLAR.SOUTH@CANON.CO.IN, FOR EAST - CIPLAR.EAST@CANON.CO.IN, FOR WEST - CIPLAR.WEST@CANON.CO.IN , NOTE- These E Mail id's
+are to be used only for sending payment advices. In case you have any invoice related query, please connect with the local CIPL representative.
+Canon India Pvt. Ltd.
+4th & 5th Floor, Rustamjee Natraj,
+194, Andheri Kurla Road, Junction of Western Express Highway and Andheri Kurla Road,
+Andheri East, Mumbai-400069 Tel: 022- 67145000
+This document is digitally signed and does not require Manual Signature.
+For Canon India Pvt. Ltd.
+Digitally Signed
+Signature Not Verified
+Digitally Signed By:
+DS CANON INDIA PRIVATE LIMITED 1
+Mon 03-Oct-2022 07:36:05 IST
+Approved by Sharma, Mr. Rajan
+(Authorized Signatory)
+Customer Acknowledgement
+Registered Office - (w.e.f. 01.07.2016) Canon India Private Limited, Unit No 214 to 218, 2nd Floor, Narain Manzil,
+Barakhamba Road Connaught Place, New Delhi 110001
+CIN NO - U74899DL1996PTC083770 011-
+47192613/011-47192611, https://in.canon, Payment UPI Code :canon2272@sc
+Call Center No - 18001803366/18002083366
+Signature Not Verified
+Digitally Signed By:
+DS CANON INDIA PRIVATE LIMITED 1
+Mon 03-Oct-2022 07:36:05 IST
+Approved by Sharma, Mr. Rajan

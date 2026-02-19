@@ -603,7 +603,7 @@ def final_json(JSON,SAP_JSON,Created_On,Created_By):
                     new = po_no.replace(" ","").split('/')[-1]
                     
                     if new.isdigit() and len(new) <= 10:
-                        new_po_list.append(new)
+                        new_po_list.append(new.replace(" ",""))
 
                     else:
                         numbers = re.findall(r'\d+',po_no)
@@ -1015,7 +1015,7 @@ def send_data_to_sap(SAP_JSON):
         return {'status':False ,'error': str(e) , "error_code":"130"}
 
 # === Step 3: Full pipeline per PDF ===
-def process_pdf(pdf_file,email_data,Mode_Of_Entry = "BOT",Created_On=f"{datetime.now().strftime('%Y%m%d')}",Created_By="BOT"):
+def process_pdf(pdf_file,email_data,Sign='MANUAL',Mode_Of_Entry = "BOT",Created_On=f"{datetime.now().strftime('%Y%m%d')}",Created_By="BOT"):
     
     LOGS.clear()
     global PROMPT_NO
@@ -1031,6 +1031,7 @@ def process_pdf(pdf_file,email_data,Mode_Of_Entry = "BOT",Created_On=f"{datetime
     LOGS.append('2')
     try:
         SAP_JSON['FileName'] = os.path.basename(pdf_file)
+        SAP_JSON['TypeOfInvoice'] = Sign
         LOGS.append(f'3 {SAP_JSON['FileName']}')
         
         # Here we getting the data from qr code which is availabel in pdf

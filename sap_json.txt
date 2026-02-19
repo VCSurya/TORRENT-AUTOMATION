@@ -42,6 +42,7 @@ JSON Schema to follow:
     "IndIrnno":"PDF", --QR
     "CreatedOnTime":"",
     "CQrCode":"",
+    "TypeOfInvoice":"", - DIGITAL/ NON DIGITAL / MANUAL
     "DCCHEADERTODCCSES" : [
     {{
           "InwardRefNo" : "",

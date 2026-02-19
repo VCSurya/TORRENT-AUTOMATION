@@ -705,7 +705,7 @@ def upload_pdf():
             
             load_dotenv(override=True)
             importlib.reload(main)
-            result = main.process_pdf(os.path.abspath(file_path),email_data,Mode_Of_Entry,Created_On,Created_By)
+            result = main.process_pdf(os.path.abspath(file_path),email_data,'MANUAL',Mode_Of_Entry,Created_On,Created_By)
             
             ### Note: if success is X means true and "" means false
 

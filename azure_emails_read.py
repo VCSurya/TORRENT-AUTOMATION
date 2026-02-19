@@ -369,6 +369,7 @@ async def process_filtered_emails(shared_data):
                         "SourceOfDoc": "EMAIL"
                 }
                 all_attchments_name = {"pdfs": []}
+                attachment_sign_status = {}
                 with tempfile.TemporaryDirectory(dir=os.path.join(os.getcwd(), 'temp')) as temp_dir:
                     if message.has_attachments and message.attachments:
                         for attachment in message.attachments:
@@ -385,10 +386,13 @@ async def process_filtered_emails(shared_data):
                                     if verify_signatures(file_path):
                                         all_attchments_name["pdfs"].append(
                                             {"filename": file_name, "Digital Sign": True})
+                                        attachment_sign_status[file_name] = True
                                     else:
                                         all_attchments_name["pdfs"].append(
                                             {"filename": file_name, "Digital Sign": False})
-                                        os.remove(file_path)
+                                        attachment_sign_status[file_name] = False
+                                        
+                                        # os.remove(file_path)
 
                                 # ZIP file handlingc:\Users\111439\Downloads\Sample invoices for DCC portal.    zip
                                 elif file_name.endswith(".zip"):
@@ -405,10 +409,13 @@ async def process_filtered_emails(shared_data):
                                                 if verify_signatures(os.path.join(temp_dir,extracted_file)):
                                                     all_attchments_name[file_name].append(
                                                         {"filename": extracted_file, "Digital Sign": True})
+                                                    attachment_sign_status[extracted_file] = True
                                                 else:
                                                     all_attchments_name[file_name].append(
                                                         {"filename": extracted_file, "Digital Sign": False})
-                                                    os.remove(os.path.join(temp_dir,extracted_file))
+                                                    attachment_sign_status[extracted_file] = False
+                                                    
+                                                    # os.remove(os.path.join(temp_dir,extracted_file))
                                     except:
                                         continue
                                 
@@ -455,10 +462,8 @@ async def process_filtered_emails(shared_data):
                     if len(os.listdir(os.path.join(temp_dir))) > 0:
 
 
-                        shared_data["status"].append(f">> {len(os.listdir(os.path.join(temp_dir)))} Digital Signed Attachment Found!")
+                        shared_data["status"].append(f">> {len(os.listdir(os.path.join(temp_dir)))} Attachment Found!")
                         shared_data["status"].append(f">> Attachments Processing...")
-                        
-                        
                         
                         shared_data["proceed_emails"][str(message.id)] = latest_opration_data
                         shared_data["last_visited_email_detailes"] = latest_opration_data 
@@ -467,7 +472,9 @@ async def process_filtered_emails(shared_data):
                         for filename in os.listdir(os.path.join(temp_dir)):
                             shared_data["status"].append(f">> ({filename}) Processing...")
                             pdf_file_path = os.path.join(temp_dir,filename)
-                            response = process_pdf(pdf_file_path,email_data)
+
+                            sign = attachment_sign_status.get(filename,False)
+                            response = process_pdf(pdf_file_path,email_data,"DIGITAL" if sign else "NON DIGITAL")
                             
                             if response['status']:
 
@@ -497,7 +504,7 @@ async def process_filtered_emails(shared_data):
 
 
                     else:
-                        shared_data["status"].append(f">> No Digital Signed Attachment Found!")
+                        shared_data["status"].append(f">> 0 - Attachment Found!")
                      
                     shared_data["status"].append(f">> {email_no} - Email Proceed.")
                     # latest_opration_data.pop("id")
