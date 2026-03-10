@@ -749,7 +749,7 @@ def final_json(JSON,SAP_JSON,Created_On,Created_By):
             SAP_JSON["CInvoiceDate"] = result
 
         if SAP_JSON['InvoiceAmount'] != "":
-            closest_key = find_closest(JSON['cordinates'], str(SAP_JSON['InvoiceAmount']))
+            closest_key = find_closest(JSON['cordinates'], str(JSON['data']['OriginalInvoiceAmount']) if JSON['data']['OriginalInvoiceAmount'] !="" else str(SAP_JSON['InvoiceAmount']))
             result = convert_normalized_to_absolute(JSON['cordinates'][closest_key][0])
             SAP_JSON["CInvoiceAmount"] = result
 
@@ -1015,8 +1015,11 @@ def send_data_to_sap(SAP_JSON):
         return {'status':False ,'error': str(e) , "error_code":"130"}
 
 # === Step 3: Full pipeline per PDF ===
-def process_pdf(pdf_file,email_data,Sign='MANUAL',Mode_Of_Entry = "BOT",Created_On=f"{datetime.now().strftime('%Y%m%d')}",Created_By="BOT"):
+def process_pdf(pdf_file,email_data,Sign='MANUAL',Mode_Of_Entry = "BOT",Created_On=None,Created_By="BOT"):
     
+    if Created_On is None:
+        Created_On = datetime.now().strftime('%Y%m%d')
+
     LOGS.clear()
     global PROMPT_NO
     ### >>> Load the SAP JSON Tamplate
@@ -1046,7 +1049,7 @@ def process_pdf(pdf_file,email_data,Sign='MANUAL',Mode_Of_Entry = "BOT",Created_
             SAP_JSON['InvoiceAmount'] = str(result_of_extracted_data_from_qr['data']['TotInvVal'])
             SAP_JSON['IrnNo'] = str(result_of_extracted_data_from_qr['data']['Irn'])
             SAP_JSON['CQrCode'] = result_of_extracted_data_from_qr['data']['C_QR']
-            SAP_JSON['CompanyGstinPdf'] = "" 
+
             if SAP_JSON['CompanyGstinPdf'] != "" and SAP_JSON['VendorGstin'] != "" and SAP_JSON['InvoiceNo'] != "" and SAP_JSON['InvoiceDate'] != "" and SAP_JSON['InvoiceAmount'] != "" and SAP_JSON['IrnNo'] !="" and SAP_JSON['CQrCode'] != "":
                 
                 SAP_JSON['IndCompanygstinpdf'] = "QR" 

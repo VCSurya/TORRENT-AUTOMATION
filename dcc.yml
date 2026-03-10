@@ -1,0 +1,28 @@
+image: atlassian/default-image:3
+
+pipelines:
+  branches:
+    main:
+      - step:
+          name: Deploy DCC App
+          deployment: dcc-production
+          script:
+            - echo "Starting Deployment..."
+
+            - ssh user@YOUR_SERVER_IP << 'EOF'
+                cd <mention_here_project_path>
+
+                echo "Pulling latest code..."
+                git pull origin main
+
+                echo "Activating virtual environment..."
+                source <project_path>/venv/bin/activate
+
+                echo "Installing dependencies..."
+                pip install -r requirements.txt
+
+                echo "Restarting DCC service..."
+                sudo systemctl restart DCC-app
+
+                echo "Deployment completed!"
+              EOF

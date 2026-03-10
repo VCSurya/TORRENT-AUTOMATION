@@ -7,7 +7,7 @@ from msgraph.generated.models.o_data_errors.o_data_error import ODataError
 from msgraph.generated.users.item.messages.messages_request_builder import MessagesRequestBuilder
 import tempfile
 import zipfile
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 import json
 from pyhanko.sign.fields import enumerate_sig_fields
 from pyhanko.pdf_utils.reader import PdfFileReader
@@ -70,6 +70,11 @@ def update_json_file(file_path: str, new_data: dict) -> bool:
         # print(f"126 {str(e)}")
         return False
 
+
+
+def utc_dt_to_mailbox_str(dt_utc) -> str:
+    mailbox_tz = timezone(timedelta(hours=5, minutes=30))
+    return dt_utc.astimezone(mailbox_tz).strftime('%d/%m/%Y %H:%M')
 
 def collect_pdfs_from_zip(zip_path: str, dest_dir: str) -> List[str]:
     """
@@ -364,7 +369,7 @@ async def process_filtered_emails(shared_data):
             if message.id != last_visited_email_id:
                 email_data = {
                         "vandor_email":str(message.sender.email_address.address),
-                        "email_date_time":str(message.received_date_time),
+                        "email_date_time":str(utc_dt_to_mailbox_str(message.received_date_time)),
                         "email_subject":str(message.subject),
                         "SourceOfDoc": "EMAIL"
                 }

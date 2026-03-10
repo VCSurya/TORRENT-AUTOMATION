@@ -8,6 +8,7 @@ JSON Schema (follow exactly):
     "PoNo" : [],            // Purchase Order number (written as Work Order No , PO, Purchase Order, PO No.,Buyer's Order No)
     "SesGrn" : []           // List of SES / GRN / SCROLL numbers (if present).
     "InvoiceOriginalDate" : ""  // original string of the invoice date exactly as found in the text
+    "OriginalInvoiceAmount" : ""
     "Invoice": true
 }}
 
@@ -219,22 +220,9 @@ If splitting produces zero valid parts, fall back to the original candidate as-i
 Store the exact invoice date string as it appears in the text.
 If InvoiceDate is empty, this must also be empty.
 
-4. Invoice (Boolean)
-
-STRICT RULE (NO INFERENCE):
-Only set Invoice = True if ANY of these exact phrases appear in the first ~30 lines (case-insensitive, whole phrase match):
-- "TAX INVOICE"
-- "GST INVOICE"
-- "E INVOICE"
-- "PART A INVOICE"
-- "INVOICE"
-
-IMPORTANT:
-- Do NOT infer Invoice=True from words like "Bill No", "GST No", "CGST/SGST", "Total", amounts, or invoice-like formatting.
-- Do NOT use partial matches (e.g., "INV", "Invoice No" unless it contains the word "INVOICE" exactly).
-- Search ONLY within the first ~30 lines.
-If irn number found in the text, set Invoice = True. 
-If none of the exact phrases are found in the first ~30 lines, set Invoice = False.
+4. OriginalInvoiceAmount(String)
+Store the exact invoice Amount string as it appears in the text.
+If InvoiceAmount is empty, this must also be empty.
 
 NON‑NEGOTIABLE RULES
 No hallucination — extract only what is explicitly present.

@@ -13,6 +13,7 @@ JSON Schema (follow exactly):
   "SesGrn": [],
   "InvoiceOriginalDate": "",
   "Invoice": false
+  "OriginalInvoiceAmount": "",
 }
  
 FIELD DEFINITIONS
@@ -126,6 +127,7 @@ Valid labels include (but are not limited to):
 - Invoice No
 - Invoice #
 - GST Invoice Number
+- GST Invoice No.
 - Bill No
 - Inv No
 - Document No
@@ -347,6 +349,10 @@ IMPORTANT:
 - Search ONLY within the first ~30 lines.
 If irn number found in the text, set Invoice = True. 
 If none of the exact phrases are found in the first ~30 lines, set Invoice = False.
+
+10. OriginalInvoiceAmount(String)
+Store the exact invoice Amount string as it appears in the text.
+If InvoiceAmount is empty, this must also be empty.
 
 NON‑NEGOTIABLE RULES
 No hallucination — extract only what is explicitly present.
