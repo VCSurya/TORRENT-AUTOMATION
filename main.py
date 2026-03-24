@@ -660,7 +660,7 @@ def final_json(JSON,SAP_JSON,Created_On,Created_By):
 
             #  Value SAVE IN MAIN SAP JSON 
 
-            SAP_JSON['InvoiceNo'] = JSON['data']['InvoiceNo']
+            SAP_JSON['InvoiceNo'] = JSON['data']['InvoiceNo'].replace(" ","")
             SAP_JSON['InvoiceAmount'] = JSON['data']['InvoiceAmount']
             
             if JSON['data']['InvoiceDate'] != "":

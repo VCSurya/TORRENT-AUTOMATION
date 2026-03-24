@@ -438,20 +438,7 @@ def default():
     shared_data = None
     scheduler.remove_all_jobs()
     stop_process()
-
-    d1 = {
-            "run": False
-        }
-
-    d2 = {
-        "interval_minutes": 1,
-        "enable": False,
-        "duration": "minutes",
-        "last_updated_scheduler": str(datetime.now()),
-    }
-
-    update_json_file("bot/bot_status.json",d1)
-    update_json_file("bot/scheduler.json",d2)
+    update_scheduler()
 
 #--------------------- ALL ROUTES DEFINE HERE -----------------------
 

@@ -1,128 +1,91 @@
+ge
+GURUKRUPA ENTERPRISE
+LG-53, Sanghvi Tower, Near Gujarat Gas Circle,
+Adajan Road, Surat - 395009.
+M. : +91 99241 44602 Email : gurukrupaentp@yahoo.com
+WORK ORDER NO .:- GJJN/P02/1800180/33001216 PO Date: 03/03/2025
 TAX INVOICE
-(RENTAL)
-Canon
-Delighting You Always
-Acknowledgement No
-Acknowledgement Date
-Invoice Reference No
-02-MAR-26
-1102529879d828982f
-75e2acbe6330515a60
-95c65d6241427b3f26
-cc0e0a81c9
-CORPORATE OFFICE
-CANON INDIA PVT LTD
-7TH Floor Tower B, Building No-5
-DLF Cyber Terrace , DLF Phase -3
-Gurgaon-122002, Haryana
-STATE NAME & CODE:
-HARYANA, HR
-LOCAL BRANCH OFFICE
-CANON INDIA PVT. LTD. C/O
-FEDEX LOGISTICS INDIA PVT LTD
-C/O G.S. LOGISTICS, 47/2/2/1,
-3/2/1, 8/3, 9/1, 12/2, 13/1,
-PANCHGAON-TAURU ROAD, VPO
-BAGHANKI
-BINOLA INDUSTRIAL AREA
-STATE NAME & CODE:
-HARYANA , 06
-GSTIN NO. 06AAACC4175D1Z2
-Customer Name and Address
-GST Invoice No.
-GST Invoice Date
-Rent Month
-Torrent Gas Limited
-HRF2526000076015
-02-MAR-26
-MAR-2026
-Torrent Gas Limited 810 811 A-B
-8th floor Levana Cyber Heights Vibhuti Khand Gomti Nagar
-Lucknow
-GSTIN No.
-LUCKNOW, UTTAR PRADESH -226010
-06AAACC4175D1Z2
-Transaction Ref No.
-STATE NAME & CODE: UTTAR PRADESH , 09
-250950068001
-GSTIN/UIN 09AAGCT7889P1Z1
-Machine Sr No.
-PAN No.
-4MR20696
-Contact Person
-AAACC4175D
-Customer Name and Installation Address
-Torrent Gas Limited
-Customer No
-Contact Number
-Torrent Gas Limited First Floor
-2982187
-Agreement Start Date
-above Trends Footwear Situated at 555 Civil Line
-25-SEP-25
-GONDA, -271001
-Customer PAN No
-Customer PO/WO No.
-STATE NAME & CODE: UTTAR PRADESH , 09
-Agreement End Date
-UPBB/P01/1800075/3300
-1142
-GSTIN/UIN 09AAGCT7889P1Z1
-Agreement No
-24-SEP-28
-Place of supply - UTTAR PRADESH
-CANON/09-25/948
-Item
+Client Name :- Torrent Gas Private Ltd.
+Date: 21.03.2026
+Client Address :- First Floor, Dwarika Plaza 2, Zanzarda Rd Chowkdi, Junagadh,
+Gujarat 362001
+Bill No .: MS-12 PART A
+Billing Period: 01 Feb to 28 Feb 2026
+TGPL GST NO .: 24AAGCT7889P1Z9
+Sr. No.
+SAP Code
 Description
-HSN/SAC
 Unit
-Unit Price
-Basic Amount
-RTL-IR-ADV DX C3922
-Rental Charges For iR-ADV
-DX C
-997314
+Qty in
+Man
+Months
+Rate/Unit
+Amount
 1
-5788
-5788.00
-Total Basic Amount-
-5788.00
+1400000
+O&M PE-PNG Team :
+Providing Preventive and Emergency/Breakdown services of
+PNG network including manpower, tools & tackles,
+consumables, inventory management of free issue material
+as defined in the scope of work of the tender document. This
+is inclusive of all materials as mentioned in GTS/PTS under
+bidder's scope.
+MON
+1.00
+325000.00
+325000.00
+2
+1400001
+Office Set Up
+MON
+1.00
+20000.00
+20000.00
+3
+1400002
+Emergency 4 Wheeler Vehicle
+MON
+1.00
+65000.00
+65000.00
+4
+1400004
+2 Wheeler Vehicle
+MON
+3.00
+6000.00
+18000.00
+5
+1400005
+Add. KM Emergency Vehicale 2 Wheeler
+KM
+937.00
+10.00
+9370.00
+Net Total
+437370.00
 CGST
-Rs
+9%
+39363.30
 SGST
-Rs
-IGST
-18%
-Rs 1041.84
-1041.84
-UTGST
-Rs 0.00
-0.00
-KERALA FLOOD CESS@ 1%
-Invoice Total After Tax
-6830.00
-Amount In Words :Six Thousand Eight Hundred Thirty Only
-Whether the tax is payable on reverse Charges Y/N
-We do not accept payments made in cash. Please Pay by cheque / DD in favour of CANON INDIA Pvt Ltd. at below branch office address. Your machine is liable to
-be put under Stop Service, if the payment is not made within agreed credit period as per terms of agreement.
-Kindly send only your payment advise to mentioned Email-Id. For North - CIPLAR.NORTH@CANON.CO.IN, FOR SOUTH - CIPLAR.SOUTH@CANON.CO.IN, FOR EAST -
-CIPLAR.EAST@CANON.CO.IN, FOR WEST - CIPLAR.WEST@CANON.CO.IN , NOTE- These E Mail id's are to be used only for sending payment advices. In case you have
-any invoice related query, please connect with the local CIPL representative.
-Canon India Pvt. Ltd.
-7th Floor, Tower B, Building No#5,DLF Empitome, DLF Phase III
-Gurgaon - 122002
-Tel: 0124-4160000
-This document is digitally signed and does not require Manual Signature.
-For Canon India Pvt. Ltd.
-Digitally Signed
-Customer Acknowledgement
-(Authorized Signatory)
-Registered Office - Canon India Private Limited, 7th Floor, Tower-B, DLF Building No. 5, DLF Cyber City, Haryana, India
-GURGAON 122002 CIN NO - U74899HR1996PTC135580,Ph No :- 0124 - 4160000 https://in.canon, Payment UPI Code
-:canon2272@sc
-Call Center No - 18001803366/18002083366
-Signature Not Verified
-Digitally Signed By:
-DS CANON INDIA PRIVATE LIMITED 1
-Mon 02-Mar-2026 20:37:27 ST
-Approved by Rawat Singh, Mr. Brijender
+9%
+39363.30
+Total Amount
+516096.60
+Amount in Rs .: Five Lakh Sixteen Thousand Ninetysix and Sixty Rupees Only
+For, Gurukrupa Enterprise
+ANILKUMAR
+PRATAPSINH
+THAKORE
+1
+Digitally signed by ANILKUMAR
+PRATAPSINH THAKORE
+Date: 2026.03.21 16:32:23 +05'30'
+BANK DETAILS
+Beneficiency M/s.Gurukrupa Enterprise
+Bank A/C No : 50200026917092
+Bank IFSC CODE : HDFC0009214
+GST NO .: 24ABAPT4847M1Z8
+Bank : HDFC Bank
+Service Tax Head :- Work Contract Service
+SES NO.6000151262

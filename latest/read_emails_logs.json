@@ -237,5 +237,787 @@
             "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAAA7NNnBAAA=",
             "email_date_time": "2026-03-02 13:16:25+00:00"
         }
+    },
+    {
+        "proceed_emails": [],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 16968",
+            "3. Start Process - 2026-03-16 17:14:13.051256",
+            "4. Reading New Emails From Cloude...",
+            "*Exception Error* 128: Traceback (most recent call last):\n  File \"C:\\Users\\111439\\OneDrive - Torrent Gas Ltd\\Desktop\\TORRENT\\TORRENT\\azure_emails_read.py\", line 349, in process_filtered_emails\n    messages = await fetch_messages_with_filter(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<2 lines>...\n    )\n    ^\n  File \"C:\\Users\\111439\\OneDrive - Torrent Gas Ltd\\Desktop\\TORRENT\\TORRENT\\azure_emails_read.py\", line 290, in fetch_messages_with_filter\n    response = await request_builder.get(request_configuration=request_config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\111439\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\msgraph\\generated\\users\\item\\mail_folders\\item\\messages\\messages_request_builder.py\", line 69, in get\n    return await self.request_adapter.send_async(request_info, MessageCollectionResponse, error_mapping)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\111439\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\kiota_http\\httpx_request_adapter.py\", line 184, in send_async\n    response = await self.get_http_response_message(request_info, parent_span)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\111439\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\kiota_http\\httpx_request_adapter.py\", line 593, in get_http_response_message\n    await self._authentication_provider.authenticate_request(\n        request_info, additional_authentication_context\n    )\n  File \"C:\\Users\\111439\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\kiota_abstractions\\authentication\\base_bearer_token_authentication_provider.py\", line 50, in authenticate_request\n    token = await self.access_token_provider.get_authorization_token(\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        request.url, additional_authentication_context\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\111439\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\kiota_authentication_azure\\azure_identity_access_token_provider.py\", line 112, in get_authorization_token\n    result = self._credentials.get_token(\n        *self._scopes, claims=decoded_claim, enable_cae=self._is_cae_enabled\n    )\n  File \"C:\\Users\\111439\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\azure\\identity\\_internal\\get_token_mixin.py\", line 93, in get_token\n    token_info = self._get_token_base(*scopes, options=options, base_method_name=\"get_token\", **kwargs)\n  File \"C:\\Users\\111439\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\azure\\identity\\_internal\\get_token_mixin.py\", line 137, in _get_token_base\n    token = self._request_token(\n        *scopes, claims=claims, tenant_id=tenant_id, enable_cae=enable_cae, **kwargs\n    )\n  File \"C:\\Users\\111439\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\azure\\identity\\_internal\\decorators.py\", line 75, in wrapper\n    return fn(*args, **kwargs)\n  File \"C:\\Users\\111439\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\azure\\identity\\_internal\\client_credential_base.py\", line 49, in _request_token\n    raise ClientAuthenticationError(message=message)\nazure.core.exceptions.ClientAuthenticationError: Authentication failed: AADSTS700016: Application with identifier '3b026ff4-4ebb-46ef-ba31-0bf16b31c832' was not found in the directory 'Torrent Gas Ltd.'. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant. Trace ID: 6ccaca23-bca4-4b96-81e5-696830285700 Correlation ID: 3ef92026-ad0f-4d8d-98e3-10e3e7004413 Timestamp: 2026-03-16 11:44:13Z\n",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {}
+    },
+    {
+        "proceed_emails": [],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 9792",
+            "3. Start Process - 2026-03-16 17:26:27.291955",
+            "4. Reading New Emails From Cloude...",
+            "*Exception Error* 128: Traceback (most recent call last):\n  File \"C:\\Users\\111439\\OneDrive - Torrent Gas Ltd\\Desktop\\TORRENT\\TORRENT\\azure_emails_read.py\", line 349, in process_filtered_emails\n    messages = await fetch_messages_with_filter(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<2 lines>...\n    )\n    ^\n  File \"C:\\Users\\111439\\OneDrive - Torrent Gas Ltd\\Desktop\\TORRENT\\TORRENT\\azure_emails_read.py\", line 290, in fetch_messages_with_filter\n    response = await request_builder.get(request_configuration=request_config)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\111439\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\msgraph\\generated\\users\\item\\mail_folders\\item\\messages\\messages_request_builder.py\", line 69, in get\n    return await self.request_adapter.send_async(request_info, MessageCollectionResponse, error_mapping)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\111439\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\kiota_http\\httpx_request_adapter.py\", line 184, in send_async\n    response = await self.get_http_response_message(request_info, parent_span)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\111439\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\kiota_http\\httpx_request_adapter.py\", line 593, in get_http_response_message\n    await self._authentication_provider.authenticate_request(\n        request_info, additional_authentication_context\n    )\n  File \"C:\\Users\\111439\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\kiota_abstractions\\authentication\\base_bearer_token_authentication_provider.py\", line 50, in authenticate_request\n    token = await self.access_token_provider.get_authorization_token(\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        request.url, additional_authentication_context\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\111439\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\kiota_authentication_azure\\azure_identity_access_token_provider.py\", line 112, in get_authorization_token\n    result = self._credentials.get_token(\n        *self._scopes, claims=decoded_claim, enable_cae=self._is_cae_enabled\n    )\n  File \"C:\\Users\\111439\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\azure\\identity\\_internal\\get_token_mixin.py\", line 93, in get_token\n    token_info = self._get_token_base(*scopes, options=options, base_method_name=\"get_token\", **kwargs)\n  File \"C:\\Users\\111439\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\azure\\identity\\_internal\\get_token_mixin.py\", line 137, in _get_token_base\n    token = self._request_token(\n        *scopes, claims=claims, tenant_id=tenant_id, enable_cae=enable_cae, **kwargs\n    )\n  File \"C:\\Users\\111439\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\azure\\identity\\_internal\\decorators.py\", line 75, in wrapper\n    return fn(*args, **kwargs)\n  File \"C:\\Users\\111439\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\azure\\identity\\_internal\\client_credential_base.py\", line 49, in _request_token\n    raise ClientAuthenticationError(message=message)\nazure.core.exceptions.ClientAuthenticationError: Authentication failed: AADSTS700016: Application with identifier '3b026ff4-4ebb-46ef-ba31-0bf16b31c832' was not found in the directory 'Torrent Gas Ltd.'. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant. Trace ID: 3c2121f6-2738-4885-9095-12deb1f25000 Correlation ID: 381bd8df-3a4a-4fab-976e-c46de6fbfefc Timestamp: 2026-03-16 11:56:27Z\n",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {}
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "LAVSAHU@torrentgas.com",
+                "subject": "RE: Provide Details against received invoices --- Patiala",
+                "email_date_time": "2026-03-06 04:38:39+00:00",
+                "process_date_time": "2026-03-16 17:46:29.577132",
+                "attchments": {
+                    "pdfs": []
+                },
+                "result": [],
+                "Total Proceed Pdf": "0",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            },
+            {
+                "from": "bhavyashah@torrentgas.com",
+                "subject": "RE: Torrent Gas Outstanding  - Proton Facility ",
+                "email_date_time": "2026-03-06 13:41:17+00:00",
+                "process_date_time": "2026-03-16 17:46:29.771527",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "SES_6000137573_6000137588.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "SES_6000120300_6000120305.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "SES_6000136104.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "SES_6000137590_6000137591.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "SES_6000137597_6000137599.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "SES_6000137592_6000137596.pdf",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [],
+                "Total Proceed Pdf": "6",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 17080",
+            "3. Start Process - 2026-03-16 17:45:51.870255",
+            "4. Reading New Emails From Cloude...",
+            "5. 12 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: RE: Provide Details against received invoices --- Patiala ",
+            ">> 0 - Attachment Found!",
+            ">> 1 - Email Proceed.",
+            ">> 2 - Email Processing...",
+            ">> Subject: RE: Torrent Gas Outstanding  - Proton Facility  ",
+            ">> 6 Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (SES_6000120300_6000120305.pdf) Processing...",
+            "Terminating process PID: 17080...",
+            "Process terminated successfully.",
+            "-> Process not completed normally its terminate"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADJlNDU0NDFhLTVhMTUtNDUxYy1hODM5LWJhM2FlM2QxNzY2NQBGAAAAAAC9s70Y2dotQrZCAtEZylaNBwCxhD1TlNm_T5GU2HoWBeCoAAAAAAEMAACxhD1TlNm_T5GU2HoWBeCoAARTiURkAAA=",
+            "email_date_time": "2026-03-06 13:41:17+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "DHAVALSUTHAR@TORRENTGAS.COM",
+                "subject": "RE: Daily Parking and post Tracker",
+                "email_date_time": "2026-03-10 06:58:19+00:00",
+                "process_date_time": "2026-03-16 17:46:51.201704",
+                "attchments": {
+                    "pdfs": []
+                },
+                "result": [],
+                "Total Proceed Pdf": "0",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            },
+            {
+                "from": "dispatch@inelindia.com",
+                "subject": "CALL-226_DISPATCHED DETAILS_SER192/25-26_10.03.2026_TORRENT GAS CHENNAI PVT LTD (TN) - THIRUVALLUR",
+                "email_date_time": "2026-03-11 10:24:25+00:00",
+                "process_date_time": "2026-03-16 17:46:51.351004",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "SER192.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "E-Way Bill System Return.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "challan.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "Inspection Report.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "INEL Calibration Request form_R04.pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": false,
+                        "PDF_FileName": "challan.pdf",
+                        "logs": [
+                            "Step 0 (2): Process PDF Function Called.",
+                            "Step 1 (3): Process PDF Filename: challan.pdf",
+                            "Step 2 (4): Calling AZURE...",
+                            "Step 3 (5): AZURE Text Extrected",
+                            "Step 4 (6): Calculate Text Each Word Cordinates",
+                            "Step 5 (7): Extraction Complete!",
+                            "Step 6 (8): OPEN AI Function Calling...",
+                            "Step 7 (9): Responsed Open AI API",
+                            "Step 8 (10): >>> Open AI Returned JSON",
+                            "Step 9 (25): Not Invoice",
+                            "Step 10 (21): Operation Successfull! >>>>"
+                        ],
+                        "json": {
+                            "Invoice": false,
+                            "InwardRefNo": "",
+                            "SourceOfDoc": "EMAIL",
+                            "DocMailPerson": "dispatch@inelindia.com",
+                            "InwardDate": "",
+                            "PoLpo": "",
+                            "GaName": "",
+                            "CompanyGstinPdf": "",
+                            "CCompanyGstinPdf": "",
+                            "CompanyGstinSap": "",
+                            "VendorName": "",
+                            "VendorGstin": "",
+                            "CVendorGstin": "",
+                            "InvoiceNo": "",
+                            "CInvoiceNo": "",
+                            "InvoiceDate": "",
+                            "CInvoiceDate": "",
+                            "InvoiceAmount": "",
+                            "CInvoiceAmount": "",
+                            "PoLpoIoNoPdf": "",
+                            "CPoLpoIoNo": "",
+                            "IrnNo": "",
+                            "CIrnNo": "",
+                            "MsmeNo": "",
+                            "Status": "Draft",
+                            "ModeOfEntry": "BOT",
+                            "CreatedOn": "20260316",
+                            "CreatedBy": "BOT",
+                            "ChangedOn": "",
+                            "ChangedBy": "",
+                            "FileName": "challan.pdf",
+                            "ErrorNo": "25",
+                            "ErrorMsg": "Not Invoice Document!",
+                            "ErrorType": "E",
+                            "Flag": "A",
+                            "IndCompanygstinpdf": "PDF",
+                            "IndVendorgstinpdf": "PDF",
+                            "IndInvoiceno": "PDF",
+                            "IndInvoicedate": "PDF",
+                            "IndInvoiceamount": "PDF",
+                            "IndIrnno": "PDF",
+                            "CreatedOnTime": "17:47:02",
+                            "CQrCode": "",
+                            "TypeOfInvoice": "NON DIGITAL",
+                            "DCCHEADERTODCCSES": [],
+                            "VendorEmailP": "dispatch@inelindia.com",
+                            "EmailDateTimeP": "11/03/2026 15:54",
+                            "EmailSubjectP": "CALL-226_DISPATCHED DETAILS_SER192/25-26_10.03.2026_TORRENT GAS CHENNAI PVT LTD (TN) - THIRUVALLUR"
+                        }
+                    },
+                    {
+                        "status": false,
+                        "PDF_FileName": "E-Way Bill System Return.pdf",
+                        "logs": [
+                            "Step 0 (2): Process PDF Function Called.",
+                            "Step 1 (3): Process PDF Filename: E-Way Bill System Return.pdf",
+                            "Step 2 (4): Calling AZURE...",
+                            "Step 3 (5): AZURE Text Extrected",
+                            "Step 4 (6): Calculate Text Each Word Cordinates",
+                            "Step 5 (7): Extraction Complete!",
+                            "Step 6 (8): OPEN AI Function Calling...",
+                            "Step 7 (9): Responsed Open AI API",
+                            "Step 8 (10): >>> Open AI Returned JSON",
+                            "Step 9 (25): Not Invoice",
+                            "Step 10 (21): Operation Successfull! >>>>"
+                        ],
+                        "json": {
+                            "Invoice": false,
+                            "InwardRefNo": "",
+                            "SourceOfDoc": "EMAIL",
+                            "DocMailPerson": "dispatch@inelindia.com",
+                            "InwardDate": "",
+                            "PoLpo": "",
+                            "GaName": "",
+                            "CompanyGstinPdf": "",
+                            "CCompanyGstinPdf": "",
+                            "CompanyGstinSap": "",
+                            "VendorName": "",
+                            "VendorGstin": "",
+                            "CVendorGstin": "",
+                            "InvoiceNo": "",
+                            "CInvoiceNo": "",
+                            "InvoiceDate": "",
+                            "CInvoiceDate": "",
+                            "InvoiceAmount": "",
+                            "CInvoiceAmount": "",
+                            "PoLpoIoNoPdf": "",
+                            "CPoLpoIoNo": "",
+                            "IrnNo": "",
+                            "CIrnNo": "",
+                            "MsmeNo": "",
+                            "Status": "Draft",
+                            "ModeOfEntry": "BOT",
+                            "CreatedOn": "20260316",
+                            "CreatedBy": "BOT",
+                            "ChangedOn": "",
+                            "ChangedBy": "",
+                            "FileName": "E-Way Bill System Return.pdf",
+                            "ErrorNo": "25",
+                            "ErrorMsg": "Not Invoice Document!",
+                            "ErrorType": "E",
+                            "Flag": "A",
+                            "IndCompanygstinpdf": "PDF",
+                            "IndVendorgstinpdf": "PDF",
+                            "IndInvoiceno": "PDF",
+                            "IndInvoicedate": "PDF",
+                            "IndInvoiceamount": "PDF",
+                            "IndIrnno": "PDF",
+                            "CreatedOnTime": "17:47:10",
+                            "CQrCode": "",
+                            "TypeOfInvoice": "NON DIGITAL",
+                            "DCCHEADERTODCCSES": [],
+                            "VendorEmailP": "dispatch@inelindia.com",
+                            "EmailDateTimeP": "11/03/2026 15:54",
+                            "EmailSubjectP": "CALL-226_DISPATCHED DETAILS_SER192/25-26_10.03.2026_TORRENT GAS CHENNAI PVT LTD (TN) - THIRUVALLUR"
+                        }
+                    },
+                    {
+                        "status": false,
+                        "PDF_FileName": "INEL Calibration Request form_R04.pdf",
+                        "logs": [
+                            "Step 0 (2): Process PDF Function Called.",
+                            "Step 1 (3): Process PDF Filename: INEL Calibration Request form_R04.pdf",
+                            "Step 2 (4): Calling AZURE...",
+                            "Step 3 (5): AZURE Text Extrected",
+                            "Step 4 (6): Calculate Text Each Word Cordinates",
+                            "Step 5 (7): Extraction Complete!",
+                            "Step 6 (8): OPEN AI Function Calling...",
+                            "Step 7 (9): Responsed Open AI API",
+                            "Step 8 (10): >>> Open AI Returned JSON",
+                            "Step 9 (25): Not Invoice",
+                            "Step 10 (21): Operation Successfull! >>>>"
+                        ],
+                        "json": {
+                            "Invoice": false,
+                            "InwardRefNo": "",
+                            "SourceOfDoc": "EMAIL",
+                            "DocMailPerson": "dispatch@inelindia.com",
+                            "InwardDate": "",
+                            "PoLpo": "",
+                            "GaName": "",
+                            "CompanyGstinPdf": "",
+                            "CCompanyGstinPdf": "",
+                            "CompanyGstinSap": "",
+                            "VendorName": "",
+                            "VendorGstin": "",
+                            "CVendorGstin": "",
+                            "InvoiceNo": "",
+                            "CInvoiceNo": "",
+                            "InvoiceDate": "",
+                            "CInvoiceDate": "",
+                            "InvoiceAmount": "",
+                            "CInvoiceAmount": "",
+                            "PoLpoIoNoPdf": "",
+                            "CPoLpoIoNo": "",
+                            "IrnNo": "",
+                            "CIrnNo": "",
+                            "MsmeNo": "",
+                            "Status": "Draft",
+                            "ModeOfEntry": "BOT",
+                            "CreatedOn": "20260316",
+                            "CreatedBy": "BOT",
+                            "ChangedOn": "",
+                            "ChangedBy": "",
+                            "FileName": "INEL Calibration Request form_R04.pdf",
+                            "ErrorNo": "25",
+                            "ErrorMsg": "Not Invoice Document!",
+                            "ErrorType": "E",
+                            "Flag": "A",
+                            "IndCompanygstinpdf": "PDF",
+                            "IndVendorgstinpdf": "PDF",
+                            "IndInvoiceno": "PDF",
+                            "IndInvoicedate": "PDF",
+                            "IndInvoiceamount": "PDF",
+                            "IndIrnno": "PDF",
+                            "CreatedOnTime": "17:47:17",
+                            "CQrCode": "",
+                            "TypeOfInvoice": "NON DIGITAL",
+                            "DCCHEADERTODCCSES": [],
+                            "VendorEmailP": "dispatch@inelindia.com",
+                            "EmailDateTimeP": "11/03/2026 15:54",
+                            "EmailSubjectP": "CALL-226_DISPATCHED DETAILS_SER192/25-26_10.03.2026_TORRENT GAS CHENNAI PVT LTD (TN) - THIRUVALLUR"
+                        }
+                    },
+                    {
+                        "status": false,
+                        "PDF_FileName": "Inspection Report.pdf",
+                        "logs": [
+                            "Step 0 (2): Process PDF Function Called.",
+                            "Step 1 (3): Process PDF Filename: Inspection Report.pdf",
+                            "Step 2 (4): Calling AZURE...",
+                            "Step 3 (5): AZURE Text Extrected",
+                            "Step 4 (6): Calculate Text Each Word Cordinates",
+                            "Step 5 (7): Extraction Complete!",
+                            "Step 6 (8): OPEN AI Function Calling...",
+                            "Step 7 (9): Responsed Open AI API",
+                            "Step 8 (10): >>> Open AI Returned JSON",
+                            "Step 9 (25): Not Invoice",
+                            "Step 10 (21): Operation Successfull! >>>>"
+                        ],
+                        "json": {
+                            "Invoice": false,
+                            "InwardRefNo": "",
+                            "SourceOfDoc": "EMAIL",
+                            "DocMailPerson": "dispatch@inelindia.com",
+                            "InwardDate": "",
+                            "PoLpo": "",
+                            "GaName": "",
+                            "CompanyGstinPdf": "",
+                            "CCompanyGstinPdf": "",
+                            "CompanyGstinSap": "",
+                            "VendorName": "",
+                            "VendorGstin": "",
+                            "CVendorGstin": "",
+                            "InvoiceNo": "",
+                            "CInvoiceNo": "",
+                            "InvoiceDate": "",
+                            "CInvoiceDate": "",
+                            "InvoiceAmount": "",
+                            "CInvoiceAmount": "",
+                            "PoLpoIoNoPdf": "",
+                            "CPoLpoIoNo": "",
+                            "IrnNo": "",
+                            "CIrnNo": "",
+                            "MsmeNo": "",
+                            "Status": "Draft",
+                            "ModeOfEntry": "BOT",
+                            "CreatedOn": "20260316",
+                            "CreatedBy": "BOT",
+                            "ChangedOn": "",
+                            "ChangedBy": "",
+                            "FileName": "Inspection Report.pdf",
+                            "ErrorNo": "25",
+                            "ErrorMsg": "Not Invoice Document!",
+                            "ErrorType": "E",
+                            "Flag": "A",
+                            "IndCompanygstinpdf": "PDF",
+                            "IndVendorgstinpdf": "PDF",
+                            "IndInvoiceno": "PDF",
+                            "IndInvoicedate": "PDF",
+                            "IndInvoiceamount": "PDF",
+                            "IndIrnno": "PDF",
+                            "CreatedOnTime": "17:47:25",
+                            "CQrCode": "",
+                            "TypeOfInvoice": "NON DIGITAL",
+                            "DCCHEADERTODCCSES": [],
+                            "VendorEmailP": "dispatch@inelindia.com",
+                            "EmailDateTimeP": "11/03/2026 15:54",
+                            "EmailSubjectP": "CALL-226_DISPATCHED DETAILS_SER192/25-26_10.03.2026_TORRENT GAS CHENNAI PVT LTD (TN) - THIRUVALLUR"
+                        }
+                    },
+                    {
+                        "status": true,
+                        "no": "0000002130",
+                        "PDF_FileName": "SER192.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "5",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "4"
+            },
+            {
+                "from": "bhavyashah@torrentgas.com",
+                "subject": "Invoice not received from Kirloskar",
+                "email_date_time": "2026-03-12 10:55:23+00:00",
+                "process_date_time": "2026-03-16 17:47:41.878555",
+                "attchments": {
+                    "pdfs": []
+                },
+                "result": [],
+                "Total Proceed Pdf": "0",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            },
+            {
+                "from": "SUSHILTANK@TORRENTGAS.COM",
+                "subject": "RE:  Physical Documents Records FTP of  Feb-26",
+                "email_date_time": "2026-03-13 07:04:19+00:00",
+                "process_date_time": "2026-03-16 17:47:41.900511",
+                "attchments": {
+                    "pdfs": []
+                },
+                "result": [],
+                "Total Proceed Pdf": "0",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            },
+            {
+                "from": "mynormepl@gmail.com",
+                "subject": "Submission of 3rd RA bill (MDPE)",
+                "email_date_time": "2026-03-13 12:30:11+00:00",
+                "process_date_time": "2026-03-16 17:47:42.038875",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "MDPE 3RD RA.pdf",
+                            "Digital Sign": false
+                        },
+                        {
+                            "filename": "RA Bill -03 (47 Customer).pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": false,
+                        "PDF_FileName": "MDPE 3RD RA.pdf",
+                        "logs": [
+                            "Step 0 (2): Process PDF Function Called.",
+                            "Step 1 (3): Process PDF Filename: MDPE Process PDF Filename:RD RA.pdf",
+                            "Step 2 (4): Calling AZURE...",
+                            "Step 3 (5): AZURE Text Extrected",
+                            "Step 4 (6): Calculate Text Each Word Cordinates",
+                            "Step 5 (7): Extraction Complete!",
+                            "Step 6 (8): OPEN AI Function Calling...",
+                            "Step 7 (9): Responsed Open AI API",
+                            "Step 8 (10): >>> Open AI Returned JSON",
+                            "Step 9 (25): Not Invoice",
+                            "Step 10 (21): Operation Successfull! >>>>"
+                        ],
+                        "json": {
+                            "Invoice": false,
+                            "InwardRefNo": "",
+                            "SourceOfDoc": "EMAIL",
+                            "DocMailPerson": "mynormepl@gmail.com",
+                            "InwardDate": "",
+                            "PoLpo": "",
+                            "GaName": "",
+                            "CompanyGstinPdf": "",
+                            "CCompanyGstinPdf": "",
+                            "CompanyGstinSap": "",
+                            "VendorName": "",
+                            "VendorGstin": "",
+                            "CVendorGstin": "",
+                            "InvoiceNo": "",
+                            "CInvoiceNo": "",
+                            "InvoiceDate": "",
+                            "CInvoiceDate": "",
+                            "InvoiceAmount": "",
+                            "CInvoiceAmount": "",
+                            "PoLpoIoNoPdf": "",
+                            "CPoLpoIoNo": "",
+                            "IrnNo": "",
+                            "CIrnNo": "",
+                            "MsmeNo": "",
+                            "Status": "Draft",
+                            "ModeOfEntry": "BOT",
+                            "CreatedOn": "20260316",
+                            "CreatedBy": "BOT",
+                            "ChangedOn": "",
+                            "ChangedBy": "",
+                            "FileName": "MDPE 3RD RA.pdf",
+                            "ErrorNo": "25",
+                            "ErrorMsg": "Not Invoice Document!",
+                            "ErrorType": "E",
+                            "Flag": "A",
+                            "IndCompanygstinpdf": "PDF",
+                            "IndVendorgstinpdf": "PDF",
+                            "IndInvoiceno": "PDF",
+                            "IndInvoicedate": "PDF",
+                            "IndInvoiceamount": "PDF",
+                            "IndIrnno": "PDF",
+                            "CreatedOnTime": "17:48:10",
+                            "CQrCode": "",
+                            "TypeOfInvoice": "NON DIGITAL",
+                            "DCCHEADERTODCCSES": [],
+                            "VendorEmailP": "mynormepl@gmail.com",
+                            "EmailDateTimeP": "13/03/2026 18:00",
+                            "EmailSubjectP": "Submission of 3rd RA bill (MDPE)"
+                        }
+                    },
+                    {
+                        "status": false,
+                        "PDF_FileName": "RA Bill -03 (47 Customer).pdf",
+                        "logs": [
+                            "Step 0 (2): Process PDF Function Called.",
+                            "Step 1 (3): Process PDF Filename: RA Bill -0Process PDF Filename: (47 Customer).pdf",
+                            "Step 2 (4): Calling AZURE...",
+                            "Step 3 (5): AZURE Text Extrected",
+                            "Step 4 (6): Calculate Text Each Word Cordinates",
+                            "Step 5 (7): Extraction Complete!",
+                            "Step 6 (8): OPEN AI Function Calling...",
+                            "Step 7 (9): Responsed Open AI API",
+                            "Step 8 (10): >>> Open AI Returned JSON",
+                            "Step 9 (25): Not Invoice",
+                            "Step 10 (21): Operation Successfull! >>>>"
+                        ],
+                        "json": {
+                            "Invoice": false,
+                            "InwardRefNo": "",
+                            "SourceOfDoc": "EMAIL",
+                            "DocMailPerson": "mynormepl@gmail.com",
+                            "InwardDate": "",
+                            "PoLpo": "",
+                            "GaName": "",
+                            "CompanyGstinPdf": "",
+                            "CCompanyGstinPdf": "",
+                            "CompanyGstinSap": "",
+                            "VendorName": "",
+                            "VendorGstin": "",
+                            "CVendorGstin": "",
+                            "InvoiceNo": "",
+                            "CInvoiceNo": "",
+                            "InvoiceDate": "",
+                            "CInvoiceDate": "",
+                            "InvoiceAmount": "",
+                            "CInvoiceAmount": "",
+                            "PoLpoIoNoPdf": "",
+                            "CPoLpoIoNo": "",
+                            "IrnNo": "",
+                            "CIrnNo": "",
+                            "MsmeNo": "",
+                            "Status": "Draft",
+                            "ModeOfEntry": "BOT",
+                            "CreatedOn": "20260316",
+                            "CreatedBy": "BOT",
+                            "ChangedOn": "",
+                            "ChangedBy": "",
+                            "FileName": "RA Bill -03 (47 Customer).pdf",
+                            "ErrorNo": "25",
+                            "ErrorMsg": "Not Invoice Document!",
+                            "ErrorType": "E",
+                            "Flag": "A",
+                            "IndCompanygstinpdf": "PDF",
+                            "IndVendorgstinpdf": "PDF",
+                            "IndInvoiceno": "PDF",
+                            "IndInvoicedate": "PDF",
+                            "IndInvoiceamount": "PDF",
+                            "IndIrnno": "PDF",
+                            "CreatedOnTime": "17:48:39",
+                            "CQrCode": "",
+                            "TypeOfInvoice": "NON DIGITAL",
+                            "DCCHEADERTODCCSES": [],
+                            "VendorEmailP": "mynormepl@gmail.com",
+                            "EmailDateTimeP": "13/03/2026 18:00",
+                            "EmailSubjectP": "Submission of 3rd RA bill (MDPE)"
+                        }
+                    }
+                ],
+                "Total Proceed Pdf": "2",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "2"
+            },
+            {
+                "from": "DHAVALSUTHAR@TORRENTGAS.COM",
+                "subject": "6000145705_For upload as old document reversed",
+                "email_date_time": "2026-03-14 07:03:55+00:00",
+                "process_date_time": "2026-03-16 17:48:39.733032",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "6000145705_Embrace Gas Pip_EGPONM2526237_103520.pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000002131",
+                        "PDF_FileName": "6000145705_Embrace Gas Pip_EGPONM2526237_103520.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "1",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "0"
+            },
+            {
+                "from": "kishore@geofast.com",
+                "subject": "RE: Request for SES/GRN Creation on Priority \u2013 March Closing",
+                "email_date_time": "2026-03-16 08:01:13+00:00",
+                "process_date_time": "2026-03-16 17:48:49.755724",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "TGPH-125-25-26.pdf",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000002132",
+                        "PDF_FileName": "TGPH-125-25-26.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "1",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "0"
+            },
+            {
+                "from": "DHAVALSUTHAR@TORRENTGAS.COM",
+                "subject": "DCC Report Dump",
+                "email_date_time": "2026-03-16 11:53:29+00:00",
+                "process_date_time": "2026-03-16 17:48:59.156669",
+                "attchments": {
+                    "pdfs": []
+                },
+                "result": [],
+                "Total Proceed Pdf": "0",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            },
+            {
+                "from": "vijayraajm@torrentgas.com",
+                "subject": "RE: IO Document_Parked but physical document still not received",
+                "email_date_time": "2026-03-16 12:10:21+00:00",
+                "process_date_time": "2026-03-16 17:48:59.171020",
+                "attchments": {
+                    "pdfs": []
+                },
+                "result": [],
+                "Total Proceed Pdf": "0",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            },
+            {
+                "from": "gandhidham@shreeshipping.in",
+                "subject": "RE: Invoices and Credit Note -- For PO no RJJA/P01/1800585/36300899 , RJKT/P01/1800585/36300898 , RJDP/P01/1800585/36300900 ",
+                "email_date_time": "2026-03-16 12:12:57+00:00",
+                "process_date_time": "2026-03-16 17:48:59.189894",
+                "attchments": {
+                    "pdfs": []
+                },
+                "result": [],
+                "Total Proceed Pdf": "0",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 15168",
+            "3. Start Process - 2026-03-16 17:46:45.231575",
+            "4. Reading New Emails From Cloude...",
+            "5. 11 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: RE: Torrent Gas Outstanding  - Proton Facility  ",
+            ">> !!! Email Already Proceed.",
+            ">> 1 - Email Proceed.",
+            ">> 2 - Email Processing...",
+            ">> Subject: RE: Daily Parking and post Tracker ",
+            ">> 0 - Attachment Found!",
+            ">> 2 - Email Proceed.",
+            ">> 3 - Email Processing...",
+            ">> Subject: CALL-226_DISPATCHED DETAILS_SER192/25-26_10.03.2026_TORRENT GAS CHENNAI PVT LTD (TN) - THIRUVALLUR ",
+            ">> 5 Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (challan.pdf) Processing...",
+            "ERROR(Not Invoice Document!): 25",
+            ">> (challan.pdf) Proceed!",
+            ">> (E-Way Bill System Return.pdf) Processing...",
+            "ERROR(Not Invoice Document!): 25",
+            ">> (E-Way Bill System Return.pdf) Proceed!",
+            ">> (INEL Calibration Request form_R04.pdf) Processing...",
+            "ERROR(Not Invoice Document!): 25",
+            ">> (INEL Calibration Request form_R04.pdf) Proceed!",
+            ">> (Inspection Report.pdf) Processing...",
+            "ERROR(Not Invoice Document!): 25",
+            ">> (Inspection Report.pdf) Proceed!",
+            ">> (SER192.pdf) Processing...",
+            ">> (SER192.pdf) Proceed!",
+            ">> 3 - Email Proceed.",
+            ">> 4 - Email Processing...",
+            ">> Subject: Invoice not received from Kirloskar ",
+            ">> 0 - Attachment Found!",
+            ">> 4 - Email Proceed.",
+            ">> 5 - Email Processing...",
+            ">> Subject: RE:  Physical Documents Records FTP of  Feb-26 ",
+            ">> 0 - Attachment Found!",
+            ">> 5 - Email Proceed.",
+            ">> 6 - Email Processing...",
+            ">> Subject: Submission of 3rd RA bill (MDPE) ",
+            ">> 2 Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (MDPE 3RD RA.pdf) Processing...",
+            "ERROR(Not Invoice Document!): 25",
+            ">> (MDPE 3RD RA.pdf) Proceed!",
+            ">> (RA Bill -03 (47 Customer).pdf) Processing...",
+            "ERROR(Not Invoice Document!): 25",
+            ">> (RA Bill -03 (47 Customer).pdf) Proceed!",
+            ">> 6 - Email Proceed.",
+            ">> 7 - Email Processing...",
+            ">> Subject: 6000145705_For upload as old document reversed ",
+            ">> 1 Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (6000145705_Embrace Gas Pip_EGPONM2526237_103520.pdf) Processing...",
+            ">> (6000145705_Embrace Gas Pip_EGPONM2526237_103520.pdf) Proceed!",
+            ">> 7 - Email Proceed.",
+            ">> 8 - Email Processing...",
+            ">> Subject: RE: Request for SES/GRN Creation on Priority \u2013 March Closing ",
+            ">> 1 Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (TGPH-125-25-26.pdf) Processing...",
+            ">> (TGPH-125-25-26.pdf) Proceed!",
+            ">> 8 - Email Proceed.",
+            ">> 9 - Email Processing...",
+            ">> Subject: DCC Report Dump ",
+            ">> 0 - Attachment Found!",
+            ">> 9 - Email Proceed.",
+            ">> 10 - Email Processing...",
+            ">> Subject: RE: IO Document_Parked but physical document still not received ",
+            ">> 0 - Attachment Found!",
+            ">> 10 - Email Proceed.",
+            ">> 11 - Email Processing...",
+            ">> Subject: RE: Invoices and Credit Note -- For PO no RJJA/P01/1800585/36300899 , RJKT/P01/1800585/36300898 , RJDP/P01/1800585/36300900  ",
+            ">> 0 - Attachment Found!",
+            ">> 11 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process not completed normally its terminate"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADJlNDU0NDFhLTVhMTUtNDUxYy1hODM5LWJhM2FlM2QxNzY2NQBGAAAAAAC9s70Y2dotQrZCAtEZylaNBwCxhD1TlNm_T5GU2HoWBeCoAAAAAAEMAACxhD1TlNm_T5GU2HoWBeCoAARZ9lRPAAA=",
+            "email_date_time": "2026-03-16 12:12:57+00:00"
+        }
     }
 ]
