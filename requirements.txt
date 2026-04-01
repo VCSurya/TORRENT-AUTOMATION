@@ -16,3 +16,4 @@ apscheduler
 Pillow
 pyHanko
 gunicorn
+mysql-connector-python

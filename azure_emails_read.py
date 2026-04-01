@@ -12,7 +12,6 @@ import json
 from pyhanko.sign.fields import enumerate_sig_fields
 from pyhanko.pdf_utils.reader import PdfFileReader
 from main import process_pdf
-from dotenv import load_dotenv
 import time
 import copy
 from PIL import Image
@@ -20,32 +19,38 @@ from pypdf import PdfReader
 import shutil
 from pathlib import Path
 from typing import List
+from database import get_env_data_from_db,db_cud
 
-load_dotenv()
+
 # =============================
 #  CONFIGURATION (UPDATE SECRET)
 # =============================
  
 EMAIL_LOGS = []
-CLIENT_ID = os.getenv("CLIENT_ID")
-CLIENT_SECRET = os.getenv("CLIENT_SECRET")
-TENANT_ID = os.getenv("TENANT_ID")
-SCOPES = [f"{os.getenv("SCOPES_URL")}"]
-USER_ID = os.getenv("USER_ID")
 
-# =============================
-#  AUTHENTICATE CLIENT
-# =============================
- 
-credential = ClientSecretCredential(
-    tenant_id=TENANT_ID,
-    client_id=CLIENT_ID,
-    client_secret=CLIENT_SECRET
-)
- 
-graph_client = GraphServiceClient(credential, scopes=SCOPES)
+ENV_DATA = {}
 
 async def get_folder_names():
+
+    CLIENT_ID = ENV_DATA.get("data").get("CLIENT_ID")
+    CLIENT_SECRET = ENV_DATA.get("data").get("CLIENT_SECRET")
+    TENANT_ID = ENV_DATA.get("data").get("TENANT_ID")
+    SCOPES = [f"{ENV_DATA.get("data").get("SCOPES_URL")}"]
+    USER_ID = ENV_DATA.get("data").get("USER_ID")
+
+    # =============================
+    #  AUTHENTICATE CLIENT
+    # =============================
+    
+    credential = ClientSecretCredential(
+        tenant_id=TENANT_ID,
+        client_id=CLIENT_ID,
+        client_secret=CLIENT_SECRET
+    )
+    
+    graph_client = GraphServiceClient(credential, scopes=SCOPES)
+
+
     folders_response = await graph_client.users.by_user_id(USER_ID).mail_folders.get()
     print(folders_response)
     folder_names = [folder.display_name for folder in folders_response.value]
@@ -54,7 +59,7 @@ async def get_folder_names():
 
 def is_image(filename: str) -> bool:
     ext = filename.lower().split(".")[-1]
-    return True if ext in os.getenv("IMAGE_EXTS") else False
+    return True if ext in ENV_DATA.get("data").get("IMAGE_EXTS") else False
 
 def update_json_file(file_path: str, new_data: dict) -> bool:
     try:
@@ -264,6 +269,24 @@ def verify_signatures(pdf_path):
 # =============================
 async def fetch_messages_with_filter(threshold_iso: str, max_count: int = 100):
  
+    CLIENT_ID = ENV_DATA.get("data").get("CLIENT_ID")
+    CLIENT_SECRET = ENV_DATA.get("data").get("CLIENT_SECRET")
+    TENANT_ID = ENV_DATA.get("data").get("TENANT_ID")
+    SCOPES = [f"{ENV_DATA.get("data").get("SCOPES_URL")}"]
+    USER_ID = ENV_DATA.get("data").get("USER_ID")
+
+    # =============================
+    #  AUTHENTICATE CLIENT
+    # =============================
+    
+    credential = ClientSecretCredential(
+        tenant_id=TENANT_ID,
+        client_id=CLIENT_ID,
+        client_secret=CLIENT_SECRET
+    )
+    
+    graph_client = GraphServiceClient(credential, scopes=SCOPES)
+
     print(f"\nFetching messages received after: {threshold_iso}")
  
     query_params = MessagesRequestBuilder.MessagesRequestBuilderGetQueryParameters(
@@ -316,6 +339,7 @@ async def process_filtered_emails(shared_data):
  
     try:
 
+       
         start_time = time.time()
 
         bot_opration = {
@@ -325,11 +349,17 @@ async def process_filtered_emails(shared_data):
 
         shared_data["status"].append(f"3. Start Process - {str(datetime.now())}")
         
-
-
         with open("latest/latest_proceed_email.json", "r") as file:
             data = json.load(file)
 
+        global ENV_DATA
+
+        ENV_DATA = get_env_data_from_db()
+        
+        if not ENV_DATA.get('success'):
+            shared_data["status"].append(f"Error Database - {str(ENV_DATA.get('error'))}")
+            raise Exception(f"Error Database Connection - {str(ENV_DATA.get('error'))}")
+        
         # ============
         # SET THRESHOLD
         # ============
@@ -484,23 +514,46 @@ async def process_filtered_emails(shared_data):
                             if response['status']:
 
                                 if response['json']['ErrorType'] == "S":
+                                    
+                                    # INSERT INTO pdf_logs
+                                    # `type`,sender_mail_id,sender_mail_datetime,subject,document_name,flag
+                                        
+                                    querry = f'INSERT INTO pdf_logs (type,sender_mail_id,sender_mail_datetime,subject,document_name,flag) VALUES (1,"{email_data['vandor_email']}","{datetime.strptime(email_data['email_date_time'], '%d/%m/%Y %H:%M')}","{email_data['email_subject']}","{filename}",1)'
+                                    
+
                                     success += 1
                                     latest_opration_data['Success Proceed Pdf'] = email_data['Success Proceed Pdf'] = str(success)
                                     
                                 else:
+                                    # INSERT INTO pdf_logs
+                                    # `type`,sender_mail_id,sender_mail_datetime,subject,document_name,flag,reason
+
+                                    querry = f'INSERT INTO pdf_logs (type,sender_mail_id,sender_mail_datetime,subject,document_name,flag,reason) VALUES (1,"{email_data['vandor_email']}","{datetime.strptime(email_data['email_date_time'], '%d/%m/%Y %H:%M')}","{email_data['email_subject']}","{filename}",2,"ERROR({response['json']['ErrorNo']}): {response['json']['ErrorMsg']}")'
+                                    
+                                   
                                     shared_data["status"].append(f"ERROR({response['json']['ErrorMsg']}): {response['json']['ErrorNo']}")
                                     error += 1
                                     latest_opration_data['Error Proceed Pdf'] = email_data['Error Proceed Pdf'] = str(error)
+
+                                
 
                                 response.pop("json")
                                 latest_opration_data['result'].append(response)
 
                             else:
+                                # INSERT INTO pdf_logs
+                                # `type`,sender_mail_id,sender_mail_datetime,subject,document_name,flag,reason
                                 
+                                querry = f'INSERT INTO pdf_logs (type,sender_mail_id,sender_mail_datetime,subject,document_name,flag,reason) VALUES (1,"{email_data['vandor_email']}","{datetime.strptime(email_data['email_date_time'], '%d/%m/%Y %H:%M')}","{email_data['email_subject']}","{filename}",2,"ERROR({response['json']['ErrorNo']}): {response['json']['ErrorMsg']}")'
+
                                 shared_data["status"].append(f"ERROR({response['json']['ErrorMsg']}): {response['json']['ErrorNo']}")
                                 latest_opration_data['result'].append(response)
                                 error += 1
                                 latest_opration_data['Error Proceed Pdf'] = email_data['Error Proceed Pdf'] = str(error)
+                            
+                            r = db_cud(querry)
+                            if not r.get('success'):
+                                shared_data["status"].append(f"ERROR: {r.get('error')}")
 
                             shared_data["proceed_emails"][str(message.id)] = latest_opration_data
                             shared_data["last_visited_email_detailes"] = latest_opration_data 
@@ -535,9 +588,7 @@ async def process_filtered_emails(shared_data):
         shared_data["status"].append(f"*Exception Error* 129: {odata_error.error.code} - {odata_error.error.message}")
         
 
-    except:
-        import traceback
-        e =  traceback.format_exc()
+    except Exception as e:
         EMAIL_LOGS.append(f"128: {str(e)}")
         shared_data["status"].append(f"*Exception Error* 128: {str(e)}")
 

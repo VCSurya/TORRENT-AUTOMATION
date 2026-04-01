@@ -12,22 +12,20 @@ import azure_emails_read
 import configparser
 import multiprocessing
 from flask_cors import  CORS
-from dotenv import load_dotenv
 from datetime import datetime,timezone,timedelta
 from apscheduler.schedulers.background import BackgroundScheduler
 from flask import Flask, request, jsonify,render_template,send_file,redirect,url_for
 from flask_login import LoginManager,login_user,login_required,logout_user,UserMixin,current_user
 from PIL import Image
 import tempfile
-
+from database import get_env_data_from_db,db_cud
 app = Flask(__name__)
 
 CORS(app)
 
 app.secret_key = "TGPL_SURYA"
 
-config = configparser.ConfigParser()
-config.read("login.ini")
+config = configparser.ConfigParser() # definer
 
 login_manger = LoginManager(app)
 login_manger.login_view = "home"
@@ -41,6 +39,7 @@ scheduler.start()
 ENV_FILE = ".env"
 
 #--------------------- ALL FUNCTIONS DEFINE HERE ---------------------
+
 
 def hash_password(password: str) -> str:
     # Encode the password and compute SHA-256 hash
@@ -65,7 +64,7 @@ def load_env():
     """Load environment variables from .env"""
     if not os.path.exists(ENV_FILE):
         open(ENV_FILE, 'w').close()  # create empty if not exists
-    load_dotenv(ENV_FILE)
+
 
 def read_env():
     """Return all env vars as a dictionary"""
@@ -216,7 +215,11 @@ async def update_manual_logs(result):
 
             else:
                 result['Date'] = datetime.strptime(result.get("json").get('CreatedOn'), "%Y%m%d").strftime("%d/%m/%Y")
-                result['Time'] = result.get("json").get('CreatedOnTime')
+                result['Time'] = str(datetime.now()) if result.get("json").get('CreatedOnTime') == "" else result.get("json").get('CreatedOnTime')
+                result['PDF_FileName'] = result.get("PDF_FileName")
+                result['error'] = result.get("json").get("ErrorMsg")
+                result['error_code'] = result.get("json").get("ErrorNo")
+                
                 existing_logs.append(result)
 
             with open("latest/upload_pdf_logs.json", "w") as f:
@@ -433,7 +436,7 @@ def simple_recreate_bot():
     except Exception as e:
         return {"status":False,"error":str(e)}
 
-def default():
+def default():  # start point 
     global scheduler,shared_data
     shared_data = None
     scheduler.remove_all_jobs()
@@ -690,13 +693,28 @@ def upload_pdf():
                             "SourceOfDoc":""
             }
             
-            load_dotenv(override=True)
+
             importlib.reload(main)
             result = main.process_pdf(os.path.abspath(file_path),email_data,'MANUAL',Mode_Of_Entry,Created_On,Created_By)
-            
+
             ### Note: if success is X means true and "" means false
 
             asyncio.run(update_manual_logs(result))
+
+            # save logs in database
+            try:
+                # INSERT INTO pdf_logs
+                # type,document_name,flag,reason
+                
+                flag = 1 if result.get('json').get('ErrorType',None) == "S" else 2
+                reason = "" if result.get('json').get('ErrorType',None)  == "S" else f"ERROR({result['json']['ErrorNo']}): {result['json']['ErrorMsg']}" 
+                querry = f'INSERT INTO pdf_logs (type,document_name,flag,reason) VALUES (2,"{pdf_name}",{flag},"{reason}")' 
+                r = db_cud(querry)
+                if not r.get('success'):
+                    print(r.get('error'))
+                
+            except:
+                pass
 
             if result['status']:
 
@@ -713,7 +731,7 @@ def upload_pdf():
                 return jsonify({'success':"",'InwardRefNo':result.get('no') if result.get('no') else "",'error':f"{result['json']['ErrorNo']}: {result['json']['ErrorMsg']}" if result['json']['ErrorMsg'] or result['json']['ErrorNo'] else f"440 : Somthing Went Wrong At Server Side!",'Status':result.get('json').get('Status',None)}), 501
     
 
-        return jsonify({'success':"", "error": f"Somthing Went Wrong At Server Side, Try Again!"}), 500
+        return jsonify({'success':"", "error": f"Somthing Went Wrong At Server Side, Try Again!"}), 504
 
     except:
         return jsonify({'success':"", "error": f"Somthing Went Wrong At Server Side, Try Again!"}), 500
@@ -724,13 +742,14 @@ def upload_pdf():
 @login_required
 def env_get_configuration():
     try:
-        data = read_env()
+        
+        response = get_env_data_from_db("SELECT `key`,`value` FROM `user`")
+        
+        if response.get('success'):
+            return render_template("configuration.html",data=response.get('data'))
 
-        # data['SCOPES'] = data['SCOPES'].replace("[","").replace("]","").replace("'",'').replace('"',"")
-        data.pop('SCOPES')
-
-        return render_template("configuration.html",data=data)
-
+        return jsonify(response.get('error'))
+        
     except Exception as e:
         return jsonify(str(e))
 
@@ -739,14 +758,19 @@ def env_get_configuration():
 def update_configuration():
     try:
         data = request.get_json()
-        env_data = read_env()
 
         kay_name = data.get("kay_name")
-        list_of_keys = list(env_data.keys())
+
+        response = get_env_data_from_db("SELECT `key`,`value` FROM `user`")
+        
+        if not response.get('success'):
+            return {"success":False,"error":f"{str(response.get('error'))}"}
+
+        list_of_keys = list(response.get('data').keys())
 
         if kay_name in list_of_keys:
                 
-            update_env(kay_name,data.get("key_value"))
+            db_cud(f"UPDATE `user` SET `value` = '{data.get("key_value")}' WHERE `key` = '{kay_name}' ")
             
             return {"success":True,"msg":"Update Sucessfully!"}
         else:
@@ -755,8 +779,6 @@ def update_configuration():
     except Exception as e:
         return {"success":False,"error":f"{str(e)}"}
 
-    finally:
-        load_dotenv(override=True)
 
         
 @app.route('/edit-prompt', methods=['POST'])
@@ -920,6 +942,7 @@ def custom_logs():
     except Exception as e:
         return{"error":str(e)}
 
+# email scanning starting point
 @app.route("/latest-proceed-email",methods=['GET','POST'])
 @login_required
 def latest_proceed_email():
@@ -954,13 +977,21 @@ def latest_proceed_email():
     except Exception as e:
         return {"success":False,"error":str(e)}
 
+# load dashbored page
 @app.route("/apple")
 @login_required
 def apple():
-    load_dotenv()
-    email = os.getenv("USER_ID")
+    
+    ENV_DATA = get_env_data_from_db("SELECT `key`,`value` FROM `user` WHERE `key`='username' or `key` = 'password' or `key` = 'USER_ID'")
+
+    if ENV_DATA.get('success'):
+        email = ENV_DATA.get("data").get("USER_ID")
+    else: 
+        email = ENV_DATA.get("error")
+    
     return render_template("index.html",email=email)
 
+# flask trigger point
 @app.route("/")
 def home():
     if current_user.is_authenticated:
@@ -993,8 +1024,13 @@ def login():
     username = data["username"]
     password = data["password"]
 
+    ENV_DATA = get_env_data_from_db("SELECT `key`,`value` FROM `user` WHERE `key`='username' or `key` = 'password' or `key` = 'USER_ID'")
 
-    if username == config['LOGIN']['username'] and hash_password(config['LOGIN']['password']) == password:
+    if not ENV_DATA.get('success'):
+        return jsonify({"error": ENV_DATA.get('error')}), 401
+
+
+    if username == ENV_DATA.get("data").get("username") and hash_password(ENV_DATA.get("data").get("password")) == password:
         
         user = User(username)
         login_user(user)
@@ -1012,6 +1048,7 @@ def page_not_found(e):
     else:
         return redirect(url_for("home"))  # login page route
 
+default()
 
 if __name__ == '__main__':
 

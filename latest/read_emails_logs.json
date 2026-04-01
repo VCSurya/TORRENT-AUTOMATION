@@ -1019,5 +1019,779 @@
             "id": "AAMkADJlNDU0NDFhLTVhMTUtNDUxYy1hODM5LWJhM2FlM2QxNzY2NQBGAAAAAAC9s70Y2dotQrZCAtEZylaNBwCxhD1TlNm_T5GU2HoWBeCoAAAAAAEMAACxhD1TlNm_T5GU2HoWBeCoAARZ9lRPAAA=",
             "email_date_time": "2026-03-16 12:12:57+00:00"
         }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "himanshupatel@torrentgas.com",
+                "subject": "Invoice",
+                "email_date_time": "2026-03-30 11:05:30+00:00",
+                "process_date_time": "2026-03-31 10:40:19.520539",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "6000147937_TGT Fuel Techno_252606679_105732.pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000002156",
+                        "PDF_FileName": "6000147937_TGT Fuel Techno_252606679_105732.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "1",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 18976",
+            "3. Start Process - 2026-03-31 10:40:15.415486",
+            "4. Reading New Emails From Cloude...",
+            "5. 1 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: Invoice ",
+            ">> 1 Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (6000147937_TGT Fuel Techno_252606679_105732.pdf) Processing...",
+            ">> (6000147937_TGT Fuel Techno_252606679_105732.pdf) Proceed!",
+            ">> 1 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAABNitVOAAA=",
+            "email_date_time": "2026-03-30 11:05:30+00:00"
+        }
+    },
+    {
+        "proceed_emails": [],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 17092",
+            "3. Error Database - None",
+            "3. Start Process - 2026-03-31 11:19:25.616315",
+            "4. Reading New Emails From Cloude...",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {}
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "himanshupatel@torrentgas.com",
+                "subject": "Invoice",
+                "email_date_time": "2026-03-30 11:05:30+00:00",
+                "process_date_time": "2026-03-31 11:20:07.672080",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "6000147937_TGT Fuel Techno_252606679_105732.pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000002158",
+                        "PDF_FileName": "6000147937_TGT Fuel Techno_252606679_105732.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "1",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 5160",
+            "3. Error Database - None",
+            "3. Start Process - 2026-03-31 11:20:04.606889",
+            "4. Reading New Emails From Cloude...",
+            "5. 1 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: Invoice ",
+            ">> 1 Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (6000147937_TGT Fuel Techno_252606679_105732.pdf) Processing...",
+            ">> (6000147937_TGT Fuel Techno_252606679_105732.pdf) Proceed!",
+            ">> 1 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAABNitVOAAA=",
+            "email_date_time": "2026-03-30 11:05:30+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "himanshupatel@torrentgas.com",
+                "subject": "Invoice",
+                "email_date_time": "2026-03-30 11:05:30+00:00",
+                "process_date_time": "2026-03-31 15:06:55.653215",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "6000147937_TGT Fuel Techno_252606679_105732.pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000002163",
+                        "PDF_FileName": "6000147937_TGT Fuel Techno_252606679_105732.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "1",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 7544",
+            "3. Error Database - None",
+            "3. Start Process - 2026-03-31 15:06:52.340032",
+            "4. Reading New Emails From Cloude...",
+            "5. 1 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: Invoice ",
+            ">> 1 Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (6000147937_TGT Fuel Techno_252606679_105732.pdf) Processing...",
+            "ERROR: 1292 (22007): Incorrect datetime value: '30/03/2026 16:35' for column 'sender_mail_datetime' at row 1",
+            ">> (6000147937_TGT Fuel Techno_252606679_105732.pdf) Proceed!",
+            ">> 1 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAABNitVOAAA=",
+            "email_date_time": "2026-03-30 11:05:30+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "himanshupatel@torrentgas.com",
+                "subject": "Invoice",
+                "email_date_time": "2026-03-30 11:05:30+00:00",
+                "process_date_time": "2026-03-31 15:13:59.038119",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "6000147937_TGT Fuel Techno_252606679_105732.pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000002164",
+                        "PDF_FileName": "6000147937_TGT Fuel Techno_252606679_105732.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "1",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 1900",
+            "3. Error Database - None",
+            "3. Start Process - 2026-03-31 15:13:55.546530",
+            "4. Reading New Emails From Cloude...",
+            "5. 1 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: Invoice ",
+            ">> 1 Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (6000147937_TGT Fuel Techno_252606679_105732.pdf) Processing...",
+            ">> (6000147937_TGT Fuel Techno_252606679_105732.pdf) Proceed!",
+            ">> 1 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAABNitVOAAA=",
+            "email_date_time": "2026-03-30 11:05:30+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "himanshupatel@torrentgas.com",
+                "subject": "Invoice",
+                "email_date_time": "2026-03-30 11:05:30+00:00",
+                "process_date_time": "2026-03-31 15:15:10.759883",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "6000147937_TGT Fuel Techno_252606679_105732.pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000002165",
+                        "PDF_FileName": "6000147937_TGT Fuel Techno_252606679_105732.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "1",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 19144",
+            "3. Error Database - None",
+            "3. Start Process - 2026-03-31 15:15:08.372620",
+            "4. Reading New Emails From Cloude...",
+            "5. 1 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: Invoice ",
+            ">> 1 Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (6000147937_TGT Fuel Techno_252606679_105732.pdf) Processing...",
+            ">> (6000147937_TGT Fuel Techno_252606679_105732.pdf) Proceed!",
+            ">> 1 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAABNitVOAAA=",
+            "email_date_time": "2026-03-30 11:05:30+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "himanshupatel@torrentgas.com",
+                "subject": "Invoice",
+                "email_date_time": "2026-03-30 11:05:30+00:00",
+                "process_date_time": "2026-03-31 15:16:27.888058",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "6000147937_TGT Fuel Techno_252606679_105732.pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": false,
+                        "error": "In SAP API CSRF Token Not Found!",
+                        "logs": [
+                            "Step 0 (2): Process PDF Function Called.",
+                            "Step 1 (3): Process PDF Filename: 60001479Process PDF Filename:7_TGT Fuel Techno_252606679_1057Process PDF Filename:2.pdf",
+                            "Step 2 (4): Calling AZURE...",
+                            "Step 3 (5): AZURE Text Extrected",
+                            "Step 4 (6): Calculate Text Each Word Cordinates",
+                            "Step 5 (7): Extraction Complete!",
+                            "Step 6 (8): OPEN AI Function Calling...",
+                            "Step 7 (9): Responsed Open AI API",
+                            "Step 8 (10): >>> Open AI Returned JSON",
+                            "Step 9 (11): Calling Final JSON Formating Function...",
+                            "Step 10 (112): Failed to fetch CSRF token Durring GET PAN Numbers",
+                            "Step 11 (113): CSRF Token Status Code: 403",
+                            "Step 12 (114): CSRF Token Request Response: {\"error\":{\"code\":\"/IWFND/MED/170\",\"message\":{\"lang\":\"en\",\"value\":\"No service found for namespace '', name 'ZFI_DCC_PORTAL_SRV6', version '0001'\"},\"innererror\":{\"application\":{\"component_id\":\"\",\"service_namespace\":\"/SAP/\",\"service_id\":\"ZFI_DCC_PORTAL_SRV6\",\"service_version\":\"0001\"},\"transactionid\":\"A02E4A89C4DB0120E0069CAD7F93DEEE\",\"timestamp\":\"20260331094641.7858740\",\"Error_Resolution\":{\"SAP_Transaction\":\"For backend administrators: use ADT feed reader \\\"SAP Gateway Error Log\\\" or run transaction /IWFND/ERROR_LOG on SAP Gateway hub system and search for entries with the timestamp above for more details\",\"SAP_Note\":\"See SAP Note 1797736 for error analysis (https://service.sap.com/sap/support/notes/1797736)\"},\"errordetails\":[]}}}",
+                            "Step 13 (112): Failed to fetch CSRF token Durring GET PAN Numbers",
+                            "Step 14 (113): CSRF Token Status Code: 403",
+                            "Step 15 (114): CSRF Token Request Response: {\"error\":{\"code\":\"/IWFND/MED/170\",\"message\":{\"lang\":\"en\",\"value\":\"No service found for namespace '', name 'ZFI_DCC_PORTAL_SRV6', version '0001'\"},\"innererror\":{\"application\":{\"component_id\":\"\",\"service_namespace\":\"/SAP/\",\"service_id\":\"ZFI_DCC_PORTAL_SRV6\",\"service_version\":\"0001\"},\"transactionid\":\"A02E4A89C4DB0120E0069CAD7F93DEF0\",\"timestamp\":\"20260331094641.9516120\",\"Error_Resolution\":{\"SAP_Transaction\":\"For backend administrators: use ADT feed reader \\\"SAP Gateway Error Log\\\" or run transaction /IWFND/ERROR_LOG on SAP Gateway hub system and search for entries with the timestamp above for more details\",\"SAP_Note\":\"See SAP Note 1797736 for error analysis (https://service.sap.com/sap/support/notes/1797736)\"},\"errordetails\":[]}}}",
+                            "Step 16 (22): Find Closest SCS/GRN For: 6-1479.37",
+                            "Step 17 (12): Respons From Final JSON Formating Function: {'status': True}",
+                            "Step 18 (13): Final SAP JSON Ready To POST",
+                            "Step 19 (112): Failed to fetch CSRF token",
+                            "Step 20 (113): CSRF Token Status Code: 403",
+                            "Step 21 (114): CSRF Token Request Response: <?xml version=\"1.0\" encoding=\"utf-8\"?><error xmlns=\"http://schemas.microsoft.com/ado/2007/08/dataservices/metadata\"><code>/IWFND/MED/170</code><message xml:lang=\"en\">No service found for namespace '', name 'ZFI_DCC_PORTAL_SRV6', version '0001'</message><innererror><application><component_id/><service_namespace>/SAP/</service_namespace><service_id>ZFI_DCC_PORTAL_SRV6</service_id><service_version>0001</service_version></application><transactionid>A02E4A89C4DB0120E0069CAD7F93DEF4</transactionid><timestamp>20260331094642.2857760</timestamp><Error_Resolution><SAP_Transaction>For backend administrators: use ADT feed reader \"SAP Gateway Error Log\" or run transaction /IWFND/ERROR_LOG on SAP Gateway hub system and search for entries with the timestamp above for more details</SAP_Transaction><SAP_Note>See SAP Note 1797736 for error analysis (https://service.sap.com/sap/support/notes/1797736)</SAP_Note></Error_Resolution><errordetails/></innererror></error>",
+                            "Step 22 (21): Operation Successfull! >>>>"
+                        ],
+                        "json": {
+                            "InwardRefNo": "",
+                            "SourceOfDoc": "EMAIL",
+                            "DocMailPerson": "himanshupatel@torrentgas.com",
+                            "InwardDate": "",
+                            "PoLpo": "",
+                            "GaName": "",
+                            "CompanyGstinPdf": "27AAGCT7889P1Z3",
+                            "CCompanyGstinPdf": "1,113.33,401.39,62.13,6.88",
+                            "CompanyGstinSap": "",
+                            "VendorName": "",
+                            "VendorGstin": "06AACCT2325C1ZX",
+                            "CVendorGstin": "1,91.69,184.38,62.40,7.39",
+                            "InvoiceNo": "252606679",
+                            "CInvoiceNo": "1,116.34,254.17,38.86,7.24",
+                            "InvoiceDate": "20260209",
+                            "CInvoiceDate": "1,114.39,268.04,38.89,7.44",
+                            "InvoiceAmount": "7434.00",
+                            "CInvoiceAmount": "1,535.95,604.01,24.94,6.60",
+                            "PoLpoIoNoPdf": "99002036",
+                            "CPoLpoIoNo": "1,353.92,253.16,81.24,6.96",
+                            "IrnNo": "c1dc8107bcb33059f8c6514b728a474830a96790584478d6ca16f1f424789911",
+                            "CIrnNo": "1,86.94,206.54,228.64,7.82",
+                            "MsmeNo": "",
+                            "Status": "Draft",
+                            "ModeOfEntry": "BOT",
+                            "CreatedOn": "20260331",
+                            "CreatedBy": "BOT",
+                            "ChangedOn": "",
+                            "ChangedBy": "",
+                            "FileName": "6000147937_TGT Fuel Techno_252606679_105732.pdf",
+                            "ErrorNo": "112",
+                            "ErrorMsg": "In SAP API CSRF Token Not Found!",
+                            "ErrorType": "E",
+                            "Flag": "A",
+                            "IndCompanygstinpdf": "PDF",
+                            "IndVendorgstinpdf": "PDF",
+                            "IndInvoiceno": "PDF",
+                            "IndInvoicedate": "PDF",
+                            "IndInvoiceamount": "PDF",
+                            "IndIrnno": "PDF",
+                            "CreatedOnTime": "15:16:42",
+                            "CQrCode": "",
+                            "TypeOfInvoice": "NON DIGITAL",
+                            "DCCHEADERTODCCSES": [
+                                {
+                                    "InwardRefNo": "",
+                                    "PoNo": "99002036",
+                                    "SesGrnScrollNoPdf": "6001479.37",
+                                    "ItemNo": "1",
+                                    "SesGrnScrollNoSap": "",
+                                    "ParkDocNo": "",
+                                    "Amount": "",
+                                    "CreatedOn": "20260331",
+                                    "Zindicator": "",
+                                    "CreatedBy": "BOT",
+                                    "CSesGrnScrollNoPdf": "1,235.96,645.98,88.66,18.85",
+                                    "ChangedOn": "",
+                                    "ChangedBy": "",
+                                    "CreatedOnTime": "15:16:41"
+                                }
+                            ],
+                            "VendorEmailP": "himanshupatel@torrentgas.com",
+                            "EmailDateTimeP": "30/03/2026 16:35",
+                            "EmailSubjectP": "Invoice"
+                        },
+                        "PDF_FileName": "6000147937_TGT Fuel Techno_252606679_105732.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "1",
+                "Success Proceed Pdf": "0",
+                "Error Proceed Pdf": "1"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 19772",
+            "3. Error Database - None",
+            "3. Start Process - 2026-03-31 15:16:25.350564",
+            "4. Reading New Emails From Cloude...",
+            "5. 1 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: Invoice ",
+            ">> 1 Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (6000147937_TGT Fuel Techno_252606679_105732.pdf) Processing...",
+            "ERROR(In SAP API CSRF Token Not Found!): 112",
+            ">> (6000147937_TGT Fuel Techno_252606679_105732.pdf) Proceed!",
+            ">> 1 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAABNitVOAAA=",
+            "email_date_time": "2026-03-30 11:05:30+00:00"
+        }
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "lalitsoni@torrentgas.com",
+                "subject": "TORRENT PUNJAB  (1)_signed.pdf",
+                "email_date_time": "2026-02-25 09:19:32+00:00",
+                "process_date_time": "2026-03-31 15:22:49.222659",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "TORRENT PUNJAB  (1)_signed.pdf",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000002168",
+                        "PDF_FileName": "TORRENT PUNJAB  (1)_signed.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "1",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "0"
+            },
+            {
+                "from": "lalitsoni@torrentgas.com",
+                "subject": "FW: Invoice Not Received & Amount Mismatch",
+                "email_date_time": "2026-02-25 12:30:21+00:00",
+                "process_date_time": "2026-03-31 15:23:08.122543",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "252613419.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "252613420.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "252613421.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "252613422.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "252613423.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "252606920.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "252606921.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "252606922.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "252606932.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "252606933.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "252606934.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "252606935.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "252606936.pdf",
+                            "Digital Sign": true
+                        },
+                        {
+                            "filename": "252606937.pdf",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000002169",
+                        "PDF_FileName": "252606920.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000002170",
+                        "PDF_FileName": "252606921.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000002171",
+                        "PDF_FileName": "252606922.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000002172",
+                        "PDF_FileName": "252606932.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000002173",
+                        "PDF_FileName": "252606933.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000002174",
+                        "PDF_FileName": "252606934.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000002175",
+                        "PDF_FileName": "252606935.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000002176",
+                        "PDF_FileName": "252606936.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000002177",
+                        "PDF_FileName": "252606937.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000002178",
+                        "PDF_FileName": "252613419.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000002179",
+                        "PDF_FileName": "252613420.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000002180",
+                        "PDF_FileName": "252613421.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000002181",
+                        "PDF_FileName": "252613422.pdf"
+                    },
+                    {
+                        "status": true,
+                        "no": "0000002182",
+                        "PDF_FileName": "252613423.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "14",
+                "Success Proceed Pdf": "14",
+                "Error Proceed Pdf": "0"
+            },
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "test suresh devesh harsahal",
+                "email_date_time": "2026-03-02 13:16:25+00:00",
+                "process_date_time": "2026-03-31 15:25:22.103196",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "18-1.pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000002183",
+                        "PDF_FileName": "18-1.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "1",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "0"
+            },
+            {
+                "from": "sureshprajapati@torrentgas.com",
+                "subject": "test",
+                "email_date_time": "2026-03-25 06:56:20+00:00",
+                "process_date_time": "2026-03-31 15:25:32.994434",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "204_Canon_FF_IT2145026_02.pdf",
+                            "Digital Sign": true
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000002184",
+                        "PDF_FileName": "204_Canon_FF_IT2145026_02.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "1",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "0"
+            },
+            {
+                "from": "himanshupatel@torrentgas.com",
+                "subject": "Invoice",
+                "email_date_time": "2026-03-30 11:05:30+00:00",
+                "process_date_time": "2026-03-31 15:25:43.589127",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "6000147937_TGT Fuel Techno_252606679_105732.pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000002185",
+                        "PDF_FileName": "6000147937_TGT Fuel Techno_252606679_105732.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "1",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 20804",
+            "3. Error Database - None",
+            "3. Start Process - 2026-03-31 15:22:44.711765",
+            "4. Reading New Emails From Cloude...",
+            "5. 5 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: TORRENT PUNJAB  (1)_signed.pdf ",
+            ">> 1 Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (TORRENT PUNJAB  (1)_signed.pdf) Processing...",
+            ">> (TORRENT PUNJAB  (1)_signed.pdf) Proceed!",
+            ">> 1 - Email Proceed.",
+            ">> 2 - Email Processing...",
+            ">> Subject: FW: Invoice Not Received & Amount Mismatch ",
+            ">> 14 Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (252606920.pdf) Processing...",
+            ">> (252606920.pdf) Proceed!",
+            ">> (252606921.pdf) Processing...",
+            ">> (252606921.pdf) Proceed!",
+            ">> (252606922.pdf) Processing...",
+            ">> (252606922.pdf) Proceed!",
+            ">> (252606932.pdf) Processing...",
+            ">> (252606932.pdf) Proceed!",
+            ">> (252606933.pdf) Processing...",
+            ">> (252606933.pdf) Proceed!",
+            ">> (252606934.pdf) Processing...",
+            ">> (252606934.pdf) Proceed!",
+            ">> (252606935.pdf) Processing...",
+            ">> (252606935.pdf) Proceed!",
+            ">> (252606936.pdf) Processing...",
+            ">> (252606936.pdf) Proceed!",
+            ">> (252606937.pdf) Processing...",
+            ">> (252606937.pdf) Proceed!",
+            ">> (252613419.pdf) Processing...",
+            ">> (252613419.pdf) Proceed!",
+            ">> (252613420.pdf) Processing...",
+            ">> (252613420.pdf) Proceed!",
+            ">> (252613421.pdf) Processing...",
+            ">> (252613421.pdf) Proceed!",
+            ">> (252613422.pdf) Processing...",
+            ">> (252613422.pdf) Proceed!",
+            ">> (252613423.pdf) Processing...",
+            ">> (252613423.pdf) Proceed!",
+            ">> 2 - Email Proceed.",
+            ">> 3 - Email Processing...",
+            ">> Subject: test suresh devesh harsahal ",
+            ">> 1 Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (18-1.pdf) Processing...",
+            ">> (18-1.pdf) Proceed!",
+            ">> 3 - Email Proceed.",
+            ">> 4 - Email Processing...",
+            ">> Subject: test ",
+            ">> 1 Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (204_Canon_FF_IT2145026_02.pdf) Processing...",
+            ">> (204_Canon_FF_IT2145026_02.pdf) Proceed!",
+            ">> 4 - Email Proceed.",
+            ">> 5 - Email Processing...",
+            ">> Subject: Invoice ",
+            ">> 1 Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (6000147937_TGT Fuel Techno_252606679_105732.pdf) Processing...",
+            ">> (6000147937_TGT Fuel Techno_252606679_105732.pdf) Proceed!",
+            ">> 5 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAABNitVOAAA=",
+            "email_date_time": "2026-03-30 11:05:30+00:00"
+        }
+    },
+    {
+        "proceed_emails": [],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 9080",
+            "3. Start Process - 2026-04-01 13:50:10.749047",
+            "Error Database - 1044 (42000): Access denied for user 'devdccadmin'@'%' to database 'dcc_portal652'",
+            "*Exception Error* 128: Error Database Connection - 1044 (42000): Access denied for user 'devdccadmin'@'%' to database 'dcc_portal652'",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {}
+    },
+    {
+        "proceed_emails": [
+            {
+                "from": "himanshupatel@torrentgas.com",
+                "subject": "Invoice",
+                "email_date_time": "2026-03-30 11:05:30+00:00",
+                "process_date_time": "2026-04-01 13:51:26.136303",
+                "attchments": {
+                    "pdfs": [
+                        {
+                            "filename": "6000147937_TGT Fuel Techno_252606679_105732.pdf",
+                            "Digital Sign": false
+                        }
+                    ]
+                },
+                "result": [
+                    {
+                        "status": true,
+                        "no": "0000000795",
+                        "PDF_FileName": "6000147937_TGT Fuel Techno_252606679_105732.pdf"
+                    }
+                ],
+                "Total Proceed Pdf": "1",
+                "Success Proceed Pdf": "1",
+                "Error Proceed Pdf": "0"
+            }
+        ],
+        "status": [
+            "1. Process initializing",
+            "2. Started process PID: 15016",
+            "3. Start Process - 2026-04-01 13:51:20.090186",
+            "4. Reading New Emails From Cloude...",
+            "5. 1 - Emails Found",
+            ">> 1 - Email Processing...",
+            ">> Subject: Invoice ",
+            ">> 1 Attachment Found!",
+            ">> Attachments Processing...",
+            ">> (6000147937_TGT Fuel Techno_252606679_105732.pdf) Processing...",
+            ">> (6000147937_TGT Fuel Techno_252606679_105732.pdf) Proceed!",
+            ">> 1 - Email Proceed.",
+            "6. ALL Emails Procced Successfully.",
+            "-> Process completed normally"
+        ],
+        "last_visited_email_detailes": {
+            "id": "AAMkADZkNTE1NjRmLTBhMmUtNGYxMi1hMzA3LTJlZDRhNTc2MDg2NABGAAAAAADjb6-j1x8YSoFbzrtUnyC7BwDKzaMB0WqXQL45Af9gs5QsAAAAAAEMAADKzaMB0WqXQL45Af9gs5QsAABNitVOAAA=",
+            "email_date_time": "2026-03-30 11:05:30+00:00"
+        }
     }
 ]

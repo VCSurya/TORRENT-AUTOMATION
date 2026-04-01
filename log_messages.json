@@ -25,6 +25,7 @@
     "24": "PAN Numbers Found",
     "25": "Not Invoice",
     "26": "Po Validate from SAP",
+    "27": "Error connected to MySQL",
     "101": "Unhandled exception for:",
     "102": "Giving UP On Main Function:",
     "103": "Error Processing at AZURE Extraction Function",

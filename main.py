@@ -13,35 +13,22 @@ import traceback
 import concurrent.futures
 from qreader import QReader
 from datetime import datetime
-from dotenv import load_dotenv
 from openai import AzureOpenAI
 from itertools import combinations
 from pdf2image import convert_from_path,pdfinfo_from_path
 from difflib import SequenceMatcher,get_close_matches
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.documentintelligence import DocumentIntelligenceClient
+from database import get_env_data_from_db,db_cud
 
-load_dotenv()
 PROMPT_NO = 0
 LOGS = []
+
+
 # Get the directory where the current script is located
 SCRTPT_DIR = os.path.dirname(os.path.abspath(__file__))
-POPLOR_PATH = r"poppler-24.08.0\Library\bin"
-# POPLOR_PATH = "/usr/bin"
-
-# --- SAP URLs ---
-BASE_URL = os.getenv('SAP_BASE_URL')
-POST_URL = f"{BASE_URL}/{os.getenv('Z_TABLE_DATA_STORE_ENTETY_SET_NAME')}"
-ATTACHMENT_URL = f"{BASE_URL}/{os.getenv('DMS_DOCUMENT_SAVE_ENTETY_SET_NAME')}"
-# For CSRF token fetch, root or entityset is enough (no $expand needed)
-TOKEN_URL = f"{BASE_URL}/"
-
-# --- SAP Credentials ---
-SAP_USERNAME = os.getenv('SAP_USERNAME')   
-SAP_PASSWORD = os.getenv('SAP_PASSWORD')
-
-### >>> Load the PAN Numbers From TXT File
-PAN_NO_URL = f"{BASE_URL}/{os.getenv('GET_PAN_NUMBERS_ENTETY_SET_NAME')}"
+# POPLOR_PATH = r"poppler-24.08.0\Library\bin"
+POPLOR_PATH = "/usr/bin"
 
 pan_path  = os.path.join(SCRTPT_DIR, 'pan.txt')
 
@@ -58,30 +45,28 @@ http_client = httpx.Client(
     trust_env=True,   # safe even if you think no proxy
 )
 
-aoai_client = AzureOpenAI(
-    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"),
-    api_key = os.getenv("AZURE_OPENAI_KEY") ,
-    api_version="2024-02-01",
-    http_client=http_client,
-    timeout=30.0,
-    max_retries=1
-)
 
-def po_check_into_sap(po_no):
+
+
+def po_check_into_sap(po_no,ENV_DATA):
             
     try:
         
         url = f"PoNo eq '{po_no}'&$format=json"
         
-        PO_URL = f"{BASE_URL}/{os.getenv('GET_PO_NUMBERS_ENTETY_SET_NAME')}{url}"
+
+
+        PO_URL = f"{ENV_DATA.get("data").get('SAP_BASE_URL')}/{ENV_DATA.get("data").get('GET_PO_NUMBERS_ENTETY_SET_NAME')}{url}"
 
         session = requests.Session()
-
+        TOKEN_URL = f"{ENV_DATA.get("data").get('SAP_BASE_URL')}/"
+        SAP_USERNAME = ENV_DATA.get("data").get('SAP_USERNAME') 
+        SAP_PASSWORD = ENV_DATA.get("data").get('SAP_PASSWORD')
         # --- Step 1: Fetch CSRF Token ---
         token_response = session.get(
             TOKEN_URL,
             auth=(SAP_USERNAME, SAP_PASSWORD),
-            headers={"x-csrf-token": "Fetch","sap-client": os.getenv("SAP_CLIENT")},
+            headers={"x-csrf-token": "Fetch","sap-client": ENV_DATA.get("data").get("SAP_CLIENT")},
             verify=False
         )
 
@@ -116,10 +101,20 @@ def po_check_into_sap(po_no):
     except Exception as e:
         return False
 
-def call_model(prompt):
+def call_model(prompt,ENV_DATA):
     try:
+
+        aoai_client = AzureOpenAI(
+            azure_endpoint = ENV_DATA.get("data").get("AZURE_OPENAI_ENDPOINT"),
+            api_key = ENV_DATA.get("data").get("AZURE_OPENAI_KEY") ,
+            api_version="2024-02-01",
+            http_client=http_client,
+            timeout=30.0,
+            max_retries=1
+        )
+
         return aoai_client.chat.completions.create(
-            model= os.getenv("AZURE_OPENAI_DEPLOYMENT"),
+            model= ENV_DATA.get("data").get("AZURE_OPENAI_DEPLOYMENT"),
                 response_format={"type": "json_object"},  # 👈 Force valid JSON
                 messages=[
                     {
@@ -141,7 +136,7 @@ def call_model(prompt):
         LOGS.append(f"132 {traceback.print_exc()}")
         return {}
 
-def pan_numbers():
+def pan_numbers(ENV_DATA):
     
     pan_numbers = []
 
@@ -152,9 +147,12 @@ def pan_numbers():
         headers = {
             "x-csrf-token": "Fetch",
             "Accept": "application/json",
-            "sap-client": os.getenv("SAP_CLIENT")
+            "sap-client": ENV_DATA.get("data").get("SAP_CLIENT")
         }
 
+        SAP_USERNAME = ENV_DATA.get("data").get('SAP_USERNAME') 
+        SAP_PASSWORD = ENV_DATA.get("data").get('SAP_PASSWORD')
+        PAN_NO_URL = f"{ENV_DATA.get("data").get('SAP_BASE_URL')}/{ENV_DATA.get("data").get('GET_PAN_NUMBERS_ENTETY_SET_NAME')}"
 
         token_response = session.get(
             PAN_NO_URL,
@@ -304,13 +302,13 @@ def pdf_to_image(pdf_file_path):
         return {"status": False, "error": str(e), "error_code": "123"}
 
 # === Step 1: Extract text from Azure ===
-def azure_extract_text(pdf_file,manual = 0):
+def azure_extract_text(pdf_file,ENV_DATA,manual = 0):
     
         LOGS.append(f"4")
         try:
 
-            endpoint = os.getenv("AZURE_ENDPOINT")
-            key = os.getenv("AZURE_API_KEY")
+            endpoint = ENV_DATA.get("data").get("AZURE_ENDPOINT")
+            key = ENV_DATA.get("data").get("AZURE_API_KEY")
             # Create client
             client = DocumentIntelligenceClient(endpoint=endpoint, credential=AzureKeyCredential(key))
 
@@ -319,7 +317,7 @@ def azure_extract_text(pdf_file,manual = 0):
                 poller = client.begin_analyze_document(
                     model_id="prebuilt-layout",
                     body=f,
-                    pages=os.getenv('AT_EMAIL_PAGES') if manual == 0 else os.getenv('AT_MANUAL_PAGES')
+                    pages=ENV_DATA.get("data").get('AT_EMAIL_PAGES') if manual == 0 else ENV_DATA.get("data").get('AT_MANUAL_PAGES')
                 )
 
             result = poller.result()
@@ -379,7 +377,7 @@ def azure_extract_text(pdf_file,manual = 0):
             return {'status':False,'error':str(e), "error_code":"103"}
 
 # === Step 2: Send to LLM ===
-def format_with_llm(text):
+def format_with_llm(text,ENV_DATA):
 
     try:
         
@@ -393,7 +391,7 @@ def format_with_llm(text):
         propmt = propmt + '\n' + text
 
         # Call GPT-4.1-mini with forced JSON output
-        response = call_model(propmt)
+        response = call_model(propmt,ENV_DATA)
 
         with open('latest/latest_pdf_open_ai_respons.txt', 'w',encoding='utf-8') as file:
             file.write(str(response))
@@ -409,7 +407,7 @@ def format_with_llm(text):
         LOGS.append(f'105 {str(e)}')
         return {'status':False,'error':str(e), "error_code":"105"}
 
-def final_json(JSON,SAP_JSON,Created_On,Created_By):
+def final_json(JSON,SAP_JSON,Created_On,Created_By,ENV_DATA):
     
     try:
 
@@ -424,7 +422,7 @@ def final_json(JSON,SAP_JSON,Created_On,Created_By):
                 
                 for gst in gst_list:
                     gst_pan_part = gst[2:12]  # GST PAN is at position 3-12
-                    list_of_pan_numbers = pan_numbers()
+                    list_of_pan_numbers = pan_numbers(ENV_DATA)
                     for pan in list_of_pan_numbers if len(list_of_pan_numbers) > 0 else PAN_NO:
                         score = similarity(gst_pan_part, pan)
                         if score > best_score:
@@ -615,7 +613,7 @@ def final_json(JSON,SAP_JSON,Created_On,Created_By):
                             new_po_list.append(po_no)
   
                 for index,item in enumerate(new_po_list):
-                    if po_check_into_sap(item):
+                    if po_check_into_sap(item,ENV_DATA):
                         return (index,item)
 
                 return max(enumerate(new_po_list), key=lambda x: sum(c.isdigit() for c in x[1]))
@@ -836,7 +834,7 @@ def final_json(JSON,SAP_JSON,Created_On,Created_By):
         LOGS.append(f'106 {str(e)}')
         return {'status':False,'error':str(e), "error_code":"106"}
 
-def send_pdf_to_sap(pdf_path,inverd_ref_no,SAP_JSON):
+def send_pdf_to_sap(pdf_path,inverd_ref_no,SAP_JSON,ENV_DATA):
     LOGS.append(f'17')
     try:
         # Read PDF and convert to Base64
@@ -845,12 +843,15 @@ def send_pdf_to_sap(pdf_path,inverd_ref_no,SAP_JSON):
         pdf_base64 = base64.b64encode(pdf_bytes).decode('utf-8')
         
         session = requests.Session()
-
+        
+        POST_URL = f"{ENV_DATA.get("data").get('SAP_BASE_URL')}/{ENV_DATA.get("data").get('Z_TABLE_DATA_STORE_ENTETY_SET_NAME')}"
+        SAP_USERNAME = ENV_DATA.get("data").get('SAP_USERNAME') 
+        SAP_PASSWORD = ENV_DATA.get("data").get('SAP_PASSWORD')
         # --- Step 1: Fetch CSRF Token ---
         token_response = session.get(
             POST_URL,
             auth=(SAP_USERNAME, SAP_PASSWORD),
-            headers={"x-csrf-token": "Fetch","sap-client": os.getenv("SAP_CLIENT")},
+            headers={"x-csrf-token": "Fetch","sap-client": ENV_DATA.get("data").get("SAP_CLIENT")},
             verify=False
         )
 
@@ -876,7 +877,9 @@ def send_pdf_to_sap(pdf_path,inverd_ref_no,SAP_JSON):
             "Slug": f'{inverd_ref_no}.pdf',
             "Accept": "application/json"
         }
-
+        ATTACHMENT_URL = f"{ENV_DATA.get("data").get('SAP_BASE_URL')}/{ENV_DATA.get("data").get('DMS_DOCUMENT_SAVE_ENTETY_SET_NAME')}"
+        SAP_USERNAME = ENV_DATA.get("data").get('SAP_USERNAME') 
+        SAP_PASSWORD = ENV_DATA.get("data").get('SAP_PASSWORD')
         response = session.post(
             ATTACHMENT_URL,
             data=pdf_base64,
@@ -920,16 +923,19 @@ def send_pdf_to_sap(pdf_path,inverd_ref_no,SAP_JSON):
         SAP_JSON['ErrorMsg'] = f'{str(e)}'
         return {'status':False,'error':f'{str(e)}','no':inverd_ref_no, "error_code":"125"}
 
-def send_data_to_sap(SAP_JSON):
+def send_data_to_sap(SAP_JSON,ENV_DATA):
 
     try:
-        session = requests.Session()
 
+        session = requests.Session()
+        TOKEN_URL = f"{ENV_DATA.get("data").get('SAP_BASE_URL')}/"
+        SAP_USERNAME = ENV_DATA.get("data").get('SAP_USERNAME') 
+        SAP_PASSWORD = ENV_DATA.get("data").get('SAP_PASSWORD')
         # --- Step 1: Fetch CSRF Token ---
         token_response = session.get(
             TOKEN_URL,
             auth=(SAP_USERNAME, SAP_PASSWORD),
-            headers={"x-csrf-token": "Fetch","sap-client": os.getenv("SAP_CLIENT")},
+            headers={"x-csrf-token": "Fetch","sap-client": ENV_DATA.get("data").get("SAP_CLIENT")},
             verify=False
         )
 
@@ -953,7 +959,9 @@ def send_data_to_sap(SAP_JSON):
             "Accept": "application/json",
             "x-csrf-token": csrf_token
         }
-
+        POST_URL = f"{ENV_DATA.get("data").get('SAP_BASE_URL')}/{ENV_DATA.get("data").get('Z_TABLE_DATA_STORE_ENTETY_SET_NAME')}"
+        SAP_USERNAME = ENV_DATA.get("data").get('SAP_USERNAME') 
+        SAP_PASSWORD = ENV_DATA.get("data").get('SAP_PASSWORD')
         response = session.post(
             POST_URL,
             json=SAP_JSON,
@@ -1017,11 +1025,14 @@ def send_data_to_sap(SAP_JSON):
 # === Step 3: Full pipeline per PDF ===
 def process_pdf(pdf_file,email_data,Sign='MANUAL',Mode_Of_Entry = "BOT",Created_On=None,Created_By="BOT"):
     
+    global PROMPT_NO
+    LOGS.clear()
+
+    LOGS.append('2')
+
     if Created_On is None:
         Created_On = datetime.now().strftime('%Y%m%d')
 
-    LOGS.clear()
-    global PROMPT_NO
     ### >>> Load the SAP JSON Tamplate
     sap_file_path = os.path.join(SCRTPT_DIR, 'sap.json')
     with open(sap_file_path, 'r') as file:
@@ -1030,13 +1041,25 @@ def process_pdf(pdf_file,email_data,Sign='MANUAL',Mode_Of_Entry = "BOT",Created_
     SAP_JSON['CreatedOn'] = f"{Created_On}"
     SAP_JSON['CreatedBy'] = f"{Created_By}"
     SAP_JSON['ModeOfEntry'] = f"{Mode_Of_Entry}"
+
+    SAP_JSON['FileName'] = os.path.basename(pdf_file)
+    SAP_JSON['TypeOfInvoice'] = Sign
+    LOGS.append(f'3 {SAP_JSON['FileName']}')
     
-    LOGS.append('2')
+    ENV_DATA = get_env_data_from_db()
+
+    if not ENV_DATA.get('success'):
+        LOGS.append(f'27 {ENV_DATA.get('error')}')
+        SAP_JSON['ErrorType'] = 'E'
+        SAP_JSON['ErrorNo'] = "27"
+        SAP_JSON['ErrorMsg'] = f'Database Connection Error: ({ENV_DATA.get('error')})'
+        e_result = {'status':False}
+        e_result['json'] = SAP_JSON
+        e_result['PDF_FileName'] = str(os.path.basename(pdf_file))
+        return e_result
+
     try:
-        SAP_JSON['FileName'] = os.path.basename(pdf_file)
-        SAP_JSON['TypeOfInvoice'] = Sign
-        LOGS.append(f'3 {SAP_JSON['FileName']}')
-        
+
         # Here we getting the data from qr code which is availabel in pdf
         PROMPT_NO = 0
         result_of_extracted_data_from_qr = pdf_to_image(pdf_file)
@@ -1063,18 +1086,18 @@ def process_pdf(pdf_file,email_data,Sign='MANUAL',Mode_Of_Entry = "BOT",Created_
                 SAP_JSON['CompanyGstinPdf'] = SAP_JSON['VendorGstin'] = SAP_JSON['InvoiceNo'] = SAP_JSON['InvoiceDate'] = SAP_JSON['InvoiceAmount'] = SAP_JSON['IrnNo'] = SAP_JSON['CQrCode'] = ""
 
         manual = 0 if Mode_Of_Entry == "Bot" else 1
-        result_azure = azure_extract_text(pdf_file,manual)
+        result_azure = azure_extract_text(pdf_file,ENV_DATA,manual)
 
         if result_azure['status']:
             
             LOGS.append(f'8')
-            result_llm = format_with_llm(result_azure['text'])
+            result_llm = format_with_llm(result_azure['text'],ENV_DATA)
 
             if result_llm.get('status') and result_llm.get('json').get('Invoice'):
                 
                 LOGS.append(f'11')
                 
-                result_final_json = final_json({'data':result_llm['json'],'text':result_azure['text'],'cordinates':result_azure['cordinates']},SAP_JSON,Created_On,Created_By)
+                result_final_json = final_json({'data':result_llm['json'],'text':result_azure['text'],'cordinates':result_azure['cordinates']},SAP_JSON,Created_On,Created_By,ENV_DATA)
                 
                 LOGS.append(f'12 {result_final_json}')
 
@@ -1126,12 +1149,12 @@ def process_pdf(pdf_file,email_data,Sign='MANUAL',Mode_Of_Entry = "BOT",Created_
             
             if SAP_JSON['Invoice']:
                 SAP_JSON.pop('Invoice')
-                result = send_data_to_sap(SAP_JSON) 
+                result = send_data_to_sap(SAP_JSON,ENV_DATA) 
    
             if result['status']:
                 
                 if result['no'] != "": 
-                    response = send_pdf_to_sap(pdf_file,result['no'],SAP_JSON)
+                    response = send_pdf_to_sap(pdf_file,result['no'],SAP_JSON,ENV_DATA)
                     result = response
                 else:
                     LOGS.append(f'120')
@@ -1196,17 +1219,18 @@ def process_pdfs(folder_path, email_data,max_workers=3):
 # # === Example Usage ===
 # if __name__ == "__main__":
 
-#     email_data = {
-#                         "vandor_email":"",
-#                         "email_date_time":"",
-#                         "email_subject":"",
-#                         "SourceOfDoc":""
-#         }
+    # email_data = {
+    #                     "vandor_email":"",
+    #                     "email_date_time":"",
+    #                     "email_subject":"",
+    #                     "SourceOfDoc":""
+    #     }
     
-#     folder_path = r"C:\Users\111439\OneDrive - Torrent Gas Ltd\Desktop\TORRENT\test.pdf"
-#     final_results = process_pdf(folder_path,email_data)
-#     print("\n=== Final Collected Results ===")
-#     # for r in final_results:
-#     #     print(r)
+    # folder_path = r"C:\Users\111439\OneDrive - Torrent Gas Ltd\Desktop\TORRENT\test.pdf"
+    # final_results = process_pdf(folder_path,email_data)
+    # print("\n=== Final Collected Results ===")
+    # # for r in final_results:
+    # #     print(r)
 
-#     print(final_results)
+    # print(final_results)
+

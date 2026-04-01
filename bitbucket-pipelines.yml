@@ -1,0 +1,129 @@
+image: python:3.11-slim
+
+options:
+  runtime:
+    cloud:
+      atlassian-ip-ranges: true
+
+pipelines:
+  branches:
+    production:
+      - step:
+          name: Deploy to Linux Server
+          deployment: production
+          size: 4x
+          script:
+            - echo "Installing SSH & rsync..."
+            - apt-get update && apt-get install -y openssh-client rsync
+
+            # Define variables for SSH connection and deployment path
+            - export DEPLOY_USER="$USER"
+            - export DEPLOY_HOST="$SERVER"
+            - export DEPLOY_PATH="/Data/DCC"
+
+            - echo "Deploying application to Linux server..."
+            - |
+              rsync -avz --delete \
+                --exclude=".git" \
+                --exclude="__pycache__" \
+                --exclude=".env" \
+                --exclude=".venv" \
+                --exclude="temp" \
+                --exclude="latest" \
+                --exclude="bot" \
+                -e "ssh -o StrictHostKeyChecking=no" \
+                ./ "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH"
+
+            # --- Create & update virtual environment on server ---
+            # - echo "Configuring virtual environment on remote host..."
+            # - |
+            #   ssh -o StrictHostKeyChecking=no "$DEPLOY_USER@$DEPLOY_HOST" bash -lc "
+            #     cd '$DEPLOY_PATH'
+ 
+            #     echo 'Checking virtual environment...'
+            #     if [ ! -d .venv ]; then
+            #       echo 'Creating new virtual environment...'
+            #       python3.13 -m venv .venv
+            #     else
+            #       echo '.venv already exists — using existing environment.'
+            #     fi
+ 
+            #     echo 'Activating virtual environment...'
+            #     source .venv/bin/activate
+ 
+            #     echo 'Installing dependencies...'
+            #     if [ -f requirements.txt ]; then
+            #       pip install --upgrade pip
+            #       pip install -r requirements.txt
+            #     else
+            #       echo '⚠️ requirements.txt not found — skipping dependency installation.'
+            #     fi
+            #   "
+ 
+            # --- Restart Python service ---
+            - echo "Restarting Python service..."
+            - ssh -o StrictHostKeyChecking=no "$DEPLOY_USER@$DEPLOY_HOST" \
+                "sudo systemctl restart dccapi.service"
+    development:
+      - step:
+          name: Deploy to Linux Server
+          deployment: development
+          size: 4x
+          script:
+            - echo "Installing SSH & rsync..."
+            - apt-get update && apt-get install -y openssh-client rsync
+
+            # Define variables for SSH connection and deployment path
+            - export DEPLOY_USER="$USER"
+            - export DEPLOY_HOST="$SERVER"
+            - export DEPLOY_PATH="/Data/DCCAPI/DCC"
+
+            - echo "Deploying application to Linux server..."
+            - |
+              rsync -avz --delete \
+                --exclude=".git" \
+                --exclude="__pycache__" \
+                --exclude=".env" \
+                --exclude=".venv" \
+                --exclude="temp" \
+                --exclude="latest" \
+                --exclude="bot" \
+                -e "ssh -o StrictHostKeyChecking=no" \
+                ./ "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH"
+
+
+            # --- Create & update virtual environment on server ---
+            # - echo "Configuring virtual environment on remote host..."
+            # - |
+            #   ssh -o StrictHostKeyChecking=no "$DEPLOY_USER@$DEPLOY_HOST" bash -lc "
+            #     cd '$DEPLOY_PATH'
+ 
+            #     echo 'Checking virtual environment...'
+            #     if [ ! -d .venv ]; then
+            #       echo 'Creating new virtual environment...'
+            #       python3.13 -m venv .venv
+            #     else
+            #       echo '.venv already exists — using existing environment.'
+            #     fi
+ 
+            #     echo 'Activating virtual environment...'
+            #     source .venv/bin/activate
+ 
+            #     echo 'Installing dependencies...'
+            #     if [ -f requirements.txt ]; then
+            #       pip install --upgrade pip
+            #       pip install -r requirements.txt
+            #     else
+            #       echo '⚠️ requirements.txt not found — skipping dependency installation.'
+            #     fi
+            #   "
+ 
+            # --- Restart Python service ---
+            - echo "Restarting Python service..."
+            - ssh -o StrictHostKeyChecking=no "$DEPLOY_USER@$DEPLOY_HOST" \
+                "sudo systemctl restart dccapi.service"
+ 
+
+definitions:
+  caches:
+    pip: ~/.cache/pip

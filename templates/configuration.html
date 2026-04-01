@@ -385,6 +385,7 @@
                     // Update local data only on successful API response
                     currentEnvVars[key] = newValue;
                     showMessage(data.msg || 'Configuration updated successfully.', 'success');
+                    window.location.reload();
                     // setTimeout(() => {
                     //     location.reload(); // Reloads the current page
                     // }, 2000);
