@@ -296,9 +296,8 @@ def pdf_to_image(pdf_file_path):
 
         return {"status": False if data is None else True, "data": data}
 
-    except Exception:
-        e = traceback.format_exc()
-        LOGS.append(f"123 {str(e)}")
+    except Exception as e:
+        LOGS.append(f"123 {traceback.format_exc()}")
         return {"status": False, "error": str(e), "error_code": "123"}
 
 # === Step 1: Extract text from Azure ===
@@ -371,9 +370,8 @@ def azure_extract_text(pdf_file,ENV_DATA,manual = 0):
                 LOGS.append(f"104") 
                 return {'status':False,'error':"Text Not Extracted From AZURE", "error_code":"104"}
 
-        except Exception:
-            e = traceback.format_exc()
-            LOGS.append(f"103 {str(e)}")
+        except Exception as e:
+            LOGS.append(f"103 {traceback.format_exc()}")
             return {'status':False,'error':str(e), "error_code":"103"}
 
 # === Step 2: Send to LLM ===
@@ -402,9 +400,8 @@ def format_with_llm(text,ENV_DATA):
         LOGS.append(f"10")
         return {'status':True,'json':parsed_data}
 
-    except Exception:
-        e = traceback.format_exc()
-        LOGS.append(f'105 {str(e)}')
+    except Exception as e:
+        LOGS.append(f'105 {str(traceback.format_exc())}')
         return {'status':False,'error':str(e), "error_code":"105"}
 
 def final_json(JSON,SAP_JSON,Created_On,Created_By,ENV_DATA):
@@ -434,8 +431,8 @@ def final_json(JSON,SAP_JSON,Created_On,Created_By,ENV_DATA):
                 
                 return {'status':True , "CompanyGstinPdf":best_gst,"VendorGstin":vendor_gst}
             
-            except Exception:
-                e = traceback.format_exc()
+            except Exception as e:
+                # e = traceback.format_exc()
                 return {'status':False , "error":str(e)}
 
         def get_irn_number(lst):
@@ -463,8 +460,8 @@ def final_json(JSON,SAP_JSON,Created_On,Created_By,ENV_DATA):
                 # 3️⃣ No solution
                 return ""
 
-            except Exception:
-                e = traceback.format_exc()
+            except Exception as e:
+                # e = traceback.format_exc()
                 LOGS.append(f'108 {str(e)}')
 
         def get_closest_10_digit_string(text, input_string):
@@ -501,8 +498,8 @@ def final_json(JSON,SAP_JSON,Created_On,Created_By,ENV_DATA):
 
                 return best_match
             
-            except Exception:
-                e = traceback.format_exc()
+            except Exception as e:
+                # e = traceback.format_exc()
                 LOGS.append(f'109 {str(e)}')
                 return best_match
                 
@@ -829,9 +826,8 @@ def final_json(JSON,SAP_JSON,Created_On,Created_By,ENV_DATA):
         
         return {'status':True}
 
-    except Exception:
-        e = traceback.format_exc()
-        LOGS.append(f'106 {str(e)}')
+    except Exception as e:
+        LOGS.append(f'106 {str(traceback.format_exc())}')
         return {'status':False,'error':str(e), "error_code":"106"}
 
 def send_pdf_to_sap(pdf_path,inverd_ref_no,SAP_JSON,ENV_DATA):
@@ -897,7 +893,7 @@ def send_pdf_to_sap(pdf_path,inverd_ref_no,SAP_JSON,ENV_DATA):
             
             if (DMS_NO is not None) or (DMS_NO != ""):
                 LOGS.append(f'20')
-                SAP_JSON['ErrorType'] = 'S'
+                # SAP_JSON['ErrorType'] = 'S'
                 return {'status':True,'no':inverd_ref_no}
                 
             else:
@@ -915,9 +911,8 @@ def send_pdf_to_sap(pdf_path,inverd_ref_no,SAP_JSON,ENV_DATA):
             return {'status':False,'error':'Recived Bad Response From SAP PDF POST API','no':inverd_ref_no, "error_code":"119"}
         
 
-    except Exception:
-        e = traceback.format_exc()
-        LOGS.append(f'125 {str(e)}')
+    except Exception as e:
+        LOGS.append(f'125 {str(traceback.format_exc())}')
         SAP_JSON['ErrorType'] = 'E'
         SAP_JSON['ErrorNo'] = "801"
         SAP_JSON['ErrorMsg'] = f'{str(e)}'
@@ -984,7 +979,7 @@ def send_data_to_sap(SAP_JSON,ENV_DATA):
 
             if inward_ref_no != "":
                 LOGS.append(f"16 {inward_ref_no} - {from_sap_status}")
-                SAP_JSON['ErrorType'] = 'S'
+                # SAP_JSON['ErrorType'] = 'S'
                 SAP_JSON['Status'] = str(from_sap_status)
                 SAP_JSON['DuplicateMsg'] = str(DuplicateMsg)
                 SAP_JSON['InwardRefNo'] = f'{inward_ref_no}'
@@ -1006,7 +1001,7 @@ def send_data_to_sap(SAP_JSON,ENV_DATA):
                 LOGS.append(f"117 {response.status_code}")
                 LOGS.append(f"118 {response.text}")
                 SAP_JSON['Status'] = str(from_sap_status)
-                SAP_JSON['ErrorType'] = 'S'
+                # SAP_JSON['ErrorType'] = 'S'
                 return {'status':True ,'no': inward_ref_no,'Status':from_sap_status}
             else:
                 SAP_JSON['ErrorType'] = 'E'
@@ -1014,9 +1009,8 @@ def send_data_to_sap(SAP_JSON,ENV_DATA):
                 SAP_JSON['ErrorMsg'] = f'{response.json().get('error').get('message').get('value')}'
                 return {'status':False ,'error': f"{response.json().get('error').get('message').get('value')}","error_code":"111"}
     
-    except Exception:
-        e = traceback.format_exc()
-        LOGS.append(f"130 {str(e)}")
+    except Exception as e:
+        LOGS.append(f"130 {str(traceback.format_exc())}")
         SAP_JSON['ErrorType'] = 'E'
         SAP_JSON['ErrorNo'] = "130"
         SAP_JSON['ErrorMsg'] = f'{e}'
@@ -1127,9 +1121,8 @@ def process_pdf(pdf_file,email_data,Sign='MANUAL',Mode_Of_Entry = "BOT",Created_
             SAP_JSON['ErrorNo'] = "804"
             SAP_JSON['ErrorMsg'] = f"{result_azure['error']}"
 
-    except Exception:
-        e = traceback.format_exc()
-        LOGS.append(f"102 {os.path.basename(pdf_file)}: {str(e)}")
+    except Exception as e:
+        LOGS.append(f"102 {os.path.basename(pdf_file)}: {str(traceback.format_exc())}")
         SAP_JSON['ErrorType'] = 'E'
         SAP_JSON['ErrorNo'] = "805"
         SAP_JSON['ErrorMsg'] = f"{str(e)}"
@@ -1212,8 +1205,8 @@ def process_pdfs(folder_path, email_data,max_workers=3):
 
         return {'status':True,"result":results}
 
-    except Exception:
-        e = traceback.format_exc()
+    except Exception as e:
+        # e = traceback.format_exc()
         return {'status':False,"error":str(e)}
 
 # # === Example Usage ===
