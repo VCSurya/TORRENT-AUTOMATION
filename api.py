@@ -860,9 +860,7 @@ def help():
 async def logs():
 
     try:
-
         logs = {}
-
         with open("bot/bot_status.json", 'r', encoding='utf-8') as file:
             bot_status = json.load(file)
         
