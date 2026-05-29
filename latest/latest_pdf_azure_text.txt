@@ -1,150 +1,82 @@
-Original (Buyer), Duplicate (Transporter ) , Triplicate (Assesse), Quadruplicate (Extra
-€
-TGT
-FUEL TECHNOLOGIES
-Tax Invoice
-M/S TGT FUEL TECHNOLOGIES PVT.LTD.
-517, HSIDC Industrial Area, Phase-IV,
-Kundli,-131028
-IN
-Tel : +91 0130-2370517, Email: info@tgtgas.com, accounts@tgtgas.com,
-CIN NO : U29299DL2005PTC134334
-0
-PAN NO :AACCT2325C
-GSTIN NO : 06AACCT2325C1ZX
-EIRN NO.
-c1dc8107bcb33059f8c6514b728a474830a96790584478d6ca16f1f424789911
-EACK NO.
-132625678763925
-Ship From Location
-Invoice No:
-252606679
-Invoice Date:
-09/02/2026
-Reverse Charge(Y/N):
-NO
-State :
-Haryana
-Code
-06
-Work Order No.
-MHPO/P02/1100151/99002036 DT 13,09 2023
-Work Order Date :
-Place of Supply:
-Maharashtra(MH)
-Bill To Party
-Ship To Party
-Name :
-Torrent Gas Limited, 411014_WTC
-Address :
-1st Floor, Tower I, UNIT NO. 106,WTC, KHARADI, HAVELI, Pune
-- 411014
-Maharashtra India
-Name :
-TORRENT GAS LIMITED 410501
-Address :
-GAT No. 357, Plot no. 54, Waghjainagar, Beside Windal Precision ,
-Kharabwadi, Chakan, Pune - 410501
-Maharashtra India
-Contact Person Name:
-Mr. VN Venkateswaran
-Contact No:
-8669919873,
-GSTIN:
-27AAGCT7889P1Z3
-State: Maharashtra
-Code: 27
-Pan No. :
-Contact Person Name :
-Contact No :
-GSTIN:
-27AAGCT7889P1Z3
-State:
-Maharashtra
-Code :
-27
-Electronic Reference No :
-Sr.
-No.
-Description
-SAC
-UOM
-QTY
-Rate
+E-mail : info@aarviencon.com
+Website : www.aarviencon.com
+aarvi
+Aarvi Encon Limited
+Formerly known as Aarvi Encon Private Limited
+CIN : L29290MH1987PLC045499
+(ISO 9001 : 2015 & OHSAS 18001 : 2007)
+Regd. Office : B1-603, 6th Floor, Marathon Innova, Marathon Nextgen Complex,
+Opp. Peninsula Park, Lower Parel, Mumbai - 400 013, INDIA.
+Tel. : 91-22-4049 9999
+Fax : 91-22-4049 9998
+TÜV
+AUSTRIA
+CERTIFIED
+EN ISO 9001
+20 100 131353655
+OMY10001
+20 116 131353656
+CRISIL SME 1
+GSTN No. 27AAACA3640H1Z0
+TAX INVOICE
+TO,
+Dholpur CGD Private Limited
+2nd Floor Gopal Complex, Nursing Road,
+Top Tiraha Dholpur 328001 Rajasthan
+GST No: 08AAHCD1012H1Z4
+Invoice No.
+12078/25-26
+Invoice Date
+11/2/2026
+PO. NO.
+RJDP/P01/1101352/36301084
+PO DATE
+8/7/2025
+SAC No.
+998311
+SES No.
+6000145396
+Sr. No.
+ITEM DESCRIPTION
+QTY.
+Unit Price
+Unit
 Amount
-GST %
-Taxable
-Value
-1
-AMC A/C
-DISP SR.NO.20091263 & 20091264 (CAR) SITE OF SAI DWARKA
-PETROLEUM MANCHAR- PUNE AMC FOR THE MONTH
-OFJAN-2026 (5TH YEAR AMC END DT.14.01 2025)
-998719
-NO.
-0.84
-7500.00
-6300.00
-18.00
-6300,00
-Net Amount
-%
-6300.00
-Bank Details: INDUSIND BANK
-A-276, Defence Colony,
-Payment Term :
-Net-30
-Add: CGST
+10
+Charges towards Hiring of Engineers for Various Activities
+at Dholpur Location for the month of January, 2026
+10-10
+2300018 Appointment of Engineer for PE/ PNG
+0.96
+34400
+MON
+33024.00
+10-20
+2300017 Appointment of Engineer for CGS/ CNG/LNG
+0
+34400
+MON
 0.00
-0.00
-New Delhi - 110024
-Add: SGST
-0.00
-0.00
-Bank A/c No
-;
-650014119348
-Add: IGST
-18 00
-1134 00
-Bank IFSC.
-:
-INDB0000281
-Rounding
-0.00
-Grand Total
-7434.00
-Rs. Seven Thousand Four Hundred
-Thirty-Spyr And Berg Bai
-210/3/26
-PO No.
-:
-GRN /SE No.
-:
-6-1479.37
-IV Posting No.
-:
-DCC Control No .:
-105732
-Division Address:
-Divison, Sonepat
-Commissionerate:
-Sonepat
-Range:
-Sonepat
-Declaration :- We Declare
-that this invoice shows the actual price described and that all
-particulars are true and correct.
-for TGT Fuel Technologies Pvt. Ltd.
-SANCHIT
-ANAND
-Digitally signed by SANCHIT
-ANAND
-Date: 2026.03.20 12:17:52
-+05'30'
-Authorized Signatory
-E.&.O.E
-Registered & Head Office: 104, Gupta Tower, Commercial Complex, Azadpur, Delhi-110033
-SUBJECT TO SONEPAT JURISDICTION
-This is a Computer Generated Invoice
-Page 1 of 1
+SUB TOTAL
+33024.00
+IGST 18%
+5944.32
+TOTAL
+38968.32
+PAN No. AAACA3640H
+Bank Details
+Bank Name
+HDFC BANK LTD CC
+A/C No.
+50200051821820
+Branch & IFS Code : KAMALA MILLS, MUMBAI 400013 & HDFC0000542
+Declaration
+Authorised Signatory
+Mathew
+Digitally signed by
+Mathew Eappen
+Eappen
+Date: 2026.03.07
+10:56:36 +05'30'
+Aarvi Encon Limited
+Vice President Account
